@@ -13,7 +13,7 @@ nmap , = \
 " <http://damien.lespiau.name/blog/2009/03/18/per-project-vimrc/>
 
 set exrc " enable per-directory .vimrc files
-set secure " disable unsafe commands in local .vimrc files
+" set secure " disable unsafe commands in local .vimrc files
 
 " ============================
 " === Fix keys inside tmux ===
@@ -576,7 +576,7 @@ let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplBuffersNeeded = 1 " open immediately, don't wait for a second buffer
 
 " prevent MiniBufExplorer from overriding our colours
-" let g:did_minibufexplorer_syntax_inits = 1
+let g:did_minibufexplorer_syntax_inits = 1
 
 " Custom colors for buffers...
 " highlight MBENormal ctermfg=15
@@ -586,19 +586,19 @@ let g:miniBufExplBuffersNeeded = 1 " open immediately, don't wait for a second b
 " highlight MBEVisibleActiveNormal ctermfg=40
 " highlight MBEVisibleActiveChanged ctermfg=199
 
-" " Custom colors for buffers...
-" " ...NOT CHANGED and NOT VISIBLE
-" autocmd ColorScheme * highlight MBENormal ctermfg=15
-" " ...CHANGED and NOT VISIBLE
-" autocmd ColorScheme * highlight MBEChanged ctermfg=199
-" " ...NOT CHANGED and VISIBLE
-" autocmd ColorScheme * highlight MBEVisibleNormal ctermfg=14
-" " ...CHANGED and VISIBLE
-" autocmd ColorScheme * highlight MBEVisibleChanged ctermfg=178
-" " ...NOT CHANGED, VISIBLE and ACTIVE
-" autocmd ColorScheme * highlight MBEVisibleActiveNormal ctermfg=40
-" " ...CHANGED, VISIBLE and ACTIVE
-" autocmd ColorScheme * highlight MBEVisibleActiveChanged ctermfg=199
+" Custom colors for buffers...
+" ...NOT CHANGED and NOT VISIBLE
+autocmd ColorScheme * highlight MBENormal ctermfg=15
+" ...CHANGED and NOT VISIBLE
+autocmd ColorScheme * highlight MBEChanged ctermfg=199
+" ...NOT CHANGED and VISIBLE
+autocmd ColorScheme * highlight MBEVisibleNormal ctermfg=14
+" ...CHANGED and VISIBLE
+autocmd ColorScheme * highlight MBEVisibleChanged ctermfg=178
+" ...NOT CHANGED, VISIBLE and ACTIVE
+autocmd ColorScheme * highlight MBEVisibleActiveNormal ctermfg=40
+" ...CHANGED, VISIBLE and ACTIVE
+autocmd ColorScheme * highlight MBEVisibleActiveChanged ctermfg=199
 
 " ===================
 " === Go language ===
