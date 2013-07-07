@@ -7,4 +7,4 @@ shopt -s globstar
 # enable the inverse detection, for example ls !(b*)
 shopt -s extglob
 
-rm vim-luke-tmp-*
+rm -rfv vim-luke-tmp-*
