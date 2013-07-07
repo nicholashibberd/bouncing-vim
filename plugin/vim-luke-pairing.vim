@@ -576,7 +576,7 @@ let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplBuffersNeeded = 1 " open immediately, don't wait for a second buffer
 
 " prevent MiniBufExplorer from overriding our colours
-let g:did_minibufexplorer_syntax_inits = 1
+" let g:did_minibufexplorer_syntax_inits = 1
 
 " Custom colors for buffers...
 " highlight MBENormal ctermfg=15
