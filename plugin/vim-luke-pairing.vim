@@ -3,7 +3,7 @@
 " TODO: home key -> first non-blank character in the line
 
 " Map leader key to the customary comma without overriding it.
-nmap , = \
+" nmap , = \
 " Remap leader overriging the existing one
 " let mapleader=','
 
@@ -143,6 +143,7 @@ nnoremap <C-Pageup>   :bp<cr>
 nnoremap <C-Pagedown> :bn<cr>
 inoremap <C-Pageup>   :bp<cr>
 inoremap <C-Pagedown> :bn<cr>
+
 " =================
 " === Clipboard ===
 " =================
@@ -150,14 +151,16 @@ inoremap <C-Pagedown> :bn<cr>
 " <http://vim.wikia.com/wiki/Accessing_the_system_clipboard>
 " Requires that Vim has been compiled with clipboard and X11 support.
 " On Linux => choose the variant vim-gnome
-" set clipboard=unnamedplus
+set clipboard=unnamedplus
 
-" ctrl-v conflicts with visual block :/
-" vnoremap <C-c> "+y
-vnoremap <Leader>c "+y
+" ctrl-v conflicts with visual block, and is not very useful anyway
+vnoremap <C-c> "+y
 " nnoremap <C-e> "+gP
-nnoremap <Leader>o "+gP
 " inoremap <C-e> <Esc>"+gPi
+
+" TODO: currently not working
+" nnoremap <Leader>o "+gP
+" vnoremap <Leader>y "+y
 
 " ==================================
 " === Move between split windows ===
@@ -183,6 +186,7 @@ vnoremap <C-f> "_d
 
 " Replace currently selected text with default register without yanking it
 " <http://stackoverflow.com/a/920139>
+" TODO: currently not working
 vnoremap <leader>p "_dP
 
 " ====================

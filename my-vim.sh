@@ -18,6 +18,7 @@ source util-functions.sh
 # plasticboy/vim-markdown.git
 # vim-ruby/vim-ruby.git
 clone_plugin lucabelmondo/vim-luke-tmp-pairing.git
+clone_plugin t9md/vim-ruby-xmpfilter
 clone_plugin godlygeek/tabular.git
 clone_plugin benmills/vimux.git
 clone_plugin tpope/vim-sensible.git
