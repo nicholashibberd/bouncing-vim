@@ -654,3 +654,24 @@ let g:rubycomplete_rails = 1
 
 " --- Go
 autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
+
+" ======================
+" === ruby xmpfilter ===
+" ======================
+" Gvim
+nmap <buffer> <M-r> <Plug>(xmpfilter-run)
+xmap <buffer> <M-r> <Plug>(xmpfilter-run)
+imap <buffer> <M-r> <Plug>(xmpfilter-run)
+
+nmap <buffer> <M-m> <Plug>(xmpfilter-mark)
+xmap <buffer> <M-m> <Plug>(xmpfilter-mark)
+imap <buffer> <M-m> <Plug>(xmpfilter-mark)
+
+" Terminal
+nmap <buffer> <F5> <Plug>(xmpfilter-run)
+xmap <buffer> <F5> <Plug>(xmpfilter-run)
+imap <buffer> <F5> <Plug>(xmpfilter-run)
+
+nmap <buffer> <F4> <Plug>(xmpfilter-mark)
+xmap <buffer> <F4> <Plug>(xmpfilter-mark)
+imap <buffer> <F4> <Plug>(xmpfilter-mark)
