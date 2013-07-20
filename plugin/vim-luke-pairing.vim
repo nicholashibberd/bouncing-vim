@@ -30,14 +30,6 @@ map [1;2D <S-Left>
 map [1;2A <S-Up>
 map [1;2B <S-Down>
 
-" <http://sourceforge.net/p/tmux/tmux-code/ci/master/tree/FAQ>
-" => * How do I make Ctrl-PgUp and Ctrl-PgDn work in vim?
-" if &term == "screen"
-"   set t_kN=^[[6;*~
-"   set t_kN=[5~
-"   set t_kP=^[[5;*~
-" endif
-
 " <http://superuser.com/questions/401926/how-to-get-shiftarrows-and-ctrlarrows-working-in-vim-in-tmux/402084#402084>
 " tmux will send xterm-style keys when its xterm-keys option is on
 if &term =~ '^screen'
@@ -48,51 +40,8 @@ if &term =~ '^screen'
 endif
 
 " ============
-" === Tabs ===
-" ============
-" http://stackoverflow.com/questions/102384/using-vims-tabs-like-buffers/3476411#3476411
-" tab sball
-" set switchbuf=usetab,split
-" open every buffer in its own tab
-" au BufAdd,BufNewFile,BufRead * nested tab sball
-" autocmd BufAdd,BufNewFile * nested tab sball
-
-" Tab navigation like in Firefox
-" Notice that 'sbnext' and 'sbprevious' would reopen closed tabs instead.
-" Used for the buffers instead.
-" nnoremap <C-Pageup>   :tabprevious<cr>
-" nnoremap <C-Pagedown> :tabnext<cr>
-" inoremap <C-Pageup>   :tabprevious<cr>
-" inoremap <C-Pagedown> :tabnext<cr>
-
-" <http://stackoverflow.com/questions/2468939/how-to-let-tab-display-only-file-name-rather-than-the-full-path-in-vim>
-" set guitablabel=\[%N\]\ %t\ %M
-
-" ===========================================================
-" === NOTE: Support for CTRL-S and CTRL-Q in the terminal ===
-" ===========================================================
-" Normally CTRL-S and CTRL-Q suspend and wake up the terminal output in
-" terminal emulators (respectively freezing and unfreezing).
-" Put this function in the .bashrc to allow instead passing the key combo
-" through to vim.
-" TODO it's probably better to use something different from `s` and `q` instead.
-"
-" vim() {
-"   local STTYOPTS="$(stty --save)"
-"   stty stop '' -ixoff # pass CTRL-S
-"   stty start '' -ixon # pass CTRL-Q
-"   command vim "$@"
-"   stty "$STTYOPTS"
-" }
-
-" ============
 " === Save ===
 " ============
-" <http://vim.wikia.com/wiki/Map_Ctrl-S_to_save_current_or_new_files>
-" Save, but only if the buffer is modified.
-" Disabled in insert mode, actually not necessary and just confusing.
-" inoremap <C-s> <esc>:update<cr>a
-" nnoremap <C-s> :update<cr>
 " http://vimdoc.sourceforge.net/htmldoc/usr_40.html#40.2
 command W w
 command Wa wa
@@ -105,25 +54,20 @@ command QA quitall
 " === Buffers ===
 " ===============
 
-" If a buffer is already open in another window, jump to it instead of
-" opening a new window.
+" If a buffer is already open in another window, jump to it instead of opening a new window.
 set switchbuf=useopen
-" 'close the current buffer without closing the window' (terrific solution)
-" <http://stackoverflow.com/a/8585343/417375>
+" 'close the current buffer without closing the window' (terrific solution) <http://stackoverflow.com/a/8585343/417375>
 nnoremap <C-q> :bp<bar>sp<bar>bn<bar>bd<cr>
 
 " Switch buffers...
 " ...between current and previous
 nnoremap <leader><space> :b#<cr>
 " ...next
-" nnoremap <C-j> :bn<cr>
-" ...previous
-" nnoremap <C-k> :bp<cr>
-
-nnoremap <C-Pageup>   :bp<cr>
 nnoremap <C-Pagedown> :bn<cr>
-inoremap <C-Pageup>   :bp<cr>
 inoremap <C-Pagedown> :bn<cr>
+" ...previous
+nnoremap <C-Pageup>   :bp<cr>
+inoremap <C-Pageup>   :bp<cr>
 
 " ================
 " === Home key ===
@@ -139,22 +83,12 @@ imap <silent> <Home> <C-O><Home>
 " <http://vim.wikia.com/wiki/Accessing_the_system_clipboard>
 " Requires that Vim has been compiled with clipboard and X11 support.
 " On Linux => choose the variant vim-gnome
-" set clipboard=unnamedplus
-
-" ctrl-v conflicts with visual block, and is not very useful anyway
 vnoremap <C-c> "+y
-" nnoremap <C-e> "+gP
-" inoremap <C-e> <Esc>"+gPi
-
-" TODO: not working
-" nnoremap <Leader>o "+gP
-" vnoremap <Leader>y "+y
 
 " ==================================
 " === Move between split windows ===
 " ==================================
 " <http://vim.wikia.com/wiki/Switch_between_Vim_window_splits_easily>
-
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
@@ -163,13 +97,13 @@ nmap <silent> <A-Right> :wincmd l<CR>
 " ===================
 " === Real delete ===
 " ===================
-" Delete without yanking (black hole register)...
-" ...current line in normal and insert mode
-" TODO: find a better keybinding for this
-" nnoremap <C-f> "_dd
-" Fix ALT for gnome terminal
+" Delete without yanking, to the black hole register.
+
+" First, fix ALT for gnome terminal
 " <http://vim.wikia.com/wiki/Get_Alt_key_to_work_in_terminal>
 map d  <A-d>
+" Second, the actual mapping
+" ...current line in normal and insert mode
 nnoremap <A-d> "_dd
 " nnoremap <leader>d "_dd
 inoremap <A-d> <Esc>"_ddi
@@ -177,9 +111,9 @@ inoremap <A-d> <Esc>"_ddi
 vnoremap <A-d> "_d
 " vnoremap <leader>d "_d
 
-" Replace currently selected text with default register without yanking it
+" Replace currently selected text with default register without yanking it.
 " <http://stackoverflow.com/a/920139>
-" TODO: currently not working
+" Requires that the leader is mapped non-ambiguously, `map , = \` does not work.
 vnoremap <leader>p "_dP
 
 " ====================
@@ -227,43 +161,14 @@ autocmd InsertEnter * highlight StatusLine cterm=bold ctermfg=235 ctermbg=2
 " ==================================
 " http://albertomiorin.com/blog/2012/12/10/autoread-and-autowrite-in-vim/
 " http://vim.wikia.com/wiki/Auto_save_files_when_focus_is_lost
-" This probably won't work in the terminal.
-" augroup save
-"   autocmd!
-"   autocmd FocusLost * wall
-"   " or suppress warnings for untitled and read-only buffers
-"   " au FocusLost * silent! wa
-" augroup END
 
-" allow switching between buffers with unsaved changes
-" set nohidden
-set hidden
+set hidden " allow switching between buffers with unsaved changes
 set nobackup
 set noswapfile
 set nowritebackup
 
-" Write the contents of the file, if it has been modified, on each
-" :next, :rewind, :last, :first, :previous, :stop, :suspend, :tag, :!,
-" :make, CTRL-] and CTRL-^ command; and when a :buffer, CTRL-O, CTRL-I,
-" '{A-Z0-9}, or `{A-Z0-9} command takes one to another file.
-" set autowrite
-" Like 'autowrite', but also used for commands :edit, :enew, :quit,
-" :qall, :exit, :xit, :recover and closing the Vim window.
-" This is necessary for some plugin, I don't remember which one, probably
-" vimux.
-" set autowriteall
 " Auto-reload buffers when file changed on disk (doesn't work in reality)
 set autoread
-
-" Save swap and undo files elsewhere
-" create the dirs if they don't exist, trick from
-" <https://github.com/ahawkins/dotfiles/blob/master/vimrc>
-" silent !mkdir ~/.vim/swap > /dev/null 2>&1
-" silent !mkdir ~/.vim/undo > /dev/null 2>&1
-" set backupdir=~/.vim/swap/
-" set undodir=~/.vim/undo/
-" set undofile " persistent-undo
-" set noundofile
 
 " =============
 " === Mouse ===
@@ -283,43 +188,10 @@ set mousemodel=popup
 " ===================
 " === Tabulations ===
 " ===================
-" Tabs mapped to 2 space characters
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-
-" ====================
-" === Code folding ===
-" ====================
-" http://smartic.us/2009/04/06/code-folding-in-vim/
-" fold based on syntax
-" set foldmethod=syntax
-" deepest fold is 7 levels
-" set foldnestmax=7
-" 2 columns is considered the minumum useful value, although 1 can still serve
-" set foldcolumn=0
-" no folds are closed when opening a file: can be done in two ways
-" - option 1
-" set nofoldenable
-" - option 2
-" set foldlevelstart=99
-" set foldlevel=1
-
-" " <http://learnvimscriptthehardway.stevelosh.com/chapters/38.html>
-" function! ToggleFoldAndNumbers()
-"   " Toggle line numbers
-"   setlocal number!
-
-"   " Toggle fold column
-"   if &foldcolumn
-"     setlocal foldcolumn=0
-"   else
-"     setlocal foldcolumn=2
-"   endif
-" endfunction
-
-" nnoremap <leader>z :call ToggleFoldAndNumbers()<cr>
 
 " ====================
 " === View options ===
@@ -335,13 +207,9 @@ set number
 nnoremap <C-n> :setlocal number!<cr>
 " number of lines visible when scrolling
 set scrolloff=3
-" change position of the new split panes
+" position of the new split panes
 set splitright
 set splitbelow
-" ensure newline and the end of file (the default anyway)
-set eol
-" wrap long lines
-" set wrap
 set nowrap
 set sidescroll=3
 set sidescrolloff=3
@@ -366,9 +234,6 @@ set virtualedit=block
 " http://whiletruecode.com/post/adding-a-vertical-ruler-to-vim
 " display vertical rulers for line length
 set colorcolumn=81,101
-" " To set the colors in a terminal version of Vim, add the following to .vimrc:
-" " To see the available color names, issue the command :help ctermbg.
-" highlight ColorColumn ctermbg=DarkGray
 
 " ===========================
 " === Trailing whitespace ===
@@ -421,8 +286,6 @@ autocmd BufReadPost *
 " Automatically add \v when searching so that regexp acts more like in perl
 nnoremap / /\v
 vnoremap / /\v
-" Don't wrap around (don't start from the beginning when reached the end)
-" set nowrapscan
 " Ignore case
 set ignorecase
 " ...unless one upper case letter is present in the word
@@ -433,15 +296,12 @@ set gdefault
 set incsearch
 " highlight results
 set hlsearch
-" highlight matching parentheses
+" highlight matching parentheses...
 set showmatch
-set matchtime=0 " but stay out of the way (do not jump around)
-" clear search results
-" ...with space
+" ...but stay out of the way (do not jump around)
+set matchtime=0
+" clear search results pressing space
 nnoremap <space> :nohlsearch<cr>
-" ...or with the return key (destroy all software trick) (but
-" this interferes with Ack-vim, can't use enter to go to the result)
-" nnoremap <CR> :nohlsearch<CR>
 " ignore some directories
 set wildignore+=*/tmp/*,*.pyc
 
@@ -463,32 +323,6 @@ vnoremap <silent> # :<C-U>
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
-" <http://amix.dk/vim/vimrc.html>
-" Visual mode pressing * or # searches for the current selection
-" vnoremap <silent> * :call VisualSelection('f')<CR>
-" vnoremap <silent> # :call VisualSelection('b')<CR>
-"
-" function! VisualSelection(direction) range
-"     let l:saved_reg = @"
-"     execute "normal! vgvy"
-"
-"     let l:pattern = escape(@", '\\/.*$^~[]')
-"     let l:pattern = substitute(l:pattern, "\n$", "", "")
-"
-"     if a:direction == 'b'
-"         execute "normal ?" . l:pattern . "^M"
-"     elseif a:direction == 'gv'
-"         call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-"     elseif a:direction == 'replace'
-"         call CmdLine("%s" . '/'. l:pattern . '/')
-"     elseif a:direction == 'f'
-"         execute "normal /" . l:pattern . "^M"
-"     endif
-"
-"     let @/ = l:pattern
-"     let @" = l:saved_reg
-" endfunction
-
 " ========================================
 " === External commands without prompt ===
 " ========================================
@@ -497,49 +331,25 @@ vnoremap <silent> # :<C-U>
 " :Silent tmux send-keys -t 1.2 "bundle exec rspec spec/my_spec.rb" C-m
 " => run the tests in the second pane of the first tmux window, enter
 " Note that the actual command must be quoted.
-
 command! -nargs=1 Silent
 \ | execute ':silent !'.<q-args>
 \ | execute ':redraw!'
-
-" =========================
-" === Misc key mappings ===
-" =========================
-" Map :W to :update (save only when the buffer has been modified)
-" Bad idea, because it will replace the letter 'W' with the word 'update'
-" ANYWHERE in any command...
-" cnoremap W update
-" Map :Q to 'no op', effectively disabling it
-" noremap Q <Nop>
 
 " ===========
 " === Ack ===
 " ===========
 " launch ack without argument with leader+a
 nnoremap <leader>a :Ack!<space>
-" launch ack on current word with leader+A
-" TODO: not working
-" nnoremap <leader>A :Ack!<cword>
 
 " ================
 " === NERDTree ===
 " ================
-" From the NERDTree Readme.
-" always open NERDTree when opening a file
-" autocmd vimenter * NERDTree
-" always open NERDTree even when there is no file open
-" autocmd vimenter * if !argc() | NERDTree | endif
-" close NERDTree if it is the only vim buffer open
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+map <leader>n :NERDTreeToggle<cr>
+" Highlight the current buffer
+map <leader>f :NERDTreeFind<cr>
 " http://superuser.com/questions/184844/hide-certain-files-in-nerdtree
 let NERDTreeIgnore = ['\.pyc$']
 let NERDTreeMinimalUI=1
-map <leader>n :NERDTreeToggle<cr>
-
-" the additional NerdTreeTabs plugin makes NerdTree play better with tabs
-" map <leader>n <plug>NERDTreeTabsToggle<cr>
-" Highlight the current buffer
-map <leader>f :NERDTreeFind<cr>
 
 " Prevent NERDTree from opening a new split-window
 " <http://stackoverflow.com/questions/8323666/make-nerdtree-never-open-a-third-window>
@@ -555,7 +365,6 @@ let g:buffergator_viewport_split_policy='R'
 " === vimux - vim + tmux ===
 " ==========================
 " Requires vim compiled with ruby support.
-" It may require autowriteall to avoid error messages.
 
 " Run the current file with rspec
 map <leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
@@ -618,29 +427,3 @@ imap <buffer> <F4> <Plug>(xmpfilter-mark)
 " Put new window above current or on the left for vertical split
 let g:miniBufExplBRSplit = 0
 let g:miniBufExplUseSingleClick = 1
-" let g:miniBufExplBuffersNeeded = 1 " open immediately, don't wait for a second buffer
-
-" prevent MiniBufExplorer from overriding custom colours
-" let g:did_minibufexplorer_syntax_inits = 1
-
-" Custom colors for buffers...
-" highlight MBENormal ctermfg=15
-" highlight MBEChanged ctermfg=199
-" highlight MBEVisibleNormal ctermfg=14
-" highlight MBEVisibleChanged ctermfg=178
-" highlight MBEVisibleActiveNormal ctermfg=40
-" highlight MBEVisibleActiveChanged ctermfg=199
-
-" Custom colors for buffers...
-" ...NOT CHANGED and NOT VISIBLE
-autocmd ColorScheme * highlight MBENormal ctermfg=15
-" ...CHANGED and NOT VISIBLE
-autocmd ColorScheme * highlight MBEChanged ctermfg=199
-" ...NOT CHANGED and VISIBLE
-autocmd ColorScheme * highlight MBEVisibleNormal ctermfg=14
-" ...CHANGED and VISIBLE
-autocmd ColorScheme * highlight MBEVisibleChanged ctermfg=178
-" ...NOT CHANGED, VISIBLE and ACTIVE
-autocmd ColorScheme * highlight MBEVisibleActiveNormal ctermfg=40
-" ...CHANGED, VISIBLE and ACTIVE
-autocmd ColorScheme * highlight MBEVisibleActiveChanged ctermfg=199
