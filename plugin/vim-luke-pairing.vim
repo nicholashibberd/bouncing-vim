@@ -1,35 +1,16 @@
 " .vimrc originally based on https://github.com/DawidJanczak/.vim/blob/master/.vimrc
 
-" TODO: home key -> first non-blank character in the line
-
-" Map leader key to the customary comma without overriding it.
-" nmap , = \
-" Remap leader overriging the existing one
-" let mapleader=','
-
 " =========================
 " === Per project vimrc ===
 " =========================
 " <http://damien.lespiau.name/blog/2009/03/18/per-project-vimrc/>
 
 set exrc " enable per-directory .vimrc files
-" set secure " disable unsafe commands in local .vimrc files
+set secure " disable unsafe commands in local .vimrc files
 
 " ============================
 " === Fix keys inside tmux ===
 " ============================
-
-" Preconditions
-" - DO NOT set the terminal type in the .tmux.conf;
-"   in practice: REMOVE THIS from .tmux.conf => set -g default-terminal "screen-256color"
-"
-" - INSTEAD set the TERM to 'screen-256color' in the .bashrc:
-"
-"       if [[ -n "$TMUX" ]]; then
-"         export TERM=screen-256color
-"       else
-"         export TERM=xterm-256color
-"       fi
 
 map OD <Left>
 map OC <Right>
@@ -60,10 +41,10 @@ map [1;2B <S-Down>
 " <http://superuser.com/questions/401926/how-to-get-shiftarrows-and-ctrlarrows-working-in-vim-in-tmux/402084#402084>
 " tmux will send xterm-style keys when its xterm-keys option is on
 if &term =~ '^screen'
-  execute "set <xUp>=\e[1;*A"
-  execute "set <xDown>=\e[1;*B"
-  execute "set <xRight>=\e[1;*C"
-  execute "set <xLeft>=\e[1;*D"
+  exec "set <xUp>=\e[1;*A"
+  exec "set <xDown>=\e[1;*B"
+  exec "set <xRight>=\e[1;*C"
+  exec "set <xLeft>=\e[1;*D"
 endif
 
 " ============
@@ -77,7 +58,7 @@ endif
 " autocmd BufAdd,BufNewFile * nested tab sball
 
 " Tab navigation like in Firefox
-" Notice tha sbnext, sbprevious would reopen closed tabs instead.
+" Notice that 'sbnext' and 'sbprevious' would reopen closed tabs instead.
 " Used for the buffers instead.
 " nnoremap <C-Pageup>   :tabprevious<cr>
 " nnoremap <C-Pagedown> :tabnext<cr>
@@ -144,6 +125,13 @@ nnoremap <C-Pagedown> :bn<cr>
 inoremap <C-Pageup>   :bp<cr>
 inoremap <C-Pagedown> :bn<cr>
 
+" ================
+" === Home key ===
+" ================
+" <http://vim.wikia.com/wiki/Smart_home>
+noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+imap <silent> <Home> <C-O><Home>
+
 " =================
 " === Clipboard ===
 " =================
@@ -151,14 +139,14 @@ inoremap <C-Pagedown> :bn<cr>
 " <http://vim.wikia.com/wiki/Accessing_the_system_clipboard>
 " Requires that Vim has been compiled with clipboard and X11 support.
 " On Linux => choose the variant vim-gnome
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 
 " ctrl-v conflicts with visual block, and is not very useful anyway
 vnoremap <C-c> "+y
 " nnoremap <C-e> "+gP
 " inoremap <C-e> <Esc>"+gPi
 
-" TODO: currently not working
+" TODO: not working
 " nnoremap <Leader>o "+gP
 " vnoremap <Leader>y "+y
 
@@ -177,11 +165,16 @@ nmap <silent> <A-Right> :wincmd l<CR>
 " ===================
 " Delete without yanking (black hole register)...
 " ...current line in normal and insert mode
-nnoremap <C-f> "_dd
+" TODO: find a better keybinding for this
+" nnoremap <C-f> "_dd
+" Fix ALT for gnome terminal
+" <http://vim.wikia.com/wiki/Get_Alt_key_to_work_in_terminal>
+map d  <A-d>
+nnoremap <A-d> "_dd
 " nnoremap <leader>d "_dd
-inoremap <C-f> <Esc>"_ddi
+inoremap <A-d> <Esc>"_ddi
 " ...selection in visual mode
-vnoremap <C-f> "_d
+vnoremap <A-d> "_d
 " vnoremap <leader>d "_d
 
 " Replace currently selected text with default register without yanking it
@@ -235,16 +228,16 @@ autocmd InsertEnter * highlight StatusLine cterm=bold ctermfg=235 ctermbg=2
 " http://albertomiorin.com/blog/2012/12/10/autoread-and-autowrite-in-vim/
 " http://vim.wikia.com/wiki/Auto_save_files_when_focus_is_lost
 " This probably won't work in the terminal.
-augroup save
-  autocmd!
-  autocmd FocusLost * wall
-  " or suppress warnings for untitled and read-only buffers
-  " au FocusLost * silent! wa
-augroup END
+" augroup save
+"   autocmd!
+"   autocmd FocusLost * wall
+"   " or suppress warnings for untitled and read-only buffers
+"   " au FocusLost * silent! wa
+" augroup END
 
 " allow switching between buffers with unsaved changes
-" set hidden
-set nohidden
+" set nohidden
+set hidden
 set nobackup
 set noswapfile
 set nowritebackup
@@ -253,12 +246,12 @@ set nowritebackup
 " :next, :rewind, :last, :first, :previous, :stop, :suspend, :tag, :!,
 " :make, CTRL-] and CTRL-^ command; and when a :buffer, CTRL-O, CTRL-I,
 " '{A-Z0-9}, or `{A-Z0-9} command takes one to another file.
-set autowrite
+" set autowrite
 " Like 'autowrite', but also used for commands :edit, :enew, :quit,
 " :qall, :exit, :xit, :recover and closing the Vim window.
 " This is necessary for some plugin, I don't remember which one, probably
 " vimux.
-set autowriteall
+" set autowriteall
 " Auto-reload buffers when file changed on disk (doesn't work in reality)
 set autoread
 
@@ -305,7 +298,7 @@ set expandtab
 " deepest fold is 7 levels
 " set foldnestmax=7
 " 2 columns is considered the minumum useful value, although 1 can still serve
-" set foldcolumn=2
+" set foldcolumn=0
 " no folds are closed when opening a file: can be done in two ways
 " - option 1
 " set nofoldenable
@@ -313,7 +306,7 @@ set expandtab
 " set foldlevelstart=99
 " set foldlevel=1
 
-" <http://learnvimscriptthehardway.stevelosh.com/chapters/38.html>
+" " <http://learnvimscriptthehardway.stevelosh.com/chapters/38.html>
 " function! ToggleFoldAndNumbers()
 "   " Toggle line numbers
 "   setlocal number!
@@ -409,20 +402,6 @@ autocmd FileType sh           autocmd BufWritePre <buffer> :call <SID>StripTrail
 autocmd FileType coffeescript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd FileType vim          autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd FileType eruby        autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
-
-" ===============================
-" === Filetype customizations ===
-" ===============================
-
-" http://beerpla.net/2008/04/02/how-to-add-a-vim-file-extension-to-syntax-highlighting/
-syntax enable
-filetype on
-au BufNewFile,BufRead *.txt set filetype=markdown
-au BufNewFile,BufRead *.md set filetype=markdown
-" Set filetype for specific names: <http://dailyvim.tumblr.com/post/1262764095/additional-ruby-syntax-highlighting>
-autocmd BufRead,BufNewFile {Capfile,Gemfile,Rakefile,config.ru,.caprc,.irbrc,irb_tempfile*,.pryrc,Vagrantfile} set filetype=ruby
-" It shouldn't be needed with the mustache.vim plugin
-" au BufNewFile,BufRead *.mustache set filetype=html
 
 " =============================
 " === Last position in file ===
@@ -539,7 +518,8 @@ command! -nargs=1 Silent
 " launch ack without argument with leader+a
 nnoremap <leader>a :Ack!<space>
 " launch ack on current word with leader+A
-nnoremap <leader>A :Ack!<cword>
+" TODO: not working
+" nnoremap <leader>A :Ack!<cword>
 
 " ================
 " === NERDTree ===
@@ -570,50 +550,6 @@ set buftype=
 " === Buffergator ===
 " ===================
 let g:buffergator_viewport_split_policy='R'
-
-" =======================
-" === MiniBufExplorer ===
-" =======================
-" Put new window above current or on the left for vertical split
-let g:miniBufExplBRSplit = 0
-let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplBuffersNeeded = 1 " open immediately, don't wait for a second buffer
-
-" prevent MiniBufExplorer from overriding our colours
-let g:did_minibufexplorer_syntax_inits = 1
-
-" Custom colors for buffers...
-" highlight MBENormal ctermfg=15
-" highlight MBEChanged ctermfg=199
-" highlight MBEVisibleNormal ctermfg=14
-" highlight MBEVisibleChanged ctermfg=178
-" highlight MBEVisibleActiveNormal ctermfg=40
-" highlight MBEVisibleActiveChanged ctermfg=199
-
-" Custom colors for buffers...
-" ...NOT CHANGED and NOT VISIBLE
-autocmd ColorScheme * highlight MBENormal ctermfg=15
-" ...CHANGED and NOT VISIBLE
-autocmd ColorScheme * highlight MBEChanged ctermfg=199
-" ...NOT CHANGED and VISIBLE
-autocmd ColorScheme * highlight MBEVisibleNormal ctermfg=14
-" ...CHANGED and VISIBLE
-autocmd ColorScheme * highlight MBEVisibleChanged ctermfg=178
-" ...NOT CHANGED, VISIBLE and ACTIVE
-autocmd ColorScheme * highlight MBEVisibleActiveNormal ctermfg=40
-" ...CHANGED, VISIBLE and ACTIVE
-autocmd ColorScheme * highlight MBEVisibleActiveChanged ctermfg=199
-
-" ===================
-" === Go language ===
-" ===================
-" From the readme at ~/bin/go/misc/vim/readme.txt
-" Clear filetype flags before changing runtimepath to force Vim to reload them.
-filetype off
-filetype plugin indent off
-set runtimepath+=$GOROOT/misc/vim
-filetype plugin indent on
-syntax on
 
 " ==========================
 " === vimux - vim + tmux ===
@@ -675,3 +611,36 @@ imap <buffer> <F5> <Plug>(xmpfilter-run)
 nmap <buffer> <F4> <Plug>(xmpfilter-mark)
 xmap <buffer> <F4> <Plug>(xmpfilter-mark)
 imap <buffer> <F4> <Plug>(xmpfilter-mark)
+
+" =======================
+" === MiniBufExplorer ===
+" =======================
+" Put new window above current or on the left for vertical split
+let g:miniBufExplBRSplit = 0
+let g:miniBufExplUseSingleClick = 1
+" let g:miniBufExplBuffersNeeded = 1 " open immediately, don't wait for a second buffer
+
+" prevent MiniBufExplorer from overriding custom colours
+" let g:did_minibufexplorer_syntax_inits = 1
+
+" Custom colors for buffers...
+" highlight MBENormal ctermfg=15
+" highlight MBEChanged ctermfg=199
+" highlight MBEVisibleNormal ctermfg=14
+" highlight MBEVisibleChanged ctermfg=178
+" highlight MBEVisibleActiveNormal ctermfg=40
+" highlight MBEVisibleActiveChanged ctermfg=199
+
+" Custom colors for buffers...
+" ...NOT CHANGED and NOT VISIBLE
+autocmd ColorScheme * highlight MBENormal ctermfg=15
+" ...CHANGED and NOT VISIBLE
+autocmd ColorScheme * highlight MBEChanged ctermfg=199
+" ...NOT CHANGED and VISIBLE
+autocmd ColorScheme * highlight MBEVisibleNormal ctermfg=14
+" ...CHANGED and VISIBLE
+autocmd ColorScheme * highlight MBEVisibleChanged ctermfg=178
+" ...NOT CHANGED, VISIBLE and ACTIVE
+autocmd ColorScheme * highlight MBEVisibleActiveNormal ctermfg=40
+" ...CHANGED, VISIBLE and ACTIVE
+autocmd ColorScheme * highlight MBEVisibleActiveChanged ctermfg=199
