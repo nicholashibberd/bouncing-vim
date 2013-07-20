@@ -20,4 +20,5 @@ echo "Created ~/.vim dir structure"
 
 curl -Sso ~/.vim/autoload/pathogen.vim \
   https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+
 echo "Installed pathogen plugin"
