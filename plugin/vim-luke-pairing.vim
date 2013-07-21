@@ -240,8 +240,8 @@ set colorcolumn=81,101
 " ===========================
 " <http://stackoverflow.com/questions/9121550/vim-highlight-trailing-whitespace-and-spaces-before-and-after-tabs>
 " <http://vim.wikia.com/wiki/Highlight_unwanted_spaces>
-set listchars=tab:»·,trail:·,extends:>,precedes:<
-set list
+" set listchars=tab:»·,trail:·,extends:>,precedes:<
+" set list
 
 " http://stackoverflow.com/a/1618401/417375
 function! <SID>StripTrailingWhitespaces()
