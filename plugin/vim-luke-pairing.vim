@@ -1,4 +1,4 @@
-" .vimrc originally based on https://github.com/DawidJanczak/.vim/blob/master/.vimrc
+" Credits: originally based on https://github.com/DawidJanczak/.vim/blob/master/.vimrc
 
 " =========================
 " === Per project vimrc ===
@@ -7,6 +7,13 @@
 
 set exrc " enable per-directory .vimrc files
 set secure " disable unsafe commands in local .vimrc files
+
+" ===================================
+" === Reload ~/.vimrc when edited ===
+" ===================================
+
+" <https://github.com/bryankennedy/vimrc/blob/master/vimrc>
+autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 
 " ============================
 " === Fix keys inside tmux ===
@@ -56,7 +63,8 @@ command QA quitall
 
 " If a buffer is already open in another window, jump to it instead of opening a new window.
 set switchbuf=useopen
-" 'close the current buffer without closing the window' (terrific solution) <http://stackoverflow.com/a/8585343/417375>
+" 'close the current buffer without closing the window' (terrific solution)
+" <http://stackoverflow.com/a/8585343/417375>
 nnoremap <C-q> :bp<bar>sp<bar>bn<bar>bd<cr>
 
 " Switch buffers...
@@ -105,11 +113,9 @@ map d  <A-d>
 " Second, the actual mapping
 " ...current line in normal and insert mode
 nnoremap <A-d> "_dd
-" nnoremap <leader>d "_dd
 inoremap <A-d> <Esc>"_ddi
 " ...selection in visual mode
 vnoremap <A-d> "_d
-" vnoremap <leader>d "_d
 
 " Replace currently selected text with default register without yanking it.
 " <http://stackoverflow.com/a/920139>
@@ -162,7 +168,7 @@ autocmd InsertEnter * highlight StatusLine cterm=bold ctermfg=235 ctermbg=2
 " http://albertomiorin.com/blog/2012/12/10/autoread-and-autowrite-in-vim/
 " http://vim.wikia.com/wiki/Auto_save_files_when_focus_is_lost
 
-set hidden " allow switching between buffers with unsaved changes
+set nohidden " do not allow switching between buffers with unsaved changes
 set nobackup
 set noswapfile
 set nowritebackup
@@ -322,6 +328,15 @@ vnoremap <silent> # :<C-U>
   \gvy?<C-R><C-R>=substitute(
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
+
+" =================================
+" === Replace visually selected ===
+" =================================
+
+" http://stackoverflow.com/questions/676600/vim-search-and-replace-selected-text
+" By pressing ctrl + r in the visual mode you will be prompted to enter text
+" to replace with. Press enter and then confirm each change.
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " ========================================
 " === External commands without prompt ===
