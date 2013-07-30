@@ -113,6 +113,7 @@ map d  <A-d>
 " Second, the actual mapping
 " ...current line in normal and insert mode
 nnoremap <A-d> "_dd
+" TODO: does not work
 inoremap <A-d> <Esc>"_ddi
 " ...selection in visual mode
 vnoremap <A-d> "_d
