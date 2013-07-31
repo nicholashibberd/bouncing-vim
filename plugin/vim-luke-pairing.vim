@@ -68,6 +68,7 @@ set switchbuf=useopen
 " 'close the current buffer without closing the window' (terrific solution)
 " <http://stackoverflow.com/a/8585343/417375>
 nnoremap <C-q> :bp<bar>sp<bar>bn<bar>bd<cr>
+nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<cr>
 
 " Switch buffers...
 " ...between current and previous
@@ -276,6 +277,7 @@ autocmd FileType sh           autocmd BufWritePre <buffer> :call <SID>StripTrail
 autocmd FileType coffeescript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd FileType vim          autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd FileType eruby        autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType scss         autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " =============================
 " === Last position in file ===
