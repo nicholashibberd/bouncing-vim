@@ -19,6 +19,16 @@ autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 " === Fix keys inside tmux ===
 " ============================
 
+" http://superuser.com/questions/401926/how-to-get-shiftarrows-and-ctrlarrows-working-in-vim-in-tmux/562437#562437
+" Disable Background Color Erase (BCE) by clearing the t_ut terminal option
+" (run :set t_ut= in Vim and then press Control+L to refresh the terminal's
+" display) so that color schemes work properly when Vim is used inside tmux
+" and GNU screen.
+"
+" This way, you can keep your TERM value as xterm-256color for proper key
+" detection while also getting proper Vim color scheme rendering too
+set t_ut=
+
 map OD <Left>
 map OC <Right>
 map [D <C-Left>
@@ -37,14 +47,20 @@ map [1;2D <S-Left>
 map [1;2A <S-Up>
 map [1;2B <S-Down>
 
+map [1;5C <C-Right>
+map [1;5D <C-Left>
+map [1;5A <C-Up>
+map [1;5B <C-Down>
+
 " <http://superuser.com/questions/401926/how-to-get-shiftarrows-and-ctrlarrows-working-in-vim-in-tmux/402084#402084>
+" <http://denihow.com/how-to-get-shiftarrows-and-ctrlarrows-working-in-vim-in-tmux/>
 " tmux will send xterm-style keys when its xterm-keys option is on
-if &term =~ '^screen'
-  exec "set <xUp>=\e[1;*A"
-  exec "set <xDown>=\e[1;*B"
-  exec "set <xRight>=\e[1;*C"
-  exec "set <xLeft>=\e[1;*D"
-endif
+" if &term =~ '^screen'
+"   exec "set <xUp>=\e[1;*A"
+"   exec "set <xDown>=\e[1;*B"
+"   exec "set <xRight>=\e[1;*C"
+"   exec "set <xLeft>=\e[1;*D"
+" endif
 
 " ============
 " === Save ===
@@ -69,6 +85,12 @@ set switchbuf=useopen
 " <http://stackoverflow.com/a/8585343/417375>
 nnoremap <C-q> :bp<bar>sp<bar>bn<bar>bd<cr>
 nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<cr>
+
+" First, fix ALT for gnome terminal
+map q  <A-q>
+" Second, the actual mapping
+" ...current line in normal and insert mode
+nnoremap <A-q> :bp<bar>sp<bar>bn<bar>bd<cr>
 
 " Switch buffers...
 " ...between current and previous
@@ -110,9 +132,12 @@ nmap <silent> <A-Right> :wincmd l<CR>
 " ===================
 " Delete without yanking, to the black hole register.
 
-" First, fix ALT for gnome terminal
 " <http://vim.wikia.com/wiki/Get_Alt_key_to_work_in_terminal>
+" First, fix ALT for gnome terminal
 map d  <A-d>
+" the ^[ is an Esc char that comes before the 'd'
+" In most default configs, ^[d may be typed by pressing first <C-v>, then <M-d>
+"
 " Second, the actual mapping
 " ...current line in normal and insert mode
 nnoremap <A-d> "_dd
