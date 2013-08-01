@@ -79,8 +79,11 @@ command Wqa wqa
 " === Buffers ===
 " ===============
 
+
 " If a buffer is already open in another window, jump to it instead of opening a new window.
 set switchbuf=useopen
+
+" Different keybindings for people with different terminals.
 " 'close the current buffer without closing the window' (terrific solution)
 " <http://stackoverflow.com/a/8585343/417375>
 nnoremap <C-q> :bp<bar>sp<bar>bn<bar>bd<cr>
