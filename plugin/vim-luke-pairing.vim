@@ -113,6 +113,17 @@ inoremap <leader>[ :bp<cr>
 " === Home key ===
 " ================
 " <http://vim.wikia.com/wiki/Smart_home>
+" First fix the home key for tmux
+
+" if &term =~ '^screen'
+"   exec "set <xUp>=\e[1;*A"
+"   exec "set <xDown>=\e[1;*B"
+"   exec "set <xRight>=\e[1;*C"
+"   exec "set <xLeft>=\e[1;*D"
+" endif
+" [1~ => in tmux
+" OH => in gnome terminal
+noremap [1~ <Home>
 noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 imap <silent> <Home> <C-O><Home>
 
