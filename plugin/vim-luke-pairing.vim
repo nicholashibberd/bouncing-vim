@@ -79,7 +79,6 @@ command Wqa wqa
 " === Buffers ===
 " ===============
 
-
 " If a buffer is already open in another window, jump to it instead of opening a new window.
 set switchbuf=useopen
 
@@ -104,6 +103,11 @@ inoremap <C-Pagedown> :bn<cr>
 " ...previous
 nnoremap <C-Pageup>   :bp<cr>
 inoremap <C-Pageup>   :bp<cr>
+
+nnoremap <leader>] :bn<cr>
+inoremap <leader>] :bn<cr>
+nnoremap <leader>[ :bp<cr>
+inoremap <leader>[ :bp<cr>
 
 " ================
 " === Home key ===
