@@ -317,7 +317,7 @@ autocmd FileType markdown     autocmd BufWritePre <buffer> :call <SID>StripTrail
 autocmd FileType sql          autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd FileType go           autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd FileType sh           autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
-autocmd FileType coffeescript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType coffee       autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd FileType vim          autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd FileType eruby        autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd FileType scss         autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
