@@ -19,48 +19,31 @@ autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 " === Fix keys inside tmux ===
 " ============================
 
-" http://superuser.com/questions/401926/how-to-get-shiftarrows-and-ctrlarrows-working-in-vim-in-tmux/562437#562437
-" Disable Background Color Erase (BCE) by clearing the t_ut terminal option
-" (run :set t_ut= in Vim and then press Control+L to refresh the terminal's
-" display) so that color schemes work properly when Vim is used inside tmux
-" and GNU screen.
+" This requires...
 "
-" This way, you can keep your TERM value as xterm-256color for proper key
-" detection while also getting proper Vim color scheme rendering too
-set t_ut=
-
-map OD <Left>
-map OC <Right>
-map [D <C-Left>
-map [C <C-Right>
-map OA <Up>
-map OB <Down>
-map [A <C-Up>
-map [B <C-Down>
-
-" for tmux
-map [6;5~ <C-Pagedown>
-map [5;5~ <C-PageUp>
-
-map [1;2C <S-Right>
-map [1;2D <S-Left>
-map [1;2A <S-Up>
-map [1;2B <S-Down>
-
-map [1;5C <C-Right>
-map [1;5D <C-Left>
-map [1;5A <C-Up>
-map [1;5B <C-Down>
-
+" 1 - ...to set the TERM correctly in bashrc
+"
+" if [[ -n "$TMUX" ]]; then
+"   export TERM=screen-256color
+" else
+"   export TERM=xterm-256color
+" fi
+"
+" 2 - ...to set xterm key forwarding in tmux.conf
+" set -g xterm-keys on
+"
 " <http://superuser.com/questions/401926/how-to-get-shiftarrows-and-ctrlarrows-working-in-vim-in-tmux/402084#402084>
 " <http://denihow.com/how-to-get-shiftarrows-and-ctrlarrows-working-in-vim-in-tmux/>
 " tmux will send xterm-style keys when its xterm-keys option is on
-" if &term =~ '^screen'
-"   exec "set <xUp>=\e[1;*A"
-"   exec "set <xDown>=\e[1;*B"
-"   exec "set <xRight>=\e[1;*C"
-"   exec "set <xLeft>=\e[1;*D"
-" endif
+if &term =~ '^screen'
+  map [6;5~ <C-Pagedown>
+  map [5;5~ <C-PageUp>
+
+  exec "set <xUp>=\e[1;*A"
+  exec "set <xDown>=\e[1;*B"
+  exec "set <xRight>=\e[1;*C"
+  exec "set <xLeft>=\e[1;*D"
+endif
 
 " ============
 " === Save ===
@@ -114,16 +97,11 @@ inoremap <leader>[ :bp<cr>
 " ================
 " <http://vim.wikia.com/wiki/Smart_home>
 " First fix the home key for tmux
-
-" if &term =~ '^screen'
-"   exec "set <xUp>=\e[1;*A"
-"   exec "set <xDown>=\e[1;*B"
-"   exec "set <xRight>=\e[1;*C"
-"   exec "set <xLeft>=\e[1;*D"
-" endif
 " [1~ => in tmux
 " OH => in gnome terminal
-noremap [1~ <Home>
+if &term =~ '^screen'
+  exec "set <Home>=\e[1~"
+endif
 noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 imap <silent> <Home> <C-O><Home>
 
@@ -397,6 +375,14 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 command! -nargs=1 Silent
 \ | execute ':silent !'.<q-args>
 \ | execute ':redraw!'
+
+" =======================
+" === Misc keybinding ===
+" =======================
+
+" This was removed from vim-sensible.
+" Make Y consistent with C and D.  See :help Y.
+nnoremap Y y$
 
 " ===========
 " === Ack ===
