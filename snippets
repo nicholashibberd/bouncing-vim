@@ -2,6 +2,30 @@
 " === Fix keys inside tmux ===
 " ============================
 
+" <http://stackoverflow.com/questions/16638962/sending-ctrl-right-to-vim-inside-tmux/16640087#16640087>
+" 
+" I got something working though I'm very much treading unknown territory here. 
+" Perhaps someone else can fill in the rest.
+" 
+" The first difference I noticed when starting up Vim in the terminal and Vim 
+" inside tmux was in their 'term' setting.
+" 
+" When asked :set term?, ordinary terminal Vim answered xterm-256color, but tmux 
+" Vim answered screen. It's important to understand that the exact key codes 
+" sent in the terminal depend on the type of the terminal.
+" 
+" One solution is simply to make tmux and Vim speak the same language. In tmux:
+" 
+"     set-option -gw xterm-keys on
+"     bind-key -n C-Right send-keys C-Right
+" 
+" In Vim:
+" 
+"     :set term=xterm-256color
+" 
+" Now Vim and tmux understand each other's terminal key codes and your key strokes 
+" will make it all the way to Vim.
+
 " <http://sourceforge.net/p/tmux/tmux-code/ci/master/tree/FAQ>
 " => * How do I make Ctrl-PgUp and Ctrl-PgDn work in vim?
 " if &term == "screen"
