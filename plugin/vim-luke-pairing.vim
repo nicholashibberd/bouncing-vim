@@ -39,6 +39,8 @@ if &term =~ '^screen'
   map [6;5~ <C-Pagedown>
   map [5;5~ <C-PageUp>
 
+  exec "set <Home>=\e[1~"
+
   exec "set <xUp>=\e[1;*A"
   exec "set <xDown>=\e[1;*B"
   exec "set <xRight>=\e[1;*C"
@@ -96,12 +98,7 @@ inoremap <leader>[ :bp<cr>
 " === Home key ===
 " ================
 " <http://vim.wikia.com/wiki/Smart_home>
-" First fix the home key for tmux
-" [1~ => in tmux
-" OH => in gnome terminal
-if &term =~ '^screen'
-  exec "set <Home>=\e[1~"
-endif
+" First fix the home key for tmux, see section
 noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 imap <silent> <Home> <C-O><Home>
 
