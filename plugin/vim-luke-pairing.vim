@@ -8,9 +8,9 @@
 set exrc " enable per-directory .vimrc files
 set secure " disable unsafe commands in local .vimrc files
 
-" ===================================
-" === Reload ~/.vimrc when edited ===
-" ===================================
+" =======================================
+" === Autoreload ~/.vimrc when edited ===
+" =======================================
 
 " <https://github.com/bryankennedy/vimrc/blob/master/vimrc>
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
@@ -19,7 +19,7 @@ autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 " === Fix keys inside tmux ===
 " ============================
 
-" This requires...
+" This requires (besides some faith and luck)...
 "
 " 1 - ...to set the TERM correctly in bashrc
 "
@@ -80,7 +80,7 @@ map q  <A-q>
 nnoremap <A-q> :bp<bar>sp<bar>bn<bar>bd<cr>
 
 " Switch buffers...
-" ...between current and previous
+" ...toggle between current and previous
 nnoremap <leader><space> :b#<cr>
 " ...next
 nnoremap <C-Pagedown> :bn<cr>
@@ -89,6 +89,7 @@ inoremap <C-Pagedown> :bn<cr>
 nnoremap <C-Pageup>   :bp<cr>
 inoremap <C-Pageup>   :bp<cr>
 
+" ...without Ctrl key, for mac users
 nnoremap <leader>] :bn<cr>
 inoremap <leader>] :bn<cr>
 nnoremap <leader>[ :bp<cr>
@@ -134,10 +135,12 @@ map d  <A-d>
 " Second, the actual mapping
 " ...current line in normal and insert mode
 nnoremap <A-d> "_dd
-" TODO: does not work
-inoremap <A-d> <Esc>"_ddi
+nnoremap <Leader>d "_dd
 " ...selection in visual mode
 vnoremap <A-d> "_d
+vnoremap <Leader>d "_d
+" TODO: does not work
+inoremap <A-d> <Esc>"_ddi
 
 " Replace currently selected text with default register without yanking it.
 " <http://stackoverflow.com/a/920139>
@@ -202,15 +205,10 @@ set autoread
 " === Mouse ===
 " =============
 " <http://usevim.com/2012/05/16/mouse/>
-" Send more characters for redraws (faster scrolling)
-set ttyfast
-" Enable mouse use in all modes
-set mouse=a
-" ttymouse is the terminal that supports mouse codes.
-" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-set ttymouse=xterm2
-" Hide mouse pointer while typing
-set mousehide
+set ttyfast          " Send more characters for redraws (faster scrolling)
+set mouse=a          " Enable mouse use in all modes
+set ttymouse=xterm2  " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
+set mousehide        " Hide mouse pointer while typing
 set mousemodel=popup
 
 " ===================
@@ -225,43 +223,27 @@ set expandtab
 " === View options ===
 " ====================
 
-" Disable all bells
-set noerrorbells visualbell t_vb=
-" Encoding
-set encoding=utf-8
-" display line numbers
-set number
-" Toggle line numbers
-nnoremap <C-n> :setlocal number!<cr>
-" number of lines visible when scrolling
-set scrolloff=3
-" position of the new split panes
-set splitright
-set splitbelow
-set nowrap
+set noerrorbells visualbell t_vb=    " Disable all bells
+set encoding=utf-8                   " Encoding
+set number                           " display line numbers
+nnoremap <C-n> :setlocal number!<cr> " Toggle line numbers
+set scrolloff=3                      " number of lines visible when scrolling
 set sidescroll=3
 set sidescrolloff=3
-" remember indent after going to the next line
-set autoindent
-" show command that is being entered in the lower right
-set showcmd
-" show current mode (e.g. input, visual)
-set showmode
-" highlight currently edited line
-set cursorline
-" show cursor position in lower right
-set ruler
-" Allow extended backspace behaviour
-set backspace=indent,eol,start
-" toggle paste with <F3>, to avoid auto-comment when pasting from system clipboard
-set pastetoggle=<F3>
-" <leader>v selects the just pasted text
-nnoremap <leader>v V`]
-" allow placing the cursor after the last char
-set virtualedit=block
-" http://whiletruecode.com/post/adding-a-vertical-ruler-to-vim
-" display vertical rulers for line length
-set colorcolumn=81,101
+set splitright                       " position of the new split panes
+set splitbelow
+set nowrap
+set autoindent                       " remember indent after going to the next line
+set showcmd                          " show command that is being entered in the lower right
+set showmode                         " show current mode (e.g. input, visual)
+set cursorline                       " highlight currently edited line
+set ruler                            " show cursor position in lower right
+set backspace=indent,eol,start       " Allow extended backspace behaviour
+set pastetoggle=<F3>                 " disable auto format when pasting from system clipboard
+nnoremap <leader>v V`]               " <leader>v selects the just pasted text
+set virtualedit=block                " allow placing the cursor after the last char
+set colorcolumn=81,101               " display vertical rulers for line length
+                                     " http://whiletruecode.com/post/adding-a-vertical-ruler-to-vim
 
 " ===========================
 " === Trailing whitespace ===
