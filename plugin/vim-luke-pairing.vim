@@ -406,6 +406,7 @@ set buftype=
 " === Buffergator ===
 " ===================
 let g:buffergator_viewport_split_policy='R'
+noremap <Leader>b :BuffergatorToggle<CR>
 
 " ==========================
 " === vimux - vim + tmux ===
