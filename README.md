@@ -1,3 +1,12 @@
+Requires:
+
+* git
+* vim with support for:
+  * Python
+  * Ruby
+  * clipboard
+  * X11
+
 I tried to avoid overriding built-in and popular setups and keybindings and
 to add rather than change functionality.
 
