@@ -8,11 +8,13 @@
 # morhetz/gruvbox
 
 # Other intesting plugins
+# -----------------------
 # jistr/vim-nerdtree-tabs
 # tpope/vim-fugitive
 # plasticboy/vim-markdown
 # jeffkreeftmeijer/vim-numbertoggle
 # tomtom/tcomment_vim
+# christoomey/vim-tmux-navigator
 
 declare -a ESSENTIALS=(
  "lucabelmondo/vim-luke"
