@@ -15,6 +15,7 @@
 # jeffkreeftmeijer/vim-numbertoggle
 # tomtom/tcomment_vim
 # christoomey/vim-tmux-navigator
+# https://github.com/mislav/vimfiles
 
 declare -a ESSENTIALS=(
  "lucabelmondo/vim-luke"

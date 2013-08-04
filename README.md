@@ -7,6 +7,9 @@ Requires:
   * clipboard
   * X11
 
+It also relies on some tmux configuration, that can be found at
+<https://github.com/lucabelmondo/dotfiles>.
+
 I tried to avoid overriding built-in and popular setups and keybindings and
 to add rather than change functionality.
 

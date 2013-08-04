@@ -1,3 +1,49 @@
+" =================================
+" ========= TMUX.CONF =============
+" =================================
+"
+" # bind-key -n S-Up    select-pane -U
+" # bind-key -n S-Down  select-pane -D
+" # bind-key -n S-Left  select-pane -L
+" # bind-key -n S-Right select-pane -R
+" 
+" " https://github.com/henrik/dotfiles/blob/24ddbd90f75a2383400ef2c912b9ab8a5d5e9fc8/bin/tmux-vim-select-pane
+" Save this as tmux-vim-select-pane in ~/bin
+" !/usr/bin/env bash
+" 
+" # Like `tmux select-pane`, but if Vim is running in the current pane it sends a
+" # keystroke to Vim instead to let it decide whether it's going to switch windows
+" # internally or switch tmux panes.
+" #
+" # https://gist.github.com/mislav/5189704
+" 
+" set -e
+" 
+" # gets the tty of active tmux pane
+" active_tty="$(tmux list-panes -F '#{pane_active}#{pane_tty}' | grep '^1')"
+" 
+" # checks if there's a foreground Vim process in attached to that tty
+" if ps c -o 'state=,command=' -t "${active_tty#1}" | grep '+' | grep -iE '\bvim?\b' >/dev/null ; then
+" direction="$(echo "${1#-}" | sed -e 's/D/Down/' -e 's/U/Up/' -e 's/L/Left/' -e 's/R/Right/')";
+"   # forward the keystroke to Vim
+"   tmux send-keys C-$direction
+" else
+" tmux select-pane "$@"
+" fi
+" 
+" # # Smart pane switching with awareness of vim splits. (M is Alt in gnome-terminal)
+" # bind-key -n M-Up    run-shell 'tmux-vim-select-pane -U'
+" # bind-key -n M-Down  run-shell 'tmux-vim-select-pane -D'
+" # bind-key -n M-Left  run-shell 'tmux-vim-select-pane -L'
+" # bind-key -n M-Right run-shell 'tmux-vim-select-pane -R' 
+" 
+" # smart pane switching with awareness of vim splits
+" # bind -n C-h run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-h) || tmux select-pane -L"
+" # bind -n C-j run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-j) || tmux select-pane -D"
+" # bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-k) || tmux select-pane -U"
+" # bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-l) || tmux select-pane -R"
+" # bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys 'C-\\') || tmux select-pane -l"
+
 " ============================
 " === Fix keys inside tmux ===
 " ============================
@@ -131,6 +177,15 @@
 " nnoremap <C-j> :bn<cr>
 " ...previous
 " nnoremap <C-k> :bp<cr>
+
+" ==================================
+" === Move between split windows ===
+" ==================================
+" <http://vim.wikia.com/wiki/Switch_between_Vim_window_splits_easily>
+" nmap <silent> <A-Up> :wincmd k<CR>
+" nmap <silent> <A-Down> :wincmd j<CR>
+" nmap <silent> <A-Left> :wincmd h<CR>
+" nmap <silent> <A-Right> :wincmd l<CR>
 
 " =================
 " === Clipboard ===
