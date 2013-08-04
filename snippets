@@ -270,6 +270,25 @@
 " Map :Q to 'no op', effectively disabling it
 " noremap Q <Nop>
 
+" =============
+" === CtrlP ===
+" =============
+
+" Custom ignore
+" Examples:
+"
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+" let g:ctrlp_custom_ignore = {
+"   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+"   \ 'file': '\v\.(exe|so|dll)$',
+"   \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+"   \ }
+" let g:ctrlp_custom_ignore = {
+"   \ 'file': '\v(\.cpp|\.h|\.hh|\.cxx)@<!$'
+"   \ }
+
+" unlet g:ctrlp_custom_ignore " this might be required if the variable type changes
+
 " ===========
 " === Ack ===
 " ===========

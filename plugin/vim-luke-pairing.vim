@@ -368,21 +368,6 @@ nnoremap Y y$
 " =============
 
 let g:ctrlp_show_hidden = 1
-
-" Custom ignore
-" Examples:
-"
-" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-" let g:ctrlp_custom_ignore = {
-"   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-"   \ 'file': '\v\.(exe|so|dll)$',
-"   \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-"   \ }
-" let g:ctrlp_custom_ignore = {
-"   \ 'file': '\v(\.cpp|\.h|\.hh|\.cxx)@<!$'
-"   \ }
-
-" unlet g:ctrlp_custom_ignore
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|bundle)$'
 
 " ===========
