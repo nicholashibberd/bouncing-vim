@@ -6,6 +6,7 @@ Requires:
   * Ruby
   * clipboard
   * X11
+* vim pathogen
 
 It's tested on Tmux 1.8 and Vim 7.3 on Ubuntu 12.04 (vim-gnome package).
 
