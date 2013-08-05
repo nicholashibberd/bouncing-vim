@@ -5,6 +5,8 @@ todo
 * figure out how to make minibufexplorer compatible with "args"
 * join lines in insert mode
 * movements for wrapped lines
+* Add snippets for required tmux and bash conf to the readme
+* Add list of features to the readme
 
 vimrc's
 -------
