@@ -1,6 +1,7 @@
 todo
 ----
 
+* fix the bloody MiniBufExplorer colors in solarized
 * join lines in insert mode
 * movements for wrapped lines
 * Add snippets for required tmux and bash conf to the readme
