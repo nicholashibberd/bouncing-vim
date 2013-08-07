@@ -198,6 +198,18 @@
 " nnoremap <Leader>o "+gP
 " vnoremap <Leader>y "+y
 
+" ========================================
+" === External commands without prompt ===
+" ========================================
+" To make the shell interactive (to support local aliases) follow these steps:
+" 1 - set the shell flags
+" http://stackoverflow.com/questions/4642822/commands-executed-from-vim-are-not-recognizing-bash-command-aliases/4642855#4642855
+" set shellcmdflag=-itc
+" 2 - modify the execute line adding a call to "fg" (foreground vim)
+"command! -nargs=1 Silent
+"      \ | execute ':silent !'.<q-args>.'; fg'
+"      \ | execute ':redraw!'
+
 " ===================
 " === Real delete ===
 " ===================

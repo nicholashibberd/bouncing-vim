@@ -398,18 +398,12 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<Left><Left><Left>
 " Example
 " :Silent tmux send-keys -t 1.2 "bundle exec rspec spec/my_spec.rb" C-m
 " => run the tests in the second pane of the first tmux window, enter
-" Note that the actual command must be quoted.
-" command! -nargs=1 Silent
-"       \ | execute ':silent !'.<q-args>
-"       \ | execute ':redraw!'
-
+" Notes
+" - when running a tmux command, the actual command must be quoted;
+" - bash aliases cannot be used; see snippets for more on this;
 command! -nargs=1 Silent
-      \ | execute ':silent !'.<q-args>.'; fg'
+      \ | execute ':silent !'.<q-args>
       \ | execute ':redraw!'
-
-" Also make the shell interactive (to support local aliases)
-" http://stackoverflow.com/questions/4642822/commands-executed-from-vim-are-not-recognizing-bash-command-aliases/4642855#4642855
-set shellcmdflag=-itc
 
 " =======================
 " === Misc keybinding ===
