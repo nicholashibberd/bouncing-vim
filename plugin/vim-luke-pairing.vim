@@ -290,9 +290,10 @@ set backspace=indent,eol,start       " Allow extended backspace behaviour
 set pastetoggle=<F3>                 " disable auto format when pasting from system clipboard
 nnoremap <Leader>v V`]               " <Leader>v selects the just pasted text
 set virtualedit=block                " allow placing the cursor after the last char
-set colorcolumn=81,101               " display vertical rulers for line length
-                                     " http://whiletruecode.com/post/adding-a-vertical-ruler-to-vim
-
+if exists('+colorcolumn')
+  set colorcolumn=81,101              " display vertical rulers for line length
+                                      " http://whiletruecode.com/post/adding-a-vertical-ruler-to-vim
+endif
 " ===========================
 " === Trailing whitespace ===
 " ===========================
