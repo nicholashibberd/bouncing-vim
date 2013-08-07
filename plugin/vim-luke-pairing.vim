@@ -70,30 +70,30 @@ set switchbuf=useopen
 " Different keybindings for people with different terminals.
 " 'close the current buffer without closing the window' (terrific solution)
 " <http://stackoverflow.com/a/8585343/417375>
-nnoremap <C-q> :bp<bar>sp<bar>bn<bar>bd<cr>
-nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<cr>
+nnoremap <C-q> :bp<bar>sp<bar>bn<bar>bd<CR>
+nnoremap <Leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " First, fix ALT for gnome terminal
 map q  <A-q>
 " Second, the actual mapping
 " ...current line in normal and insert mode
-nnoremap <A-q> :bp<bar>sp<bar>bn<bar>bd<cr>
+nnoremap <A-q> :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " Switch buffers...
 " ...toggle between current and previous
-nnoremap <leader><space> :b#<cr>
+nnoremap <Leader><space> :b#<CR>
 " ...next
-nnoremap <C-Pagedown> :bn<cr>
-inoremap <C-Pagedown> :bn<cr>
+nnoremap <C-Pagedown> :bn<CR>
+inoremap <C-Pagedown> :bn<CR>
 " ...previous
-nnoremap <C-Pageup>   :bp<cr>
-inoremap <C-Pageup>   :bp<cr>
+nnoremap <C-Pageup>   :bp<CR>
+inoremap <C-Pageup>   :bp<CR>
 
 " ...without Ctrl key, for mac users
-nnoremap <leader>] :bn<cr>
-inoremap <leader>] :bn<cr>
-nnoremap <leader>[ :bp<cr>
-inoremap <leader>[ :bp<cr>
+nnoremap <Leader>] :bn<CR>
+inoremap <Leader>] :bn<CR>
+nnoremap <Leader>[ :bp<CR>
+inoremap <Leader>[ :bp<CR>
 
 " ================
 " === Home key ===
@@ -165,11 +165,11 @@ function s:TmuxWinCmd(direction)
 endfunction
 
 " navigate between split windows/tmux panes
-nmap <A-Down>   :call <SID>TmuxWinCmd('j')<cr>
-nmap <A-Up>     :call <SID>TmuxWinCmd('k')<cr>
-nmap <A-Left>   :call <SID>TmuxWinCmd('h')<cr>
-nmap <A-Right>  :call <SID>TmuxWinCmd('l')<cr>
-" nmap <A-\> :call <SID>TmuxWinCmd('p')<cr>
+nmap <A-Down>   :call <SID>TmuxWinCmd('j')<CR>
+nmap <A-Up>     :call <SID>TmuxWinCmd('k')<CR>
+nmap <A-Left>   :call <SID>TmuxWinCmd('h')<CR>
+nmap <A-Right>  :call <SID>TmuxWinCmd('l')<CR>
+" nmap <A-\> :call <SID>TmuxWinCmd('p')<CR>
 
 " ===================
 " === Real delete ===
@@ -189,13 +189,11 @@ nnoremap <Leader>d "_dd
 " ...selection in visual mode
 vnoremap <A-d> "_d
 vnoremap <Leader>d "_d
-" TODO: does not work
-inoremap <A-d> <Esc>"_ddi
 
 " Replace currently selected text with default register without yanking it.
 " <http://stackoverflow.com/a/920139>
 " Requires that the leader is mapped non-ambiguously, `map , = \` does not work.
-vnoremap <leader>p "_dP
+vnoremap <Leader>p "_dP
 
 " ====================
 " === Bubble lines ===
@@ -212,18 +210,18 @@ vmap <C-Down> xp`[V`]
 " === Quickfix list navigation ===
 " ================================
 " It's also useful with plugins like 'ack.vim'
-nmap [q :cprevious<cr>
-nmap ]q :cnext<cr>
+nmap [q :cprevious<CR>
+nmap ]q :cnext<CR>
 
 " =========================
 " === Working directory ===
 " =========================
 " expand %% to current directory in the command prompt
 " <https://github.com/chrishunt/dot-files/blob/master/.vim/vimrc>
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
+cnoremap %% <C-R>=expand('%:h').'/'<CR>
 " cd to directory of current buffer, and print it
 " <http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file>
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " ===============================================
 " === Change status line color in insert mode ===
@@ -276,7 +274,7 @@ set expandtab
 set noerrorbells visualbell t_vb=    " Disable all bells
 set encoding=utf-8                   " Encoding
 set number                           " display line numbers
-nnoremap <C-n> :setlocal number!<cr> " Toggle line numbers
+nnoremap <C-n> :setlocal number!<CR> " Toggle line numbers
 set scrolloff=3                      " number of lines visible when scrolling
 set sidescroll=3
 set sidescrolloff=3
@@ -290,7 +288,7 @@ set cursorline                       " highlight currently edited line
 set ruler                            " show cursor position in lower right
 set backspace=indent,eol,start       " Allow extended backspace behaviour
 set pastetoggle=<F3>                 " disable auto format when pasting from system clipboard
-nnoremap <leader>v V`]               " <leader>v selects the just pasted text
+nnoremap <Leader>v V`]               " <Leader>v selects the just pasted text
 set virtualedit=block                " allow placing the cursor after the last char
 set colorcolumn=81,101               " display vertical rulers for line length
                                      " http://whiletruecode.com/post/adding-a-vertical-ruler-to-vim
@@ -362,7 +360,7 @@ set showmatch
 " ...but stay out of the way (do not jump around)
 set matchtime=0
 " clear search results pressing space
-nnoremap <space> :nohlsearch<cr>
+nnoremap <space> :nohlsearch<CR>
 " ignore some directories
 set wildignore+=*/tmp/*,*.pyc
 
@@ -391,7 +389,7 @@ vnoremap <silent> # :<C-U>
 " http://stackoverflow.com/questions/676600/vim-search-and-replace-selected-text
 " By pressing ctrl + r in the visual mode you will be prompted to enter text
 " to replace with. Press enter and then confirm each change.
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+vnoremap <C-r> "hy:%s/<C-r>h//gc<Left><Left><Left>
 
 " ========================================
 " === External commands without prompt ===
@@ -424,14 +422,14 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|bundle)$'
 " === Ack ===
 " ===========
 " launch ack without argument with leader+a
-nnoremap <leader>a :Ack!<space>
+nnoremap <Leader>a :Ack!<space>
 
 " ================
 " === NERDTree ===
 " ================
-map <leader>n :NERDTreeToggle<cr>
+map <Leader>n :NERDTreeToggle<CR>
 " Highlight the current buffer
-map <leader>f :NERDTreeFind<cr>
+map <Leader>f :NERDTreeFind<CR>
 " http://superuser.com/questions/184844/hide-certain-files-in-nerdtree
 let NERDTreeIgnore = ['\.pyc$']
 let NERDTreeMinimalUI=1
@@ -453,19 +451,19 @@ noremap <Leader>b :BuffergatorToggle<CR>
 " Requires vim compiled with ruby support.
 
 " Run the current file with rspec
-map <leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
 " Prompt for a command to run
-map <leader>rp :VimuxPromptCommand<CR>
+map <Leader>rp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
-map <leader>rr :VimuxRunLastCommand<CR>
+map <Leader>rr :VimuxRunLastCommand<CR>
 " Inspect runner pane
-map <leader>ri :VimuxInspectRunner<CR>
+map <Leader>ri :VimuxInspectRunner<CR>
 " Close all other tmux panes in current window
-map <leader>rx :VimuxClosePanes<CR>
+map <Leader>rx :VimuxClosePanes<CR>
 " Close vim tmux runner opened by VimuxRunCommand
-map <leader>rq :VimuxCloseRunner<CR>
+map <Leader>rq :VimuxCloseRunner<CR>
 " Interrupt any command running in the runner pane
-map <leader>rs :VimuxInterruptRunner<CR>
+map <Leader>rs :VimuxInterruptRunner<CR>
 
 " ================
 " === vim-ruby ===
