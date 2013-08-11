@@ -525,3 +525,13 @@ let g:miniBufExplBRSplit = 0
 let g:miniBufExplUseSingleClick = 1
 nnoremap <Leader>m :MBEToggle<CR>
 vnoremap <Leader>m :MBEToggle<CR>
+
+" =================================================================
+" === Experimental stuff from http://zzapper.co.uk/vimtips.html ===
+" =================================================================
+
+" visual searching
+" search for visually highlighted text
+vmap // y/<C-R>"<CR>
+" with spec chars
+vmap <silent> //    y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
