@@ -414,6 +414,15 @@ command! -nargs=1 Silent
 " Make Y consistent with C and D.  See :help Y.
 nnoremap Y y$
 
+" ======================
+" === Format options ===
+" ======================
+
+if version >= 704
+  " delete comment leader when joining lines using J
+  set formatoptions+=j
+endif
+
 " =============
 " === CtrlP ===
 " =============
