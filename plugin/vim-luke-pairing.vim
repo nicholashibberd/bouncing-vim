@@ -38,6 +38,8 @@ autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 if &term =~ '^screen'
   map [6;5~ <C-Pagedown>
   map [5;5~ <C-PageUp>
+  map [6;3~ <A-Pagedown>
+  map [5;3~ <A-Pageup>
 
   exec "set <Home>=\e[1~"
 
@@ -85,15 +87,27 @@ nnoremap <Leader><space> :b#<CR>
 " ...next
 nnoremap <C-Pagedown> :bn<CR>
 inoremap <C-Pagedown> :bn<CR>
+vnoremap <C-Pagedown> :bn<CR>
 " ...previous
 nnoremap <C-Pageup>   :bp<CR>
 inoremap <C-Pageup>   :bp<CR>
+vnoremap <C-Pageup>   :bp<CR>
 
 " ...without Ctrl key, for mac users
 nnoremap <Leader>] :bn<CR>
 inoremap <Leader>] :bn<CR>
+vnoremap <Leader>] :bn<CR>
 nnoremap <Leader>[ :bp<CR>
 inoremap <Leader>[ :bp<CR>
+vnoremap <Leader>[ :bp<CR>
+
+" ...with Alt key instead...
+nnoremap <A-Pagedown> :bn<CR>
+inoremap <A-Pagedown> :bn<CR>
+vnoremap <A-Pagedown> :bn<CR>
+nnoremap <A-Pageup>   :bp<CR>
+inoremap <A-Pageup>   :bp<CR>
+vnoremap <A-Pageup>   :bp<CR>
 
 " ================
 " === Home key ===
