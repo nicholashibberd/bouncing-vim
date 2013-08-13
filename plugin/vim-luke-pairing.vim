@@ -255,7 +255,7 @@ autocmd InsertEnter * highlight StatusLine cterm=bold ctermfg=235 ctermbg=2
 " http://albertomiorin.com/blog/2012/12/10/autoread-and-autowrite-in-vim/
 " http://vim.wikia.com/wiki/Auto_save_files_when_focus_is_lost
 
-set nohidden " do not allow switching between buffers with unsaved changes
+set hidden " allow switching between buffers with unsaved changes
 set nobackup
 set noswapfile
 set nowritebackup
