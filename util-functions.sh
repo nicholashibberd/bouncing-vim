@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 github_basename () {
-  echo "$1" | sed -r 's|.+\/(.+)$|\1|g'
+  echo "$1" | sed -E 's|.+\/(.+)$|\1|g'
 }
 
 clone_to_bundle () {
