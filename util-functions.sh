@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 github_basename () {
   echo "$1" | sed -r 's|.+\/(.+)$|\1|g'
 }

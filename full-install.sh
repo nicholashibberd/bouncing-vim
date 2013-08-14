@@ -2,8 +2,10 @@
 
 set -e
 
-source util-functions.sh
-source plugins.sh
+currdir=$( dirname "$( readlink -f $0 )" )
+
+source "$currdir/util-functions.sh"
+source "$currdir/plugins.sh"
 
 for plugin in ${ESSENTIALS[@]}; do
   clone_plugin "$plugin"
