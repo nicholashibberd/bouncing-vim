@@ -302,12 +302,12 @@ set cursorline                       " highlight currently edited line
 set ruler                            " show cursor position in lower right
 set backspace=indent,eol,start       " Allow extended backspace behaviour
 set pastetoggle=<F3>                 " disable auto format when pasting from system clipboard
-nnoremap <Leader>v V`]               " <Leader>v selects the just pasted text
 set virtualedit=block                " allow placing the cursor after the last char
 if exists('+colorcolumn')
   set colorcolumn=81,101              " display vertical rulers for line length
                                       " http://whiletruecode.com/post/adding-a-vertical-ruler-to-vim
 endif
+
 " ===========================
 " === Trailing whitespace ===
 " ===========================
@@ -427,6 +427,10 @@ command! -nargs=1 Silent
 " This was removed from vim-sensible.
 " Make Y consistent with C and D.  See :help Y.
 nnoremap Y y$
+
+" gp selects the just changed or pasted text
+" <http://vim.wikia.com/wiki/Selecting_your_pasted_text>
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " ======================
 " === Format options ===
