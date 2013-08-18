@@ -1,0 +1,4 @@
+" Per project vimrc
+" <http://damien.lespiau.name/blog/2009/03/18/per-project-vimrc/>
+set exrc " enable per-directory .vimrc files
+set secure " disable unsafe commands in local .vimrc files

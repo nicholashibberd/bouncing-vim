@@ -8,7 +8,10 @@ Requires:
   * X11
 * vim pathogen
 
-It's tested on Tmux 1.8 and Vim 7.4 on Ubuntu 12.04.
+It's used on:
+- Tmux 1.8
+- Vim 7.4
+- Ubuntu 12.04
 
 It also relies on some tmux configuration, that can be found at
 <https://github.com/lucabelmondo/dotfiles>.
@@ -19,4 +22,4 @@ to add rather than change functionality.
 However it's very likely that this is not really achieved, I'm open to suggestions
 on how to make this as unobtrusive as possible.
 
-Thanks for installing! :-)
+Thanks for installing!
