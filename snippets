@@ -414,3 +414,10 @@
 " autocmd ColorScheme * highlight MBEVisibleActiveNormal ctermfg=40
 " ...CHANGED, VISIBLE and ACTIVE
 " autocmd ColorScheme * highlight MBEVisibleActiveChanged ctermfg=199
+
+" === Experimental from http://zzapper.co.uk/vimtips.html ===
+" visual searching
+" search for visually highlighted text, doesn't work well as the chosen solution
+" vmap // y/<C-R>"<CR>
+" ..with spec chars
+" vmap <silent> // y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>

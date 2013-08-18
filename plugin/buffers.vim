@@ -3,17 +3,16 @@
 " If a buffer is already open in another window, jump to it instead of opening a new window.
 set switchbuf=useopen
 
-" Different keybindings for people with different terminals.
 " 'close the current buffer without closing the window' (terrific solution)
 " <http://stackoverflow.com/a/8585343/417375>
-nnoremap <C-q> :bp<bar>sp<bar>bn<bar>bd<CR>
-nnoremap <Leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
-
 " First, fix ALT key (for gnome-terminal).
 map q  <A-q>
 " Second, the actual mapping
 " ...current line in normal and insert mode
 nnoremap <A-q> :bp<bar>sp<bar>bn<bar>bd<CR>
+" Alternative keybindings for people with different terminals.
+nnoremap <C-q> :bp<bar>sp<bar>bn<bar>bd<CR>
+nnoremap <Leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " Switch buffers...
 " ...toggle between current and previous
