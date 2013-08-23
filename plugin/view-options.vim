@@ -19,6 +19,7 @@ set cursorline                       " highlight currently edited line
 set ruler                            " show cursor position in lower right
 set backspace=indent,eol,start       " Allow extended backspace behaviour
 set virtualedit=block                " allow placing the cursor after the last char
+set shortmess+=I                     " disable welcome screen
 if exists('+colorcolumn')
   set colorcolumn=81,101              " display vertical rulers for line length
                                       " http://whiletruecode.com/post/adding-a-vertical-ruler-to-vim
