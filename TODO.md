@@ -18,3 +18,4 @@ vimrc's
 
 * <https://github.com/bryankennedy/vimrc/blob/master/vimrc>
 * <https://github.com/henrik/dotfiles>
+* <https://github.com/mislav/vimfiles>
