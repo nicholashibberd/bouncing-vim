@@ -33,11 +33,3 @@ vnoremap <Leader>] :bn<CR>
 nnoremap <Leader>[ :bp<CR>
 inoremap <Leader>[ :bp<CR>
 vnoremap <Leader>[ :bp<CR>
-
-" ...with Alt key instead...
-nnoremap <A-Pagedown> :bn<CR>
-inoremap <A-Pagedown> :bn<CR>
-vnoremap <A-Pagedown> :bn<CR>
-nnoremap <A-Pageup>   :bp<CR>
-inoremap <A-Pageup>   :bp<CR>
-vnoremap <A-Pageup>   :bp<CR>
