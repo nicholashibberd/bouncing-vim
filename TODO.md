@@ -1,6 +1,7 @@
 todo
 ----
 
+* fix CTRL_R for replace current visual selection
 * keybindings to toggle
 :set nocursorline/:NoMatchParen <=> :set cursorline/:DoMatchParen
 let loaded_matchparen = 1
