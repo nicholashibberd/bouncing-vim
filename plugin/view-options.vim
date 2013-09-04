@@ -5,7 +5,7 @@
 set noerrorbells visualbell t_vb=    " Disable all bells
 set encoding=utf-8                   " Encoding
 set number                           " display line numbers
-nnoremap <C-n> :setlocal number!<CR> " Toggle line numbers
+" nnoremap <C-n> :setlocal number!<CR> " Toggle line numbers
 set scrolloff=3                      " number of lines visible when scrolling
 set sidescroll=3
 set sidescrolloff=3
