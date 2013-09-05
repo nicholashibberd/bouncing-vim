@@ -119,7 +119,7 @@ imap <buffer> <F4> <Plug>(xmpfilter-mark)
 " Put new window above current or on the left for vertical split
 let g:miniBufExplBRSplit = 0
 let g:miniBufExplUseSingleClick = 1
-nnoremap <Leader>m :MBEFocus<CR>
-vnoremap <Leader>m :MBEFocus<CR>
-nnoremap <Leader>t :MBEToggle<CR>
-vnoremap <Leader>t :MBEToggle<CR>
+nnoremap <Leader>t :MBEFocus<CR>
+vnoremap <Leader>t :MBEFocus<CR>
+nnoremap <Leader>m :MBEToggle<CR>
+vnoremap <Leader>m :MBEToggle<CR>
