@@ -5,7 +5,7 @@
 " =======================
 
 " This was removed from vim-sensible.
-" Make Y consistent with C and D.  See :help Y.
+" Make Y consistent with C and D. See :help Y.
 nnoremap Y y$
 
 " ======================
@@ -24,7 +24,11 @@ endif
 " =============
 
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|bundle)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/]\.(git|hg|svn|bundle)$',
+  \ 'file': '\v\.(exe|so|dll|class|pyc)$',
+  \ }
+  " \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
 
 " ===========
 " === Ack ===
@@ -39,7 +43,7 @@ map <Leader>n :NERDTreeToggle<CR>
 " Highlight the current buffer
 map <Leader>f :NERDTreeFind<CR>
 " http://superuser.com/questions/184844/hide-certain-files-in-nerdtree
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', '\.class$']
 let NERDTreeMinimalUI=1
 
 " Prevent NERDTree from opening a new split-window
