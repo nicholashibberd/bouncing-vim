@@ -45,10 +45,12 @@ map <Leader>f :NERDTreeFind<CR>
 " http://superuser.com/questions/184844/hide-certain-files-in-nerdtree
 let NERDTreeIgnore = ['\.pyc$', '\.class$']
 let NERDTreeMinimalUI=1
+let NERDTreeMouseMode=2 " single click to toggle dirs, dblclick to open files
+let NERDTreeQuitOnOpen=1 " avoid clutter, close NERDTree after opening a file
 
 " Prevent NERDTree from opening a new split-window
 " <http://stackoverflow.com/questions/8323666/make-nerdtree-never-open-a-third-window>
-" It's nice in theory but it seems to work pretty randomly.
+" If the last focused buffer is modified and unsaved, it will still open a new split
 set buftype=
 
 " ===================
