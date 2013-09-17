@@ -48,7 +48,7 @@ map <Leader>f :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.pyc$', '\.class$']
 let NERDTreeMinimalUI=1
 let NERDTreeMouseMode=2 " single click to toggle dirs, dblclick to open files
-let NERDTreeQuitOnOpen=1 " avoid clutter, close NERDTree after opening a file
+" let NERDTreeQuitOnOpen=1 " avoid clutter, close NERDTree after opening a file
 
 " Prevent NERDTree from opening a new split-window
 " <http://stackoverflow.com/questions/8323666/make-nerdtree-never-open-a-third-window>
