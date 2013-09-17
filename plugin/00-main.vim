@@ -7,6 +7,8 @@
 " This was removed from vim-sensible.
 " Make Y consistent with C and D. See :help Y.
 nnoremap Y y$
+" Disable F1 key (main vim help) to avoid bringing it up by mistake.
+noremap <F1> <Nop>
 
 " ======================
 " === Format options ===
