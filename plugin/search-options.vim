@@ -1,5 +1,9 @@
 " Search basics
 
+" Center the next/previous search result
+nmap n nzz
+nmap N Nzz
+
 " Automatically add \v when searching so that regexp acts more like in perl
 nnoremap / /\v
 vnoremap / /\v
