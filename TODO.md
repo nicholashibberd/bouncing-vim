@@ -20,3 +20,4 @@ vimrc's
 * <https://github.com/bryankennedy/vimrc/blob/master/vimrc>
 * <https://github.com/henrik/dotfiles>
 * <https://github.com/mislav/vimfiles>
+* <http://net.tutsplus.com/articles/general/top-10-pitfalls-when-switching-to-vim/>
