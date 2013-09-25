@@ -1,6 +1,7 @@
 todo
 ----
 
+* command to delete all the open buffers
 * fix CTRL_R for replace current visual selection
 * keybindings to toggle
 :set nocursorline/:NoMatchParen <=> :set cursorline/:DoMatchParen
