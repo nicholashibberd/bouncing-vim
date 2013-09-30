@@ -27,7 +27,7 @@ endif
 
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v[\/]\.(git|hg|svn|bundle)$',
+  \ 'dir': '\v[\/]\.*(git|hg|svn|bundle|bin|bbin)$',
   \ 'file': '\v\.(exe|so|dll|class|pyc)$',
   \ }
   " \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
@@ -47,7 +47,7 @@ map <Leader>f :NERDTreeFind<CR>
 " http://superuser.com/questions/184844/hide-certain-files-in-nerdtree
 let NERDTreeIgnore = ['\.pyc$', '\.class$']
 let NERDTreeMinimalUI=1
-let NERDTreeMouseMode=2 " single click to toggle dirs, dblclick to open files
+" let NERDTreeMouseMode=2 " single click to toggle dirs, dblclick to open files
 " let NERDTreeQuitOnOpen=1 " avoid clutter, close NERDTree after opening a file
 
 " Prevent NERDTree from opening a new split-window
