@@ -1,6 +1,7 @@
 todo
 ----
 
+* map F1 to escape
 * restore autosave on lost focus (after discussion about unsaved buffers)
 * move the "jj" mapping from vimrc to the plugin
 * map switching buffers with shift-h and shift-l
