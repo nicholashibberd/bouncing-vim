@@ -1,6 +1,9 @@
 todo
 ----
 
+* restore autosave on lost focus (after discussion about unsaved buffers)
+* move the "jj" mapping from vimrc to the plugin
+* map switching buffers with shift-h and shift-l
 * command to delete all the open buffers
 * fix CTRL_R for replace current visual selection
 * keybindings to toggle
@@ -18,6 +21,7 @@ let loaded_matchparen = 1
 vimrc's
 -------
 
+* <https://github.com/DawidJanczak/.vim/blob/master/.vimrc>
 * <https://github.com/bryankennedy/vimrc/blob/master/vimrc>
 * <https://github.com/henrik/dotfiles>
 * <https://github.com/mislav/vimfiles>
