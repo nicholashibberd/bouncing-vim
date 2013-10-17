@@ -1,18 +1,12 @@
 todo
 ----
 
-* map F1 to escape
-* restore autosave on lost focus (after discussion about unsaved buffers)
-* move the "jj" mapping from vimrc to the plugin
-* map switching buffers with shift-h and shift-l
 * command to delete all the open buffers
-* fix CTRL_R for replace current visual selection
 * keybindings to toggle
-:set nocursorline/:NoMatchParen <=> :set cursorline/:DoMatchParen
-let loaded_matchparen = 1
+  * :set nocursorline/:NoMatchParen <=> :set cursorline/:DoMatchParen
+  * let loaded_matchparen = 1
 * keybindings for split panes resising
 * keybindings for activating/deactivating the automatic line wrapping (reflow)
-* fix the bloody MiniBufExplorer colors in solarized
 * join lines in insert mode (not sure it's a good idea)
 * trick to create the required directories if needed, directly from the vimrc
 * movements for wrapped lines (consider the wrapped part as a new line)

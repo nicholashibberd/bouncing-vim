@@ -33,3 +33,7 @@ vnoremap <Leader>] :bn<CR>
 nnoremap <Leader>[ :bp<CR>
 inoremap <Leader>[ :bp<CR>
 vnoremap <Leader>[ :bp<CR>
+
+" ...as if they were tabs, for some Vim users
+nnoremap <S-h> :bp<CR>
+nnoremap <S-l> :bn<CR>
