@@ -11,3 +11,4 @@ set nowritebackup
 
 " Auto-reload buffers when file changed on disk (doesn't work in reality)
 set autoread
+set autowrite
