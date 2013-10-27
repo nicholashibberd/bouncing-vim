@@ -1,12 +1,17 @@
 " Search basics
 
 " Center the next/previous search result
-nmap n nzz
-nmap N Nzz
+" confusing in some situations, disabled for now
+" nmap n nzz
+" nmap N Nzz
 
 " Automatically add \v when searching so that regexp acts more like in perl
+" Warning: this will require to escape '<' and '>' charachters when
+" looking for git conflicts; in this case it's just easier to press backspace
+" twice before typing <<<< or >>>>
 nnoremap / /\v
 vnoremap / /\v
+
 " Ignore case
 set ignorecase
 " ...unless one upper case letter is present in the word

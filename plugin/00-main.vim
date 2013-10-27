@@ -8,11 +8,15 @@
 " Make Y consistent with C and D. See :help Y.
 nnoremap Y y$
 " Disable F1 key (main vim help) to avoid bringing it up by mistake.
-noremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+inoremap <F1> <ESC>
 
 " j and k work on visible lines instead of actual lines
 nnoremap j gj
 nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up> gk
 
 " Go from insert mode to normal mode with 'jj'
 inoremap jj <ESC>
