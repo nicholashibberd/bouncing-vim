@@ -14,7 +14,6 @@ todo
 * keybindings for activating/deactivating the automatic line wrapping (reflow)
 * join lines in insert mode (not sure it's a good idea)
 * trick to create the required directories if needed, directly from the vimrc
-* movements for wrapped lines (consider the wrapped part as a new line)
 * Add snippets for required tmux and bash conf to the readme
 * Add list of features to the readme
 
