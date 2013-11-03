@@ -12,7 +12,7 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 inoremap <F1> <ESC>
 
-" j and k work on visible lines instead of actual lines
+" j/k and up/down work on visible lines instead of actual lines
 nnoremap j gj
 nnoremap k gk
 nnoremap <Down> gj
@@ -52,6 +52,7 @@ nnoremap <Leader>a :Ack!<space>
 " ================
 " === NERDTree ===
 " ================
+" Shortcut to open/close NERDTree
 map <Leader>n :NERDTreeToggle<CR>
 " Highlight the current buffer
 map <Leader>f :NERDTreeFind<CR>
