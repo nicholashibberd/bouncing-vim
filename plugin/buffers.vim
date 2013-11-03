@@ -14,7 +14,7 @@ nnoremap <A-q> :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <C-q> :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <Leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
-" Copy the current buffer full path to the clipboard with `cp`
+" Copy the current buffer full path to the system clipboard with `cp`
 " http://stackoverflow.com/questions/916875/yank-file-name-path-of-current-buffer-in-vim
 nnoremap cp :let @+ = expand("%:p")<CR>
 
@@ -40,5 +40,5 @@ inoremap <Leader>[ :bp<CR>
 vnoremap <Leader>[ :bp<CR>
 
 " ...as if they were tabs, for some Vim users
-nnoremap <S-h> :bp<CR>
-nnoremap <S-l> :bn<CR>
+" nnoremap <S-h> :bp<CR>
+" nnoremap <S-l> :bn<CR>
