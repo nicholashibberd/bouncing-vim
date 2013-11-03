@@ -1,7 +1,6 @@
 todo
 ----
 
-* use system clipboard by default (does it work remotely?)
 * select inside and around pipe chars
 * toggle between {} and do-end
 * command to delete all the open buffers
