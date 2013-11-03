@@ -1,7 +1,10 @@
 todo
 ----
 
-* select inside and around pipe chars
+* select inside and around pipe chars; see also
+  - <http://vim.wikia.com/wiki/Creating_new_text_objects>
+  - <http://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/>
+  the problem is that pipe is a command to "go to column..."
 * toggle between {} and do-end
 * command to delete all the open buffers
 * keybindings to toggle
