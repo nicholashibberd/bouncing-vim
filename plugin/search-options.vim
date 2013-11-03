@@ -9,8 +9,8 @@
 " Warning: this will require to escape '<' and '>' charachters when
 " looking for git conflicts; in this case it's just easier to press backspace
 " twice before typing <<<< or >>>>
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 
 " Ignore case
 set ignorecase
