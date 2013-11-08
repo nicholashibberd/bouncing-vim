@@ -6,7 +6,6 @@ todo
   - <http://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/>
   the problem is that pipe is a command to "go to column..."
 * toggle between {} and do-end
-* command to delete all the open buffers
 * keybindings to toggle
   * :set nocursorline/:NoMatchParen <=> :set cursorline/:DoMatchParen
   * let loaded_matchparen = 1
@@ -17,9 +16,10 @@ todo
 * Add snippets for required tmux and bash conf to the readme
 * Add list of features to the readme
 
-vimrc's
--------
+Interesting vimrc files
+-----------------------
 
+* <http://items.sjbach.com/319>
 * <https://github.com/DawidJanczak/.vim/blob/master/.vimrc>
 * <https://github.com/bryankennedy/vimrc/blob/master/vimrc>
 * <https://github.com/henrik/dotfiles>

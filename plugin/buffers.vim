@@ -18,6 +18,10 @@ nnoremap <Leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 " http://stackoverflow.com/questions/916875/yank-file-name-path-of-current-buffer-in-vim
 nnoremap cp :let @+ = expand("%:p")<CR>
 
+" Close all the buffers
+" https://github.com/bryankennedy/vimrc/blob/master/vimrc
+nnoremap bda :1,300 bd<CR>
+
 """""""""""""""""""
 " Switch buffers...
 " ...toggle between current and previous
