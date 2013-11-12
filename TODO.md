@@ -1,6 +1,8 @@
 todo
 ----
 
+* reenable vim directives in the files
+* quick toggle spell check
 * select inside and around pipe chars; see also
   - <http://vim.wikia.com/wiki/Creating_new_text_objects>
   - <http://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/>
