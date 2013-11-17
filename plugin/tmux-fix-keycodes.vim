@@ -31,4 +31,3 @@ if &term =~ '^screen'
   exec "set <xRight>=\e[1;*C"
   exec "set <xLeft>=\e[1;*D"
 endif
-

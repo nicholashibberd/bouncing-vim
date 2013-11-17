@@ -2,6 +2,10 @@ todo
 ----
 
 * the close-all buffers command does not work nicely with special buffers (nerdtree...)
+  - <http://stackoverflow.com/questions/1534835/how-do-i-close-all-buffers-that-arent-shown-in-a-window-in-vim>
+  - <http://stackoverflow.com/questions/8450919/how-can-i-delete-all-hidden-buffers>
+  - <https://gist.github.com/skanev/1068214>
+  - <http://vim.1045645.n5.nabble.com/close-all-unvisible-buffers-td4262697.html>
 * reenable vim directives in the files
 * quick toggle spell check
 * select inside and around pipe chars; see also
