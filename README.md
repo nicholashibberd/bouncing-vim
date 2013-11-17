@@ -75,3 +75,31 @@ bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -
 ```
 
 More info at <https://github.com/lucabelmondo/dotfiles/blob/master/tmux.conf>.
+
+Features
+--------
+
+### Bubbling lines
+
+With `CTRL+ArrowUp` and `CTRL+ArrowDown` (single lines in normal mode,
+multiple lines in visual mode).
+
+### Buffer enhancements
+
+* Reuse a buffer if a file is already open
+* Switch between buffers with the same shortcuts used for tabs in Chrome:
+  `CTRL+PageUp/PageDown`;
+  on those machines where that doesn't work, `<leader>+[` and `<leader>+]` can
+  be used.
+* Quick close the current buffer without closing it window with `CTRL+q`, or
+  `ALT+q`, or `<leader>+q`
+* Close all the invisible buffers with the `bda` sequence in normal mode
+* Copy the full path of the current buffer to the clipboard, with the sequence
+  `cp` in normal mode
+* MiniBufExplorer plugin (tab-like list of buffers)
+  - position at the top
+  - focus the buffer list with `<leader>+t`
+  - toggle the buffer list with `<leader>+m`
+* Buffergator plugin (interactive list of buffers)
+  - open on the right hand side
+  - toggle with `<leader>+b`
