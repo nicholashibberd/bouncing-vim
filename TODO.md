@@ -1,6 +1,7 @@
 todo
 ----
 
+* the close-all buffers command does not work nicely with special buffers (nerdtree...)
 * reenable vim directives in the files
 * quick toggle spell check
 * select inside and around pipe chars; see also
@@ -21,6 +22,7 @@ todo
 Interesting vimrc files
 -----------------------
 
+* <https://github.com/r00k/dotfiles/blob/master/vimrc> (Ben Orenstein)
 * <http://items.sjbach.com/319>
 * <https://github.com/DawidJanczak/.vim/blob/master/.vimrc>
 * <https://github.com/bryankennedy/vimrc/blob/master/vimrc>
