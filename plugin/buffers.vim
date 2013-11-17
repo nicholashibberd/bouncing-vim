@@ -43,6 +43,32 @@ nnoremap <Leader>[ :bp<CR>
 inoremap <Leader>[ :bp<CR>
 vnoremap <Leader>[ :bp<CR>
 
-" ...as if they were tabs, for some Vim users
-" nnoremap <S-h> :bp<CR>
-" nnoremap <S-l> :bn<CR>
+" ============================================
+" === Close all hidden non-special buffers ===
+" ============================================
+"
+" source http://stackoverflow.com/questions/1534835/how-do-i-close-all-buffers-that-arent-shown-in-a-window-in-vim
+" modified to ensure that the buffers to close are normal (listed) buffers
+"
+" Other similar functions:
+" http://stackoverflow.com/questions/8450919/how-can-i-delete-all-hidden-buffers>
+" https://gist.github.com/skanev/1068214>
+" http://vim.1045645.n5.nabble.com/close-all-unvisible-buffers-td4262697.html>
+function! CloseHiddenBuffers()
+  " figure out which buffers are visible in any tab
+  let visible = {}
+  for t in range(1, tabpagenr('$'))
+    for b in tabpagebuflist(t)
+      let visible[b] = 1
+    endfor
+  endfor
+  " close any buffer that's loaded and not visible
+  for b in range(1, bufnr('$'))
+    " add buflisted() to avoid closing special buffers
+    if bufloaded(b) && !has_key(visible, b) && buflisted(b)
+      exe 'bd ' . b
+    endif
+  endfor
+endfun
+
+nnoremap bda :call CloseHiddenBuffers()<CR>
