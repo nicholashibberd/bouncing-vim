@@ -1,20 +1,52 @@
 What is it?
 -----------
 
-A collection of VIM customisations that I use every day, providing features
-that helped me in the transition from Sublime Text.
+A collection of VIM customisations that I use every day, providing helpful
+features in the transition to Vim.
 
-It also help me in remote pairing sessions with a temporary install.
+With a temporary install it is also useful in remote pairing sessions.
 
-Credits are given in the form of a link the original resource.
+It tries wherever possible to override built-in and popular setups and
+keybindings, and to add rather than change functionality.
 
-Usage
------
+However if you find some conflict with existing functionalities, please do let
+me know, so that over time I can make the plugin as unobtrusive as possible.
 
-### Installing the other required plugins
+Credits are given in the form of links in the code.
 
-While not strictly necessary, a few other popular plugins are assumed.
+Thanks for installing!
 
+Installing
+----------
+
+See:
+
+* <https://github.com/lucabelmondo/vim-luke-install> for installing Vim from
+source on Ubuntu and the other required plugins
+* <https://github.com/lucabelmondo/tmux-setup> for installing Tmux from source
+on Ubuntu
+
+Install this plugin with pathogen.
+
+Requirements
+------------
+
+### Environment
+
+* Ubuntu 12.04 (but it mostly works on Mac too)
+* Tmux 1.8
+* Vim 7.4
+* git
+* vim compiled with support for:
+  * Python
+  * Ruby
+  * clipboard
+  * X11
+* pathogen
+
+### Other plugins
+
+Some (very) popular plugins are assumed to be installed via pathogen.
 * Download the helper scripts at <https://github.com/lucabelmondo/vim-luke-install/>
 * If a full install is required: run `install-plugins.sh`.
 * If a temporary install is preferred:
@@ -23,8 +55,8 @@ While not strictly necessary, a few other popular plugins are assumed.
 
 ### Tmux configuration
 
-Add the following to `.tmux.conf` to enable better integration between vim and
-tmux.
+Add the following to `.tmux.conf` to enable seamless navigation between vim and
+tmux windows.
 
 ```sh
 # Enable 256 colorschemes
@@ -43,33 +75,3 @@ bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -
 ```
 
 More info at <https://github.com/lucabelmondo/dotfiles/blob/master/tmux.conf>.
-
-Requirements
-------------
-
-While not strictly a requirement, it assumes that some popular plugins are
-installed via pathogen.
-* git
-* vim with support for:
-  * Python
-  * Ruby
-  * clipboard
-  * X11
-* pathogen
-
-It's used every day on:
-
-* Tmux 1.8
-* Vim 7.4
-* Ubuntu 12.04
-
-It also relies on some tmux configuration, that can be found at
-<https://github.com/lucabelmondo/dotfiles>.
-
-I tried to avoid overriding built-in and popular setups and keybindings I was
-aware of and to add rather than change functionality.
-
-However if you find some conflict with existing functionalities, please do let
-me know, so that over time I can make the plugin as unobtrusive as possible.
-
-Thanks for installing!
