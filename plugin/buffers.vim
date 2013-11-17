@@ -1,10 +1,14 @@
-" Buffers
-
+" =====================
+" === Reuse buffers ===
+" =====================
+"
 " If a buffer is already open in another window, jump to it instead of opening a new window.
 set switchbuf=useopen
 
-" 'close the current buffer without closing the window' (terrific solution)
-" <http://stackoverflow.com/a/8585343/417375>
+" Close the current buffer without closing the window
+" ===================================================
+"
+" <http://stackoverflow.com/a/8585343/417375> (terrific solution)
 " First, fix ALT key (for gnome-terminal).
 map q  <A-q>
 " Second, the actual mapping
@@ -14,16 +18,18 @@ nnoremap <A-q> :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <C-q> :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <Leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
+" ========================
+" === Copy buffer path ===
+" ========================
+"
 " Copy the current buffer full path to the system clipboard with `cp`
 " http://stackoverflow.com/questions/916875/yank-file-name-path-of-current-buffer-in-vim
 nnoremap cp :let @+ = expand("%:p")<CR>
 
-" Close all the buffers
-" https://github.com/bryankennedy/vimrc/blob/master/vimrc
-nnoremap bda :1,300 bd<CR>
-
-"""""""""""""""""""
-" Switch buffers...
+" =========================
+" === Switch buffers... ===
+" =========================
+"
 " ...toggle between current and previous
 nnoremap <Leader><space> :b#<CR>
 " ...next

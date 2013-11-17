@@ -1,6 +1,6 @@
+"  Change status line color in insert mode
 " ===============================================
-" === Change status line color in insert mode ===
-" ===============================================
+"
 " <http://fahdshariff.blogspot.co.uk/2012/06/vim-change-statusline-colour-based-on.html>
 
 set laststatus=2
