@@ -67,12 +67,6 @@ let NERDTreeMinimalUI=1
 " If the last focused buffer is modified and unsaved, it will still open a new split
 set buftype=
 
-" ===================
-" === Buffergator ===
-" ===================
-let g:buffergator_viewport_split_policy='R'
-noremap <Leader>b :BuffergatorToggle<CR>
-
 " ==========================
 " === vimux - vim + tmux ===
 " ==========================
@@ -135,14 +129,3 @@ imap <buffer> <F5> <Plug>(xmpfilter-run)
 nmap <buffer> <F4> <Plug>(xmpfilter-mark)
 xmap <buffer> <F4> <Plug>(xmpfilter-mark)
 imap <buffer> <F4> <Plug>(xmpfilter-mark)
-
-" =======================
-" === MiniBufExplorer ===
-" =======================
-" Put new window above current or on the left for vertical split
-let g:miniBufExplBRSplit = 0
-let g:miniBufExplUseSingleClick = 1
-nnoremap <Leader>t :MBEFocus<CR>
-vnoremap <Leader>t :MBEFocus<CR>
-nnoremap <Leader>m :MBEToggle<CR>
-vnoremap <Leader>m :MBEToggle<CR>
