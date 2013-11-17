@@ -1,12 +1,12 @@
 What is it?
 -----------
 
-A collection of VIM customisations that I use every day, providing helpful
+A collection of customisations that I use every day, providing helpful
 features in the transition to Vim.
 
 With a temporary install it is also useful in remote pairing sessions.
 
-It tries wherever possible to override built-in and popular setups and
+It tries wherever possible to avoid overriding built-in and popular setups and
 keybindings, and to add rather than change functionality.
 
 However if you find some conflict with existing functionalities, please do let
@@ -79,6 +79,8 @@ More info at <https://github.com/lucabelmondo/dotfiles/blob/master/tmux.conf>.
 Features
 --------
 
+> (incomplete list, this README is a work in progress)
+
 ### Bubbling lines
 
 With `CTRL+ArrowUp` and `CTRL+ArrowDown` (single lines in normal mode,
@@ -103,3 +105,6 @@ multiple lines in visual mode).
 * Buffergator plugin (interactive list of buffers)
   - open on the right hand side
   - toggle with `<leader>+b`
+
+> A lot of other features are already implemented, this README will be
+> updated to illustrate all of them.
