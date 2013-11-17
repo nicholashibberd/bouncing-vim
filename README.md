@@ -86,6 +86,8 @@ Features
 With `CTRL+ArrowUp` and `CTRL+ArrowDown` (single lines in normal mode,
 multiple lines in visual mode).
 
+Keycode fixes are provided for this to work in Tmux as well.
+
 ### Buffer enhancements
 
 * Reuse a buffer if a file is already open
@@ -93,7 +95,7 @@ multiple lines in visual mode).
   `CTRL+PageUp/PageDown`;
   on those machines where that doesn't work, `<leader>+[` and `<leader>+]` can
   be used.
-* Quick close the current buffer without closing it window with `CTRL+q`, or
+* Quick close the current buffer without closing its window with `CTRL+q`, or
   `ALT+q`, or `<leader>+q`
 * Close all the invisible buffers with the `bda` sequence in normal mode
 * Copy the full path of the current buffer to the clipboard, with the sequence
@@ -108,3 +110,25 @@ multiple lines in visual mode).
 
 > A lot of other features are already implemented, this README will be
 > updated to illustrate all of them.
+
+### Clipboard
+
+* Copy the visual selection to the system clipboard with `CTRL+c`
+* Configuration is provided to support system clipboard in Tmux as well
+
+### Real delete
+
+Vim collapses the two functionalities of deleting and cutting.
+
+The `ALT+d` shortcut is provided to do real deletion (cut to the blackhole
+register in Vim parlance):
+- current line in normal mode
+- selection in visual mode
+
+### Home key
+
+Pressing the home key will bring to the first non-blank character.
+Pressing again will bring to the first column, and then it will toggle between
+the two positions.
+
+Keycode fix is provided for this to work inside Tmux.
