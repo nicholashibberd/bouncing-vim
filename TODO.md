@@ -1,6 +1,7 @@
 todo
 ----
 
+* ensure that indentation is absolute, not relative to initial position
 * use minibufexplorer mappings to swtich buffers if the plugin is available
 * change delay between keys for mappings
 * reenable vim directives in the files
