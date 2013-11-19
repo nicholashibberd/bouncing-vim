@@ -131,4 +131,13 @@ Pressing the home key will bring to the first non-blank character.
 Pressing again will bring to the first column, and then it will toggle between
 the two positions.
 
-Keycode fix is provided for this to work inside Tmux.
+A keycode fix is provided for this to work inside Tmux.
+
+### Last position in file
+
+Reopening a file the cursor will jump to the position where it was the last
+time the buffer was opened.
+
+### Mouse support
+
+Mouse features are fully enabled.
