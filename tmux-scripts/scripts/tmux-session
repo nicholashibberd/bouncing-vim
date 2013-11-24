@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+sudo rm -f /tmp/tmux-sessions*
+tmux -2 -S /tmp/tmux-sessions new-session -s tmux-session -d
+tmux -S /tmp/tmux-sessions send-keys -t tmux-session 'share-session' C-m
+attach-session
