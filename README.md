@@ -1,32 +1,18 @@
 What is it?
 -----------
 
-A collection of customisations that I use every day, providing helpful
-features in the transition to Vim.
+A small, opinionated yet unobtrusive vim distro, tightly integrated with tmux.
 
-With a temporary install it is also useful in remote pairing sessions.
-
-It tries wherever possible to avoid overriding built-in and popular setups and
-keybindings, and to add rather than change functionality.
-
-However if you find some conflict with existing functionalities, please do let
-me know, so that over time I can make the plugin as unobtrusive as possible.
-
-Credits are given in the form of links in the code.
-
-Thanks for installing!
+It supports temporary installation by taking advantage of pathogen.
 
 Installing
 ----------
 
-See:
+Installation of Vim and tmux supports Ubuntu. The plugin itself uses pathogen.
 
-* <https://github.com/lucabelmondo/vim-luke-install> for installing Vim from
-source on Ubuntu and the other required plugins
-* <https://github.com/lucabelmondo/tmux-setup> for installing Tmux from source
-on Ubuntu
+### Install Vim (from mercurial repository)
 
-Install this plugin with pathogen.
+### Install
 
 Requirements
 ------------
@@ -38,10 +24,10 @@ Requirements
 * Vim 7.4
 * git
 * vim compiled with support for:
-  * Python
-  * Ruby
-  * clipboard
-  * X11
+  - Python
+  - Ruby
+  - clipboard
+  - X11
 * pathogen
 
 ### Other plugins
