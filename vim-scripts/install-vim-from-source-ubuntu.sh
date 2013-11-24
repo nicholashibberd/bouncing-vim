@@ -12,7 +12,7 @@
 
 set -e
 
-VIM_SOURCE_DIR="$HOME/Downloads/vim"
+VIM_SOURCE_DIR="${HOME}/Downloads/vim"
 VIM_SOURCE_BKP="${VIM_SOURCE_DIR}.bkp"
 
 echo "Update the apt index"
@@ -83,17 +83,19 @@ sudo make install
 cd ~/Downloads
 
 archive_filename="vim-compiled-$(date -d "today" +"%Y-%m-%d_%H-%M-%S").tar.gz"
-echo "Archive source to $archive_filename for uninstall."
+echo "Archive source to ${archive_filename} for uninstall."
 tar cfz $archive_filename vim/
 
 echo "Remove source dir"
 rm -rf $VIM_SOURCE_DIR
 
 echo "Add vim to the alternatives"
-sudo update-alternatives --install /usr/bin/editor editor   /usr/bin/vim    00
+
 #                                  <link>          <group>  <path>          <priority>
-sudo update-alternatives --set editor   /usr/bin/vim
+sudo update-alternatives --install /usr/bin/editor editor   /usr/bin/vim    00
+
 #                              <group>  <path>
+sudo update-alternatives --set editor   /usr/bin/vim
 
 echo "To uninstall, unpack the latest source archive, cd to it, and run:"
 echo

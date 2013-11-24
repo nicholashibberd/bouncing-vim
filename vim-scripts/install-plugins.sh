@@ -4,8 +4,8 @@ set -e
 
 currdir=$( dirname "$( readlink -f $0 )" )
 
-source "$currdir/utils.sh"
-source "$currdir/plugins.sh"
+source "${currdir}/../utils.sh"
+source "${currdir}/../plugins.sh"
 
 if [[ ! $(command -v curl) ]]; then
   echo "curl is required"
@@ -35,7 +35,7 @@ mkdir -p \
 # git clone https://github.com/tpope/vim-pathogen.git ~/.vim/vim-pathogen
 # ln -sf ~/.vim/vim-pathogen/autoload/pathogen.vim ~/.vim/autoload/pathogen.vim
 
-if [[ -e "$HOME/.vim/autoload/pathogen.vim" ]]; then
+if [[ -e "${HOME}/.vim/autoload/pathogen.vim" ]]; then
   echo "vim pathogen is already installed"
 else
   echo "Install pathogen plugin"

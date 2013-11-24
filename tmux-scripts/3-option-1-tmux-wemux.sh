@@ -12,16 +12,16 @@ if [[ $(command -v wemux) ]]; then
   echo "wemux was already installed"
 else
   sudo git clone --quiet git://github.com/zolrath/wemux.git $WEMUX_INSTALL_DIR
-  echo "Cloned wemux to $WEMUX_INSTALL_DIR"
+  echo "Cloned wemux to ${WEMUX_INSTALL_DIR}"
 fi
 
-sudo ln -sf $WEMUX_INSTALL_DIR/wemux /usr/local/bin/wemux
+sudo ln -sf ${WEMUX_INSTALL_DIR}/wemux /usr/local/bin/wemux
 echo "wemux executable symlinked at /usr/local/bin/wemux"
 
-sudo cp $WEMUX_INSTALL_DIR/wemux.conf.example /usr/local/etc/wemux.conf
+sudo cp ${WEMUX_INSTALL_DIR}/wemux.conf.example /usr/local/etc/wemux.conf
 echo "wemux sample config copied to /usr/local/etc/wemux.conf"
 
-sudo sed -r -i "s/host_list=\(.+\)/host_list=\($USER\)/" /usr/local/etc/wemux.conf
+sudo sed -r -i "s/host_list=\(.+\)/host_list=\(${USER}\)/" /usr/local/etc/wemux.conf
 echo "Ensure current user authorized to create wemux servers"
 
 echo
