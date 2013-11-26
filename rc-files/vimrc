@@ -1,0 +1,132 @@
+" .vimrc originally based on https://github.com/DawidJanczak/.vim/blob/master/.vimrc
+
+" ================
+" === Pathogen ===
+" ================
+execute pathogen#infect()
+execute pathogen#helptags()
+
+" ==============
+" === Basics ===
+" ==============
+" Map leader key to the customary comma
+let mapleader=','
+
+set nocompatible " with VI
+set nomodeline " Ignore vim directives in magic comments
+
+" ===================
+" === Colorscheme ===
+" ===================
+
+" set the TERM to 'screen-256color' in the .bashrc:
+"
+"   if [[ -n "$TMUX" ]]; then
+"     export TERM=screen-256color
+"   else
+"     export TERM=xterm-256color
+"   fi
+
+" " Disable Background Color Erase (BCE) so that color schemes
+" " work properly when Vim is used inside tmux and GNU screen.
+" " See also http://snk.tuxfamily.org/log/vim-256color-bce.html
+" if &term =~ '256color'
+"   set t_ut=
+" endif
+
+" Force solarized display sensibly when the terminal emulator has a custom
+" palette.
+" These can be avoided if the terminal emulator has solarized palette.
+" set term=screen-256color " try this as a last resort
+" Use t_Co=16 instead if the terminal has a 16 solarized palette.
+" set t_Co=256
+" let g:solarized_termcolors=256
+" let g:solarized_termcolors=16
+
+" Actual solarized theme options
+let g:solarized_underline=0
+let g:solarized_italic=0
+let g:solarized_bold=0
+let g:solarized_termtrans=1
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+" let g:solarized_termtrans=1 " transparent terminal support
+" set background=light
+set background=dark
+colorscheme solarized
+" let g:molokai_original = 1
+" colorscheme molokai
+" colorscheme agnostic
+" colorscheme noctu
+" colorscheme base16-default
+" colorscheme default
+
+" Custom colors for buffers...
+" ...NOT CHANGED and NOT VISIBLE
+autocmd ColorScheme * highlight MBENormal ctermfg=15
+" ...CHANGED and NOT VISIBLE
+autocmd ColorScheme * highlight MBEChanged ctermfg=199
+" ...NOT CHANGED and VISIBLE
+autocmd ColorScheme * highlight MBEVisibleNormal ctermfg=14
+" ...CHANGED and VISIBLE
+autocmd ColorScheme * highlight MBEVisibleChanged ctermfg=178
+" ...NOT CHANGED, VISIBLE and ACTIVE
+autocmd ColorScheme * highlight MBEVisibleActiveNormal ctermfg=40
+" ...CHANGED, VISIBLE and ACTIVE
+autocmd ColorScheme * highlight MBEVisibleActiveChanged ctermfg=199
+
+" " To override the colors from the colorscheme, simply hightlight may not work
+" " <http://stackoverflow.com/a/7383051/417375>
+" "
+" " Make the normal a little brighter
+" autocmd ColorScheme * highlight Normal ctermfg=253
+"
+" " NonText => eol, extends, precedes, and after last line
+" " autocmd ColorScheme * highlight NonText ctermfg=232 ctermbg=238
+" " SpecialKey => nbsp, tab and trail
+" autocmd ColorScheme * highlight SpecialKey ctermfg=232 ctermbg=238
+" autocmd ColorScheme * highlight StatusLine cterm=bold ctermfg=white ctermbg=240
+
+" Other colors
+" autocmd ColorScheme * highlight clear SignColumn
+" autocmd ColorScheme * highlight VertSplit ctermbg=236
+" autocmd ColorScheme * highlight ColorColumn ctermbg=237
+" autocmd ColorScheme * highlight LineNr ctermbg=236 ctermfg=240
+" autocmd ColorScheme * highlight CursorLineNr ctermbg=236 ctermfg=240
+" autocmd ColorScheme * highlight CursorLine ctermbg=236
+" autocmd ColorScheme * highlight StatusLineNC ctermbg=238 ctermfg=0
+" autocmd ColorScheme * highlight StatusLine ctermbg=240 ctermfg=12
+" autocmd ColorScheme * highlight IncSearch ctermbg=0 ctermfg=3
+" autocmd ColorScheme * highlight Search ctermbg=0 ctermfg=9
+" autocmd ColorScheme * highlight Visual ctermbg=3 ctermfg=0
+" autocmd ColorScheme * highlight Pmenu ctermbg=240 ctermfg=12
+" autocmd ColorScheme * highlight PmenuSel ctermbg=0 ctermfg=3
+" autocmd ColorScheme * highlight SpellBad ctermbg=0 ctermfg=1
+
+" ===================
+" === Go language ===
+" ===================
+" From the readme at ~/bin/go/misc/vim/readme.txt
+" Clear filetype flags before changing runtimepath to force Vim to reload them.
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
+
+" ===============================
+" === Filetype customizations ===
+" ===============================
+
+" http://beerpla.net/2008/04/02/how-to-add-a-vim-file-extension-to-syntax-highlighting/
+syntax enable
+filetype on
+au BufNewFile,BufRead *.txt set filetype=markdown
+au BufNewFile,BufRead *.md set filetype=markdown
+au BufNewFile,BufRead *.erb set filetype=eruby.html
+" Set filetype for specific names: <http://dailyvim.tumblr.com/post/1262764095/additional-ruby-syntax-highlighting>
+autocmd BufRead,BufNewFile {Capfile,Gemfile,Rakefile,config.ru,.caprc,.irbrc,irb_tempfile*,.pryrc,Vagrantfile} set filetype=ruby
+" It shouldn't be needed with the mustache.vim plugin
+" au BufNewFile,BufRead *.mustache set filetype=html
+
+let g:ackprg = 'ag --nogroup --nocolor --column'

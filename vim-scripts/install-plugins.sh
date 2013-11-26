@@ -51,12 +51,10 @@ for plugin in ${NICE_TO_HAVES[@]}; do
   clone_plugin "$plugin"
 done
 
-if [[ -e ~/Dropbox/dotfiles-public/vimrc ]]; then
-  if [[ -e ~/.vimrc && ! -L ~/.vimrc ]]; then
-    echo "Backup original vimrc"
-    mv ~/.vimrc ~/.vimrc.original
-  fi
-
-  echo "Symlink vimrc from Dropbox"
-  ln -sf ~/Dropbox/dotfiles-public/vimrc ~/.vimrc
+if [[ -e ~/.vimrc && ! -L ~/.vimrc ]]; then
+  echo "Backup original vimrc"
+  mv ~/.vimrc ~/.vimrc.original
 fi
+
+echo "Symlink vimrc"
+ln -sf "${currdir}/../rc-files/vimrc" "${HOME}/.vimrc"
