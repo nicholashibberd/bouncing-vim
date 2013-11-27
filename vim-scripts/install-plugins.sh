@@ -3,9 +3,10 @@
 set -e
 
 currdir=$( dirname "$( readlink -f $0 )" )
+rootdir=$( readlink -f "${currdir}/../" )
 
 source "${currdir}/../utils.sh"
-source "${currdir}/../plugins.sh"
+source "${currdir}/plugins.sh"
 
 if [[ ! $(command -v curl) ]]; then
   echo "curl is required"
@@ -44,17 +45,24 @@ else
 fi
 
 for plugin in ${ESSENTIALS[@]}; do
-  clone_plugin "$plugin"
+  clone_plugin "${plugin}"
 done
 
 for plugin in ${NICE_TO_HAVES[@]}; do
   clone_plugin "$plugin"
 done
 
-if [[ -e ~/.vimrc && ! -L ~/.vimrc ]]; then
-  echo "Backup original vimrc"
-  mv ~/.vimrc ~/.vimrc.original
-fi
+echo "Do you want to link to the vimrc provided?"
+read -p "Your vimrc will be backed up. " -n 1 -r
 
-echo "Symlink vimrc"
-ln -sf "${currdir}/../rc-files/vimrc" "${HOME}/.vimrc"
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  if [[ -e ~/.vimrc && ! -L ~/.vimrc ]]; then
+    echo "Backup original vimrc"
+    mv ~/.vimrc ~/.vimrc.original
+  fi
+
+  echo "Symlink vimrc"
+  ln -sf "${HOME}/.vim/bundle/vim-luke/rc-files/vimrc" "${HOME}/.vimrc"
+else
+  echo "Inspect the provided vimrc for more info. ${HOME}/.vim/bundle/vim-luke/rc-files/vimrc"
+fi
