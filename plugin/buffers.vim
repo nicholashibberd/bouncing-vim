@@ -24,7 +24,10 @@ nnoremap <Leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 "
 " Copy the current buffer full path to the system clipboard with `cp`
 " http://stackoverflow.com/questions/916875/yank-file-name-path-of-current-buffer-in-vim
-nnoremap cp :let @+ = expand("%:p")<CR>
+" ...full path
+nnoremap cpp :let @+ = expand("%:p")<CR>
+" ...relative path
+nnoremap cp :let @+ = expand("%")<CR>
 
 " =========================
 " === Switch buffers... ===
