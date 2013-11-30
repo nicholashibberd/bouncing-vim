@@ -83,7 +83,9 @@ Keycode fixes are provided for this to work in Tmux as well.
   be used.
 * Quick close the current buffer without closing its window with `CTRL+q`, or
   `ALT+q`, or `<leader>+q`
-* Close all the invisible buffers with the `bda` sequence in normal mode
+* Close all buffers
+  * all the non-special ones with `bda`
+  * only the hidden ones with the `bdh` sequence in normal mode
 * Copy the path of the currenct buffer
   * relative path with the sequence `cp` in normal mode
   * full path with the sequence `cpp` in normal mode

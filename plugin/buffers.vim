@@ -71,7 +71,7 @@ function! CloseHiddenBuffers()
       let visible[b] = 1
     endfor
   endfor
-  " close any buffer that's loaded and not visible
+  " close any buffer that's loaded and not visible and not special
   for b in range(1, bufnr('$'))
     " add buflisted() to avoid closing special buffers
     if bufloaded(b) && !has_key(visible, b) && buflisted(b)
@@ -80,7 +80,19 @@ function! CloseHiddenBuffers()
   endfor
 endfun
 
-nnoremap bda :call CloseHiddenBuffers()<CR>
+nnoremap bdh :call CloseHiddenBuffers()<CR>
+
+function! CloseAllNormalBuffers()
+  " close any buffer that's loaded and not special
+  for b in range(1, bufnr('$'))
+    " add buflisted() to avoid closing special buffers
+    if bufloaded(b) && buflisted(b)
+      exe 'bd ' . b
+    endif
+  endfor
+endfun
+
+nnoremap bda :call CloseAllNormalBuffers()<CR>
 
 " ===================
 " === Buffergator ===
