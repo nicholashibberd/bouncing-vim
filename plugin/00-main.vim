@@ -21,6 +21,13 @@ nnoremap <Up> gk
 " Go from insert mode to normal mode with 'jj'
 inoremap jj <ESC>
 
+" ====================
+" === Misc options ===
+" ====================
+
+" reduce the default command timeout (1000)
+set timeoutlen=350
+
 " ======================
 " === Format options ===
 " ======================
