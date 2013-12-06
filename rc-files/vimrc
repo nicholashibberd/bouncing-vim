@@ -130,3 +130,5 @@ autocmd BufRead,BufNewFile {Capfile,Gemfile,Rakefile,config.ru,.caprc,.irbrc,irb
 " au BufNewFile,BufRead *.mustache set filetype=html
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
