@@ -32,7 +32,7 @@ sudo apt-get install -y \
   libxt-dev             \
   libxtst-dev           \
   python-dev            \
-  ruby-dev              \
+  ruby1.9.3             \
   mercurial             \
   curl                  \
   git-core

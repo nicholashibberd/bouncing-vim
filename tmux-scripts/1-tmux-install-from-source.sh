@@ -49,3 +49,19 @@ tar cfz $archive_filename $TMUX_SOURCE_DIR
 
 echo "Remove source dir"
 rm -rf $TMUX_SOURCE_DIR
+
+echo "Do you want to link to the tmux.conf provided?"
+read -p "Your tmux.conf will be backed up. " -r
+echo
+
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  if [[ -e ~/.tmux.conf && ! -L ~/.tmux.conf ]]; then
+    echo "Backup original vimrc"
+    mv ~/.tmux.conf ~/tmux.conf.original
+  fi
+
+  echo "Symlink tmux.conf"
+  ln -sf "${HOME}/.vim/bundle/vim-luke/rc-files/tmux.conf" "${HOME}/.tmux.conf"
+else
+  echo "Inspect the provided tmux.conf for more info. ${HOME}/.vim/bundle/vim-luke/rc-files/tmux.conf"
+fi

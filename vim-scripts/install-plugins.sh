@@ -53,12 +53,14 @@ for plugin in ${NICE_TO_HAVES[@]}; do
 done
 
 echo "Do you want to link to the vimrc provided?"
-read -p "Your vimrc will be backed up. " -n 1 -r
+# read -p "Your vimrc will be backed up. " -n 1 -r
+read -p "Your vimrc will be backed up. " -r
+echo
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   if [[ -e ~/.vimrc && ! -L ~/.vimrc ]]; then
     echo "Backup original vimrc"
-    mv ~/.vimrc ~/.vimrc.original
+    mv ~/.vimrc ~/vimrc.original
   fi
 
   echo "Symlink vimrc"
