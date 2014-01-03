@@ -1,7 +1,8 @@
 todo
 ----
 
-* consider not to remap the leader
+* insert line no insert mode
+* do not remap the leader key
 * add highlight for Ruby logical operators and similar text objects
 * ensure that indentation is absolute, not relative to initial position
 * use minibufexplorer mappings to swtich buffers if the plugin is available
