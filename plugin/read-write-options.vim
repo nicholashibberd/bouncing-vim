@@ -13,13 +13,14 @@ set nowritebackup
 set autoread
 set autowrite
 
-" ============
-" === Save ===
-" ============
+" ==========================
+" === Save with shortcut ===
+" ==========================
 " <http://vim.wikia.com/wiki/Map_Ctrl-S_to_save_current_or_new_files>
 " Save, but only if the buffer is modified.
-" Disabled in insert mode, actually not necessary and just confusing.
 inoremap <C-s> <esc>:wall<cr>a
+" other good option: save in the middle of typing and automatically confirm (second CR)
+" inoremap <C-s> <c-o>:Update<CR><CR>
 nnoremap <C-s> :wall<cr>
 
 " ===========================================================
@@ -29,7 +30,6 @@ nnoremap <C-s> :wall<cr>
 " terminal emulators (respectively freezing and unfreezing).
 " Put this function in the .bashrc to allow instead passing the key combo
 " through to vim.
-" TODO it's probably better to use something different from `s` and `q` instead.
 "
 " vim() {
 "   local STTYOPTS="$(stty --save)"

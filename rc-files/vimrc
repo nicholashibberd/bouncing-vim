@@ -54,11 +54,16 @@ let g:solarized_visibility="high"
 " set background=light
 set background=dark
 colorscheme solarized
+"
 " let g:molokai_original = 1
 " colorscheme molokai
+"
 " colorscheme agnostic
+"
 " colorscheme noctu
+"
 " colorscheme base16-default
+"
 " colorscheme default
 
 " Custom colors for buffers...
@@ -114,6 +119,8 @@ set runtimepath+=$GOROOT/misc/vim
 filetype plugin indent on
 syntax on
 
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
 " ===============================
 " === Filetype customizations ===
 " ===============================
@@ -130,5 +137,3 @@ autocmd BufRead,BufNewFile {Capfile,Gemfile,Rakefile,config.ru,.caprc,.irbrc,irb
 " au BufNewFile,BufRead *.mustache set filetype=html
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
-
-autocmd FileType go autocmd BufWritePre <buffer> Fmt

@@ -160,23 +160,6 @@
 " <http://stackoverflow.com/questions/2468939/how-to-let-tab-display-only-file-name-rather-than-the-full-path-in-vim>
 " set guitablabel=\[%N\]\ %t\ %M
 
-" ===========================================================
-" === NOTE: Support for CTRL-S and CTRL-Q in the terminal ===
-" ===========================================================
-" Normally CTRL-S and CTRL-Q suspend and wake up the terminal output in
-" terminal emulators (respectively freezing and unfreezing).
-" Put this function in the .bashrc to allow instead passing the key combo
-" through to vim.
-" TODO it's probably better to use something different from `s` and `q` instead.
-"
-" vim() {
-"   local STTYOPTS="$(stty --save)"
-"   stty stop '' -ixoff # pass CTRL-S
-"   stty start '' -ixon # pass CTRL-Q
-"   command vim "$@"
-"   stty "$STTYOPTS"
-" }
-
 " ===============
 " === Buffers ===
 " ===============
