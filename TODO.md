@@ -1,8 +1,10 @@
 todo
 ----
 
+* <http://parley.rubyrogues.com/t/your-favourite-vimrc-tips/702>
+* <http://stevelosh.com/blog/2010/09/coming-home-to-vim/#important-vimrc-lines>
+* re-hardwrap paragraphs of text: nnoremap <leader>q gqip
 * insert line no insert mode
-* do not remap the leader key
 * add highlight for Ruby logical operators and similar text objects
 * ensure that indentation is absolute, not relative to initial position
 * use minibufexplorer mappings to swtich buffers if the plugin is available
