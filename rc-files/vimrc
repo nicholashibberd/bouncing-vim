@@ -9,13 +9,6 @@ execute pathogen#helptags()
 " ==============
 " === Basics ===
 " ==============
-" Map leader key to the customary comma
-" <http://stevelosh.com/blog/2010/09/coming-home-to-vim/#using-the-leader>
-let mapleader=','
-" ...without overriding it
-nmap \ ,
-vmap \ ,
-
 set nocompatible " with VI
 set nomodeline " Ignore vim directives in magic comments
 
