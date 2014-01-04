@@ -7,7 +7,7 @@
 " This was removed from vim-sensible.
 " Make Y consistent with C and D. See :help Y.
 nnoremap Y y$
-" Disable F1 key (main vim help) to avoid bringing it up by mistake.
+" Map F1 key (main vim help) to ESC to avoid bringing it up by mistake.
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 inoremap <F1> <ESC>
@@ -55,6 +55,10 @@ let g:ctrlp_custom_ignore = {
 " ===========
 " launch ack without argument with leader+a
 nnoremap <Leader>a :Ack!<space>
+
+if executable('ag')
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
 
 " ================
 " === NERDTree ===
