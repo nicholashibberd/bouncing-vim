@@ -10,9 +10,9 @@ Installing
 
 Installation of Vim and tmux supports Ubuntu. The plugin itself uses pathogen.
 
-### Install Vim (from mercurial repository)
+### Install Vim from source (on Ubuntu)
 
-### Install
+### Install tmux from source
 
 Requirements
 ------------
@@ -38,6 +38,24 @@ Some (very) popular plugins are assumed to be installed via pathogen.
 * If a temporary install is preferred:
   * run `tmp-plugins-install.sh` at the beginning of the pairing session
   * run `tmp-plugins-remove.sh` when finished
+
+If using pathogen and plugins are not installed as git submodules (as in this
+case), a oneliner can be used to update all the plugins
+
+```sh
+  cd ~/.vim/bundle; \
+  ls -lA | \
+    grep ^d | \
+    sed -r 's/.+[[:digit:]]{2}:[[:digit:]]{2}\s*(.+)/\1/g' | \
+    while read repo; do \
+      echo "---- $repo ----"; \
+      cd $repo; \
+      git pull origin master; \
+      cd ..; \
+      echo; \
+    done; \
+  cd -
+```
 
 ### Tmux configuration
 
