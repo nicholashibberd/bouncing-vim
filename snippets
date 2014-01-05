@@ -1,10 +1,37 @@
-" set history=1000 " already in vim-sensible
-" filetype plugin indent on " already in vim-sensible
-" syntax on " already in vim-sensible
+" ##############################################################################
+" ############################### TMUX.CONF ####################################
+" ##############################################################################
+"
+" ==================
+" === Use CTRL-A ===
+" ==================
+" It may conflicts with vim setup and with 'beginning of line' on Mac
+" unbind C-b
+" set -g prefix C-a
 
-" =================================
-" ========= TMUX.CONF =============
-" =================================
+" ================
+" === Resizing ===
+" ================
+"
+" Rather than constraining window size to the maximum size of any client
+" connected to the *session*, constrain window size to the maximum size of any
+" client connected to *that window*. Much more reasonable.
+" <https://mutelight.org/practical-tmux>
+" setw -g aggressive-resize on
+
+" ===================
+" === X clipboard ===
+" ===================
+" Copy the current tmux buffer to the system clipboard.
+" Of course first copy the selection to the tmux buffer (see vim keybindings).
+" http://grota.github.io/blog/2012/05/08/tmux-clipboard-integration/
+" http://jasonwryan.com/blog/2011/06/07/copy-and-paste-in-tmux/
+" http://unix.stackexchange.com/questions/48631/copy-to-x-clipboard-shortcut-in-tmux-conf
+"
+" This has been superseded in tmux 1.8, see vim keybindings
+" bind-key C-c run "tmux show-buffer | xclip -selection clipboard -i"
+" bind-key C-c run-shell "tmux show-buffer | xsel --clipboard --input"
+
 "
 " # bind-key -n S-Up    select-pane -U
 " # bind-key -n S-Down  select-pane -D
@@ -47,6 +74,18 @@
 " # bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-k) || tmux select-pane -U"
 " # bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-l) || tmux select-pane -R"
 " # bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys 'C-\\') || tmux select-pane -l"
+
+" ##############################################################################
+" ################################# VIMRC ######################################
+" ##############################################################################
+"
+" ==============
+" === Basics ===
+" ==============
+
+" set history=1000 " already in vim-sensible
+" filetype plugin indent on " already in vim-sensible
+" syntax on " already in vim-sensible
 
 " ============================
 " === Fix keys inside tmux ===

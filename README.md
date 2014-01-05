@@ -1,7 +1,7 @@
 What is it?
 -----------
 
-A small, opinionated yet unobtrusive vim distro, tightly integrated with tmux.
+This is a mini vim distro, integrated with tmux.
 
 It supports temporary installation by taking advantage of pathogen.
 
@@ -12,7 +12,7 @@ Installation of Vim and tmux supports Ubuntu. The plugin itself uses pathogen.
 
 ### Install Vim from source (on Ubuntu)
 
-### Install tmux from source
+### Install tmux from source (on Ubuntu)
 
 Requirements
 ------------
@@ -20,41 +20,44 @@ Requirements
 ### Environment
 
 * Ubuntu 12.04 (but it mostly works on Mac too)
-* Tmux 1.8
-* Vim 7.4
-* git
-* vim compiled with support for:
+* Tmux 1.8 (script for compiling from source on Ubuntu provided)
+* Vim 7.4 (script for compiling from source on Ubuntu provided); compiled with
+support for:
   - Python
   - Ruby
   - clipboard
   - X11
-* pathogen
+* git
+* vim pathogen
 
 ### Other plugins
 
 Some (very) popular plugins are assumed to be installed via pathogen.
-* Download the helper scripts at <https://github.com/lucabelmondo/vim-luke-install/>
-* If a full install is required: run `install-plugins.sh`.
+
+The list of essential and nice-to-have plugins is in vim-script/plugins.sh
+
+* If a full install is required: run `vim-scripts/install-plugins.sh`.
+
 * If a temporary install is preferred:
-  * run `tmp-plugins-install.sh` at the beginning of the pairing session
-  * run `tmp-plugins-remove.sh` when finished
+  * run `vim-scripts/tmp-plugins-install.sh` at the beginning of the pairing session
+  * run `vim-scripts/tmp-plugins-remove.sh` when finished
 
 If using pathogen and plugins are not installed as git submodules (as in this
 case), a oneliner can be used to update all the plugins
 
 ```sh
-  cd ~/.vim/bundle; \
-  ls -lA | \
-    grep ^d | \
-    sed -r 's/.+[[:digit:]]{2}:[[:digit:]]{2}\s*(.+)/\1/g' | \
-    while read repo; do \
-      echo "---- $repo ----"; \
-      cd $repo; \
-      git pull origin master; \
-      cd ..; \
-      echo; \
-    done; \
-  cd -
+cd ~/.vim/bundle; \
+ls -lA | \
+  grep ^d | \
+  sed -r 's/.+[[:digit:]]{2}:[[:digit:]]{2}\s*(.+)/\1/g' | \
+  while read repo; do \
+    echo "---- $repo ----"; \
+    cd $repo; \
+    git pull origin master; \
+    cd ..; \
+    echo; \
+  done; \
+cd -
 ```
 
 ### Tmux configuration
@@ -95,23 +98,29 @@ Keycode fixes are provided for this to work in Tmux as well.
 ### Buffer enhancements
 
 * Reuse a buffer if a file is already open
+
 * Switch between buffers with the same shortcuts used for tabs in Chrome:
   `CTRL+PageUp/PageDown`;
   on those machines where that doesn't work, `<leader>+[` and `<leader>+]` can
   be used.
+
 * Quick close the current buffer without closing its window with `CTRL+q`, or
   `ALT+q`, or `<leader>+q`
+
 * Close all buffers
-  * all the non-special ones with `bda`
-  * only the hidden ones with the `bdh` sequence in normal mode
+  - all the non-special ones with `bda`
+  - only the hidden ones with the `bdh` sequence in normal mode
+
 * Copy the path of the currenct buffer
-  * relative path with the sequence `cp` in normal mode
-  * full path with the sequence `cpp` in normal mode
-* MiniBufExplorer plugin (tab-like list of buffers)
+  - relative path with the sequence `cp` in normal mode
+  - full path with the sequence `cpp` in normal mode
+
+* MiniBufExplorer customisation
   - position at the top
   - focus the buffer list with `<leader>+t`
   - toggle the buffer list with `<leader>+m`
-* Buffergator plugin (interactive list of buffers)
+
+* Buffergator plugin customisation
   - open on the right hand side
   - toggle with `<leader>+b`
 
@@ -129,8 +138,8 @@ Vim collapses the two functionalities of deleting and cutting.
 
 The `ALT+d` shortcut is provided to do real deletion (cut to the blackhole
 register in Vim parlance):
-- current line in normal mode
-- selection in visual mode
+* current line in normal mode
+* selection in visual mode
 
 ### Home key
 

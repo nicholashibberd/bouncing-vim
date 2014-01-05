@@ -2,27 +2,29 @@
 " === Move between split windows AND tmux panes ===
 " =================================================
 "
-" http://robots.thoughtbot.com/post/53022241323/seamlessly-navigate-vim-and-tmux-splits
-" https://github.com/christoomey/vim-tmux-navigator
-" https://gist.github.com/mislav/5189704
-" https://gist.github.com/mislav/5189704/revisions
-"
-" http://www.codeography.com/2013/06/19/navigating-vim-and-tmux-splits
-" https://github.com/henrik/dotfiles/commit/24ddbd90f75a2383400ef2c912b9ab8a5d5e9fc8
-"
 " Maps <A-Left/Down/Up/Right> to switch vim splits in the given direction.
 " If there are no more windows in that direction, forwards the operation to tmux.
 " (Disabled) <A-\> toggles between last active vim splits/tmux panes.
 " To have this working with tmux, add this to ~/.tmux.conf
 "
-" # ------ Smart mixed vim-tmux navigation ------
-" # http://robots.thoughtbot.com/post/53022241323/seamlessly-navigate-vim-and-tmux-splits
-" # http://sourceforge.net/mailarchive/message.php?msg_id=30519263
-" # In Vim, the M(eta) will be interpreted as Alt.
+" The chosen version is taken from:
+" - http://sourceforge.net/mailarchive/message.php?msg_id=30519263
+"
+" Other resources on the subject:
+" - http://robots.thoughtbot.com/post/53022241323/seamlessly-navigate-vim-and-tmux-splits
+" - https://github.com/christoomey/vim-tmux-navigator
+" - https://gist.github.com/mislav/5189704
+" - https://gist.github.com/mislav/5189704/revisions
+" - http://www.codeography.com/2013/06/19/navigating-vim-and-tmux-splits
+" - https://github.com/henrik/dotfiles/commit/24ddbd90f75a2383400ef2c912b9ab8a5d5e9fc8
+"
+" -------- ~/.tmux.conf ---------
+" M(eta) is the Alt key both in Vim and tmux.
 " bind -n M-Left  run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Left)  || tmux select-pane -L"
 " bind -n M-Down  run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Down)  || tmux select-pane -D"
 " bind -n M-Up    run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Up)    || tmux select-pane -U"
 " bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Right) || tmux select-pane -R"
+" -------- END ~/.tmux.conf ---------
 
 let s:tmux_is_last_pane = 0
 au WinEnter * let s:tmux_is_last_pane = 0
