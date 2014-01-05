@@ -21,7 +21,7 @@ echo "wemux executable symlinked at /usr/local/bin/wemux"
 sudo cp ${WEMUX_INSTALL_DIR}/wemux.conf.example /usr/local/etc/wemux.conf
 echo "wemux sample config copied to /usr/local/etc/wemux.conf"
 
-sudo sed -r -i "s/host_list=\(.+\)/host_list=\(${USER}\)/" /usr/local/etc/wemux.conf
+sudo sed --follow-symlinks -r -i "s/host_list=\(.+\)/host_list=\(${USER}\)/" /usr/local/etc/wemux.conf
 echo "Ensure current user authorized to create wemux servers"
 
 echo

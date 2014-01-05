@@ -43,7 +43,7 @@ sudo chown $PAIR_USER:$PAIR_USER /home/$PAIR_USER/attach-session
 sudo chmod u+x /home/$PAIR_USER/attach-session
 echo "Added the attach-session script to the home of the ${PAIR_USER} user"
 
-sudo sed -r -i \
+sudo sed --follow-symlinks -r -i \
   "s|^(${PAIR_USER}.+):/bin/bash(.*)|\1:/home/${PAIR_USER}/attach-session\2|" \
   /etc/passwd
 
