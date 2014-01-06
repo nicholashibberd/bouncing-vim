@@ -51,7 +51,7 @@ echo "Changed default login shell of the ${PAIR_USER} user to the attach-session
 echo "This means that:"
 echo "  - the remote user will enter the tmux session automatically after having"
 echo "    connected via SSH"
-echo "  - the remote user will not be able to when there is no shared tmux"
+echo "  - the remote user will not be able to login when there is no shared tmux"
 echo "    active"
 echo "  - the remote user will be disconnected automatically when the tmux"
 echo "    session is terminated"
