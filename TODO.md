@@ -1,6 +1,9 @@
 todo
 ----
 
+* Gary Bernhardt rspec tests execution
+* either remove or fix autoreload <http://stackoverflow.com/a/10962191>
+* do not show MiniBufExplorer at startup
 * <http://parley.rubyrogues.com/t/your-favourite-vimrc-tips/702>
 * <http://stevelosh.com/blog/2010/09/coming-home-to-vim/#important-vimrc-lines>
 * re-hardwrap paragraphs of text: nnoremap <leader>q gqip
