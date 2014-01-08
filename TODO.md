@@ -2,6 +2,7 @@ todo
 ----
 
 * Gary Bernhardt rspec tests execution
+* close NerdTree after selecting a file
 * either remove or fix autoreload <http://stackoverflow.com/a/10962191>
 * do not show MiniBufExplorer at startup
 * <http://parley.rubyrogues.com/t/your-favourite-vimrc-tips/702>
