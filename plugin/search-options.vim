@@ -12,6 +12,10 @@
 " nnoremap / /\v
 " vnoremap / /\v
 
+" Search for word under cursor without jumpin to next occurrence
+" http://stackoverflow.com/questions/4256697/vim-search-and-highlight-but-do-not-jump
+map <Leader>h *``
+
 " Ignore case
 set ignorecase
 " ...unless one upper case letter is present in the word
