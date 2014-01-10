@@ -114,7 +114,7 @@ noremap <Leader>b :BuffergatorToggle<CR>
 let g:miniBufExplBRSplit = 0
 let g:miniBufExplUseSingleClick = 1
 " Avoid auto-opening MiniBufExplorer for people who don't use it.
-let g:miniBufExplorerAutoStart = 0
+let g:miniBufExplAutoStart = 0
 nnoremap <Leader>t :MBEFocus<CR>
 vnoremap <Leader>t :MBEFocus<CR>
 nnoremap <Leader>m :MBEToggle<CR>
