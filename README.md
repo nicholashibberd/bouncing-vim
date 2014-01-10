@@ -49,7 +49,7 @@ case), a oneliner can be used to update all the plugins
 cd ~/.vim/bundle; \
 ls -lA | \
   grep ^d | \
-  sed -r 's/.+[[:digit:]]{2}:[[:digit:]]{2}\s*(.+)/\1/g' | \
+  sed -E 's/.+[[:digit:]]{2}:[[:digit:]]{2}\s*(.+)/\1/g' | \
   while read repo; do \
     echo "---- $repo ----"; \
     cd $repo; \
