@@ -10,10 +10,24 @@ set listchars=tab:»·,trail:·,extends:>,precedes:<
 nmap <silent> <leader>s :set nolist!<CR>
 
 " http://stackoverflow.com/a/1618401/417375
+" http://stackoverflow.com/a/7496112
 function! <SID>StripTrailingWhitespaces()
   let l = line(".")
   let c = col(".")
+
+  " Delete whitespace at the end of the lines
   %s/\s\+$//e
+
+  " Remove extra blank lines at the end of file
+  " http://stackoverflow.com/a/7496112
+  " \( ..... Start a match group
+  " $\n ... Match a new line (end-of-line character followed by a carriage return).
+  " \s* ... Allow any amount of whitespace on this new line
+  " \) ..... End the match group
+  " \+ ..... Allow any number of occurrences of this group (one or more).
+  " \%$ ... Match the end of the file
+  %s/\($\n\s*\)\+\%$//
+
   call cursor(l, c)
 endfun
 
