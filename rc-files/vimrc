@@ -31,6 +31,21 @@ set nomodeline " Ignore vim directives in magic comments
 "   set t_ut=
 " endif
 
+" let g:molokai_original = 1
+" colorscheme molokai
+"
+" colorscheme agnostic
+"
+" colorscheme noctu
+"
+" colorscheme base16-default
+"
+" colorscheme default
+
+" =============================
+" === Solarized colorscheme ===
+" =============================
+
 " Force solarized display sensibly when the terminal emulator has a custom
 " palette.
 " These can be avoided if the terminal emulator has solarized palette.
@@ -51,17 +66,10 @@ let g:solarized_visibility="high"
 " set background=light
 set background=dark
 colorscheme solarized
-"
-" let g:molokai_original = 1
-" colorscheme molokai
-"
-" colorscheme agnostic
-"
-" colorscheme noctu
-"
-" colorscheme base16-default
-"
-" colorscheme default
+
+" ==================================
+" === Colors for MiniBufExplorer ===
+" ==================================
 
 " Custom colors for buffers...
 " ...NOT CHANGED and NOT VISIBLE
@@ -77,6 +85,10 @@ autocmd ColorScheme * highlight MBEVisibleActiveNormal ctermfg=40
 " ...CHANGED, VISIBLE and ACTIVE
 autocmd ColorScheme * highlight MBEVisibleActiveChanged ctermfg=199
 
+" ====================
+" === Other colors ===
+" ====================
+"
 " " To override the colors from the colorscheme, simply hightlight may not work
 " " <http://stackoverflow.com/a/7383051/417375>
 " "
@@ -89,7 +101,6 @@ autocmd ColorScheme * highlight MBEVisibleActiveChanged ctermfg=199
 " autocmd ColorScheme * highlight SpecialKey ctermfg=232 ctermbg=238
 " autocmd ColorScheme * highlight StatusLine cterm=bold ctermfg=white ctermbg=240
 
-" Other colors
 " autocmd ColorScheme * highlight clear SignColumn
 " autocmd ColorScheme * highlight VertSplit ctermbg=236
 " autocmd ColorScheme * highlight ColorColumn ctermbg=237
