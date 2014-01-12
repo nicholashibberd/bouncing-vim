@@ -1,6 +1,8 @@
 todo
 ----
 
+* Remove Ultisnips???
+* Remove xmp filter?
 * Gary Bernhardt rspec tests execution
 * close NerdTree after selecting a file
 * either remove or fix autoreload <http://stackoverflow.com/a/10962191>
