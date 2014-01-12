@@ -18,7 +18,9 @@ function! <SID>StripTrailingWhitespaces()
   " Delete whitespace at the end of the lines
   %s/\s\+$//e
 
-  " Remove extra blank lines at the end of file
+  " Remove extra blank lines at the end of file. Use silent to avoid warning
+  " for 'pattern not found'.
+  "
   " http://stackoverflow.com/a/7496112
   " \( ..... Start a match group
   " $\n ... Match a new line (end-of-line character followed by a carriage return).
@@ -26,7 +28,7 @@ function! <SID>StripTrailingWhitespaces()
   " \) ..... End the match group
   " \+ ..... Allow any number of occurrences of this group (one or more).
   " \%$ ... Match the end of the file
-  %s/\($\n\s*\)\+\%$//
+  silent! %s/\($\n\s*\)\+\%$//
 
   call cursor(l, c)
 endfun
