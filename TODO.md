@@ -1,6 +1,8 @@
 todo
 ----
 
+* consider not re-entering normal mode after quick-save with ctrl-s
+* consider leader+S for quick save
 * Remove Ultisnips???
 * Remove xmp filter?
 * Gary Bernhardt rspec tests execution
