@@ -15,28 +15,6 @@ set -e
 VIM_SOURCE_DIR="${HOME}/Downloads/vim"
 VIM_SOURCE_BKP="${VIM_SOURCE_DIR}.bkp"
 
-echo "Update the apt index"
-sudo apt-get update -qq
-
-sudo apt-get install -y \
-  libncurses5-dev       \
-  libgnome2-dev         \
-  libgnomeui-dev        \
-  libgtk2.0-dev         \
-  libatk1.0-dev         \
-  libbonoboui2-dev      \
-  libcairo2-dev         \
-  libperl-dev           \
-  libx11-dev            \
-  libxpm-dev            \
-  libxt-dev             \
-  libxtst-dev           \
-  python-dev            \
-  ruby1.9.3             \
-  mercurial             \
-  curl                  \
-  git-core
-
 echo "Ensure ~/Downloads exists"
 mkdir -p ~/Downloads/
 
@@ -54,16 +32,40 @@ else
   cp -R $VIM_SOURCE_BKP $VIM_SOURCE_DIR
 fi
 
-cd $VIM_SOURCE_DIR
+echo "Update the apt index"
+sudo apt-get update -qq
 
-sudo apt-get remove -y -qq \
-  vim                      \
-  vim-runtime              \
-  gvim                     \
-  vim-tiny                 \
-  vim-common               \
-  vim-gui-common           \
-  vim-gnome
+echo "Install dependencies"
+sudo apt-get install -y -qq \
+  libncurses5-dev           \
+  libgnome2-dev             \
+  libgnomeui-dev            \
+  libgtk2.0-dev             \
+  libatk1.0-dev             \
+  libbonoboui2-dev          \
+  libcairo2-dev             \
+  libperl-dev               \
+  libx11-dev                \
+  libxpm-dev                \
+  libxt-dev                 \
+  libxtst-dev               \
+  python-dev                \
+  ruby1.9.3                 \
+  mercurial                 \
+  curl                      \
+  git-core
+
+echo "Remove Ubuntu packages for Vim"
+sudo apt-get remove -y -qq  \
+  vim                       \
+  vim-runtime               \
+  gvim                      \
+  vim-tiny                  \
+  vim-common                \
+  vim-gui-common            \
+  vim-gnome                 \
+
+cd $VIM_SOURCE_DIR
 
 ./configure                         \
   --with-features=huge              \
