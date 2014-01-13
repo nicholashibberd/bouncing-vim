@@ -5,6 +5,12 @@ This is a mini vim distro, integrated with tmux.
 
 It supports temporary installation by taking advantage of pathogen.
 
+It's a curated collection of plugins and settings, and it's possible thanks
+to the great Vim community.
+
+An exhaustive list of credits would be impractical, but every feature has a
+link to the source, as a form of acknowlegment.
+
 Installing
 ----------
 
@@ -12,7 +18,22 @@ Installation of Vim and tmux supports Ubuntu. The plugin itself uses pathogen.
 
 ### Install Vim from source (on Ubuntu)
 
-### Install tmux from source (on Ubuntu)
+Run:
+
+```sh
+vim-scripts/install-vim-from-source-ubuntu.sh
+```
+
+Caveat: this script will also install Ruby 1.9.3 from the Ubuntu repositories.
+This intrusive feature will soon be removed.
+
+### Install tmux from source (on Ubuntu 12.04)
+
+Run:
+
+```sh
+tmux-scripts/1-tmux-install-from-source.sh
+```
 
 Requirements
 ------------

@@ -1,6 +1,7 @@
 todo
 ----
 
+* check for presence of Ruby instead of installing an arbitrary version
 * consider not re-entering normal mode after quick-save with ctrl-s
 * consider leader+S for quick save
 * Remove Ultisnips???
