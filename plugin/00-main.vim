@@ -69,6 +69,7 @@ let g:ctrlp_custom_ignore = {
 " launch ack without argument with leader+a
 nnoremap <Leader>a :Ack!<space>
 
+" use the silver searcher instead of ack, if available
 if executable('ag')
   let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
@@ -78,13 +79,13 @@ endif
 " ================
 " Shortcut to open/close NERDTree
 map <Leader>n :NERDTreeToggle<CR>
-" Highlight the current buffer
+" Highlight the current buffer (think of 'find')
 map <Leader>f :NERDTreeFind<CR>
 " http://superuser.com/questions/184844/hide-certain-files-in-nerdtree
 let NERDTreeIgnore = ['\.pyc$', '\.class$']
 let NERDTreeMinimalUI=1
 " let NERDTreeMouseMode=2 " single click to toggle dirs, dblclick to open files
-" let NERDTreeQuitOnOpen=1 " avoid clutter, close NERDTree after opening a file
+let NERDTreeQuitOnOpen=1 " avoid clutter, close NERDTree after opening a file
 
 " Prevent NERDTree from opening a new split-window
 " <http://stackoverflow.com/questions/8323666/make-nerdtree-never-open-a-third-window>
