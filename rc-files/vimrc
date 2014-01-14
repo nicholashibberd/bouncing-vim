@@ -6,6 +6,13 @@
 execute pathogen#infect()
 execute pathogen#helptags()
 
+" ======================
+" === Spell language ===
+" ======================
+
+set spelllang=en_gb
+
+"
 " ==============
 " === Basics ===
 " ==============
@@ -31,8 +38,8 @@ set nomodeline " Ignore vim directives in magic comments
 "   set t_ut=
 " endif
 
-" let g:molokai_original = 1
-" colorscheme molokai
+let g:molokai_original = 1
+colorscheme molokai
 "
 " colorscheme agnostic
 "
@@ -55,17 +62,17 @@ set nomodeline " Ignore vim directives in magic comments
 " let g:solarized_termcolors=256
 " let g:solarized_termcolors=16
 
-" Actual solarized theme options
-let g:solarized_underline=0
-let g:solarized_italic=0
-let g:solarized_bold=0
-let g:solarized_termtrans=1
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
-" let g:solarized_termtrans=1 " transparent terminal support
-" set background=light
-set background=dark
-colorscheme solarized
+" " Actual solarized theme options
+" let g:solarized_underline=0
+" let g:solarized_italic=0
+" let g:solarized_bold=0
+" let g:solarized_termtrans=1
+" let g:solarized_contrast="high"
+" let g:solarized_visibility="high"
+" " let g:solarized_termtrans=1 " transparent terminal support
+" " set background=light
+" set background=dark
+" colorscheme solarized
 
 " ==================================
 " === Colors for MiniBufExplorer ===
