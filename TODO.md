@@ -1,6 +1,7 @@
 todo
 ----
 
+* fix ALT+D real delete on Mac
 * add prompt to continue if there's a ~/.vim already
 * <http://stackoverflow.com/a/1269631/417375>
 * check for presence of Ruby instead of installing an arbitrary version
