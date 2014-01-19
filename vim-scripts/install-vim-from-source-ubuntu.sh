@@ -12,48 +12,69 @@
 
 set -e
 
-VIM_SOURCE_DIR="${HOME}/Downloads/vim"
-VIM_SOURCE_BKP="${VIM_SOURCE_DIR}.bkp"
+vim_source_dir="${HOME}/Downloads/vim74"
+compile_with_ruby=false
+install_ruby=false
+dependencies=()
+configure_options=()
 
-echo "Ensure ~/Downloads exists"
-mkdir -p ~/Downloads/
-
-echo "Remove old vim source"
-sudo rm -rf $VIM_SOURCE_DIR
-
-if [[ -d $VIM_SOURCE_BKP ]]; then
-  echo "Restore vim source from bkp"
-  cp -R $VIM_SOURCE_BKP $VIM_SOURCE_DIR
-else
-  echo "Clone vim source from googlecode.com"
-  hg clone -q https://vim.googlecode.com/hg/ $VIM_SOURCE_DIR
-  echo "Make a bkp of the vim source"
-  mv -T $VIM_SOURCE_DIR $VIM_SOURCE_BKP
-  cp -R $VIM_SOURCE_BKP $VIM_SOURCE_DIR
-fi
+#######################
+### Download source ###
+#######################
 
 echo "Update the apt index"
 sudo apt-get update -qq
+echo "Ensure curl is installed"
+sudo apt-get install curl -qq
+echo "Ensure ~/Downloads exists"
+mkdir -p ~/Downloads/
+echo "Remove old vim source"
+sudo rm -rf $vim_source_dir
+echo "Download vim tarball"
+cd ~/Downloads/ && { curl -s -O -L ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2; cd -; }
+echo "Extract vim source"
+tar xfj ~/Downloads/vim-7.4.tar.bz2 -C ~/Downloads/
 
-echo "Install dependencies"
-sudo apt-get install -y -qq \
-  libncurses5-dev           \
-  libgnome2-dev             \
-  libgnomeui-dev            \
-  libgtk2.0-dev             \
-  libatk1.0-dev             \
-  libbonoboui2-dev          \
-  libcairo2-dev             \
-  libperl-dev               \
-  libx11-dev                \
-  libxpm-dev                \
-  libxt-dev                 \
-  libxtst-dev               \
-  python-dev                \
-  ruby1.9.3                 \
-  mercurial                 \
-  curl                      \
-  git-core
+###########################
+### Handle ruby support ###
+###########################
+
+# - compile with ruby if present
+# - ask to install, to compile without, or to abort otherwise
+
+if [[ -x /usr/bin/ruby ]]; then
+  compile_with_ruby=true
+else
+  echo "Ruby is required for the vimux plugin to work, but it is not installed"
+  echo "Do you wish to...?"
+  select reply in "Install system ruby 1.9.3" "Compile without ruby" "Abort"; do
+    case "${reply}" in
+      "Install system ruby 1.9.3" )
+        install_ruby=true
+        compile_with_ruby=true
+        break ;;
+      "Compile without ruby" )
+        break ;;
+      "Abort" )
+        exit ;;
+    esac
+  done
+fi
+
+if $install_ruby; then
+  dependencies+=("ruby1.9.3")
+fi
+
+if $compile_with_ruby; then
+  configure_options+=(
+    "--enable-rubyinterp"
+    "--with-ruby-command=/usr/bin/ruby"
+  )
+fi
+
+##########################################
+### Install and remove system packages ###
+##########################################
 
 echo "Remove Ubuntu packages for Vim"
 sudo apt-get remove -y -qq  \
@@ -65,39 +86,78 @@ sudo apt-get remove -y -qq  \
   vim-gui-common            \
   vim-gnome                 \
 
-cd $VIM_SOURCE_DIR
+echo "Install dependencies"
+dependencies+=(
+  "libncurses5-dev"
+  "libgnome2-dev"
+  "libgnomeui-dev"
+  "libgtk2.0-dev"
+  "libatk1.0-dev"
+  "libbonoboui2-dev"
+  "libcairo2-dev"
+  "libperl-dev"
+  "libx11-dev"
+  "libxpm-dev"
+  "libxt-dev"
+  "libxtst-dev"
+  "python-dev"
+  "git-core"
+)
 
-./configure                         \
-  --with-features=huge              \
-  --with-x                          \
-  --enable-rubyinterp               \
-  --with-ruby-command=/usr/bin/ruby \
-  --enable-pythoninterp             \
-  --enable-perlinterp               \
-  --enable-gui=gtk2                 \
-  --enable-cscope                   \
-  --prefix=/usr
+dependencies=${dependencies[*]}
+
+sudo apt-get install -y -qq $dependencies
+
+###############################
+### Compile and install vim ###
+###############################
+
+cd $vim_source_dir
+
+configure_options+=(
+  "--with-features=huge"
+  "--with-x"
+  "--enable-pythoninterp"
+  "--enable-perlinterp"
+  "--enable-gui=gtk2"
+  "--enable-cscope"
+  "--prefix=/usr"
+)
+
+configure_options=${configure_options[*]}
+
+./configure $configure_options
 
 make VIMRUNTIMEDIR=/usr/share/vim/vim74
 
 sudo make install
 
+##########################################
+### Backup compiled source and cleanup ###
+##########################################
+
 cd ~/Downloads
 
-archive_filename="vim-compiled-$(date -d "today" +"%Y-%m-%d_%H-%M-%S").tar.gz"
-echo "Archive source to ${archive_filename} for uninstall."
-tar cfz $archive_filename vim/
+archive_filename="vim74-compiled-$(date -d "today" +"%Y-%m-%d_%H-%M-%S").tar.gz"
+echo "Archive source to ${archive_filename} for future uninstall."
+tar cfz ~/Downloads/$archive_filename $vim_source_dir
 
 echo "Remove source dir"
-rm -rf $VIM_SOURCE_DIR
+rm -rf $vim_source_dir
+
+###############################
+### Set default system vim ####
+###############################
 
 echo "Add vim to the alternatives"
-
 #                                  <link>          <group>  <path>          <priority>
 sudo update-alternatives --install /usr/bin/editor editor   /usr/bin/vim    00
-
 #                              <group>  <path>
 sudo update-alternatives --set editor   /usr/bin/vim
+
+########################
+### Print final info ###
+########################
 
 echo "To uninstall, unpack the latest source archive, cd to it, and run:"
 echo
