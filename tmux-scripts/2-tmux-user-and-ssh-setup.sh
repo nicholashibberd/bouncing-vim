@@ -33,7 +33,7 @@ update_or_append () {
   local OPTION_VALUE=$3
 
   if [[ $(grep $OPTION_NAME $OPTION_FILE) ]]; then
-    sudo sed -i.bkp -r --follow-symlinks \
+    sudo sed -i.bkp -E --follow-symlinks \
       "s|^\s*#*\s*${OPTION_NAME}.*|${OPTION_NAME} ${OPTION_VALUE}|g" \
       $OPTION_FILE
     echo "In ${OPTION_FILE}: Ensure existing option '${OPTION_NAME}' set to '${OPTION_VALUE}'."
