@@ -119,6 +119,8 @@ map <Leader>rs :VimuxInterruptRunner<CR>
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
+" Highlight ruby operators (`/`, `&&`, `*`...)
+let g:ruby_operators = 1
 
 " ==================================
 " === Language specific settings ===

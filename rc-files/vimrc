@@ -3,6 +3,7 @@
 " ================
 " === Pathogen ===
 " ================
+
 execute pathogen#infect()
 execute pathogen#helptags()
 
@@ -12,10 +13,10 @@ execute pathogen#helptags()
 
 set spelllang=en_gb
 
-"
 " ==============
 " === Basics ===
 " ==============
+
 set nocompatible " with VI
 set nomodeline " Ignore vim directives in magic comments
 
