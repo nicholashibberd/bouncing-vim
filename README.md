@@ -21,19 +21,29 @@ Installation of Vim and tmux supports Ubuntu. The plugin itself uses pathogen.
 Run:
 
 ```sh
-vim-scripts/install-vim-from-source-ubuntu.sh
+./vim-scripts/install-vim-from-source-ubuntu.sh
 ```
 
-Caveat: this script will also install Ruby 1.9.3 from the Ubuntu repositories.
-This intrusive feature will soon be removed.
+This will install some compile-dependencies, download the latest Vim 7.4 and
+build it.
+
+Vim will be compiled with "features=huge", Python and Perl support.
+
+If system Ruby is available it will also be compiled with Ruby support.
+Otherwise the script will give the option to install Ruby 1.9.3 from the
+Ubuntu repositories, or to compile without Ruby support.
+
+A similar behaviour is planned for Python as well.
 
 ### Install tmux from source (on Ubuntu 12.04)
 
 Run:
 
 ```sh
-tmux-scripts/1-tmux-install-from-source.sh
+./tmux-scripts/1-tmux-install-from-source.sh
 ```
+
+This will download and build the latest tmux 1.8.
 
 Requirements
 ------------
@@ -102,12 +112,14 @@ bind -n M-Up run "(tmux display-message -p '#{pane_current_command}' | grep -iq 
 bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Right) || tmux select-pane -R"
 ```
 
-More info at <https://github.com/lucabelmondo/dotfiles/blob/master/tmux.conf>.
+Alternatively, a default tmux.conf is included, and the installation script
+will give the option to symlink to it.
 
 Features
 --------
 
-> (incomplete list, this README is a work in progress)
+> Other features are already implemented, this README will soon be
+> updated to illustrate all of them, as well as a list of the installed plugins.
 
 ### Bubbling lines
 
@@ -144,9 +156,6 @@ Keycode fixes are provided for this to work in Tmux as well.
 * Buffergator plugin customisation
   - open on the right hand side
   - toggle with `<leader>+b`
-
-> A lot of other features are already implemented, this README will be
-> updated to illustrate all of them.
 
 ### Clipboard
 
