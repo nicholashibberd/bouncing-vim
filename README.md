@@ -3,69 +3,43 @@ What is it?
 
 This is a mini vim distro, integrated with tmux.
 
-It supports temporary installation by taking advantage of pathogen.
+It's a curated collection of plugins and settings, inspired by a few key
+principles:
 
-It's a curated collection of plugins and settings, and it's possible thanks
-to the great Vim community.
+* provide a practical, "human" Vim setup
+* provide as many additional features and shortcuts as possible...
+* ...but try to not remove or override native Vim features
 
-An exhaustive list of credits would be impractical, but every feature has a
-link to the source, as a form of acknowlegment.
+It supports temporary installation of the vim plugins by taking advantage
+of pathogen.
+
+Credits are currently given in the form of links to the original source.
+Thanks to the great Vim community and to the many authors of features.
 
 Installing
 ----------
 
-Installation of Vim and tmux supports Ubuntu. The plugin itself uses pathogen.
+Installation of Vim and tmux supports Ubuntu (tested on 12.04).
 
-### Install Vim from source (on Ubuntu)
+The plugins use pathogen.
 
-Run:
+### Install Vim 7.4 from source (only Ubuntu)
+
+To download and compile, run:
 
 ```sh
 ./vim-scripts/install-vim-from-source-ubuntu.sh
 ```
 
-This will install some compile-dependencies, download the latest Vim 7.4 and
-build it.
-
 Vim will be compiled with "features=huge", Python and Perl support.
 
 If system Ruby is available it will also be compiled with Ruby support.
 Otherwise the script will give the option to install Ruby 1.9.3 from the
-Ubuntu repositories, or to compile without Ruby support.
+Ubuntu repositories and compile with it, or to compile without Ruby support.
 
-A similar behaviour is planned for Python as well.
+### Install the vim plugins (with pathogen)
 
-### Install tmux from source (on Ubuntu 12.04)
-
-Run:
-
-```sh
-./tmux-scripts/1-tmux-install-from-source.sh
-```
-
-This will download and build the latest tmux 1.8.
-
-Requirements
-------------
-
-### Environment
-
-* Ubuntu 12.04 (but it mostly works on Mac too)
-* Tmux 1.8 (script for compiling from source on Ubuntu provided)
-* Vim 7.4 (script for compiling from source on Ubuntu provided); compiled with
-support for:
-  - Python
-  - Ruby
-  - clipboard
-  - X11
-* git
-* vim pathogen
-
-### Other plugins
-
-Some (very) popular plugins are assumed to be installed via pathogen.
-
-The list of essential and nice-to-have plugins is in vim-script/plugins.sh
+The list of essential and nice-to-have plugins is in `./vim-script/plugins.sh`
 
 * If a full install is required: run `vim-scripts/install-plugins.sh`.
 
@@ -73,11 +47,28 @@ The list of essential and nice-to-have plugins is in vim-script/plugins.sh
   * run `vim-scripts/tmp-plugins-install.sh` at the beginning of the pairing session
   * run `vim-scripts/tmp-plugins-remove.sh` when finished
 
-If using pathogen and plugins are not installed as git submodules (as in this
-case), a oneliner can be used to update all the plugins
+### Install tmux 1.8 from source (only Ubuntu)
+
+To download and compile, run:
 
 ```sh
-cd ~/.vim/bundle; \
+./tmux-scripts/1-tmux-install-from-source.sh
+```
+
+It will also offer to link to the provided tmux.conf file.
+Alternatively, from the file `./rc-files/tmux.conf`, copy to your tmux.conf
+the two sections:
+
+* "Terminal compatibility" (required in particular to pass some key
+  combinations through tmux to vim)
+* "Navigation between tmux and vim"
+
+### Updating existing vim plugins
+
+Updating all the vim plugins can be done with this oneliner:
+
+```sh
+cd ~/.vim/bundle && { \
 ls -lA | \
   grep ^d | \
   sed -E 's/.+[[:digit:]]{2}:[[:digit:]]{2}\s*(.+)/\1/g' | \
@@ -88,38 +79,14 @@ ls -lA | \
     cd ..; \
     echo; \
   done; \
-cd -
+cd -; \
+}
 ```
-
-### Tmux configuration
-
-Add the following to `.tmux.conf` to enable seamless navigation between vim and
-tmux windows.
-
-```sh
-# Enable 256 colorschemes
-set -g default-terminal "screen-256color"
-# Pass modifier keys through tmux to vim
-set -g xterm-keys on
-# Quick window selection
-bind-key -n C-Space select-window -t :+
-bind-key -n M-PageDown select-window -t :+
-bind-key -n M-PageUp select-window -t :-
-# Navigate seamlessly between vim splits and tmux panes
-bind -n M-Left run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Left) || tmux select-pane -L"
-bind -n M-Down run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Down) || tmux select-pane -D"
-bind -n M-Up run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Up) || tmux select-pane -U"
-bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Right) || tmux select-pane -R"
-```
-
-Alternatively, a default tmux.conf is included, and the installation script
-will give the option to symlink to it.
 
 Features
 --------
 
-> Other features are already implemented, this README will soon be
-> updated to illustrate all of them, as well as a list of the installed plugins.
+> This is a partial list, work in progress.
 
 ### Bubbling lines
 
@@ -127,6 +94,8 @@ With `CTRL+ArrowUp` and `CTRL+ArrowDown` (single lines in normal mode,
 multiple lines in visual mode).
 
 Keycode fixes are provided for this to work in Tmux as well.
+
+This does not interfere with the copy and cut operations.
 
 ### Buffer enhancements
 
@@ -144,12 +113,13 @@ Keycode fixes are provided for this to work in Tmux as well.
   - all the non-special ones with `bda`
   - only the hidden ones with the `bdh` sequence in normal mode
 
-* Copy the path of the currenct buffer
+* Copy the path of the current buffer to the system clipboard
   - relative path with the sequence `cp` in normal mode
   - full path with the sequence `cpp` in normal mode
 
 * MiniBufExplorer customisation
   - position at the top
+  - do not open by default
   - focus the buffer list with `<leader>+t`
   - toggle the buffer list with `<leader>+m`
 
@@ -164,18 +134,19 @@ Keycode fixes are provided for this to work in Tmux as well.
 
 ### Real delete
 
-Vim collapses the two functionalities of deleting and cutting.
+Vim conflates the two functionalities of deleting and cutting.
 
-The `ALT+d` shortcut is provided to do real deletion (cut to the blackhole
-register in Vim parlance):
+The `ALT+d` (or `<leader>+d`) shortcut provided to do real deletion
+(cut to the blackhole register in Vim parlance):
+
 * current line in normal mode
 * selection in visual mode
 
 ### Home key
 
-Pressing the home key will bring to the first non-blank character.
-Pressing again will bring to the first column, and then it will toggle between
-the two positions.
+Pressing the home key will bring to the first non-blank character (like `^`).
+Pressing again will bring to the first column (like `0`).
+After that it will toggle between the two positions.
 
 A keycode fix is provided for this to work inside Tmux.
 
