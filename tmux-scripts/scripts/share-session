@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
 sudo chgrp pair /tmp/tmux-sessions
+
+ifconfig
