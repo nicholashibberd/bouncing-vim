@@ -6,24 +6,18 @@ todo
 * fix ALT+D real delete on Mac
 * add prompt to continue if there's a ~/.vim already
 * <http://stackoverflow.com/a/1269631/417375>
-* check for presence of Ruby instead of installing an arbitrary version
 * consider not re-entering normal mode after quick-save with ctrl-s
 * consider leader+S for quick save
 * Remove Ultisnips???
 * Remove xmp filter?
 * Gary Bernhardt rspec tests execution
 * either remove or fix autoreload <http://stackoverflow.com/a/10962191>
-* do not show MiniBufExplorer at startup
-* <http://parley.rubyrogues.com/t/your-favourite-vimrc-tips/702>
 * <http://stevelosh.com/blog/2010/09/coming-home-to-vim/#important-vimrc-lines>
 * re-hardwrap paragraphs of text: nnoremap <leader>q gqip
 * insert line no insert mode
-* add highlight for Ruby logical operators and similar text objects
 * ensure that indentation is absolute, not relative to initial position
 * use minibufexplorer mappings to swtich buffers if the plugin is available
-* change delay between keys for mappings
 * reenable vim directives in the files
-* quick toggle spell check
 * select inside and around pipe chars; see also
   - <http://vim.wikia.com/wiki/Creating_new_text_objects>
   - <http://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/>
@@ -37,7 +31,6 @@ todo
 * join lines in insert mode (not sure it's a good idea)
 * trick to create the required directories if needed, directly from the vimrc
 * Add snippets for required tmux and bash conf to the readme
-* Add list of features to the readme
 
 Interesting vimrc files
 -----------------------
