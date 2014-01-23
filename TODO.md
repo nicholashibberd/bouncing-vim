@@ -1,6 +1,8 @@
 todo
 ----
 
+* add back download of vim with mercurial as an option (still default to the simple tarball download)
+* consider the ruby block text-object plugin
 * fix ALT+D real delete on Mac
 * add prompt to continue if there's a ~/.vim already
 * <http://stackoverflow.com/a/1269631/417375>
@@ -10,7 +12,6 @@ todo
 * Remove Ultisnips???
 * Remove xmp filter?
 * Gary Bernhardt rspec tests execution
-* close NerdTree after selecting a file
 * either remove or fix autoreload <http://stackoverflow.com/a/10962191>
 * do not show MiniBufExplorer at startup
 * <http://parley.rubyrogues.com/t/your-favourite-vimrc-tips/702>
