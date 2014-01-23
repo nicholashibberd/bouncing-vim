@@ -16,6 +16,54 @@ of pathogen.
 Credits are currently given in the form of links to the original source.
 Thanks to the great Vim community and to the many authors of features.
 
+Third party plugins
+-------------------
+
+Install with: `./vim-scripts/install-plugins.sh`
+
+### Essentials
+
+* [Ack-vim] (https://github.com/mileszs/ack.vim)
+* [Ctrl-P] (https://github.com/kien/ctrlp.vim)
+* [MiniBufExplorer] (https://github.com/fholgado/minibufexpl.vim)
+* [NERDTree] (https://github.com/scrooloose/nerdtree)
+* [Supertab] (https://github.com/ervandew/supertab)
+* [Tabular] (https://github.com/godlygeek/tabular)
+* [Buffergator] (https://github.com/jeetsukumaran/vim-buffergator)
+* [Commentary] (https://github.com/tpope/vim-commentary)
+* [Multiple cursors] (https://github.com/terryma/vim-multiple-cursors)
+* [Sensible] (https://github.com/tpope/vim-sensible)
+* [Surround] (https://github.com/tpope/vim-surround)
+* [Vimux] (https://github.com/benmills/vimux)
+
+Colorschemes
+
+* [Agnostic] (https://github.com/ygt-mikekchar/agnostic)
+* [Molokai] (https://github.com/tomasr/molokai)
+* [Solarized] (https://github.com/altercation/vim-colors-solarized)
+
+### Nice-to-have's
+
+Install with: `./vim-scripts/tmp-plugins-install.sh`.
+
+Remove with: `./vim-scripts/tmp-plugins-install.sh`.
+
+* [Mustache] (https://github.com/juvenn/mustache.vim)
+* [Python Syntax] (https://github.com/hdima/python-syntax)
+* [Ultisnips] (https://github.com/SirVer/ultisnips)
+* [Coffeescript] (https://github.com/kchmck/vim-coffee-script)
+* [Fugitive] (https://github.com/tpope/vim-fugitive)
+* [HiLinkTrace] (https://github.com/gerw/vim-HiLinkTrace)
+* [Markdown] (https://github.com/tpope/vim-markdown)
+* [Vim Rails] (https://github.com/tpope/vim-rails)
+* [Vim Ruby] (https://github.com/vim-ruby/vim-ruby)
+* [xmp-filter] (https://github.com/t9md/vim-ruby-xmpfilter)
+
+Colorschemes:
+
+* [Noctu] (https://github.com/noahfrederick/vim-noctu)
+* [Base16] (https://github.com/chriskempson/base16-vim)
+
 Installing
 ----------
 
