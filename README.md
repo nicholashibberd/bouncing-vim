@@ -120,8 +120,8 @@ This does not interfere with the copy and cut operations.
 * MiniBufExplorer customisation
   - position at the top
   - do not open by default
-  - focus the buffer list with `<leader>+t`
-  - toggle the buffer list with `<leader>+m`
+  - focus the buffer list with `<leader>t`
+  - toggle the buffer list with `<leader>m`
 
 * Buffergator plugin customisation
   - open on the right hand side
@@ -129,14 +129,20 @@ This does not interfere with the copy and cut operations.
 
 ### Clipboard
 
-* Copy the visual selection to the system clipboard with `CTRL+c`
-* Configuration is provided to support system clipboard in Tmux as well
+* Copy the visual selection to the system clipboard with `CTRL+c`.
+  For Mac users requires additional configuration:
+  <https://coderwall.com/p/j9wnfw>
+* Configuration is provided to support system clipboard in Tmux as well,
+  see `./plugin/clipboard.vim`
+* In visual mode, use `<leader>p` to paste from the default register without
+  replacing the content of the register.
+  This allows to paste multiple times the same text.
 
 ### Real delete
 
 Vim conflates the two functionalities of deleting and cutting.
 
-The `ALT+d` (or `<leader>+d`) shortcut provided to do real deletion
+The `ALT+d` (or `<leader>d`) shortcut provided to do real deletion
 (cut to the blackhole register in Vim parlance):
 
 * current line in normal mode
