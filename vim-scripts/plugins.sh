@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 declare -a ESSENTIALS=(
-   "lucabelmondo/vim-luke"
+   "lucabelmondo/bouncing-vim"
         "mileszs/ack.vim"
   "ygt-mikekchar/agnostic"
            "kien/ctrlp.vim"

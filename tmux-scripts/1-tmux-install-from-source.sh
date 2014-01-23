@@ -61,7 +61,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   fi
 
   echo "Symlink tmux.conf"
-  ln -sf "${HOME}/.vim/bundle/vim-luke/rc-files/tmux.conf" "${HOME}/.tmux.conf"
+  ln -sf "${HOME}/.vim/bundle/bouncing-vim/rc-files/tmux.conf" "${HOME}/.tmux.conf"
 else
-  echo "Inspect the provided tmux.conf for more info. ${HOME}/.vim/bundle/vim-luke/rc-files/tmux.conf"
+  echo "Inspect the provided tmux.conf for more info. ${HOME}/.vim/bundle/bouncing-vim/rc-files/tmux.conf"
 fi

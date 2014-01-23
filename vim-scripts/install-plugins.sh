@@ -64,7 +64,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   fi
 
   echo "Symlink vimrc"
-  ln -sf "${HOME}/.vim/bundle/vim-luke/rc-files/vimrc" "${HOME}/.vimrc"
+  ln -sf "${HOME}/.vim/bundle/bouncing-vim/rc-files/vimrc" "${HOME}/.vimrc"
 else
-  echo "Inspect the provided vimrc for more info. ${HOME}/.vim/bundle/vim-luke/rc-files/vimrc"
+  echo "Inspect the provided vimrc for more info. ${HOME}/.vim/bundle/bouncing-vim/rc-files/vimrc"
 fi

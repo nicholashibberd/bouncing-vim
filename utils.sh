@@ -20,7 +20,7 @@ clone_to_bundle () {
 clone_temp_plugin () {
   local GITHUB=$1
   local BASENAME=$(github_basename $GITHUB)
-  local DIR="vim-luke-tmp-$BASENAME"
+  local DIR="bouncing-vim-tmp-$BASENAME"
 
   clone_to_bundle $GITHUB $BASENAME $DIR
 }
