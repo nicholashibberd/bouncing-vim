@@ -162,23 +162,23 @@ Features
 
 ### Third party plugins options
 
-* **Ctrl**
+* **CtrlP**
   - show hidden files
   - ignore some common dirs and file types
 
-* Ack
+* **Ack**
   - launch `:Ack!` with `<leader>a`
   - use [Ag The Silver Searcher] (https://github.com/ggreer/the_silver_searcher)
     if available, to go even faster
 
-* NERDTree
+* **NERDTree**
   - toggle with `<leader>n`
   - jump to the current buffer with `<leader>f` (as in "find...")
   - ignored compiled files
   - use minimal UI
   - prevent NERDTree from opening a buffer in a new split by mistake
 
-* vimux
+* **vimux**
   - `<leader>rb`: run the current file with rspec
   - `<leader>rp`: prompt for a command to run
   - `<leader>rr`: run last command executed by VimuxRunCommand
@@ -186,6 +186,49 @@ Features
   - `<leader>rx`: close all other tmux panes in current window
   - `<leader>rq`: close vim tmux runner opened by VimuxRunCommand
   - `<leader>rs`: interrupt any command running in the runner pane
+
+* **Vim Ruby**
+  - turn on ruby evaluation for c-x c-o expansion
+  - autocomplete class names in the global scope
+  - autocomplete Rails methods
+  - enable syntax highlight for Ruby operators
+
+* **Ruby xmpfilter**
+  - in terminal Vim press `F4` to mark the line, `F5` to evaluate
+  - in Gvim press `Meta-m` to mark the line, `Meta-r` to evaluate
+
+* **MiniBufExplorer**
+  - position at the top
+  - do not open by default
+  - focus the buffer list with `<leader>t`
+  - toggle the buffer list with `<leader>m`
+
+* **Buffergator**
+  - open on the right hand side
+  - toggle with `<leader>+b`
+
+### Language specific settings
+
+* **Java**
+  - soft tab with 4 spaces
+
+* **Python**
+  - soft tab with 4 spaces
+  - use `indent` as `foldmethod`
+
+* **golang**
+  - hard tabs with 4 spaces
+  - see also `./rc-files/vimrc` for the standard golang setup
+
+* **Vim Ruby**
+  - turn on ruby evaluation for c-x c-o expansion
+  - autocomplete class names in the global scope
+  - autocomplete Rails methods
+  - enable syntax highlight for Ruby operators
+
+* **Ruby xmpfilter**
+  - in terminal Vim press `F4` to mark the line, `F5` to evaluate
+  - in Gvim press `Meta-m` to mark the line, `Meta-r` to evaluate
 
 ### Bubbling lines
 
