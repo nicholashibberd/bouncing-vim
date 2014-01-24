@@ -160,6 +160,33 @@ Features
 
 > This is a partial list, work in progress.
 
+### Third party plugins options
+
+* **Ctrl**
+  - show hidden files
+  - ignore some common dirs and file types
+
+* Ack
+  - launch `:Ack!` with `<leader>a`
+  - use [Ag The Silver Searcher] (https://github.com/ggreer/the_silver_searcher)
+    if available, to go even faster
+
+* NERDTree
+  - toggle with `<leader>n`
+  - jump to the current buffer with `<leader>f` (as in "find...")
+  - ignored compiled files
+  - use minimal UI
+  - prevent NERDTree from opening a buffer in a new split by mistake
+
+* vimux
+  - `<leader>rb`: run the current file with rspec
+  - `<leader>rp`: prompt for a command to run
+  - `<leader>rr`: run last command executed by VimuxRunCommand
+  - `<leader>ri`: inspect runner pane
+  - `<leader>rx`: close all other tmux panes in current window
+  - `<leader>rq`: close vim tmux runner opened by VimuxRunCommand
+  - `<leader>rs`: interrupt any command running in the runner pane
+
 ### Bubbling lines
 
 With `CTRL+ArrowUp` and `CTRL+ArrowDown` (single lines in normal mode,
