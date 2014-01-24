@@ -1,7 +1,7 @@
 What is it?
 -----------
 
-This is a mini vim distro, integrated with tmux.
+bouncing.vim is a mini vim distro, integrated with tmux.
 
 It's a curated collection of plugins and settings, inspired by a few key
 principles:
@@ -14,7 +14,7 @@ It supports temporary installation of the vim plugins by taking advantage
 of pathogen.
 
 Credits are currently given in the form of links to the original source.
-Thanks to the great Vim community and to the many authors of features.
+Thanks to the great Vim community and to the many authors of the features.
 
 Third party plugins
 -------------------
@@ -23,24 +23,37 @@ Install with: `./vim-scripts/install-plugins.sh`
 
 ### Essentials
 
-* [Ack-vim] (https://github.com/mileszs/ack.vim)
-* [Ctrl-P] (https://github.com/kien/ctrlp.vim)
-* [MiniBufExplorer] (https://github.com/fholgado/minibufexpl.vim)
-* [NERDTree] (https://github.com/scrooloose/nerdtree)
-* [Supertab] (https://github.com/ervandew/supertab)
-* [Tabular] (https://github.com/godlygeek/tabular)
-* [Buffergator] (https://github.com/jeetsukumaran/vim-buffergator)
-* [Commentary] (https://github.com/tpope/vim-commentary)
-* [Multiple cursors] (https://github.com/terryma/vim-multiple-cursors)
-* [Sensible] (https://github.com/tpope/vim-sensible)
-* [Surround] (https://github.com/tpope/vim-surround)
-* [Vimux] (https://github.com/benmills/vimux)
+* [Ack-vim] (https://github.com/mileszs/ack.vim) - Run [ack] (http://beyondgrep.com/)
+  from vim, and shows the results in a split window.
+* [Ctrl-P] (https://github.com/kien/ctrlp.vim) - Full path fuzzy file, buffer,
+  mru, tag, ... finder for Vim, written in pure Vimscript.
+* [MiniBufExplorer] (https://github.com/fholgado/minibufexpl.vim) -
+  Elegant buffer explorer, takes very little screen space.
+* [NERDTree] (https://github.com/scrooloose/nerdtree) - Explore the filesystem
+  in a hierarchical tree structure and open files and directories.
+* [Supertab] (https://github.com/ervandew/supertab) - Perform all your vim insert
+  mode completions with Tab.
+* [Tabular] (https://github.com/godlygeek/tabular) - Vim script for text
+  filtering and alignment.
+* [Buffergator] (https://github.com/jeetsukumaran/vim-buffergator) - Vim plugin
+  to list, select and switch between buffers.
+* [commentary.vim] (https://github.com/tpope/vim-commentary) - Comment stuff out.
+* [Multiple cursors] (https://github.com/terryma/vim-multiple-cursors) -
+  Sublime Text style multiple selections for Vim.
+* [Sensible] (https://github.com/tpope/vim-sensible) - A universal set of
+  defaults that (hopefully) everyone can agree on.
+* [Surround] (https://github.com/tpope/vim-surround) - Edit parentheses,
+  brackets, quotes, XML tags, and more in pairs.
+* [Vimux] (https://github.com/benmills/vimux) - Easily interact with tmux from vim.
 
 Colorschemes
 
-* [Agnostic] (https://github.com/ygt-mikekchar/agnostic)
-* [Molokai] (https://github.com/tomasr/molokai)
-* [Solarized] (https://github.com/altercation/vim-colors-solarized)
+* [Agnostic] (https://github.com/ygt-mikekchar/agnostic) - A vim colour scheme
+  that allows to choose your own colours.
+* [Molokai] (https://github.com/tomasr/molokai) - A Vim port of the monokai
+  theme for TextMate.
+* [Solarized] (https://github.com/altercation/vim-colors-solarized) - Precision
+  colors for machines and people.
 
 ### Nice-to-have's
 
@@ -48,21 +61,32 @@ Install with: `./vim-scripts/tmp-plugins-install.sh`.
 
 Remove with: `./vim-scripts/tmp-plugins-install.sh`.
 
-* [Mustache] (https://github.com/juvenn/mustache.vim)
-* [Python Syntax] (https://github.com/hdima/python-syntax)
-* [Ultisnips] (https://github.com/SirVer/ultisnips)
-* [Coffeescript] (https://github.com/kchmck/vim-coffee-script)
-* [Fugitive] (https://github.com/tpope/vim-fugitive)
-* [HiLinkTrace] (https://github.com/gerw/vim-HiLinkTrace)
-* [Markdown] (https://github.com/tpope/vim-markdown)
-* [Vim Rails] (https://github.com/tpope/vim-rails)
-* [Vim Ruby] (https://github.com/vim-ruby/vim-ruby)
-* [xmp-filter] (https://github.com/t9md/vim-ruby-xmpfilter)
+* [Mustache] (https://github.com/mustache/vim-mustache-handlebars) - A vim plugin for
+  working with mustache and handlebars templates.
+* [Python Syntax] (https://github.com/hdima/python-syntax) - Python syntax
+  highlighting script for Vim.
+* [Ultisnips] (https://github.com/SirVer/ultisnips) - An implementation
+  of TextMates Snippets for the Vim Text Editor. Requires Vim compiled with
+  Python support.
+* [Coffeescript] (https://github.com/kchmck/vim-coffee-script) - Adds
+  CoffeeScript support to vim. It covers syntax, indenting, compiling, and more.
+* [fugitive.vim] (https://github.com/tpope/vim-fugitive) - A Git wrapper so
+  awesome, it should be illegal.
+* [HiLinkTrace] (https://github.com/gerw/vim-HiLinkTrace) - Get the color of the
+  text object under the cursor.
+* [Markdown] (https://github.com/tpope/vim-markdown) - Vim Markdown runtime files.
+* [rails.vim] (https://github.com/tpope/vim-rails) - Ruby on Rails power tools.
+* [Vim Ruby] (https://github.com/vim-ruby/vim-ruby) - Vim configuration files
+  for editing and compiling Ruby within Vim.
+* [vim-ruby-xmpfilter] (https://github.com/t9md/vim-ruby-xmpfilter) - Helper
+  for ruby's xmpfilter or seeing_is_believing. Evaluates Ruby code inline and
+  print the result as a comment at the end of the line.
 
 Colorschemes:
 
-* [Noctu] (https://github.com/noahfrederick/vim-noctu)
-* [Base16] (https://github.com/chriskempson/base16-vim)
+* [Noctu] (https://github.com/noahfrederick/vim-noctu) - A Vim color scheme for
+  16-color terminals.
+* [Base16] (https://github.com/chriskempson/base16-vim) - Color schemes for hackers.
 
 Installing
 ----------
