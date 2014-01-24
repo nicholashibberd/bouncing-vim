@@ -22,7 +22,7 @@ declare -a ESSENTIALS=(
 declare -a NICE_TO_HAVES=(
   "noahfrederick/vim-noctu"
    "chriskempson/base16-vim"
-         "juvenn/mustache.vim"
+       "mustache/vim-mustache-handlebars"
           "hdima/python-syntax"
          "SirVer/ultisnips"
          "kchmck/vim-coffee-script"
