@@ -8,7 +8,7 @@ principles:
 
 * provide a practical, "human" Vim setup
 * provide as many additional features and shortcuts as possible...
-* ...but try to not remove or override native Vim features
+* ...but try to not remove or override native Vim features and popular setups
 
 It supports temporary installation of the vim plugins by taking advantage
 of pathogen.
