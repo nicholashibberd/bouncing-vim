@@ -105,6 +105,7 @@ nnoremap bda :call CloseAllNormalBuffers()<CR>
 " === Buffergator ===
 " ===================
 let g:buffergator_viewport_split_policy='R'
+let g:buffergator_suppress_keymaps=1
 noremap <Leader>b :BuffergatorToggle<CR>
 
 " =======================
