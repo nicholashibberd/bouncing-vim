@@ -7,7 +7,7 @@ set listchars=tab:»·,trail:·,extends:>,precedes:<
 " set listchars=tab:>-,trail:·,eol:$
 " set list
 " Whitespace will be hidden by default, but it's possible to toggle it - http://items.sjbach.com/319
-nmap <silent> <leader>s :set nolist!<CR>
+nmap <silent> <leader>w :set nolist!<CR>
 
 " http://stackoverflow.com/a/1618401/417375
 " http://stackoverflow.com/a/7496112
@@ -23,8 +23,8 @@ function! <SID>StripTrailingWhitespaces()
   "
   " http://stackoverflow.com/a/7496112
   " \( ..... Start a match group
-  " $\n ... Match a new line (end-of-line character followed by a carriage return).
-  " \s* ... Allow any amount of whitespace on this new line
+  "   $\n ... Match a new line (end-of-line character followed by a carriage return).
+  "   \s* ... Allow any amount of whitespace on this new line
   " \) ..... End the match group
   " \+ ..... Allow any number of occurrences of this group (one or more).
   " \%$ ... Match the end of the file
