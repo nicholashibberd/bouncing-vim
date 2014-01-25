@@ -11,11 +11,15 @@ set nowritebackup
 
 " Auto-reload buffers when file changed on disk (does not always work in reality)
 set autoread
+" Save all buffers when switching between them, to avoid running tests
+" with unsaved changes.
 set autowrite
+autocmd BufLeave,FocusLost * wall
 
 " ==========================
 " === Save with shortcut ===
 " ==========================
+"
 " <http://vim.wikia.com/wiki/Map_Ctrl-S_to_save_current_or_new_files>
 " Save, but only if the buffer is modified.
 inoremap <C-s> <esc>:wall<cr>a
@@ -23,9 +27,8 @@ inoremap <C-s> <esc>:wall<cr>a
 " inoremap <C-s> <c-o>:Update<CR><CR>
 nnoremap <C-s> :wall<cr>
 
-" ===========================================================
 " === NOTE: Support for CTRL-S and CTRL-Q in the terminal ===
-" ===========================================================
+"
 " Normally CTRL-S and CTRL-Q suspend and wake up the terminal output in
 " terminal emulators (respectively freezing and unfreezing).
 " Put this function in the .bashrc to allow instead passing the key combo
