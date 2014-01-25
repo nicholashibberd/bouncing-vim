@@ -240,6 +240,8 @@ cd -; \
 
 ### Miscellaneous mappings
 
+* Leader is mapped to the popular `,` but `\` is still supported.
+
 * Map `<F1>` to `<Esc>` to avoid bringing up the help by mistake.
 
 * Map `jj` to `<Esc>`, a popular shortcut that allows some users to stay on
@@ -259,9 +261,12 @@ cd -; \
 * Home key
   - pressing the home key will bring to the first non-blank character (like `^`)
   - pressing again will bring to the first column (like `0`)
-  - after that it will toggle between the two positions
+  - after that it will toggle between the two positions<br>
+  <br>
+  A keycode fix is provided for this to work inside Tmux.
 
-A keycode fix is provided for this to work inside Tmux.
+* Quickfix list
+  - go to the next with `]q`, to the previous with `[q`
 
 ### Mouse support
 
@@ -389,3 +394,23 @@ stty stop '' -ixoff
 # Prevent CTRL-Q from waking up the output stream
 stty start '' -ixon
 ```
+
+### Search features
+
+* Highlight current word or selection with `<leader>h` (that is, search
+  without jumping to the next found occurrence).
+
+* Search visual selection with `*`.
+
+* Smart ignore-case (consider case only if the search term contains a mix of
+  of upper and lower case).
+
+* Replace all the occurrences in a line by default, (no need to specify `g`)
+
+* Highlight results.
+
+* Clear highlighted results with `CTRL-l` (same as in "clearing" the terminal).
+
+* Highlight matching parentheses without jumping to the closing one.
+
+* Ignore some directories and extensions (tmp, pyc, ...).
