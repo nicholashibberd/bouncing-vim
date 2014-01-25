@@ -407,10 +407,21 @@ stty start '' -ixon
 
 * Replace all the occurrences in a line by default, (no need to specify `g`)
 
-* Highlight results.
-
-* Clear highlighted results with `CTRL-l` (same as in "clearing" the terminal).
-
-* Highlight matching parentheses without jumping to the closing one.
+* Highlighting
+  - highlight results
+  - clear highlighted results with `CTRL-l` (same as in "clearing" the terminal).
+  - highlight matching parentheses without jumping to the closing one.
 
 * Ignore some directories and extensions (tmp, pyc, ...).
+
+### Run shell command without prompting
+
+This is especially useful when one wants to run a command in a diffent tmux
+window or pane.
+
+Example: to run the tests in the second pane of the first tmux window,
+enter the following in the vim prompt:
+
+```vim
+:Silent tmux send-keys -t 1.2 "bundle exec rspec spec/my_spec.rb" C-m
+```
