@@ -18,8 +18,12 @@ of pathogen - useful for pairing sessions.
 Credits are currently given in the form of links to the original source.
 Thanks to the great Vim community and to the many authors of the features.
 
-Third party plugins
--------------------
+Content
+-------
+* [Third party plugins](#plugins-list)
+* [Features](#features)
+
+## <a name="plugins-list"></a>Third party plugins
 
 Install all the plugins (including the nice-to-have's) with:
 `./vim-scripts/install-plugins.sh`
@@ -159,7 +163,7 @@ cd -; \
 }
 ```
 
-Features
+## <a name="features"></a>Features
 --------
 
 > This is a partial list, work in progress.
@@ -192,10 +196,10 @@ Features
   - `<leader>rs`: interrupt any command running in the runner pane
 
 * **Vim Ruby**
-  - turn on ruby evaluation for c-x c-o expansion
+  - enable syntax highlight for Ruby operators
+  - turn on ruby evaluation for `c-x c-o` expansion
   - autocomplete class names in the global scope
   - autocomplete Rails methods
-  - enable syntax highlight for Ruby operators
 
 * **Ruby xmpfilter**
   - in terminal Vim press `F4` to mark the line, `F5` to evaluate
@@ -224,15 +228,9 @@ Features
   - hard tabs with 4 spaces
   - see also `./rc-files/vimrc` for the standard golang setup
 
-* **Vim Ruby**
-  - turn on ruby evaluation for c-x c-o expansion
-  - autocomplete class names in the global scope
-  - autocomplete Rails methods
-  - enable syntax highlight for Ruby operators
-
-* **Ruby xmpfilter**
-  - in terminal Vim press `F4` to mark the line, `F5` to evaluate
-  - in Gvim press `Meta-m` to mark the line, `Meta-r` to evaluate
+* **Ruby**
+  - see setup of the Vim Ruby plugin
+  - see setup of the xmpfilter plugin
 
 ### Miscellaneous options
 
