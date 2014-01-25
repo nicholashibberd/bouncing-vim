@@ -1,5 +1,44 @@
-" Replace visually selected
-" -------------------------
+" =======================================
+" === Indent without losing selection ===
+" =======================================
+
+" Vim tip 224 http://vim.wikia.com/wiki/Shifting_blocks_visually
+vnoremap > >gv
+vnoremap < <gv
+
+" =================================
+" === Reselect last edited text ===
+" =================================
+
+" gp selects the just changed or pasted text
+" <http://vim.wikia.com/wiki/Selecting_your_pasted_text>
+" (it uses `gp` in the wiki, but conflicts with standard gp, which is paste
+" going to the end of the pasted text)
+nnoremap <expr> <Leader>v '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" ================================
+" === Search visually selected ===
+" ================================
+
+" <http://vim.wikia.com/wiki/Search_for_visually_selected_text>
+" <http://vim.wikia.com/wiki/VimTip171>
+" Search for selected text, forwards or backwards. It is case insensitive, and
+" any whitespace is matched ('hello\nworld' matches 'hello world')
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+
+" =================================
+" === Replace visually selected ===
+" =================================
 "
 " http://stackoverflow.com/questions/676600/vim-search-and-replace-selected-text
 " By pressing ctrl + r in the visual mode you will be prompted to enter text
