@@ -24,12 +24,6 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 inoremap <F1> <ESC>
 
-" j/k and up/down work on visible lines instead of actual lines
-nnoremap j gj
-nnoremap k gk
-nnoremap <Down> gj
-nnoremap <Up> gk
-
 " Go from insert mode to normal mode with 'jj'
 inoremap jj <ESC>
 
