@@ -238,6 +238,9 @@ cd -; \
 
 * Remove the comment symbols when joining lines with `J`.
 
+* Use 2-space soft tabs by defaults (it's overriden for some some languages
+  with different conventions).
+
 ### Miscellaneous mappings
 
 * Leader is mapped to the popular `,` but `\` is still supported.

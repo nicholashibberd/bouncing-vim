@@ -36,6 +36,13 @@ vnoremap <F6> :setlocal spell!<CR>
 " reduce the default command timeout (1000)
 set timeoutlen=350
 
+" Use 2-space soft tabs by defaults (it's overriden for some some languages
+" with different conventions).
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
 " ======================
 " === Format options ===
 " ======================
