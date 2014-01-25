@@ -250,6 +250,8 @@ cd -; \
 * Toggle `paste` with `<F3>`, that disables all automatic indentation when
   pasting from the system clipboard.
 
+* Toggle spell checking with `<F6>` as in Sublime Text.
+
 ### Navigation
 
 * Arrows are enabled to accommodate users that have different styles of

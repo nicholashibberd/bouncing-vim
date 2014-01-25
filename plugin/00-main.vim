@@ -24,6 +24,11 @@ inoremap <F1> <ESC>
 " Go from insert mode to normal mode with 'jj'
 inoremap jj <ESC>
 
+" toggle spell checking with <F6>
+nnoremap <F6> :setlocal spell!<CR>
+inoremap <F6> :setlocal spell!<CR>
+vnoremap <F6> :setlocal spell!<CR>
+
 " ====================
 " === Misc options ===
 " ====================
