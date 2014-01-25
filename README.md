@@ -9,9 +9,11 @@ principles:
 * provide a practical, "human" Vim setup
 * provide as many additional features and shortcuts as possible...
 * ...but try to not remove or override native Vim features and popular setups
+* allow people with different experiences to pair program proficiently and
+  pleasantly
 
 It supports temporary installation of the vim plugins by taking advantage
-of pathogen.
+of pathogen - useful for pairing sessions.
 
 Credits are currently given in the form of links to the original source.
 Thanks to the great Vim community and to the many authors of the features.
@@ -19,7 +21,8 @@ Thanks to the great Vim community and to the many authors of the features.
 Third party plugins
 -------------------
 
-Install with: `./vim-scripts/install-plugins.sh`
+Install all the plugins (including the nice-to-have's) with:
+`./vim-scripts/install-plugins.sh`
 
 ### Essentials
 
@@ -116,8 +119,8 @@ The list of essential and nice-to-have plugins is in `./vim-script/plugins.sh`
 * If a full install is required: run `vim-scripts/install-plugins.sh`.
 
 * If a temporary install is preferred:
-  * run `vim-scripts/tmp-plugins-install.sh` at the beginning of the pairing session
-  * run `vim-scripts/tmp-plugins-remove.sh` when finished
+  - run `vim-scripts/tmp-plugins-install.sh` at the beginning of the pairing session
+  - run `vim-scripts/tmp-plugins-remove.sh` when finished
 
 ### Install tmux 1.8 from source (only Ubuntu)
 
@@ -133,6 +136,7 @@ the two sections:
 
 * "Terminal compatibility" (required in particular to pass some key
   combinations through tmux to vim)
+
 * "Navigation between tmux and vim"
 
 ### Updating existing vim plugins
@@ -160,7 +164,7 @@ Features
 
 > This is a partial list, work in progress.
 
-### Third party plugins options
+### Third party plugins setup
 
 * **CtrlP**
   - show hidden files
@@ -230,6 +234,52 @@ Features
   - in terminal Vim press `F4` to mark the line, `F5` to evaluate
   - in Gvim press `Meta-m` to mark the line, `Meta-r` to evaluate
 
+### Miscellaneous options
+
+* Reduce the timeout required to recognize a command from 1000 ms (the default)
+  to 350 ms.
+
+* Remove the comment symbols when joining lines with `J`.
+
+### Miscellaneous mappings
+
+* Map `<F1>` to `<Esc>` to avoid bringing up the help by mistake.
+
+* Map `jj` to `<Esc>`, a popular shortcut that allows some users to stay on
+  the home row.
+
+* Toggle `paste` with `<F3>`, that disables all automatic indentation when
+  pasting from the system clipboard.
+
+### Navigation
+
+* Arrows are fully enabled to accommodate users that have different styles of
+  usage.
+
+* Moving between lines works by visible lines instead of actual lines (useful
+  when wrap is enabled).
+
+* Home key
+  - pressing the home key will bring to the first non-blank character (like `^`)
+  - pressing again will bring to the first column (like `0`)
+  - after that it will toggle between the two positions
+
+A keycode fix is provided for this to work inside Tmux.
+
+### Mouse support
+
+Mouse features are fully enabled.
+
+### Anti-typo command aliases
+
+Some commands like `:w`, `:q` and similar have been aliased with the upper
+case version to account for common misspellings.
+
+### Last position in file
+
+Reopening a file the cursor will jump to the position where it was the last
+time the buffer was opened.
+
 ### Bubbling lines
 
 With `CTRL+ArrowUp` and `CTRL+ArrowDown` (single lines in normal mode,
@@ -237,7 +287,7 @@ multiple lines in visual mode).
 
 Keycode fixes are provided for this to work in Tmux as well.
 
-This does not interfere with the copy and cut operations.
+Note that this doen't interfere with the copy and cut operations.
 
 ### Buffer enhancements
 
@@ -249,11 +299,11 @@ This does not interfere with the copy and cut operations.
   be used.
 
 * Quick close the current buffer without closing its window with `CTRL+q`, or
-  `ALT+q`, or `<leader>+q`
+  `ALT+q`, or `<leader>+q`.
 
 * Close all buffers
-  - all the non-special ones with `bda`
-  - only the hidden ones with the `bdh` sequence in normal mode
+  - all the non-special ones with the sequence `bda`
+  - only the hidden ones with the sequence `bdh` in normal mode
 
 * Copy the path of the current buffer to the system clipboard
   - relative path with the sequence `cp` in normal mode
@@ -271,11 +321,16 @@ This does not interfere with the copy and cut operations.
 
 ### Clipboard
 
+* Yank to the end of the line with `Y`, to make it consistent with `C` and `D`.
+  This was removed from sensible.vim.
+
 * Copy the visual selection to the system clipboard with `CTRL+c`.
   For Mac users requires additional configuration:
   <https://coderwall.com/p/j9wnfw>
+
 * Configuration is provided to support system clipboard in Tmux as well,
   see `./plugin/clipboard.vim`
+
 * In visual mode, use `<leader>p` to paste from the default register without
   replacing the content of the register.
   This allows to paste multiple times the same text.
@@ -289,20 +344,3 @@ The `ALT+d` (or `<leader>d`) shortcut provided to do real deletion
 
 * current line in normal mode
 * selection in visual mode
-
-### Home key
-
-Pressing the home key will bring to the first non-blank character (like `^`).
-Pressing again will bring to the first column (like `0`).
-After that it will toggle between the two positions.
-
-A keycode fix is provided for this to work inside Tmux.
-
-### Last position in file
-
-Reopening a file the cursor will jump to the position where it was the last
-time the buffer was opened.
-
-### Mouse support
-
-Mouse features are fully enabled.

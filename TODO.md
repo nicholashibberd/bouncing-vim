@@ -1,6 +1,7 @@
 todo
 ----
 
+* when installing vim, give an option to keep the existing `~/.vim/` directory
 * add back download of vim with mercurial as an option (still default to the simple tarball download)
 * consider the ruby block text-object plugin
 * fix ALT+D real delete on Mac
@@ -23,7 +24,7 @@ todo
   - <http://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/>
   the problem is that pipe is a command to "go to column..."
 * toggle between {} and do-end
-* keybindings to toggle
+* keybindings to toggle the following options, when performance is an issue
   * :set nocursorline/:NoMatchParen <=> :set cursorline/:DoMatchParen
   * let loaded_matchparen = 1
 * keybindings for split panes resising
