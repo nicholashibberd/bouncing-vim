@@ -289,8 +289,9 @@ time the buffer was opened.
 
 ### Bubbling lines
 
-With `CTRL+ArrowUp` and `CTRL+ArrowDown` (single lines in normal mode,
-multiple lines in visual mode).
+Quickly move lines up and down with `CTRL+ArrowUp/Down` and `CTRL+k/j`.
+
+It operates on single lines in normal mode, on multiple lines in visual mode.
 
 Keycode fixes are provided for this to work in Tmux as well.
 
@@ -298,7 +299,7 @@ Note that this doen't interfere with the copy and cut operations.
 
 ### Buffer enhancements
 
-* Reuse a buffer if a file is already open
+* Reuse a buffer if a file is already open.
 
 * Switch between buffers with the same shortcuts used for tabs in Chrome:
   `CTRL+PageUp/PageDown`;
@@ -452,3 +453,27 @@ bind -n M-Down  run "(tmux display-message -p '#{pane_current_command}' | grep -
 bind -n M-Up    run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Up)    || tmux select-pane -U"
 bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Right) || tmux select-pane -R"
 ```
+
+### View options
+
+* Disable all bells.
+* Use UTF-8 encoding.
+* Display line numbers.
+* Toggle line numbers with `CTRL-n`.
+* Leave 3 visible lines and columns when scrolling.
+* Create new splits bottom and right.
+* Disable wrapping text.
+* Autoindent.
+* Highlight currently edited line.
+* Allow backspace on everything.
+* Disable welcome screen.
+* Allow placing the cursor after the last character in block-visual mode.
+* Display vertical rulers at column 81 and 101 as a reference for keeping lines
+  of code at an acceptable length.
+
+### Statusbar
+
+* Show the commands that are being executed.
+* Show the current status (normal, visual...).
+* Show cursor position in lower right.
+* Turn statusbar green when in insert mode.
