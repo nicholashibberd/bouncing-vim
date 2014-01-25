@@ -430,3 +430,25 @@ enter the following in the vim prompt:
 ```vim
 :Silent tmux send-keys -t 1.2 "bundle exec rspec spec/my_spec.rb" C-m
 ```
+
+### Tmux integration
+
+* Fix keycodes
+  - tmux will send xterm-style keys when its xterm-keys option is on
+  - this requires `set -g xterm-keys on` in the `~/.tmux.conf`
+  - fix `CTRL-Page<Up/Down>` (this is required for tab-like navigation
+  between buffers)
+  - fix `<Home>` key
+  - fix modifiers (like `CTRL-Right/Left`, `ALT-Up/Down/Left/Right`...)
+
+* Seamless navigation between tmux and vim with `ALT-Up/Down/Left/Right`.<br>
+This requires adding the following to your `~/.tmux.conf`<br>
+(a ready to use `tmux.conf` is included in the installation):
+
+```sh
+# M(eta) is the Alt key both in Vim and tmux.
+bind -n M-Left  run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Left)  || tmux select-pane -L"
+bind -n M-Down  run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Down)  || tmux select-pane -D"
+bind -n M-Up    run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Up)    || tmux select-pane -U"
+bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Right) || tmux select-pane -R"
+```

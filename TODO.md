@@ -1,6 +1,7 @@
 todo
 ----
 
+* add option to check if one is using pathogen when installing the plugins
 * when installing vim, give an option to keep the existing `~/.vim/` directory
 * add back download of vim with mercurial as an option (still default to the simple tarball download)
 * consider the ruby block text-object plugin
