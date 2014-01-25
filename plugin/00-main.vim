@@ -16,9 +16,6 @@ vmap \ ,
 " === Misc keybinding ===
 " =======================
 
-" This was removed from vim-sensible.
-" Make Y consistent with C and D. See :help Y.
-nnoremap Y y$
 " Map F1 key (main vim help) to ESC to avoid bringing it up by mistake.
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
