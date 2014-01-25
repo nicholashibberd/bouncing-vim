@@ -58,19 +58,18 @@ set nomodeline " Ignore vim directives in magic comments
 " Force solarized display sensibly when the terminal emulator has a custom
 " palette.
 " These can be avoided if the terminal emulator has solarized palette.
-" set term=screen-256color " try this as a last resort
 " Use t_Co=16 instead if the terminal has a 16 solarized palette.
 " set t_Co=256
 " let g:solarized_termcolors=256
 " let g:solarized_termcolors=16
+" set term=screen-256color " try this as a last resort
 
 " Actual solarized theme options
-" let g:solarized_underline=0
-" let g:solarized_italic=0
-" let g:solarized_bold=0
-" let g:solarized_termtrans=1
-" let g:solarized_contrast="high"
-" let g:solarized_visibility="high"
+let g:solarized_underline=0
+let g:solarized_italic=0
+let g:solarized_bold=0
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
 " let g:solarized_termtrans=1 " transparent terminal support
 " set background=light
 set background=dark

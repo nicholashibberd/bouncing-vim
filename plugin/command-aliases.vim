@@ -10,4 +10,3 @@ command Qa  quitall
 command QA  quitall
 command Wq  wq
 command Wqa wqa
-
