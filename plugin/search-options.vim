@@ -1,17 +1,3 @@
-" Search basics
-
-" Center the next/previous search result
-" confusing in some situations, disabled for now
-" nmap n nzz
-" nmap N Nzz
-
-" Automatically add \v when searching so that regexp acts more like in perl
-" Warning: this will require to escape '<' and '>' charachters when
-" looking for git conflicts; in this case it's just easier to press backspace
-" twice before typing <<<< or >>>>
-" nnoremap / /\v
-" vnoremap / /\v
-
 " Search for word under cursor without jumpin to next occurrence
 " http://stackoverflow.com/questions/4256697/vim-search-and-highlight-but-do-not-jump
 map <Leader>h *``
@@ -21,7 +7,7 @@ set ignorecase
 " ...unless one upper case letter is present in the word
 set smartcase
 
-" replace all the occurences by default
+" replace all the occurences in the line by default
 set gdefault
 
 " start searching without pressing enter
