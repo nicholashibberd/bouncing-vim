@@ -21,9 +21,10 @@ Thanks to the great Vim community and to the many authors of the features.
 Content
 -------
 * [Third party plugins](#plugins-list)
+* [Installing](#installing)
 * [Features](#features)
 
-## <a name="plugins-list"></a>Third party plugins
+## Third party plugins<a name="plugins-list"></a>
 
 Install all the plugins (including the nice-to-have's) with:
 `./vim-scripts/install-plugins.sh`
@@ -95,8 +96,7 @@ Colorschemes:
   16-color terminals.
 * [Base16] (https://github.com/chriskempson/base16-vim) - Color schemes for hackers.
 
-Installing
-----------
+## Installing<a name="installing"></a>
 
 Installation of Vim and tmux supports Ubuntu (tested on 12.04).
 
@@ -163,8 +163,7 @@ cd -; \
 }
 ```
 
-## <a name="features"></a>Features
---------
+## Features<a name="features"></a>
 
 > This is a partial list, work in progress.
 
@@ -251,7 +250,7 @@ cd -; \
 
 ### Navigation
 
-* Arrows are fully enabled to accommodate users that have different styles of
+* Arrows are enabled to accommodate users that have different styles of
   usage.
 
 * Moving between lines works by visible lines instead of actual lines (useful
@@ -342,3 +341,51 @@ The `ALT+d` (or `<leader>d`) shortcut provided to do real deletion
 
 * current line in normal mode
 * selection in visual mode
+
+### Current directory
+
+* Expand `%%` to the current directory in the command prompt.
+
+* Set the working directory to the directory of the current file with
+`<leader>cd`.
+
+### Read and write options
+
+* As version control is effectively ubiquitary, the following are disabled
+  - backup files
+  - swap files
+  - persistent undo
+
+* Autowrite when switching to a different buffer or split pane, to avoid
+  running tests with unsaved changes by only saving the last edited buffer.
+
+* Quick save with `CTRL-s`. This is a very useful feature, albeit a
+  controversial one. <br>
+  See [Ben Orenstein's talk] (http://www.youtube.com/watch?v=SkdrYWhh-8s)
+  on why it's a good idea.
+
+  As most terminals use `CTRL-s` to suspend the output stream, this requires
+  additional setup.
+
+  Put this in your bash profile to bypass the key combination only from vim:
+
+```sh
+vim() {
+  local STTYOPTS="$(stty --save)"
+  # Prevent CTRL-S from suspending the output stream
+  stty stop '' -ixoff
+  # Prevent CTRL-Q from waking up the output stream
+  stty start '' -ixon
+  command vim "$@"
+  stty "$STTYOPTS"
+}
+```
+
+  To always bypass these keys one can simply add this instead:
+
+```sh
+# Prevent CTRL-S from suspending the output stream
+stty stop '' -ixoff
+# Prevent CTRL-Q from waking up the output stream
+stty start '' -ixon
+```
