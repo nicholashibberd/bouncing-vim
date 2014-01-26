@@ -1,7 +1,7 @@
 What is it?
 -----------
 
-bouncing.vim is a mini vim distro, integrated with tmux.
+bouncing.vim is a mini Vim distro, integrated with tmux.
 
 It's a curated collection of plugins and settings, inspired by a few key
 principles:
@@ -12,7 +12,7 @@ principles:
 * allow people with different experiences to pair program proficiently and
   pleasantly
 
-It supports temporary installation of the vim plugins by taking advantage
+It supports temporary installation of the Vim plugins by taking advantage
 of pathogen - useful for pairing sessions.
 
 Credits are currently given in the form of links to the original source.
@@ -20,6 +20,7 @@ Thanks to the great Vim community and to the many authors of the features.
 
 Content
 -------
+
 * [Third party plugins](#plugins-list)
 * [Installing](#installing)
 * [Features](#features)
@@ -32,14 +33,14 @@ Install all the plugins (including the nice-to-have's) with:
 ### Essentials
 
 * [Ack-vim] (https://github.com/mileszs/ack.vim) - Run [ack] (http://beyondgrep.com/)
-  from vim, and shows the results in a split window.
+  from Vim, and shows the results in a split window.
 * [Ctrl-P] (https://github.com/kien/ctrlp.vim) - Full path fuzzy file, buffer,
   mru, tag, ... finder for Vim, written in pure Vimscript.
 * [MiniBufExplorer] (https://github.com/fholgado/minibufexpl.vim) -
   Elegant buffer explorer, takes very little screen space.
 * [NERDTree] (https://github.com/scrooloose/nerdtree) - Explore the filesystem
   in a hierarchical tree structure and open files and directories.
-* [Supertab] (https://github.com/ervandew/supertab) - Perform all your vim insert
+* [Supertab] (https://github.com/ervandew/supertab) - Perform all your Vim insert
   mode completions with Tab.
 * [Tabular] (https://github.com/godlygeek/tabular) - Vim script for text
   filtering and alignment.
@@ -52,11 +53,11 @@ Install all the plugins (including the nice-to-have's) with:
   defaults that (hopefully) everyone can agree on.
 * [Surround] (https://github.com/tpope/vim-surround) - Edit parentheses,
   brackets, quotes, XML tags, and more in pairs.
-* [Vimux] (https://github.com/benmills/vimux) - Easily interact with tmux from vim.
+* [Vimux] (https://github.com/benmills/vimux) - Easily interact with tmux from Vim.
 
 Colorschemes
 
-* [Agnostic] (https://github.com/ygt-mikekchar/agnostic) - A vim colour scheme
+* [Agnostic] (https://github.com/ygt-mikekchar/agnostic) - A Vim colour scheme
   that allows to choose your own colours.
 * [Molokai] (https://github.com/tomasr/molokai) - A Vim port of the monokai
   theme for TextMate.
@@ -69,7 +70,7 @@ Install with: `./vim-scripts/tmp-plugins-install.sh`.
 
 Remove with: `./vim-scripts/tmp-plugins-install.sh`.
 
-* [Mustache] (https://github.com/mustache/vim-mustache-handlebars) - A vim plugin for
+* [Mustache] (https://github.com/mustache/vim-mustache-handlebars) - A Vim plugin for
   working with mustache and handlebars templates.
 * [Python Syntax] (https://github.com/hdima/python-syntax) - Python syntax
   highlighting script for Vim.
@@ -77,7 +78,7 @@ Remove with: `./vim-scripts/tmp-plugins-install.sh`.
   of TextMates Snippets for the Vim Text Editor. Requires Vim compiled with
   Python support.
 * [Coffeescript] (https://github.com/kchmck/vim-coffee-script) - Adds
-  CoffeeScript support to vim. It covers syntax, indenting, compiling, and more.
+  CoffeeScript support to Vim. It covers syntax, indenting, compiling, and more.
 * [fugitive.vim] (https://github.com/tpope/vim-fugitive) - A Git wrapper so
   awesome, it should be illegal.
 * [HiLinkTrace] (https://github.com/gerw/vim-HiLinkTrace) - Get the color of the
@@ -116,7 +117,7 @@ If system Ruby is available it will also be compiled with Ruby support.
 Otherwise the script will give the option to install Ruby 1.9.3 from the
 Ubuntu repositories and compile with it, or to compile without Ruby support.
 
-### Install the vim plugins (with pathogen)
+### Install the Vim plugins (with pathogen)
 
 The list of essential and nice-to-have plugins is in `./vim-script/plugins.sh`
 
@@ -139,13 +140,13 @@ Alternatively, from the file `./rc-files/tmux.conf`, copy to your tmux.conf
 the two sections:
 
 * "Terminal compatibility" (required in particular to pass some key
-  combinations through tmux to vim)
+  combinations through tmux to Vim)
 
-* "Navigation between tmux and vim"
+* "Navigation between tmux and Vim"
 
-### Updating existing vim plugins
+### Updating existing Vim plugins
 
-Updating all the vim plugins can be done with this oneliner:
+Updating all the Vim plugins can be done with this oneliner:
 
 ```sh
 cd ~/.vim/bundle && { \
@@ -191,7 +192,7 @@ cd -; \
   - `<leader>rr`: run last command executed by VimuxRunCommand
   - `<leader>ri`: inspect runner pane
   - `<leader>rx`: close all other tmux panes in current window
-  - `<leader>rq`: close vim tmux runner opened by VimuxRunCommand
+  - `<leader>rq`: close Vim tmux runner opened by VimuxRunCommand
   - `<leader>rs`: interrupt any command running in the runner pane
 
 * **Vim Ruby**
@@ -295,14 +296,15 @@ It operates on single lines in normal mode, on multiple lines in visual mode.
 
 Keycode fixes are provided for this to work in Tmux as well.
 
-Note that this doen't interfere with the copy and cut operations.
+Note: this doesn't interfere with the copy and cut operations because on the
+actual `move` Vim command.
 
 ### Buffer enhancements
 
 * Reuse a buffer if a file is already open.
 
-* Switch between buffers with the same shortcuts used for tabs in Chrome:
-  `CTRL+PageUp/PageDown`;
+* Switch between buffers with the same shortcuts used for tabs, for example
+  in Chrome: `CTRL+PageUp/PageDown`;<br>
   on those machines where that doesn't work, `<leader>+[` and `<leader>+]` can
   be used.
 
@@ -310,7 +312,7 @@ Note that this doen't interfere with the copy and cut operations.
   `ALT+q`, or `<leader>+q`.
 
 * Close all buffers
-  - all the non-special ones with the sequence `bda`
+  - all the non-special ones with the sequence `bda` in normal mode
   - only the hidden ones with the sequence `bdh` in normal mode
 
 * Copy the path of the current buffer to the system clipboard
@@ -378,7 +380,7 @@ The `ALT+d` (or `<leader>d`) shortcut provided to do real deletion
   As most terminals use `CTRL-s` to suspend the output stream, this requires
   additional setup.
 
-  Put this in your bash profile to bypass the key combination only from vim:
+  Put this in your bash profile to bypass the key combination only from Vim:
 
 ```sh
 vim() {
@@ -426,7 +428,7 @@ This is especially useful when one wants to run a command in a diffent tmux
 window or pane.
 
 Example: to run the tests in the second pane of the first tmux window,
-enter the following in the vim prompt:
+enter the following in the Vim prompt:
 
 ```vim
 :Silent tmux send-keys -t 1.2 "bundle exec rspec spec/my_spec.rb" C-m
@@ -442,7 +444,7 @@ enter the following in the vim prompt:
   - fix `<Home>` key
   - fix modifiers (like `CTRL-Right/Left`, `ALT-Up/Down/Left/Right`...)
 
-* Seamless navigation between tmux and vim with `ALT-Up/Down/Left/Right`.<br>
+* Seamless navigation between tmux and Vim with `ALT-Up/Down/Left/Right`.<br>
 This requires adding the following to your `~/.tmux.conf`<br>
 (a ready to use `tmux.conf` is included in the installation):
 
@@ -498,6 +500,14 @@ bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -
 * Toggle trailing whitespace highlighting with `<leader>w` (off by default).
 
 * Remove trailing whitespace on save, to avoid false conflicts in version control:
-  - only for specified filtetypes (see `./plugin/whitespace.vim`)
+  - only for specified filetypes (see `./plugin/whitespace.vim`)
   - ensure no whitespace at the end of lines
   - ensure exactly one newline character at the end of file
+
+### `vimrc` options
+
+* Source automatically on save.
+
+* Enable per-directory vimrc.
+
+* Disable unsafe commands in local vimrc files.
