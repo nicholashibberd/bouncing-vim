@@ -150,14 +150,12 @@ Updating all the Vim plugins can be done with this oneliner:
 
 ```sh
 cd ~/.vim/bundle && { \
-ls -lA | \
-  grep ^d | \
-  sed -E 's/.+[[:digit:]]{2}:[[:digit:]]{2}\s*(.+)/\1/g' | \
+find * -maxdepth 0 -type d | \
   while read repo; do \
     echo "---- $repo ----"; \
     cd $repo; \
-    git pull origin master; \
-    cd ..; \
+      git pull origin master; \
+      cd ..; \
     echo; \
   done; \
 cd -; \
