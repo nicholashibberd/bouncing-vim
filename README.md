@@ -34,6 +34,10 @@ Content
 Install all the plugins (including the nice-to-have's) with:
 `./vim-scripts/install-plugins.sh`
 
+To install only the essentials, and only temporarily:
+* install with: `./vim-scripts/tmp-plugins-install.sh`.
+* remove with: `./vim-scripts/tmp-plugins-install.sh`.
+
 ### Essentials
 
 * [Ack-vim] (https://github.com/mileszs/ack.vim) - Run [ack] (http://beyondgrep.com/)
@@ -70,9 +74,7 @@ Colorschemes
 
 ### Nice-to-have's
 
-Install with: `./vim-scripts/tmp-plugins-install.sh`.
-
-Remove with: `./vim-scripts/tmp-plugins-install.sh`.
+These are only installed when running the full install: `./vim-scripts/install-plugins.sh`
 
 * [Mustache] (https://github.com/mustache/vim-mustache-handlebars) - A Vim plugin for
   working with mustache and handlebars templates.
