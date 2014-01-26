@@ -1,6 +1,7 @@
 todo
 ----
 
+* fix molokai theme making difficult doing spell checking because of the current line highlight
 * add option to check if one is using pathogen when installing the plugins
 * when installing vim, give an option to keep the existing `~/.vim/` directory
 * add back download of vim with mercurial as an option (still default to the simple tarball download)
