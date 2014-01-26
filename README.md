@@ -457,23 +457,47 @@ bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -
 ### View options
 
 * Disable all bells.
+
 * Use UTF-8 encoding.
+
 * Display line numbers.
+
 * Toggle line numbers with `CTRL-n`.
+
 * Leave 3 visible lines and columns when scrolling.
+
 * Create new splits bottom and right.
+
 * Disable wrapping text.
+
 * Autoindent.
+
 * Highlight currently edited line.
+
 * Allow backspace on everything.
+
 * Disable welcome screen.
+
 * Allow placing the cursor after the last character in block-visual mode.
+
 * Display vertical rulers at column 81 and 101 as a reference for keeping lines
   of code at an acceptable length.
 
 ### Statusbar
 
 * Show the commands that are being executed.
+
 * Show the current status (normal, visual...).
+
 * Show cursor position in lower right.
+
 * Turn statusbar green when in insert mode.
+
+### Whitespace
+
+* Toggle trailing whitespace highlighting with `<leader>w` (off by default).
+
+* Remove trailing whitespace on save, to avoid false conflicts in version control:
+  - only for specified filtetypes (see `./plugin/whitespace.vim`)
+  - ensure no whitespace at the end of lines
+  - ensure exactly one newline character at the end of file
