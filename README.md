@@ -15,6 +15,10 @@ principles:
 It supports temporary installation of the Vim plugins by taking advantage
 of pathogen - useful for pairing sessions.
 
+If one is already using pathogen.vim, this distro can just be considered an
+extension of one's existing setup. Chances are that one already has most the
+third party plugins of this distro, as they are amongst the most popular.
+
 Credits are currently given in the form of links to the original source.
 Thanks to the great Vim community and to the many authors of the features.
 
@@ -136,13 +140,37 @@ To download and compile, run:
 ```
 
 It will also offer to link to the provided tmux.conf file.
-Alternatively, from the file `./rc-files/tmux.conf`, copy to your tmux.conf
-the two sections:
 
-* "Terminal compatibility" (required in particular to pass some key
-  combinations through tmux to Vim)
+If one prefers to keep one's own tmux.conf, to make the most out of the
+Vim+tmux combinations, it is recommended to copy at least the following
+sections to the local tmux.conf (also available in the file `./rc-files/tmux.conf`):
 
-* "Navigation between tmux and Vim"
+
+```sh
+# === Terminal compatibility ===
+
+# Use 256 term for pretty colors
+set -g default-terminal "screen-256color"
+set -g terminal-overrides 'xterm:colors=256'
+
+# Pass the keys through, especially necessary to make full use of native vim
+# keymappings.
+set -g xterm-keys on
+
+# === Quick swtiching between windows ===
+
+bind-key -n C-Space     select-window -t :+
+bind-key -n M-PageDown  select-window -t :+
+bind-key -n M-PageUp    select-window -t :-
+
+# === Navigation between vim and tmux ===
+
+# M(eta) is the Alt key both in Vim and tmux.
+bind -n M-Left  run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Left)  || tmux select-pane -L"
+bind -n M-Down  run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Down)  || tmux select-pane -D"
+bind -n M-Up    run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Up)    || tmux select-pane -U"
+bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Right) || tmux select-pane -R"
+```
 
 ### Updating existing Vim plugins
 
@@ -162,7 +190,7 @@ cd -; \
 }
 ```
 
-## Features<a name="features"></a>
+## Features <a name="features"></a>
 
 > This is a partial list, work in progress.
 
