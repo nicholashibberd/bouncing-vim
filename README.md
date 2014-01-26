@@ -362,7 +362,7 @@ The `ALT+d` (or `<leader>d`) shortcut provided to do real deletion
 
 ### Read and write options
 
-* As version control is effectively ubiquitary, the following are disabled
+* As version control is effectively ubiquitous, the following are disabled
   - backup files
   - swap files
   - persistent undo
