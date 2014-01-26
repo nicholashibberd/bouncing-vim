@@ -17,7 +17,7 @@ clone_to_bundle () {
   fi
 }
 
-clone_temp_plugin () {
+install_tmp_plugin_with_pathogen () {
   local GITHUB=$1
   local BASENAME=$(github_basename $GITHUB)
   local DIR="bouncing-vim-tmp-$BASENAME"
@@ -25,7 +25,7 @@ clone_temp_plugin () {
   clone_to_bundle $GITHUB $BASENAME $DIR
 }
 
-clone_plugin () {
+install_plugin_with_pathogen () {
   local GITHUB=$1
   local BASENAME=$(github_basename $GITHUB)
   local DIR="$BASENAME"

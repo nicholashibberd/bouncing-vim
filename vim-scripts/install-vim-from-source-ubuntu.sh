@@ -8,7 +8,6 @@
 # For a list of configure options:
 # - in src/auto/configure look for ac_user_opts
 # - :h +feature-list and :h feature-list
-#
 
 set -e
 

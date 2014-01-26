@@ -8,5 +8,5 @@ source "${currdir}/../utils.sh"
 source "${currdir}/../plugins.sh"
 
 for plugin in ${ESSENTIALS[@]}; do
-  clone_temp_plugin "${plugin}"
+  install_tmp_plugin_with_pathogen "${plugin}"
 done

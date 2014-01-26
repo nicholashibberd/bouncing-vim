@@ -8,6 +8,10 @@ rootdir=$( readlink -f "${currdir}/../" )
 source "${currdir}/../utils.sh"
 source "${currdir}/plugins.sh"
 
+# ==========================
+# === Check dependencies ===
+# ==========================
+
 if [[ ! $(command -v curl) ]]; then
   echo "curl is required"
   exit 1
@@ -18,44 +22,72 @@ if [[ ! $(command -v git) ]]; then
   exit 1
 fi
 
-if [[ -d ~/.vim && ! -d ~/.vim.original ]]; then
-  echo "Backup ~/.vim to ~/.vim.original"
-  mv ~/.vim{,.original}
+# ========================
+# ===~/.vim/ directory ===
+# ========================
+
+# The ~/.vim/ dir will be created, or used, and optionally backed up.
+# It will also be possible to abort the install process.
+
+if [[ -d ~/.vim ]]; then
+  echo "The ~/.vim/ directory exists. Do you want to...?"
+  select reply in "Use existing" "Backup and recreate" "Abort"; do
+    case "${reply}" in
+      "Use existing" )
+        break ;;
+      "Backup and recreate" )
+        echo "Backup ~/.vim to ~/.vim.bkp"
+        mv ~/.vim{,.bkp}
+        break ;;
+      "Abort" )
+        exit 1;;
+    esac
+  done
 fi
 
-echo "Ensure ~/.vim dir structure"
-mkdir -p \
-  ~/.vim \
-  ~/.vim/bundle \
-  ~/.vim/autoload \
-  ~/.vim/colors \
-  ~/.vim/undo \
-  ~/.vim/swap \
-  ~/.vim/_disabled_plugins
+echo "Ensure a complete ~/.vim dir structure"
+mkdir -p ~/.vim/{bundle,autoload,colors,undo,swap,_disabled_plugins}
 
-# git clone https://github.com/tpope/vim-pathogen.git ~/.vim/vim-pathogen
-# ln -sf ~/.vim/vim-pathogen/autoload/pathogen.vim ~/.vim/autoload/pathogen.vim
+# ================
+# === pathogen ===
+# ================
 
-if [[ -e "${HOME}/.vim/autoload/pathogen.vim" ]]; then
-  echo "vim pathogen is already installed"
+# It will use pathogen if present, offer to install, or abort.
+
+if [[ $(find ~/.vim -name pathogen.vim) ]]; then
+  echo "pathogen.vim is already installed"
 else
-  echo "Install pathogen plugin"
-  curl -Sso ~/.vim/autoload/pathogen.vim \
-    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+  select reply in "Install pathogen to handle your plugins" "Abort"; do
+    case "${reply}" in
+      "Install pathogen to handle your plugins" )
+        curl -Sso ~/.vim/autoload/pathogen.vim \
+          https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+        break ;;
+      "Abort" )
+        exit 1 ;;
+    esac
+  done
 fi
+
+# =======================
+# === Install plugins ===
+# =======================
 
 for plugin in ${ESSENTIALS[@]}; do
-  clone_plugin "${plugin}"
+  install_plugin_with_pathogen "${plugin}"
 done
 
 for plugin in ${NICE_TO_HAVES[@]}; do
-  clone_plugin "$plugin"
+  install_plugin_with_pathogen "$plugin"
 done
 
 echo "Do you want to link to the vimrc provided?"
-# read -p "Your vimrc will be backed up. " -n 1 -r
 read -p "Your vimrc will be backed up. " -r
 echo
+
+# =============
+# === vimrc ===
+# =============
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   if [[ -e ~/.vimrc && ! -L ~/.vimrc ]]; then
@@ -63,8 +95,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     mv ~/.vimrc ~/vimrc.original
   fi
 
-  echo "Symlink vimrc"
-  ln -sf "${HOME}/.vim/bundle/bouncing-vim/rc-files/vimrc" "${HOME}/.vimrc"
+  ln -sfv "${HOME}/.vim/bundle/bouncing-vim/rc-files/vimrc" "${HOME}/.vimrc"
 else
   echo "Inspect the provided vimrc for more info. ${HOME}/.vim/bundle/bouncing-vim/rc-files/vimrc"
 fi
