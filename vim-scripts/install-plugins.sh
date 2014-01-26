@@ -8,6 +8,8 @@ rootdir=$( readlink -f "${currdir}/../" )
 source "${currdir}/../utils.sh"
 source "${currdir}/plugins.sh"
 
+is_a_clean_install=false
+
 # ==========================
 # === Check dependencies ===
 # ==========================
@@ -29,7 +31,9 @@ fi
 # The ~/.vim/ dir will be created, or used, and optionally backed up.
 # It will also be possible to abort the install process.
 
-if [[ -d ~/.vim ]]; then
+if [[ ! -d ~/.vim ]]; then
+  is_a_clean_install=true
+else
   echo "The ~/.vim/ directory exists. Do you want to...?"
   select reply in "Use existing" "Backup and recreate" "Abort"; do
     case "${reply}" in
@@ -54,15 +58,22 @@ mkdir -p ~/.vim/{bundle,autoload,colors,undo,swap,_disabled_plugins}
 
 # It will use pathogen if present, offer to install, or abort.
 
-if [[ $(find ~/.vim -name pathogen.vim) ]]; then
+install_pathogen () {
+  echo "Install pathogen to handle your plugins"
+  curl -Sso ~/.vim/autoload/pathogen.vim \
+    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+}
+
+if $is_a_clean_install; then
+  install_pathogen
+elif [[ $(find ~/.vim -name pathogen.vim) ]]; then
   echo "pathogen.vim is already installed"
 else
+  echo "pathogen.vim is required to install the vim plugins, but it is not installed"
   select reply in "Install pathogen to handle your plugins" "Abort"; do
     case "${reply}" in
       "Install pathogen to handle your plugins" )
-        echo "Install pathogen to handle your plugins"
-        curl -Sso ~/.vim/autoload/pathogen.vim \
-          https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+        install_pathogen
         break ;;
       "Abort" )
         echo "Note: pathogen.vim is required to install the vim plugins, aborting."
@@ -100,4 +111,5 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   ln -sfv "${HOME}/.vim/bundle/bouncing-vim/rc-files/vimrc" "${HOME}/.vimrc"
 else
   echo "Inspect the provided vimrc for more info. ${HOME}/.vim/bundle/bouncing-vim/rc-files/vimrc"
+  echo "Make sure your vimrc initializes pathogen"
 fi
