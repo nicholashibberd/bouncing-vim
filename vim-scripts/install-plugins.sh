@@ -60,10 +60,12 @@ else
   select reply in "Install pathogen to handle your plugins" "Abort"; do
     case "${reply}" in
       "Install pathogen to handle your plugins" )
+        echo "Install pathogen to handle your plugins"
         curl -Sso ~/.vim/autoload/pathogen.vim \
           https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
         break ;;
       "Abort" )
+        echo "Note: pathogen.vim is required to install the vim plugins, aborting."
         exit 1 ;;
     esac
   done
@@ -82,7 +84,7 @@ for plugin in ${NICE_TO_HAVES[@]}; do
 done
 
 echo "Do you want to link to the vimrc provided?"
-read -p "Your vimrc will be backed up. " -r
+read -p "(your vimrc will be backed up if present): [y/N]" -r
 echo
 
 # =============
