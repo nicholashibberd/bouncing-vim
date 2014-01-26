@@ -51,7 +51,7 @@ echo "Remove source dir"
 rm -rf $TMUX_SOURCE_DIR
 
 echo "Do you want to link to the tmux.conf provided?"
-read -p "Your tmux.conf will be backed up. " -r
+read -p "Your tmux.conf will be backed up. [y/N] " -r
 echo
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then

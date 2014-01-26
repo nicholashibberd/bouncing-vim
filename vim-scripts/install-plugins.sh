@@ -96,7 +96,7 @@ for plugin in ${NICE_TO_HAVES[@]}; do
 done
 
 echo "Do you want to link to the vimrc provided?"
-read -p "(your vimrc will be backed up if present): [y/N]" -r
+read -p "(your vimrc will be backed up if present): [y/N] " -r
 echo
 
 # =============
