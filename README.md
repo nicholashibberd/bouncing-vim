@@ -16,7 +16,7 @@ It supports temporary installation of the Vim plugins by taking advantage
 of pathogen - useful for pairing sessions.
 
 If one is already using pathogen.vim, this distro can just be considered an
-extension of one's existing setup. Chances are that one already has most the
+extension of one's existing setup. Chances are that one already has most of the
 third party plugins of this distro, as they are amongst the most popular.
 
 Credits are currently given in the form of links to the original source.
