@@ -31,7 +31,7 @@ fi
 # The ~/.vim/ dir will be created, or used, and optionally backed up.
 # It will also be possible to abort the install process.
 
-if [[ ! -d ~/.vim ]]; then
+if [[ ! -e ~/.vim ]]; then
   is_a_clean_install=true
 else
   echo "The ~/.vim/ directory exists. Do you want to...?"
@@ -40,8 +40,9 @@ else
       "Use existing" )
         break ;;
       "Backup and recreate" )
-        echo "Backup ~/.vim to ~/.vim.bkp"
-        mv ~/.vim{,.bkp}
+        vim_bkp_dir="vim-$(date -d "today" +"%Y-%m-%d_%H-%M-%S").bkp"
+        echo "Backup ~/.vim to ${vim_bkp_dir}"
+        mv ~/.vim "${HOME}/${vim_bkp_dir}"
         break ;;
       "Abort" )
         exit 1;;
