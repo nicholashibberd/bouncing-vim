@@ -36,7 +36,7 @@ Install all the plugins (including the nice-to-have's) with:
 
 To install only the essentials, and only temporarily:
 * install with: `./vim-scripts/tmp-plugins-install.sh`.
-* remove with: `./vim-scripts/tmp-plugins-install.sh`.
+* remove with: `./vim-scripts/tmp-plugins-remove.sh`.
 
 ### Essentials
 
@@ -111,6 +111,8 @@ The plugins use pathogen.
 
 ### Install Vim 7.4 from source (only Ubuntu)
 
+Tested on Ubuntu 12.04. Please report any problems on different versions.
+
 To download and compile, run:
 
 ```sh
@@ -123,9 +125,18 @@ If system Ruby is available it will also be compiled with Ruby support.
 Otherwise the script will give the option to install Ruby 1.9.3 from the
 Ubuntu repositories and compile with it, or to compile without Ruby support.
 
+It's useful to set Vim as default editor. If you wish to do so, put this
+in your `~/.bashrc` or `~/.bash_profile`:
+
+```sh
+# ~/.bashrc
+
+export EDITOR='/usr/bin/vim'
+```
+
 ### Install the Vim plugins (with pathogen)
 
-The list of essential and nice-to-have plugins is in `./vim-script/plugins.sh`
+The list of essential and nice-to-have plugins is in `./vim-script/plugins.sh`.
 
 * If a full install is required: run `vim-scripts/install-plugins.sh`.
 
@@ -133,7 +144,12 @@ The list of essential and nice-to-have plugins is in `./vim-script/plugins.sh`
   - run `vim-scripts/tmp-plugins-install.sh` at the beginning of the pairing session
   - run `vim-scripts/tmp-plugins-remove.sh` when finished
 
+Also see [read and write options](#read-write-options) if you want to enable
+quick save with `CTRL-s`.
+
 ### Install tmux 1.8 from source (only Ubuntu)
+
+Tested on Ubuntu 12.04. Please report any problems on different versions.
 
 To download and compile, run:
 
@@ -143,12 +159,13 @@ To download and compile, run:
 
 It will also offer to link to the provided tmux.conf file.
 
-If one prefers to keep one's own tmux.conf, to make the most out of the
-Vim+tmux combinations, it is recommended to copy at least the following
-sections to the local tmux.conf (also available in the file `./rc-files/tmux.conf`):
-
+If you prefer to keep your own tmux.conf, it is recommended, to make the most
+out of the Vim+tmux combinations, to copy at least the following sections to
+the local tmux.conf (also available in the file `./rc-files/tmux.conf`):
 
 ```sh
+# ~/.tmux.conf
+
 # === Terminal compatibility ===
 
 # Use 256 term for pretty colors
@@ -172,6 +189,19 @@ bind -n M-Left  run "(tmux display-message -p '#{pane_current_command}' | grep -
 bind -n M-Down  run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Down)  || tmux select-pane -D"
 bind -n M-Up    run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Up)    || tmux select-pane -U"
 bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Right) || tmux select-pane -R"
+```
+
+To support correct colors in tmux, put this in your `~/.bashrc`
+or `~/.bash_profile`:
+
+```sh
+# ~/.bashrc or ~/.bash_profile
+
+if [[ -n "$TMUX" ]]; then
+  export TERM=screen-256color
+else
+  export TERM=xterm-256color
+fi
 ```
 
 ### Updating existing Vim plugins
@@ -362,9 +392,10 @@ actual `move` Vim command.
 * Yank to the end of the line with `Y`, to make it consistent with `C` and `D`.
   This was removed from sensible.vim.
 
-* Copy the visual selection to the system clipboard with `CTRL+c`.
+* Copy the visual selection to the system clipboard with `CTRL+c`.<br>
   For Mac users requires additional configuration:
-  <https://coderwall.com/p/j9wnfw>
+  <https://coderwall.com/p/j9wnfw><br>
+  Note: this of course works only when working locally.
 
 * Configuration is provided to support system clipboard in Tmux as well,
   see `./plugin/clipboard.vim`
@@ -390,7 +421,7 @@ The `ALT+d` (or `<leader>d`) shortcut provided to do real deletion
 * Set the working directory to the directory of the current file with
 `<leader>cd`.
 
-### Read and write options
+### Read and write options <a name="read-write-options"></a>
 
 * As version control is effectively ubiquitous, the following are disabled
   - backup files

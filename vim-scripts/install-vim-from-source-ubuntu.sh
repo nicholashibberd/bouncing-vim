@@ -44,7 +44,7 @@ tar xfj ~/Downloads/vim-7.4.tar.bz2 -C ~/Downloads/
 if [[ -x /usr/bin/ruby ]]; then
   compile_with_ruby=true
 else
-  echo "Ruby is required for the vimux plugin to work, but it is not installed"
+  echo "Ruby may be required for some plugins to work, but it is not installed"
   echo "Do you wish to...?"
   select reply in "Install system ruby 1.9.3" "Compile without ruby" "Abort"; do
     case "${reply}" in

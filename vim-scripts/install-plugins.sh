@@ -95,13 +95,13 @@ for plugin in ${NICE_TO_HAVES[@]}; do
   install_plugin_with_pathogen "$plugin"
 done
 
-echo "Do you want to link to the vimrc provided?"
-read -p "(your vimrc will be backed up if present): [y/N] " -r
-echo
-
 # =============
 # === vimrc ===
 # =============
+
+echo "Do you want to link to the vimrc provided?"
+read -p "(your vimrc will be backed up if present): [y/N] " -r
+echo
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   if [[ -e ~/.vimrc && ! -L ~/.vimrc ]]; then
