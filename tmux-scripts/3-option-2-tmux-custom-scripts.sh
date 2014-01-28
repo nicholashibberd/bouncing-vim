@@ -2,7 +2,7 @@
 
 set -e
 
-THISDIR=$( dirname "$( readlink -f $0 )" )
+currdir=$( dirname $0 )
 
 PAIR_USER=pair
 
@@ -30,7 +30,7 @@ echo
 echo "--- Copying scripts for tmux paired session ---"
 echo
 
-cp -Rv "${THISDIR}/scripts/." "${HOME}/bin/"
+cp -Rv "${currdir}/scripts/." "${HOME}/bin/"
 
 chmod u+x ~/bin/attach-session ~/bin/share-session ~/bin/tmux-session
 

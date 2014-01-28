@@ -2,8 +2,7 @@
 
 set -e
 
-currdir=$( dirname "$( readlink -f $0 )" )
-rootdir=$( readlink -f "${currdir}/../" )
+currdir=$( dirname $0 )
 
 source "${currdir}/../utils.sh"
 source "${currdir}/plugins.sh"
