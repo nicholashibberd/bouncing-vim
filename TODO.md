@@ -1,6 +1,7 @@
 todo
 ----
 
+* investigate if smooth scrolling is viable/popular...
 * fix molokai theme making difficult doing spell checking because of the current line highlight
 * add option to check if one is using pathogen when installing the plugins
 * when installing vim, give an option to keep the existing `~/.vim/` directory

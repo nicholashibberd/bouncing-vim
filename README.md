@@ -26,10 +26,33 @@ Content
 -------
 
 * [Third party plugins](#plugins-list)
+  - [Essentials](#essential-plugins)
+  - [Nice-to-have's](#nice-to-have-plugins)
 * [Installing](#installing)
+  - [Install Vim 7.4 from source (only Ubuntu)](#install-vim-source-ubuntu)
+  - [Install the Vim plugins (with pathogen)](#install-vim-plugins)
+  - [Install tmux 1.8 from source (only Ubuntu)](#install-tmux-source-ubuntu)
+  - [Tmux configuration notes](#tmux-conf-notes)
+  - [Updating existing Vim plugins](#update-existing-plugins)
 * [Features](#features)
+  - [Third party plugins setup](#third-party-plugins-setup)
+  - [Language specific settings](#language-specific-settings)
+  - [Miscellaneous options](#miscellaneous-options)
+  - [Miscellaneous mappings](#miscellaneous-mappings)
+  - [Navigation](#navigation)
+  - [Mouse support](#mouse-support)
+  - [Anti-typo command aliases](#anti-typo-aliases)
+  - [Last position in file](#last-position-in-file)
+  - [Bubbling lines](#bubbling-lines)
+  - [Buffer enhancements](#buffer-enhancements)
+  - [Clipboard](#clipboard)
+  - [Real delete](#real-delete)
+  - [Current directory](#current-directory)
+  - [Read and write options](#read-write-options)
+  - [Search features](#search-features)
+  - [Run shell command without prompting](#shell-commands-without-prompt)
 
-## Third party plugins<a name="plugins-list"></a>
+## Third party plugins <a name="plugins-list"></a>
 
 Install all the plugins (including the nice-to-have's) with:
 `./vim-scripts/install-plugins.sh`
@@ -38,7 +61,7 @@ To install only the essentials, and only temporarily:
 * install with: `./vim-scripts/tmp-plugins-install.sh`.
 * remove with: `./vim-scripts/tmp-plugins-remove.sh`.
 
-### Essentials
+### Essentials <a name="essential-plugins"></a>
 
 * [Ack-vim] (https://github.com/mileszs/ack.vim) - Run [ack] (http://beyondgrep.com/)
   from Vim, and shows the results in a split window.
@@ -72,7 +95,7 @@ Colorschemes
 * [Solarized] (https://github.com/altercation/vim-colors-solarized) - Precision
   colors for machines and people.
 
-### Nice-to-have's
+### Nice-to-have's <a name="nice-to-have-plugins"></a>
 
 These are only installed when running the full install: `./vim-scripts/install-plugins.sh`
 
@@ -109,7 +132,7 @@ Installation of Vim and tmux supports Ubuntu (tested on 12.04).
 
 The plugins use pathogen.
 
-### Install Vim 7.4 from source (only Ubuntu)
+### Install Vim 7.4 from source (only Ubuntu) <a name="install-vim-source-ubuntu"></a>
 
 Tested on Ubuntu 12.04. Please report any problems on different versions.
 
@@ -134,7 +157,7 @@ in your `~/.bashrc` or `~/.bash_profile`:
 export EDITOR='/usr/bin/vim'
 ```
 
-### Install the Vim plugins (with pathogen)
+### Install the Vim plugins (with pathogen) <a name="install-vim-plugins"></a>
 
 The list of essential and nice-to-have plugins is in `./vim-script/plugins.sh`.
 
@@ -147,7 +170,7 @@ The list of essential and nice-to-have plugins is in `./vim-script/plugins.sh`.
 Also see [read and write options](#read-write-options) if you want to enable
 quick save with `CTRL-s`.
 
-### Install tmux 1.8 from source (only Ubuntu)
+### Install tmux 1.8 from source (only Ubuntu) <a name="install-tmux-source-ubuntu"></a>
 
 Tested on Ubuntu 12.04. Please report any problems on different versions.
 
@@ -158,6 +181,8 @@ To download and compile, run:
 ```
 
 It will also offer to link to the provided tmux.conf file.
+
+### Tmux configuration notes <a name="tmux-conf-notes"></a>
 
 If you prefer to keep your own tmux.conf, it is recommended, to make the most
 out of the Vim+tmux combinations, to copy at least the following sections to
@@ -204,7 +229,7 @@ else
 fi
 ```
 
-### Updating existing Vim plugins
+### Updating existing Vim plugins <a name="update-existing-plugins"></a>
 
 Updating all the Vim plugins can be done with this oneliner:
 
@@ -224,9 +249,7 @@ cd -; \
 
 ## Features <a name="features"></a>
 
-> This is a partial list, work in progress.
-
-### Third party plugins setup
+### Third party plugins setup <a name="third-party-plugins-setup"></a>
 
 * **CtrlP**
   - show hidden files
@@ -273,7 +296,7 @@ cd -; \
   - open on the right hand side
   - toggle with `<leader>+b`
 
-### Language specific settings
+### Language specific settings <a name="language-specific-settings"></a>
 
 * **Java**
   - soft tab with 4 spaces
@@ -290,17 +313,17 @@ cd -; \
   - see setup of the Vim Ruby plugin
   - see setup of the xmpfilter plugin
 
-### Miscellaneous options
+### Miscellaneous options <a name="miscellaneous-options"></a>
 
 * Reduce the timeout required to recognize a command from 1000 ms (the default)
   to 350 ms.
 
 * Remove the comment symbols when joining lines with `J`.
 
-* Use 2-space soft tabs by defaults (it's overriden for some some languages
+* Use 2-space soft tabs by defaults (it's overridden for some some languages
   with different conventions).
 
-### Miscellaneous mappings
+### Miscellaneous mappings <a name="miscellaneous-mappings"></a>
 
 * Leader is mapped to the popular `,` but `\` is still supported.
 
@@ -314,7 +337,7 @@ cd -; \
 
 * Toggle spell checking with `<F6>` as in Sublime Text.
 
-### Navigation
+### Navigation <a name="navigation"></a>
 
 * Arrows are enabled to accommodate users that have different styles of
   usage.
@@ -332,21 +355,21 @@ cd -; \
 * Quickfix list
   - go to the next with `]q`, to the previous with `[q`
 
-### Mouse support
+### Mouse support <a name="mouse-support"></a>
 
 Mouse features are fully enabled.
 
-### Anti-typo command aliases
+### Anti-typo command aliases <a name="anti-typo-aliases"></a>
 
 Some commands like `:w`, `:q` and similar have been aliased with the upper
 case version to account for common misspellings.
 
-### Last position in file
+### Last position in file <a name="last-position-in-file"></a>
 
 Reopening a file the cursor will jump to the position where it was the last
 time the buffer was opened.
 
-### Bubbling lines
+### Bubbling lines <a name="bubbling-lines"></a>
 
 Quickly move lines up and down with `CTRL+ArrowUp/Down` and `CTRL+k/j`.
 
@@ -357,7 +380,7 @@ Keycode fixes are provided for this to work in Tmux as well.
 Note: this doesn't interfere with the copy and cut operations because on the
 actual `move` Vim command.
 
-### Buffer enhancements
+### Buffer enhancements <a name="buffer-enhancements"></a>
 
 * Reuse a buffer if a file is already open.
 
@@ -387,7 +410,7 @@ actual `move` Vim command.
   - open on the right hand side
   - toggle with `<leader>+b`
 
-### Clipboard
+### Clipboard <a name="clipboard"></a>
 
 * Yank to the end of the line with `Y`, to make it consistent with `C` and `D`.
   This was removed from sensible.vim.
@@ -404,7 +427,7 @@ actual `move` Vim command.
   replacing the content of the register.
   This allows to paste multiple times the same text.
 
-### Real delete
+### Real delete <a name="real-delete"></a>
 
 Vim conflates the two functionalities of deleting and cutting.
 
@@ -414,7 +437,7 @@ The `ALT+d` (or `<leader>d`) shortcut provided to do real deletion
 * current line in normal mode
 * selection in visual mode
 
-### Current directory
+### Current directory <a name="current-directory"></a>
 
 * Expand `%%` to the current directory in the command prompt.
 
@@ -462,7 +485,7 @@ stty stop '' -ixoff
 stty start '' -ixon
 ```
 
-### Search features
+### Search features <a name="search-features"></a>
 
 * Highlight current word or selection with `<leader>h` (that is, search
   without jumping to the next found occurrence).
@@ -481,7 +504,7 @@ stty start '' -ixon
 
 * Ignore some directories and extensions (tmp, pyc, ...).
 
-### Run shell command without prompting
+### Run shell command without prompting <a name="shell-commands-without-prompt"></a>
 
 This is especially useful when one wants to run a command in a diffent tmux
 window or pane.
@@ -493,7 +516,7 @@ enter the following in the Vim prompt:
 :Silent tmux send-keys -t 1.2 "bundle exec rspec spec/my_spec.rb" C-m
 ```
 
-### Tmux integration
+### Tmux integration <a name="language-specific-settings"></a>
 
 * Fix keycodes
   - tmux will send xterm-style keys when its xterm-keys option is on
@@ -515,7 +538,7 @@ bind -n M-Up    run "(tmux display-message -p '#{pane_current_command}' | grep -
 bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Right) || tmux select-pane -R"
 ```
 
-### View options
+### View options <a name="language-specific-settings"></a>
 
 * Disable all bells.
 
@@ -544,7 +567,7 @@ bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -
 * Display vertical rulers at column 81 and 101 as a reference for keeping lines
   of code at an acceptable length.
 
-### Statusbar
+### Statusbar <a name="language-specific-settings"></a>
 
 * Show the commands that are being executed.
 
@@ -554,7 +577,7 @@ bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -
 
 * Turn statusbar green when in insert mode.
 
-### Whitespace
+### Whitespace <a name="language-specific-settings"></a>
 
 * Toggle trailing whitespace highlighting with `<leader>w` (off by default).
 
@@ -563,7 +586,7 @@ bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -
   - ensure no whitespace at the end of lines
   - ensure exactly one newline character at the end of file
 
-### `vimrc` options
+### `vimrc` options <a name="language-specific-settings"></a>
 
 * Source automatically on save.
 
