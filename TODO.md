@@ -1,6 +1,8 @@
-todo
-----
+To do
+-----
 
+* investigate home key not working in some virtual machines
+* add a shortcut to change NERDTree dir to the location of the current buffer
 * investigate if smooth scrolling is viable/popular...
 * fix molokai theme making difficult doing spell checking because of the current line highlight
 * add option to check if one is using pathogen when installing the plugins
