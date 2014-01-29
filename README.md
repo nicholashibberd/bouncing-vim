@@ -329,8 +329,10 @@ cd -; \
 
 * Map `<F1>` to `<Esc>` to avoid bringing up the help by mistake.
 
-* Map `jj` to `<Esc>`, a popular shortcut that allows some users to stay on
-  the home row.
+* Map `jj`, `jk` and `kj` to `<Esc>`: popular shortcuts that allow to stay on
+  the home row.<br>
+  Notice that `jk` is included even though it will prevent you from quickly
+  typing 'Dijkstra'.
 
 * Toggle `paste` with `<F3>`, that disables all automatic indentation when
   pasting from the system clipboard.
