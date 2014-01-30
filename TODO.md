@@ -41,6 +41,7 @@ To do
 Interesting vimrc files
 -----------------------
 
+* <https://github.com/prognostikos/dotfiles/blob/master/vim/vimrc.symlink> (from Ruby Rogues Parley)
 * <https://github.com/r00k/dotfiles/blob/master/vimrc> (Ben Orenstein)
 * <http://items.sjbach.com/319>
 * <https://github.com/DawidJanczak/.vim/blob/master/.vimrc>
