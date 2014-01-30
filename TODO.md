@@ -1,6 +1,8 @@
 To do
 -----
 
+* source bashrc after updating it
+* add shortcut to remove extra blank lines in the middle of the buffer
 * investigate home key not working in some virtual machines
 * add a shortcut to change NERDTree dir to the location of the current buffer
 * investigate if smooth scrolling is viable/popular...
