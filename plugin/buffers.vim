@@ -5,8 +5,9 @@
 " If a buffer is already open in another window, jump to it instead of opening a new window.
 set switchbuf=useopen
 
-" Close the current buffer without closing the window
-" ===================================================
+" ===========================================================
+" === Close the current buffer without closing the window ===
+" ===========================================================
 "
 " <http://stackoverflow.com/a/8585343/417375> (terrific solution)
 " First, fix ALT key (for gnome-terminal).
@@ -39,17 +40,33 @@ endif
 " =========================
 " === Switch buffers... ===
 " =========================
-"
+
+function NextBuf ()
+  if exists(':MBEbn')
+    :MBEbn
+  else
+    :bn
+  endif
+endfunction
+
+function PrevBuf ()
+  if exists(':MBEbp')
+    :MBEbp
+  else
+    :bp
+  endif
+endfunction
+
 " ...toggle between current and previous
 nnoremap <Leader><space> :b#<CR>
 " ...next
-nnoremap <C-Pagedown> :bn<CR>
-inoremap <C-Pagedown> :bn<CR>
-vnoremap <C-Pagedown> :bn<CR>
+nnoremap <C-Pagedown> :call NextBuf()<CR>
+inoremap <C-Pagedown> :call NextBuf()<CR>
+vnoremap <C-Pagedown> :call NextBuf()<CR>
 " ...previous
-nnoremap <C-Pageup>   :bp<CR>
-inoremap <C-Pageup>   :bp<CR>
-vnoremap <C-Pageup>   :bp<CR>
+nnoremap <C-Pageup>   :call PrevBuf()<CR>
+inoremap <C-Pageup>   :call PrevBuf()<CR>
+vnoremap <C-Pageup>   :call PrevBuf()<CR>
 
 " ...without Ctrl key, for mac users
 nnoremap <Leader>] :bn<CR>
