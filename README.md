@@ -325,6 +325,10 @@ cd -; \
 
 ### <a name="miscellaneous-mappings"></a>Miscellaneous mappings
 
+* Add a new line without going to insert mode:
+  - `CTRL-O`: below
+  - `CTRL-I`: above
+
 * Leader is mapped to the popular `,` but `\` is still supported.
 
 * Map `<F1>` to `<Esc>` to avoid bringing up the help by mistake.

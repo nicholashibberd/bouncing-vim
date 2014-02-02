@@ -1,7 +1,7 @@
 To do
 -----
 
-* insert line no insert mode
+* map `<End>` to toggle to the last non-blank char in the line
 * toggle between `{}` and `do`-`end`
 * source bashrc after updating it <http://stackoverflow.com/questions/16011245/source-files-in-a-bash-script/16011496#16011496>
 * add shortcut to remove extra blank lines in the middle of the buffer
