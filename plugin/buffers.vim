@@ -19,6 +19,9 @@ nnoremap <A-q> :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <C-q> :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <Leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
+" There is an actual plugin for this, but seems overkill:
+" <http://www.vim.org/scripts/script.php?script_id=1147>
+
 " ========================
 " === Copy buffer path ===
 " ========================
@@ -69,12 +72,12 @@ inoremap <C-Pageup>   :call PrevBuf()<CR>
 vnoremap <C-Pageup>   :call PrevBuf()<CR>
 
 " ...without Ctrl key, for mac users
-nnoremap <Leader>] :bn<CR>
-inoremap <Leader>] :bn<CR>
-vnoremap <Leader>] :bn<CR>
-nnoremap <Leader>[ :bp<CR>
-inoremap <Leader>[ :bp<CR>
-vnoremap <Leader>[ :bp<CR>
+nnoremap <Leader>] :NextBuf()<CR>
+inoremap <Leader>] :NextBuf()<CR>
+vnoremap <Leader>] :NextBuf()<CR>
+nnoremap <Leader>[ :PrevBuf()<CR>
+inoremap <Leader>[ :PrevBuf()<CR>
+vnoremap <Leader>[ :PrevBuf()<CR>
 
 " ============================================
 " === Close all hidden non-special buffers ===
