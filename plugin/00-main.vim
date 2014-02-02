@@ -20,8 +20,8 @@ vmap \ ,
 " <http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode>
 " The idea of using `oo` and `OO` is nice in theory, but slows down the normal
 " `o` and `O`.
-nnoremap <C-l> mao<Esc>`a
-nnoremap <C-o> maO<Esc>`a
+nnoremap <C-o> mao<Esc>`a
+nnoremap <C-i> maO<Esc>`a
 
 " Map F1 key (main vim help) to ESC to avoid bringing it up by mistake.
 nnoremap <F1> <ESC>
