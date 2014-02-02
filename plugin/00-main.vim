@@ -16,6 +16,13 @@ vmap \ ,
 " === Misc keybinding ===
 " =======================
 
+" Insert line below or above without going into insert mode.
+" <http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode>
+" The idea of using `oo` and `OO` is nice in theory, but slows down the normal
+" `o` and `O`.
+nnoremap <C-l> mao<Esc>`a
+nnoremap <C-o> maO<Esc>`a
+
 " Map F1 key (main vim help) to ESC to avoid bringing it up by mistake.
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
@@ -23,7 +30,7 @@ inoremap <F1> <ESC>
 
 " Go from insert mode to normal mode with 'jj', 'jk' or 'kj'
 " 'jk' is included, but it could prevent you from quickly typing 'Dijkstra'
-"
+
 inoremap jj <ESC>
 vnoremap jj <ESC>
 
