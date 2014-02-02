@@ -6,7 +6,8 @@
 set listchars=tab:»·,trail:·,extends:>,precedes:<
 " set listchars=tab:>-,trail:·,eol:$
 " set list
-" Whitespace will be hidden by default, but it's possible to toggle it - http://items.sjbach.com/319
+" Whitespace will be hidden by default, but it's possible to toggle it
+" http://items.sjbach.com/319
 nmap <silent> <leader>w :set nolist!<CR>
 
 " http://stackoverflow.com/questions/356126/how-can-you-automatically-remove-trailing-whitespace-in-vim/1618401#1618401
