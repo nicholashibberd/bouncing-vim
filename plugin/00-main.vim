@@ -17,17 +17,36 @@ vmap \ ,
 " =======================
 
 " Insert line below or above without going into insert mode.
+" ----------------------------------------------------------
 " <http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode>
 " The idea of using `oo` and `OO` is nice in theory, but slows down the normal
 " `o` and `O`.
-nnoremap <C-o> mao<Esc>`a
-nnoremap <C-i> maO<Esc>`a
+" CTRL-O and CTRL-I are native Vim keybindings to move through the jumplist.
+" Leader-O and Leader-I are less convenient to type, and require to release
+" the leader to repeat the command. This is not a strong argument though,
+" because having multiple blank lines is considered bad form, and being
+" able to insert one should be enough.
+" For this reason ALT-O and ALT-I could be removed soon.
+nnoremap <Leader>o mao<Esc>`a
+nnoremap <Leader>i maO<Esc>`a
 
+" Fix keycodes and map ALT-O and ALT-I to add new line below/above without
+" going in insert mode.
+map o <A-o>
+map <A-o> mao<Esc>`a
+
+map i <A-i>
+map <A-i> maO<Esc>`a
+
+" Disable F1 key
+" --------------
 " Map F1 key (main vim help) to ESC to avoid bringing it up by mistake.
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 inoremap <F1> <ESC>
 
+" Alternative Escape
+" ------------------
 " Go from insert mode to normal mode with 'jj', 'jk' or 'kj'
 " 'jk' is included, but it could prevent you from quickly typing 'Dijkstra'
 
@@ -40,6 +59,8 @@ vnoremap jk <ESC>
 inoremap kj <ESC>
 vnoremap kj <ESC>
 
+" Toggle spell checking
+" ---------------------
 " toggle spell checking with <F6>
 nnoremap <F6> :setlocal spell!<CR>
 inoremap <F6> :setlocal spell!<CR>
@@ -49,7 +70,7 @@ vnoremap <F6> :setlocal spell!<CR>
 " === Misc options ===
 " ====================
 
-" reduce the default command timeout (1000)
+" reduce the command timeout (default 1000)
 set timeoutlen=350
 
 " Use 2-space soft tabs by defaults (it's overriden for some some languages

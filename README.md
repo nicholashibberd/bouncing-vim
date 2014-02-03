@@ -327,8 +327,11 @@ cd -; \
 ### <a name="miscellaneous-mappings"></a>Miscellaneous mappings
 
 * Add a new line without going to insert mode:
-  - `CTRL-O`: below
-  - `CTRL-I`: above
+  - `ALT-O` or `<leader>o`: below
+  - `ALT-I` or `<leader>i`: above
+
+The two versions are tentative, and one will probably be removed soon based
+on the feedback.
 
 * Leader is mapped to the popular `,` but `\` is still supported.
 
