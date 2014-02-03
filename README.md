@@ -15,9 +15,10 @@ principles:
 It supports temporary installation of the Vim plugins by taking advantage
 of pathogen - useful for pairing sessions.
 
-If one is already using pathogen.vim, this distro can just be considered an
-extension of one's existing setup. Chances are that one already has most of the
-third party plugins of this distro, as they are amongst the most popular.
+If you are already using [pathogen.vim] (https://github.com/tpope/vim-pathogen),
+this distro can just be considered an extension of your existing setup.
+Chances are that you already have most of the third party plugins of this
+distro, as they are amongst the most popular.
 
 Credits are currently given in the form of links to the original source.
 Thanks to the great Vim community and to the many authors of the features.
@@ -383,8 +384,8 @@ It operates on single lines in normal mode, on multiple lines in visual mode.
 
 Keycode fixes are provided for this to work in Tmux as well.
 
-Note: this doesn't interfere with the copy and cut operations because on the
-actual `move` Vim command.
+Note: this doesn't interfere with the copy and cut operations because it uses
+the `move` command.
 
 ### <a name="buffer-enhancements"></a>Buffer enhancements
 
