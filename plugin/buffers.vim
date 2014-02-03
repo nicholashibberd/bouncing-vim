@@ -72,12 +72,12 @@ inoremap <C-Pageup>   :call PrevBuf()<CR>
 vnoremap <C-Pageup>   :call PrevBuf()<CR>
 
 " ...without Ctrl key, for mac users
-nnoremap <Leader>] :NextBuf()<CR>
-inoremap <Leader>] :NextBuf()<CR>
-vnoremap <Leader>] :NextBuf()<CR>
-nnoremap <Leader>[ :PrevBuf()<CR>
-inoremap <Leader>[ :PrevBuf()<CR>
-vnoremap <Leader>[ :PrevBuf()<CR>
+nnoremap <Leader>] :call NextBuf()<CR>
+inoremap <Leader>] :call NextBuf()<CR>
+vnoremap <Leader>] :call NextBuf()<CR>
+nnoremap <Leader>[ :call PrevBuf()<CR>
+inoremap <Leader>[ :call PrevBuf()<CR>
+vnoremap <Leader>[ :call PrevBuf()<CR>
 
 " ============================================
 " === Close all hidden non-special buffers ===
