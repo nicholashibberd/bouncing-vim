@@ -109,8 +109,10 @@ let g:ctrlp_custom_ignore = {
 " launch ack without argument with leader+a
 nnoremap <Leader>a :Ack!<space>
 
-" use the silver searcher instead of ack, if available
-if executable('ag')
+" use the silver searcher instead of ack, if available; check if already
+" defined, so that it's possible to furter customise it in the vimrc
+" http://usevim.com/2013/10/16/ag/
+if executable('ag') && !exists('g:ackprg')
   let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 
