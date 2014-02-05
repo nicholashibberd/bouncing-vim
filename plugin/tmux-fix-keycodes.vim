@@ -21,8 +21,8 @@
 if &term =~ '^screen'
   map [6;5~ <C-Pagedown>
   map [5;5~ <C-PageUp>
-  map [6;3~ <A-Pagedown>
-  map [5;3~ <A-Pageup>
+  map [6;3~ <M-Pagedown>
+  map [5;3~ <M-Pageup>
 
   exec "set <Home>=\e[1~"
 

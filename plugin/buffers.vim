@@ -11,10 +11,10 @@ set switchbuf=useopen
 "
 " <http://stackoverflow.com/a/8585343/417375> (terrific solution)
 " First, fix ALT key (for gnome-terminal).
-map q  <A-q>
+map q  <M-q>
 " Second, the actual mapping
 " ...current line in normal and insert mode
-nnoremap <A-q> :bp<bar>sp<bar>bn<bar>bd<CR>
+nnoremap <M-q> :bp<bar>sp<bar>bn<bar>bd<CR>
 " Alternative keybindings for people with different terminals.
 nnoremap <C-q> :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <Leader>q :bp<bar>sp<bar>bn<bar>bd<CR>

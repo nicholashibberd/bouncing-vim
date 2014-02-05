@@ -2,9 +2,9 @@
 " === Move between split windows AND tmux panes ===
 " =================================================
 "
-" Maps <A-Left/Down/Up/Right> to switch vim splits in the given direction.
+" Maps <M-Left/Down/Up/Right> to switch vim splits in the given direction.
 " If there are no more windows in that direction, forwards the operation to tmux.
-" (Disabled) <A-\> toggles between last active vim splits/tmux panes.
+" (Disabled) <M-\> toggles between last active vim splits/tmux panes.
 " To have this working with tmux, add this to ~/.tmux.conf
 "
 " The chosen version is taken from:
@@ -53,8 +53,8 @@ function s:TmuxWinCmd(direction)
 endfunction
 
 " navigate between split windows/tmux panes
-nmap <A-Down>   :call <SID>TmuxWinCmd('j')<CR>
-nmap <A-Up>     :call <SID>TmuxWinCmd('k')<CR>
-nmap <A-Left>   :call <SID>TmuxWinCmd('h')<CR>
-nmap <A-Right>  :call <SID>TmuxWinCmd('l')<CR>
-" nmap <A-\> :call <SID>TmuxWinCmd('p')<CR>
+nmap <M-Down>   :call <SID>TmuxWinCmd('j')<CR>
+nmap <M-Up>     :call <SID>TmuxWinCmd('k')<CR>
+nmap <M-Left>   :call <SID>TmuxWinCmd('h')<CR>
+nmap <M-Right>  :call <SID>TmuxWinCmd('l')<CR>
+" nmap <M-\> :call <SID>TmuxWinCmd('p')<CR>
