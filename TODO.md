@@ -1,8 +1,7 @@
 To do
 -----
 
-* remove mapping `<Esc>` in visual mode, because it conflicts with j/k as movements
-* fix ALT modifier not working at all on Mac terminals
+* IN PROGRESS: fix ALT modifier not working at all on Mac terminals
 * map `<End>` to toggle to the last non-blank char in the line
 * toggle between `{}` and `do`-`end`
 * source bashrc after updating it <http://stackoverflow.com/questions/16011245/source-files-in-a-bash-script/16011496#16011496>
