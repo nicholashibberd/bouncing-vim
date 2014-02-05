@@ -1,6 +1,7 @@
 To do
 -----
 
+* remove mapping `<Esc>` in visual mode, because it conflicts with j/k as movements
 * fix ALT modifier not working at all on Mac terminals
 * map `<End>` to toggle to the last non-blank char in the line
 * toggle between `{}` and `do`-`end`
