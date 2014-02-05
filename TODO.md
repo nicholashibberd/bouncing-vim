@@ -1,6 +1,7 @@
 To do
 -----
 
+* fix ALT modifier not working at all on Mac terminals
 * map `<End>` to toggle to the last non-blank char in the line
 * toggle between `{}` and `do`-`end`
 * source bashrc after updating it <http://stackoverflow.com/questions/16011245/source-files-in-a-bash-script/16011496#16011496>
@@ -16,7 +17,6 @@ To do
 * fix molokai theme making difficult doing spell checking because of the current line highlight
 * add back download of vim with mercurial as an option (still default to the simple tarball download)
 * consider the ruby block text-object plugin
-* fix ALT+D real delete on Mac
 * <http://stackoverflow.com/a/1269631/417375>
 * consider not re-entering normal mode after quick-save with ctrl-s
 * consider leader+S for quick save
