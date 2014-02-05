@@ -51,13 +51,10 @@ inoremap <F1> <ESC>
 " 'jk' is included, but it could prevent you from quickly typing 'Dijkstra'
 
 inoremap jj <ESC>
-vnoremap jj <ESC>
 
 inoremap jk <ESC>
-vnoremap jk <ESC>
 
 inoremap kj <ESC>
-vnoremap kj <ESC>
 
 " Toggle spell checking
 " ---------------------
