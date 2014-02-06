@@ -32,11 +32,11 @@ nnoremap <Leader>i maO<Esc>`a
 
 " Fix keycodes and map ALT-O and ALT-I to add new line below/above without
 " going in insert mode.
-map o <M-o>
-map <M-o> mao<Esc>`a
+noremap o <M-o>
+noremap <M-o> mao<Esc>`a
 
-map i <M-i>
-map <M-i> maO<Esc>`a
+noremap i <M-i>
+noremap <M-i> maO<Esc>`a
 
 " Disable F1 key
 " --------------

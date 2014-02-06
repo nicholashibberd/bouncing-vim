@@ -6,6 +6,7 @@
 " <http://vim.wikia.com/wiki/Get_Alt_key_to_work_in_terminal>
 " First, fix ALT for gnome terminal
 map d  <M-d>
+map ∂ <M-d>
 " the ^[ is an Esc char that comes before the 'd'
 " In most default configs, ^[d may be typed by pressing first <C-v>, then <M-d>
 "
