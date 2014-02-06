@@ -4,7 +4,7 @@
 " Delete without yanking, to the black hole register.
 
 " <http://vim.wikia.com/wiki/Get_Alt_key_to_work_in_terminal>
-" First, fix ALT for gnome terminal
+" First, fix ALT for Linux and Mac respectively
 map d  <M-d>
 map ∂ <M-d>
 " the ^[ is an Esc char that comes before the 'd'

@@ -326,12 +326,12 @@ cd -; \
 
 ### <a name="miscellaneous-mappings"></a>Miscellaneous mappings
 
-* Add a new line without going to insert mode:
+* Add a new line without going to insert mode (experimental):
   - `ALT-O` or `<leader>o`: below
   - `ALT-I` or `<leader>i`: above
 
-The two versions are tentative, and one will probably be removed soon based
-on the feedback.
+Due to the difficulty to find sensible mappings, and to the impossibility to
+fix the keycode for ALT-I on Mac, these mappings may be removed or changed.
 
 * Leader is mapped to the popular `,` but `\` is still supported.
 

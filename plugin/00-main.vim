@@ -26,7 +26,9 @@ vmap \ ,
 " the leader to repeat the command. This is not a strong argument though,
 " because having multiple blank lines is considered bad form, and being
 " able to insert one should be enough.
-" For this reason ALT-O and ALT-I could be removed soon.
+" On top of this, no keycode fix seems to be possible for Mac, since ALT-I
+" doesn't correspond to any character.
+" These mappings are therefore experimental and likely to change.
 nnoremap <Leader>o mao<Esc>`a
 nnoremap <Leader>i maO<Esc>`a
 
@@ -49,11 +51,8 @@ inoremap <F1> <ESC>
 " ------------------
 " Go from insert mode to normal mode with 'jj', 'jk' or 'kj'
 " 'jk' is included, but it could prevent you from quickly typing 'Dijkstra'
-
 inoremap jj <ESC>
-
 inoremap jk <ESC>
-
 inoremap kj <ESC>
 
 " Toggle spell checking
@@ -83,8 +82,8 @@ set expandtab
 
 set pastetoggle=<F3> " disable auto format when pasting from system clipboard
 
+" Delete comment leader when joining lines using J
 if version >= 704
-  " delete comment leader when joining lines using J
   set formatoptions+=j
 endif
 
@@ -107,7 +106,7 @@ let g:ctrlp_custom_ignore = {
 nnoremap <Leader>a :Ack!<space>
 
 " use the silver searcher instead of ack, if available; check if already
-" defined, so that it's possible to furter customise it in the vimrc
+" defined, so that it's possible to further customise it in the vimrc
 " http://usevim.com/2013/10/16/ag/
 if executable('ag') && !exists('g:ackprg')
   let g:ackprg = 'ag --nogroup --nocolor --column'
