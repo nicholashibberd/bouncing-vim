@@ -49,7 +49,9 @@ inoremap <F1> <ESC>
 
 " Alternative Escape
 " ------------------
-" Go from insert mode to normal mode with 'jj', 'jk' or 'kj'
+" Go from insert mode to normal mode with 'jj', 'jk' or 'kj'.
+" While possible, defining this mapping in visual mode is not done because it
+" would interphere with the navigation keys.
 " 'jk' is included, but it could prevent you from quickly typing 'Dijkstra'
 inoremap jj <ESC>
 inoremap jk <ESC>
