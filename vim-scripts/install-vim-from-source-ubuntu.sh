@@ -46,9 +46,9 @@ if [[ -x /usr/bin/ruby ]]; then
 else
   echo "Ruby may be required for some plugins to work, but it is not installed"
   echo "Do you wish to...?"
-  select reply in "Install system ruby 1.9.3" "Compile without ruby" "Abort"; do
+  select reply in "Install system ruby 1.9.1" "Compile without ruby" "Abort"; do
     case "${reply}" in
-      "Install system ruby 1.9.3" )
+      "Install system ruby 1.9.1" )
         install_ruby=true
         compile_with_ruby=true
         break ;;
@@ -61,7 +61,7 @@ else
 fi
 
 if $install_ruby; then
-  dependencies+=("ruby1.9.3")
+  dependencies+=("ruby1.9.1")
 fi
 
 if $compile_with_ruby; then
