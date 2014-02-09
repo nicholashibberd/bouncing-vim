@@ -10,10 +10,9 @@ echo
 echo "--- Install tmux ${TMUX_VERSION} from source ---"
 echo
 
-if [[ ! $(command -v curl) ]]; then
-  echo "'curl' is required to download the source, but it's not installed."
-  exit 1
-fi
+echo "Ensure dependencies for compiling tmux"
+sudo apt-get -qq update
+sudo apt-get -qq -y install curl build-essential libncurses5-dev libevent-dev
 
 mkdir -p "${HOME}/Downloads"
 
@@ -29,10 +28,6 @@ fi
 
 echo "Extract tmux source archive"
 tar xfz "${HOME}/Downloads/tmux-${TMUX_VERSION}.tar.gz" -C "${HOME}/Downloads/"
-
-echo "Ensure dependencies for compiling tmux"
-sudo apt-get -qq update
-sudo apt-get -qq -y install libncurses5-dev libevent-dev
 
 echo "run ./configure"
 cd $TMUX_SOURCE_DIR
