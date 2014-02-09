@@ -4,13 +4,18 @@ set -e
 
 TMUX_VERSION=1.8
 TMUX_SOURCE_DIR="${HOME}/Downloads/tmux-${TMUX_VERSION}"
+tmux_download_url="http://downloads.sourceforge.net/project/tmux/tmux/tmux-${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz"
 
 echo
 echo "--- Install tmux ${TMUX_VERSION} from source ---"
 echo
 
+if [[ ! $(command -v curl) ]]; then
+  echo "'curl' is required to download the source, but it's not installed."
+  exit 1
+fi
+
 mkdir -p "${HOME}/Downloads"
-echo "Ensure ~/Downloads dir exists"
 
 echo "Ensure to remove tmux source dir"
 rm -rf $TMUX_SOURCE_DIR
@@ -19,15 +24,15 @@ if [[ -f "${HOME}/Downloads/tmux-${TMUX_VERSION}.tar.gz" ]]; then
   echo "tmux-${TMUX_VERSION}.tar.gz already downloaded"
 else
   echo "Download tmux ${TMUX_VERSION}"
-  wget -q -P "${HOME}/Downloads/" "http://downloads.sourceforge.net/project/tmux/tmux/tmux-${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz"
+  cd "${HOME}/Downloads/" && { curl -s -O -L $tmux_download_url; cd  -;}
 fi
 
 echo "Extract tmux source archive"
 tar xfz "${HOME}/Downloads/tmux-${TMUX_VERSION}.tar.gz" -C "${HOME}/Downloads/"
 
 echo "Ensure dependencies for compiling tmux"
-sudo apt-get update -qq
-sudo apt-get install libncurses5-dev libevent-dev -qq -y
+sudo apt-get -qq update
+sudo apt-get -qq -y install libncurses5-dev libevent-dev
 
 echo "run ./configure"
 cd $TMUX_SOURCE_DIR
@@ -57,7 +62,7 @@ echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   if [[ -e ~/.tmux.conf && ! -L ~/.tmux.conf ]]; then
     echo "Backup original vimrc"
-    mv ~/.tmux.conf ~/tmux.conf.original
+    mv -v ~/.tmux.conf ~/tmux.conf.original
   fi
 
   echo "Symlink tmux.conf"

@@ -22,9 +22,9 @@ configure_options=()
 #######################
 
 echo "Update the apt index"
-sudo apt-get update -qq
+sudo apt-get -qq update
 echo "Ensure curl is installed"
-sudo apt-get install curl -qq
+sudo apt-get -qq install curl
 echo "Ensure ~/Downloads exists"
 mkdir -p ~/Downloads/
 echo "Remove old vim source"
@@ -105,13 +105,12 @@ dependencies+=(
 
 dependencies=${dependencies[*]}
 
-sudo apt-get install -y -qq $dependencies
+sudo apt-get -y -qq install $dependencies
 
 ###############################
 ### Compile and install vim ###
 ###############################
 
-cd $vim_source_dir
 
 configure_options+=(
   "--with-features=huge"
@@ -125,11 +124,15 @@ configure_options+=(
 
 configure_options=${configure_options[*]}
 
-./configure $configure_options
+echo "run ./configure"
+cd $vim_source_dir
+./configure --quiet $configure_options
+cd -
 
-make VIMRUNTIMEDIR=/usr/share/vim/vim74
+make --quiet VIMRUNTIMEDIR=/usr/share/vim/vim74
 
-sudo make install
+echo "run make"
+sudo make install --quiet
 
 ##########################################
 ### Backup compiled source and cleanup ###

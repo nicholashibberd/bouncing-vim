@@ -40,8 +40,7 @@ else
         break ;;
       "Backup and recreate" )
         vim_bkp_dir="vim-$(date -d "today" +"%Y-%m-%d_%H-%M-%S").bkp"
-        echo "Backup ~/.vim to ${vim_bkp_dir}"
-        mv ~/.vim "${HOME}/${vim_bkp_dir}"
+        mv -v ~/.vim "${HOME}/${vim_bkp_dir}"
         break ;;
       "Abort" )
         exit 1;;
@@ -104,8 +103,7 @@ echo
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   if [[ -e ~/.vimrc && ! -L ~/.vimrc ]]; then
-    echo "Backup original vimrc"
-    mv ~/.vimrc ~/vimrc.original
+    mv -v ~/.vimrc ~/vimrc.original
   fi
 
   ln -sfv "${HOME}/.vim/bundle/bouncing-vim/rc-files/vimrc" "${HOME}/.vimrc"
