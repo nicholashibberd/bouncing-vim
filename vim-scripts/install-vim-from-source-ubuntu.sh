@@ -124,14 +124,13 @@ configure_options+=(
 
 configure_options=${configure_options[*]}
 
-echo "run ./configure"
 cd $vim_source_dir
+
+echo "run ./configure"
 ./configure --quiet $configure_options
-cd -
-
-make --quiet VIMRUNTIMEDIR=/usr/share/vim/vim74
-
 echo "run make"
+make --quiet VIMRUNTIMEDIR=/usr/share/vim/vim74
+echo "run make install"
 sudo make install --quiet
 
 ##########################################
