@@ -43,9 +43,9 @@ echo "Installed tmux version $(tmux -V) at $(which tmux)"
 
 cd "$HOME/Downloads"
 
-archive_filename="tmux-compiled-$(date -d "today" +"%Y-%m-%d_%H-%M-%S").tar.gz"
+archive_filename="tmux-${TMUX_VERSION}-compiled-$(date -d "today" +"%Y-%m-%d_%H-%M-%S").tar.gz"
 echo "Archive source to ${archive_filename} for uninstall."
-tar cfz $archive_filename $TMUX_SOURCE_DIR
+cd ~/Downloads && { tar cfz $archive_filename "tmux-${TMUX_VERSION}"; cd -; }
 
 echo "Remove source dir"
 rm -rf $TMUX_SOURCE_DIR
@@ -60,8 +60,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     mv -v ~/.tmux.conf ~/tmux.conf.original
   fi
 
-  echo "Symlink tmux.conf"
-  ln -sf "${HOME}/.vim/bundle/bouncing-vim/rc-files/tmux.conf" "${HOME}/.tmux.conf"
+  ln -vsf "${HOME}/.vim/bundle/bouncing-vim/rc-files/tmux.conf" "${HOME}/.tmux.conf"
 else
   echo "Inspect the provided tmux.conf for more info. ${HOME}/.vim/bundle/bouncing-vim/rc-files/tmux.conf"
 fi

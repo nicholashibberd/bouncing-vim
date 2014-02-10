@@ -87,6 +87,7 @@ sudo apt-get remove -y -qq  \
 
 echo "Install dependencies"
 dependencies+=(
+  "build-essential"
   "libncurses5-dev"
   "libgnome2-dev"
   "libgnomeui-dev"
@@ -141,7 +142,9 @@ cd ~/Downloads
 
 archive_filename="vim74-compiled-$(date -d "today" +"%Y-%m-%d_%H-%M-%S").tar.gz"
 echo "Archive source to ${archive_filename} for future uninstall."
-tar cfz ~/Downloads/$archive_filename $vim_source_dir
+# The -C options seems to work in the terminal but not in the script
+# tar cfz "~/Downloads/${archive_filename}" -C ~/Downloads vim74
+cd ~/Downloads && { tar cfz $archive_filename vim74; cd -; }
 
 echo "Remove source dir"
 rm -rf $vim_source_dir

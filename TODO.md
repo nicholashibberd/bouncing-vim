@@ -1,6 +1,7 @@
 To do
 -----
 
+* use dates in ISO format
 * IN PROGRESS: fix ALT modifier not working at all on Mac terminals
 * map `<End>` to toggle to the last non-blank char in the line
 * toggle between `{}` and `do`-`end`
