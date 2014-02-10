@@ -23,7 +23,7 @@ if [[ -f "${HOME}/Downloads/tmux-${TMUX_VERSION}.tar.gz" ]]; then
   echo "tmux-${TMUX_VERSION}.tar.gz already downloaded"
 else
   echo "Download tmux ${TMUX_VERSION}"
-  cd "${HOME}/Downloads/" && { curl -s -O -L $tmux_download_url; cd  -;}
+  cd "${HOME}/Downloads/" && { curl -s -O -L $tmux_download_url; cd  -; }
 fi
 
 echo "Extract tmux source archive"
