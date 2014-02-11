@@ -23,16 +23,33 @@ configure_options=()
 
 echo "Update the apt index"
 sudo apt-get -qq update
-echo "Ensure curl is installed"
-sudo apt-get -qq install curl
+
 echo "Ensure ~/Downloads exists"
 mkdir -p ~/Downloads/
+
 echo "Remove old vim source"
 sudo rm -rf $vim_source_dir
-echo "Download vim tarball"
-cd ~/Downloads/ && { curl -s -O -L ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2; cd -; }
-echo "Extract vim source"
-tar xfj ~/Downloads/vim-7.4.tar.bz2 -C ~/Downloads/
+
+echo "Do you wish to download a tarball (faster) or clone the repo (more up to date)?"
+select reply in "download" "clone"; do
+  case "${reply}" in
+    "download" )
+      echo "Ensure curl is installed"
+      sudo apt-get -qq install curl
+      echo "Download vim tarball"
+      cd ~/Downloads/ && { curl -s -O -L ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2; cd -; }
+      echo "Extract vim source"
+      tar xfj ~/Downloads/vim-7.4.tar.bz2 -C ~/Downloads/
+      break ;;
+    "clone" )
+      echo "Clone vim source from googlecode.com"
+      hg clone -q https://vim.googlecode.com/hg/ "${vim_source_dir}"
+      break ;;
+    * )
+      echo "Exit without installing"
+      exit 1 ;;
+  esac
+done
 
 ###########################
 ### Handle ruby support ###
@@ -106,12 +123,11 @@ dependencies+=(
 
 dependencies=${dependencies[*]}
 
-sudo apt-get -y -qq install $dependencies
+sudo apt-get install -y -qq $dependencies
 
 ###############################
 ### Compile and install vim ###
 ###############################
-
 
 configure_options+=(
   "--with-features=huge"
@@ -129,8 +145,10 @@ cd $vim_source_dir
 
 echo "run ./configure"
 ./configure --quiet $configure_options
+
 echo "run make"
 make --quiet VIMRUNTIMEDIR=/usr/share/vim/vim74
+
 echo "run make install"
 sudo make install --quiet
 

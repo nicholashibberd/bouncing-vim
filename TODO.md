@@ -3,11 +3,10 @@ To do
 
 * use dates in ISO format
 * IN PROGRESS: fix ALT modifier not working at all on Mac terminals
-* map `<End>` to toggle to the last non-blank char in the line
+* investigate home key not working in some virtual machines
 * toggle between `{}` and `do`-`end`
 * source bashrc after updating it <http://stackoverflow.com/questions/16011245/source-files-in-a-bash-script/16011496#16011496>
 * add shortcut to remove extra blank lines in the middle of the buffer
-* investigate home key not working in some virtual machines
 * add a shortcut to change NERDTree dir to the location of the current buffer
 * investigate if smooth scrolling is viable/popular...
   - <http://stackoverflow.com/questions/4064651/what-is-the-best-way-to-do-smooth-scrolling-in-vim/12201974#12201974>
@@ -35,11 +34,12 @@ To do
   the problem is that pipe is a command to "go to column..."
 * keybindings to toggle the following options, when performance is an issue
   * :set nocursorline/:NoMatchParen <=> :set cursorline/:DoMatchParen
-  * let loaded_matchparen = 1
+  * let loaded_matchparen = 1, to avoid loading the parantheses matching built-in plugin
 * keybindings for split panes resising
 * keybindings for activating/deactivating the automatic line wrapping (reflow)
 * join lines in insert mode (not sure it's a good idea)
 * trick to create the required directories if needed, directly from the vimrc
+* map `<End>` to toggle to the last non-blank char in the line
 
 Interesting vimrc files
 -----------------------
