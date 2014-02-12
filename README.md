@@ -143,6 +143,9 @@ To download and compile, run:
 ./vim-scripts/install-vim-from-source-ubuntu.sh
 ```
 
+It will offer the option to download a tarball from the Vim website or to
+clone the mercurial repository hosted on googlecode.
+
 Vim will be compiled with "features=huge", Python and Perl support.
 
 If system Ruby is available it will also be compiled with Ruby support.

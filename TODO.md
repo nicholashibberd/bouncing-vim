@@ -15,7 +15,6 @@ To do
   - <https://github.com/yonchu/accelerated-smooth-scroll>
   - <http://vim.wikia.com/wiki/Page_up/down_and_keep_cursor_position>
 * fix molokai theme making difficult doing spell checking because of the current line highlight
-* add back download of vim with mercurial as an option (still default to the simple tarball download)
 * consider the ruby block text-object plugin
 * <http://stackoverflow.com/a/1269631/417375>
 * consider not re-entering normal mode after quick-save with ctrl-s
