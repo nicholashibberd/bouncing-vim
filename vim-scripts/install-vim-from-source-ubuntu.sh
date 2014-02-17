@@ -42,6 +42,7 @@ select reply in "download" "clone"; do
       tar xfj ~/Downloads/vim-7.4.tar.bz2 -C ~/Downloads/
       break ;;
     "clone" )
+      sudo apt-get -qq install mercurial
       echo "Clone vim source from googlecode.com"
       hg clone -q https://vim.googlecode.com/hg/ "${vim_source_dir}"
       break ;;
