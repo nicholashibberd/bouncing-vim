@@ -49,7 +49,7 @@ else
 fi
 
 echo "Ensure a complete ~/.vim dir structure"
-mkdir -p ~/.vim/{bundle,autoload,colors,undo,swap,_disabled_plugins}
+mkdir -v -p ~/.vim/{bundle,autoload,colors,undo,swap,_disabled_plugins}
 
 # ================
 # === pathogen ===

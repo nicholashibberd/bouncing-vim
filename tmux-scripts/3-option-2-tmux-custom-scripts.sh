@@ -15,7 +15,7 @@ echo
 echo "--- Setting up the bin directory ---"
 echo
 
-mkdir -p ~/bin
+mkdir -v -p ~/bin
 echo "Ensure ~/bin directory"
 
 if [[ $(echo $PATH | grep "\(^\|:\)${HOME}/bin\(:\|\$\)") ]]; then

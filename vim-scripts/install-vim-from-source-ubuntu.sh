@@ -22,7 +22,7 @@ configure_options=()
 #######################
 
 echo "Update the apt index"
-sudo apt-get -qq update
+sudo apt-get update
 
 echo "Ensure ~/Downloads exists"
 mkdir -p ~/Downloads/
@@ -35,16 +35,16 @@ select reply in "download" "clone"; do
   case "${reply}" in
     "download" )
       echo "Ensure curl is installed"
-      sudo apt-get -qq install curl
+      sudo apt-get install curl
       echo "Download vim tarball"
-      cd ~/Downloads/ && { curl -s -O -L ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2; cd -; }
+      cd ~/Downloads/ && { curl -O -L ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2; cd -; }
       echo "Extract vim source"
       tar xfj ~/Downloads/vim-7.4.tar.bz2 -C ~/Downloads/
       break ;;
     "clone" )
-      sudo apt-get -qq install mercurial
+      sudo apt-get install mercurial
       echo "Clone vim source from googlecode.com"
-      hg clone -q https://vim.googlecode.com/hg/ "${vim_source_dir}"
+      hg clone https://vim.googlecode.com/hg/ "${vim_source_dir}"
       break ;;
     * )
       echo "Exit without installing"
@@ -94,14 +94,14 @@ fi
 ##########################################
 
 echo "Remove Ubuntu packages for Vim"
-sudo apt-get remove -y -qq  \
-  vim                       \
-  vim-runtime               \
-  gvim                      \
-  vim-tiny                  \
-  vim-common                \
-  vim-gui-common            \
-  vim-gnome                 \
+sudo apt-get remove -y \
+  vim                  \
+  vim-runtime          \
+  gvim                 \
+  vim-tiny             \
+  vim-common           \
+  vim-gui-common       \
+  vim-gnome            \
 
 echo "Install dependencies"
 dependencies+=(
@@ -124,7 +124,7 @@ dependencies+=(
 
 dependencies=${dependencies[*]}
 
-sudo apt-get install -y -qq $dependencies
+sudo apt-get install -y $dependencies
 
 ###############################
 ### Compile and install vim ###

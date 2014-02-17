@@ -11,10 +11,10 @@ echo "--- Install tmux ${TMUX_VERSION} from source ---"
 echo
 
 echo "Ensure dependencies for compiling tmux"
-sudo apt-get -qq update
-sudo apt-get -qq -y install curl build-essential libncurses5-dev libevent-dev
+sudo apt-get update
+sudo apt-get -y install curl build-essential libncurses5-dev libevent-dev
 
-mkdir -p "${HOME}/Downloads"
+mkdir -v -p "${HOME}/Downloads"
 
 echo "Ensure to remove tmux source dir"
 rm -rf $TMUX_SOURCE_DIR
@@ -23,7 +23,7 @@ if [[ -f "${HOME}/Downloads/tmux-${TMUX_VERSION}.tar.gz" ]]; then
   echo "tmux-${TMUX_VERSION}.tar.gz already downloaded"
 else
   echo "Download tmux ${TMUX_VERSION}"
-  cd "${HOME}/Downloads/" && { curl -s -O -L $tmux_download_url; cd  -; }
+  cd "${HOME}/Downloads/" && { curl -O -L $tmux_download_url; cd  -; }
 fi
 
 echo "Extract tmux source archive"
@@ -31,13 +31,13 @@ tar xfz "${HOME}/Downloads/tmux-${TMUX_VERSION}.tar.gz" -C "${HOME}/Downloads/"
 
 echo "run ./configure"
 cd $TMUX_SOURCE_DIR
-./configure --quiet
+./configure
 cd -
 
 echo "run make"
-make --quiet -C $TMUX_SOURCE_DIR
+make -C $TMUX_SOURCE_DIR
 
-sudo make install --quiet -C $TMUX_SOURCE_DIR
+sudo make install -C $TMUX_SOURCE_DIR
 echo
 echo "Installed tmux version $(tmux -V) at $(which tmux)"
 

@@ -57,7 +57,7 @@ echo
 echo "--- Setting up .ssh in pair user home ---"
 echo
 
-sudo mkdir -p "/home/${PAIR_USER}/.ssh"
+sudo mkdir -v -p "/home/${PAIR_USER}/.ssh"
 echo "Ensure .ssh dir"
 sudo touch "/home/${PAIR_USER}/.ssh/authorized_keys"
 echo "Ensure .ssh/authorized_keys file"
