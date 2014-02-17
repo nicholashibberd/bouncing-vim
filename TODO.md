@@ -1,6 +1,7 @@
 To do
 -----
 
+* fix tmux-scripts/3-option-2-tmux-custom-scripts.sh for when there is no "pair" user
 * use dates in ISO format
 * IN PROGRESS: fix ALT modifier not working at all on Mac terminals
 * investigate home key not working in some virtual machines
