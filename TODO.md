@@ -1,6 +1,7 @@
 To do
 -----
 
+* copy the visually selected text in the command line; this is a start <http://stackoverflow.com/a/4879083>
 * fix tmux-scripts/3-option-2-tmux-custom-scripts.sh for when there is no "pair" user
 * use dates in ISO format
 * IN PROGRESS: fix ALT modifier not working at all on Mac terminals
