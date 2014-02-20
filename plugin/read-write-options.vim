@@ -20,11 +20,10 @@ autocmd BufLeave,FocusLost * wall
 " === Save with shortcut ===
 " ==========================
 "
-" <http://vim.wikia.com/wiki/Map_Ctrl-S_to_save_current_or_new_files>
 " Save, but only if the buffer is modified.
-inoremap <C-s> <esc>:wall<cr>a
-" other good option: save in the middle of typing and automatically confirm (second CR)
-" inoremap <C-s> <c-o>:Update<CR><CR>
+" <http://vim.wikia.com/wiki/Map_Ctrl-S_to_save_current_or_new_files>
+" In insert mode: stay in normal mode after saving
+inoremap <C-s> <esc>:wall<cr>
 nnoremap <C-s> :wall<cr>
 
 " === NOTE: Support for CTRL-S and CTRL-Q in the terminal ===

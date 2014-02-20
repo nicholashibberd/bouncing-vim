@@ -19,7 +19,6 @@ To do
 * fix molokai theme making difficult doing spell checking because of the current line highlight
 * consider the ruby block text-object plugin
 * <http://stackoverflow.com/a/1269631/417375>
-* consider not re-entering normal mode after quick-save with ctrl-s
 * consider leader+S for quick save
 * Remove Ultisnips???
 * Remove xmp filter?
