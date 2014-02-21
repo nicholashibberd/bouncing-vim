@@ -22,7 +22,8 @@ autocmd BufLeave,FocusLost * wall
 "
 " Save, but only if the buffer is modified.
 " <http://vim.wikia.com/wiki/Map_Ctrl-S_to_save_current_or_new_files>
-" In insert mode: stay in normal mode after saving
+" In insert mode: stay in normal mode after saving; use <Esc>:wall<CR>a to
+" return to insert mode.
 inoremap <C-s> <esc>:wall<cr>
 nnoremap <C-s> :wall<cr>
 
