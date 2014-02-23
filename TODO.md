@@ -1,6 +1,7 @@
 To do
 -----
 
+* allow switching between tmux panes with vim movement keys
 * fix or remove leader not working in insert mode
 * copy current word or visually selected text in the command line; this is a start <http://stackoverflow.com/a/4879083>
 * fix tmux-scripts/3-option-2-tmux-custom-scripts.sh for when there is no "pair" user
