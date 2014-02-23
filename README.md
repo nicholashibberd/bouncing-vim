@@ -282,9 +282,6 @@ cd -; \
 
 * **Vim Ruby**
   - enable syntax highlight for Ruby operators
-  - turn on ruby evaluation for `c-x c-o` expansion
-  - autocomplete class names in the global scope
-  - autocomplete Rails methods
 
 * **Ruby xmpfilter**
   - in terminal Vim press `F4` to mark the line, `F5` to evaluate
