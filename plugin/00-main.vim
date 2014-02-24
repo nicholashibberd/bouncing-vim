@@ -7,10 +7,12 @@
 " http://stackoverflow.com/questions/8395531/how-do-i-map-multiple-leader-keys-in-vim
 "
 " Map leader key to the customary comma...
-let mapleader=','
+" let mapleader=','
 " ...without overriding it
-nmap \ ,
-vmap \ ,
+" nmap \ ,
+" vmap \ ,
+nmap , \
+vmap , \
 
 " =======================
 " === Misc keybinding ===
