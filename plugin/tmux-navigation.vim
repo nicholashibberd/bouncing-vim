@@ -57,4 +57,9 @@ nmap <M-Down>   :call <SID>TmuxWinCmd('j')<CR>
 nmap <M-Up>     :call <SID>TmuxWinCmd('k')<CR>
 nmap <M-Left>   :call <SID>TmuxWinCmd('h')<CR>
 nmap <M-Right>  :call <SID>TmuxWinCmd('l')<CR>
+
+nmap <M-j>      :call <SID>TmuxWinCmd('j')<CR>
+nmap <M-k>      :call <SID>TmuxWinCmd('k')<CR>
+nmap <M-h>      :call <SID>TmuxWinCmd('h')<CR>
+nmap <M-l>      :call <SID>TmuxWinCmd('l')<CR>
 " nmap <M-\> :call <SID>TmuxWinCmd('p')<CR>
