@@ -20,6 +20,7 @@ declare -a ESSENTIALS=(
 )
 
 declare -a NICE_TO_HAVES=(
+       "ekalinin/Dockerfile.vim"
   "noahfrederick/vim-noctu"
    "chriskempson/base16-vim"
        "mustache/vim-mustache-handlebars"
