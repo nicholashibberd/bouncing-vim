@@ -6,11 +6,7 @@
 " <http://stevelosh.com/blog/2010/09/coming-home-to-vim/#using-the-leader>
 " http://stackoverflow.com/questions/8395531/how-do-i-map-multiple-leader-keys-in-vim
 "
-" Map leader key to the customary comma...
-" let mapleader=','
-" ...without overriding it
-" nmap \ ,
-" vmap \ ,
+" Map leader key to the customary comma without overriding it
 nmap , \
 vmap , \
 
