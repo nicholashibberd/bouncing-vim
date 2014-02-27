@@ -22,7 +22,7 @@ sudo apt-get -y install curl build-essential libncurses-dev libevent-dev
 
 mkdir -v -p "${HOME}/Downloads"
 
-echo "Ensure to remove tmux source dir"
+echo "Ensure to remove any old tmux source dir"
 rm -rf $TMUX_SOURCE_PATH
 
 # ================
