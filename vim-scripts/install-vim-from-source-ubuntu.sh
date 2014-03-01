@@ -160,7 +160,7 @@ sudo make install --quiet
 
 cd ~/Downloads
 
-archive_filename="vim74-compiled-$(date -d "today" +"%Y-%m-%d_%H-%M-%S").tar.gz"
+archive_filename="vim74-compiled-$(date -u -d "today" +"%Y%m%dT%H%M%SZ").tar.gz"
 echo "Archive source to ${archive_filename} for future uninstall."
 # The -C options seems to work in the terminal but not in the script
 # tar cfz "~/Downloads/${archive_filename}" -C ~/Downloads vim74

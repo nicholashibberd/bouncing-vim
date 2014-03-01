@@ -61,7 +61,7 @@ cd "$HOME/Downloads"
 # === Archive and clean up ===
 # ============================
 
-ARCHIVE_FILENAME="tmux-${TMUX_VERSION}-compiled-$(date -d "today" +"%Y-%m-%d_%H-%M-%S").tar.gz"
+ARCHIVE_FILENAME="tmux-${TMUX_VERSION}-compiled-$(date -u -d "today" +"%Y%m%dT%H%M%SZ").tar.gz"
 echo "Archive source to ${ARCHIVE_FILENAME} for uninstall."
 tar cfz "${HOME}/Downloads/${ARCHIVE_FILENAME}" -C "${HOME}/Downloads" $TMUX_SOURCE_DIR
 
