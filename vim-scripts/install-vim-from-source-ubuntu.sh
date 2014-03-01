@@ -78,17 +78,6 @@ else
   done
 fi
 
-if $install_ruby; then
-  dependencies+=("ruby1.9.1")
-fi
-
-if $compile_with_ruby; then
-  configure_options+=(
-    "--enable-rubyinterp"
-    "--with-ruby-command=/usr/bin/ruby"
-  )
-fi
-
 ##########################################
 ### Install and remove system packages ###
 ##########################################
@@ -104,6 +93,11 @@ sudo apt-get remove -y \
   vim-gnome            \
 
 echo "Install dependencies"
+
+if $install_ruby; then
+  dependencies+=("ruby1.9.1")
+fi
+
 dependencies+=(
   "build-essential"
   "libncurses5-dev"
@@ -129,6 +123,13 @@ sudo apt-get install -y $dependencies
 ###############################
 ### Compile and install vim ###
 ###############################
+
+if $compile_with_ruby; then
+  configure_options+=(
+    "--enable-rubyinterp"
+    "--with-ruby-command=/usr/bin/ruby"
+  )
+fi
 
 configure_options+=(
   "--with-features=huge"
