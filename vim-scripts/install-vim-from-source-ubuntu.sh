@@ -99,25 +99,47 @@ echo "Install dependencies"
 ############################
 
 if $install_ruby; then
-  dependencies+=("ruby1.9.1")
+  dependencies+=("libruby1.9.1")
 fi
+
+# "python-dev"
+# "libgnome2-dev"
+# "libgnomeui-dev"
+# "libgtk2.0-dev"
+# "libatk1.0-dev"
+# "libbonoboui2-dev"
+# "libcairo2-dev"
+# "libacl1-dev"
+# "libattr1-dev"
+# "libc6-dev"
+# "libgpm-dev"
+# "liblua5.1-0-dev"
+# "libreadline-dev"
+# "libreadline5"
+# "lua5.1"
 
 dependencies+=(
   "build-essential"
+  "exuberant-ctags"
+  "git"
+  "git"
+  "libacl1"
+  "libc6"
+  "libgpm2"
+  "liblua5.1-0"
+  "liblua5.1-0-dev"
   "libncurses5-dev"
-  "libgnome2-dev"
-  "libgnomeui-dev"
-  "libgtk2.0-dev"
-  "libatk1.0-dev"
-  "libbonoboui2-dev"
-  "libcairo2-dev"
   "libperl-dev"
+  "libperl5.14"
+  "libpython2.7"
+  "libselinux1"
+  "libsm6"
+  "libtinfo5"
   "libx11-dev"
   "libxpm-dev"
   "libxt-dev"
   "libxtst-dev"
   "python-dev"
-  "git-core"
 )
 
 dependencies=${dependencies[*]}
