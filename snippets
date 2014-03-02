@@ -75,6 +75,109 @@
 " # bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-l) || tmux select-pane -R"
 " # bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys 'C-\\') || tmux select-pane -l"
 
+################################################################################
+### VIM BUILD DEPENDENCIES #####################################################
+################################################################################
+
+# Dependencies of vim-gnome package 
+# result of apt-get download vim-gnome && dpkg -I vim-gnome_7.3.429-2ubuntu2.1_amd64.deb 
+
+# Required
+
+# libacl1              (>=   2.2.51-5)
+# libc6                (>=   2.15)
+# libgpm2              (>=   1.20.4)
+# libice6              (>=   1:1.0.0)
+# liblua5.1-0
+# libperl5.14          (>=   5.14.2)
+# libpython2.7         (>=   2.7)
+# libruby1.8           (>=   1.8.7.352)
+# libselinux1          (>=   1.32)
+# libsm6
+# libtinfo5
+# libx11-6
+# libxt6
+
+# Not required 
+
+    # vim-gui-common       (=    2:7.3.429-2ubuntu2.1)
+    # vim-common           (=    2:7.3.429-2ubuntu2.1)
+    # vim-runtime          (=    2:7.3.429-2ubuntu2.1)
+    # libbonoboui2-0       (>=   2.15.1)
+    # libgdk-pixbuf2.0-0   (>=   2.22.0)
+    # libglib2.0-0         (>=   2.12.0)
+    # libgnome2-0          (>=   2.17.3)
+    # libgnomeui-0         (>=   2.22.0)
+    # libgtk2.0-0          (>=   2.24.0)
+    # libpango1.0-0        (>=   1.14.0)
+    # tcl8.5               (>=   8.5.0)
+
+
+--------------------------------------------------------------------------------
+# Result of apt-cache showpkg vim-gnome
+
+# 2:7.3.429-2ubuntu2.1
+# vim-gui-common (5 2:7.3.429-2ubuntu2.1)
+# vim-common (5 2:7.3.429-2ubuntu2.1)
+# vim-runtime (5 2:7.3.429-2ubuntu2.1)
+# libacl1 (2 2.2.51-5)
+# libbonoboui2-0 (2 2.15.1)
+# libc6 (2 2.15)
+# libgdk-pixbuf2.0-0 (2 2.22.0)
+# libglib2.0-0 (2 2.12.0)
+# libgnome2-0 (2 2.17.3)
+# libgnomeui-0 (2 2.22.0)
+# libgpm2 (2 1.20.4)
+# libgtk2.0-0 (2 2.24.0)
+# libice6 (2 1:1.0.0)
+# liblua5.1-0 (0 (null))
+# libpango1.0-0 (2 1.14.0)
+# libperl5.14 (2 5.14.2)
+# libpython2.7 (2 2.7)
+# libruby1.8 (2 1.8.7.352)
+# libselinux1 (2 1.32)
+# libsm6 (0 (null))
+# libtinfo5 (0 (null))
+# libx11-6 (0 (null))
+# libxt6 (0 (null))
+# tcl8.5 (2 8.5.0)
+# cscope (0 (null))
+# vim-doc (0 (null))
+# ttf-dejavu (0 (null))
+# gnome-icon-theme (0 (null))
+# vim-gnome:i386 (0 (null))
+
+# 2:7.3.429-2ubuntu2
+# vim-gui-common (5 2:7.3.429-2ubuntu2)
+# vim-common (5 2:7.3.429-2ubuntu2)
+# vim-runtime (5 2:7.3.429-2ubuntu2)
+# libacl1 (2 2.2.51-5)
+# libbonoboui2-0 (2 2.15.1)
+# libc6 (2 2.15)
+# libgdk-pixbuf2.0-0 (2 2.22.0)
+# libglib2.0-0 (2 2.12.0)
+# libgnome2-0 (2 2.17.3)
+# libgnomeui-0 (2 2.22.0)
+# libgpm2 (2 1.20.4)
+# libgtk2.0-0 (2 2.24.0)
+# libice6 (2 1:1.0.0)
+# liblua5.1-0 (0 (null))
+# libpango1.0-0 (2 1.14.0)
+# libperl5.14 (2 5.14.2)
+# libpython2.7 (2 2.7)
+# libruby1.8 (2 1.8.7.352)
+# libselinux1 (2 1.32)
+# libsm6 (0 (null))
+# libtinfo5 (0 (null))
+# libx11-6 (0 (null))
+# libxt6 (0 (null))
+# tcl8.5 (2 8.5.0)
+# cscope (0 (null))
+# vim-doc (0 (null))
+# ttf-dejavu (0 (null))
+# gnome-icon-theme (0 (null))
+# vim-gnome:i386 (0 (null))
+
 " ##############################################################################
 " ################################# VIMRC ######################################
 " ##############################################################################

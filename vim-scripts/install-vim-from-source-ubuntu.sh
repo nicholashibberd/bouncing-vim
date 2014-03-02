@@ -21,6 +21,8 @@ configure_options=()
 ### Download source ###
 #######################
 
+echo "--- [step 1] --- Download source"
+
 echo "Update the apt index"
 sudo apt-get update
 
@@ -56,10 +58,13 @@ done
 ### Handle ruby support ###
 ###########################
 
+echo "--- [step 2] --- Handle ruby support"
+
 # - compile with ruby if present
 # - ask to install, to compile without, or to abort otherwise
 
 if [[ -x /usr/bin/ruby ]]; then
+  echo "Ruby is already installed, nothing to do"
   compile_with_ruby=true
 else
   echo "Ruby may be required for some plugins to work, but it is not installed"
@@ -82,6 +87,8 @@ fi
 ### Remove Vim packages ###
 ###########################
 
+echo "--- [step 3] --- Remove Vim packages"
+
 echo "Remove Ubuntu packages for Vim"
 sudo apt-get remove -y \
   vim                  \
@@ -98,22 +105,21 @@ echo "Install dependencies"
 ### Install dependencies ###
 ############################
 
+echo "--- [step 4] --- Install dependencies"
+
 if $install_ruby; then
   dependencies+=("libruby1.9.1")
 fi
 
-# "python-dev"
 # "libgnome2-dev"
 # "libgnomeui-dev"
 # "libgtk2.0-dev"
 # "libatk1.0-dev"
-# "libbonoboui2-dev"
 # "libcairo2-dev"
 # "libacl1-dev"
 # "libattr1-dev"
 # "libc6-dev"
 # "libgpm-dev"
-# "liblua5.1-0-dev"
 # "libreadline-dev"
 # "libreadline5"
 # "lua5.1"
@@ -121,7 +127,6 @@ fi
 dependencies+=(
   "build-essential"
   "exuberant-ctags"
-  "git"
   "git"
   "libacl1"
   "libc6"
@@ -135,12 +140,35 @@ dependencies+=(
   "libselinux1"
   "libsm6"
   "libtinfo5"
+  "libx11-6"
   "libx11-dev"
   "libxpm-dev"
+  "libxt6"
   "libxt-dev"
   "libxtst-dev"
   "python-dev"
 )
+
+# "Depends" field for the DEBIAN/control file
+#
+# exuberant-ctags (>= 5.9)
+# git (>= 1.7.9.5-1)
+# libacl1 (>= 2.2.51-5)
+# libc6 (>= 2.15)
+# libgpm2 (>= 1.20.4)
+# liblua5.1-0
+# libncurses5 (>= 5.9-4)
+# libperl5.14 (>= 5.14.2)
+# libpython2.7 (>= 2.7)
+# libruby1.9.1
+# libselinux1 (>= 1.32)
+# libsm6
+# libtinfo5
+# libx11-6
+# libxt6
+#
+# libxpm4 (>= 3.5.9-4)
+# libruby1.9.1 (>= 1.9.3.0)
 
 dependencies=${dependencies[*]}
 
@@ -149,6 +177,8 @@ sudo apt-get install -y $dependencies
 ###############################
 ### Compile and install vim ###
 ###############################
+
+echo "--- [step 5] --- Compile and install vim"
 
 if $compile_with_ruby; then
   configure_options+=(
@@ -161,6 +191,7 @@ configure_options+=(
   "--disable-gui"
   "--with-features=huge"
   "--with-x"
+  "--enable-luainterp"
   "--enable-pythoninterp"
   "--enable-perlinterp"
   "--enable-cscope"
@@ -184,6 +215,8 @@ sudo make install --quiet
 ### Backup compiled source and cleanup ###
 ##########################################
 
+echo "--- [step 6] --- Backup compiled source and cleanup"
+
 cd ~/Downloads
 
 archive_filename="vim74-compiled-$(date -u -d "today" +"%Y%m%dT%H%M%SZ").tar.gz"
@@ -199,6 +232,8 @@ rm -rf $vim_source_dir
 ### Set default system vim ####
 ###############################
 
+echo "--- [step 7] --- Set default system vim"
+
 echo "Add vim to the alternatives"
 #                                  <link>          <group>  <path>          <priority>
 sudo update-alternatives --install /usr/bin/editor editor   /usr/bin/vim    00
@@ -208,6 +243,8 @@ sudo update-alternatives --set editor   /usr/bin/vim
 ########################
 ### Print final info ###
 ########################
+
+echo "--- [step 8] --- Summary"
 
 echo "To uninstall, unpack the latest source archive, cd to it, and run:"
 echo
