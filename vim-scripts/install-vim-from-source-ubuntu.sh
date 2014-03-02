@@ -78,9 +78,9 @@ else
   done
 fi
 
-##########################################
-### Install and remove system packages ###
-##########################################
+###########################
+### Remove Vim packages ###
+###########################
 
 echo "Remove Ubuntu packages for Vim"
 sudo apt-get remove -y \
@@ -93,6 +93,10 @@ sudo apt-get remove -y \
   vim-gnome            \
 
 echo "Install dependencies"
+
+############################
+### Install dependencies ###
+############################
 
 if $install_ruby; then
   dependencies+=("ruby1.9.1")
@@ -132,11 +136,11 @@ if $compile_with_ruby; then
 fi
 
 configure_options+=(
+  "--disable-gui"
   "--with-features=huge"
   "--with-x"
   "--enable-pythoninterp"
   "--enable-perlinterp"
-  "--enable-gui=gtk2"
   "--enable-cscope"
   "--prefix=/usr"
 )
