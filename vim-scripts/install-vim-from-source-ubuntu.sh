@@ -11,11 +11,12 @@
 
 set -e
 
+currdir=$( dirname $0 )
+
 vim_source_dir="${HOME}/Downloads/vim74"
+vim_repo_dir="${HOME}/Downloads/vim-hg"
 compile_with_ruby=false
 install_ruby=false
-dependencies=()
-configure_options=()
 
 #######################
 ### Download source ###
@@ -32,21 +33,42 @@ mkdir -p ~/Downloads/
 echo "Remove old vim source"
 sudo rm -rf $vim_source_dir
 
+download_vim_tarball () {
+  echo "Ensure curl is installed"
+  sudo apt-get install curl
+  echo "Download vim tarball"
+  cd ~/Downloads/ && { curl -O -L ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2; cd -; }
+  echo "Extract vim source"
+  tar xfj ~/Downloads/vim-7.4.tar.bz2 -C ~/Downloads/
+}
+
+pull_vim_repo () {
+  local vim_repo_dir=$1
+  local vim_source_dir=$2
+
+  sudo apt-get install mercurial
+  echo "Pull vim source from googlecode.com"
+  if [[ -d "${vim_repo_dir}" ]]; then
+    cd "${vim_repo_dir}"
+    hg pull -u
+    cd -
+  else
+    hg clone https://vim.googlecode.com/hg/ "${vim_repo_dir}"
+  fi
+  cp -R "${vim_repo_dir}" "${vim_source_dir}"
+  rm -rf "${vim_source_dir}/.hg"
+  rm -f "${vim_source_dir}/.hgignore"
+  rm -f "${vim_source_dir}/.hgtags"
+}
+
 echo "Do you wish to download a tarball (faster) or clone the repo (more up to date)?"
 select reply in "download" "clone"; do
   case "${reply}" in
     "download" )
-      echo "Ensure curl is installed"
-      sudo apt-get install curl
-      echo "Download vim tarball"
-      cd ~/Downloads/ && { curl -O -L ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2; cd -; }
-      echo "Extract vim source"
-      tar xfj ~/Downloads/vim-7.4.tar.bz2 -C ~/Downloads/
+      download_vim_tarball
       break ;;
     "clone" )
-      sudo apt-get install mercurial
-      echo "Clone vim source from googlecode.com"
-      hg clone https://vim.googlecode.com/hg/ "${vim_source_dir}"
+      pull_vim_repo "${vim_repo_dir}" "${vim_source_dir}"
       break ;;
     * )
       echo "Exit without installing"
@@ -89,7 +111,6 @@ fi
 
 echo "--- [step 3] --- Remove Vim packages"
 
-echo "Remove Ubuntu packages for Vim"
 sudo apt-get remove -y \
   vim                  \
   vim-runtime          \
@@ -99,80 +120,27 @@ sudo apt-get remove -y \
   vim-gui-common       \
   vim-gnome            \
 
-echo "Install dependencies"
-
 ############################
 ### Install dependencies ###
 ############################
 
 echo "--- [step 4] --- Install dependencies"
 
+# Read the dependencies from an external file, and save them in an array named dependencies
+SAVE_IFS=$IFS
+IFS=$'\n'
+dependencies=($(cat "${currdir}/vim-dependencies-precise.txt"))
+IFS=$SAVE_IFS
+
 if $install_ruby; then
   dependencies+=("libruby1.9.1")
 fi
 
-# "libgnome2-dev"
-# "libgnomeui-dev"
-# "libgtk2.0-dev"
-# "libatk1.0-dev"
-# "libcairo2-dev"
-# "libacl1-dev"
-# "libattr1-dev"
-# "libc6-dev"
-# "libgpm-dev"
-# "libreadline-dev"
-# "libreadline5"
-# "lua5.1"
+dependency_list=${dependencies[*]}
 
-dependencies+=(
-  "build-essential"
-  "exuberant-ctags"
-  "git"
-  "libacl1"
-  "libc6"
-  "libgpm2"
-  "liblua5.1-0"
-  "liblua5.1-0-dev"
-  "libncurses5-dev"
-  "libperl-dev"
-  "libperl5.14"
-  "libpython2.7"
-  "libselinux1"
-  "libsm6"
-  "libtinfo5"
-  "libx11-6"
-  "libx11-dev"
-  "libxpm-dev"
-  "libxt6"
-  "libxt-dev"
-  "libxtst-dev"
-  "python-dev"
-)
+echo $dependencies
 
-# "Depends" field for the DEBIAN/control file
-#
-# exuberant-ctags (>= 5.9)
-# git (>= 1.7.9.5-1)
-# libacl1 (>= 2.2.51-5)
-# libc6 (>= 2.15)
-# libgpm2 (>= 1.20.4)
-# liblua5.1-0
-# libncurses5 (>= 5.9-4)
-# libperl5.14 (>= 5.14.2)
-# libpython2.7 (>= 2.7)
-# libruby1.9.1
-# libselinux1 (>= 1.32)
-# libsm6
-# libtinfo5
-# libx11-6
-# libxt6
-#
-# libxpm4 (>= 3.5.9-4)
-# libruby1.9.1 (>= 1.9.3.0)
-
-dependencies=${dependencies[*]}
-
-sudo apt-get install -y $dependencies
+sudo apt-get install -y $dependency_list
 
 ###############################
 ### Compile and install vim ###
@@ -180,14 +148,7 @@ sudo apt-get install -y $dependencies
 
 echo "--- [step 5] --- Compile and install vim"
 
-if $compile_with_ruby; then
-  configure_options+=(
-    "--enable-rubyinterp"
-    "--with-ruby-command=/usr/bin/ruby"
-  )
-fi
-
-configure_options+=(
+configure_options=(
   "--disable-gui"
   "--with-features=huge"
   "--with-x"
@@ -198,12 +159,19 @@ configure_options+=(
   "--prefix=/usr"
 )
 
-configure_options=${configure_options[*]}
+if $compile_with_ruby; then
+  configure_options+=(
+    "--enable-rubyinterp"
+    "--with-ruby-command=/usr/bin/ruby"
+  )
+fi
+
+configure_option_list=${configure_options[*]}
 
 cd $vim_source_dir
 
 echo "run ./configure"
-./configure --quiet $configure_options
+./configure --quiet $configure_option_list
 
 echo "run make"
 make --quiet VIMRUNTIMEDIR=/usr/share/vim/vim74
