@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 pull_vim_repo () {
   local vim_repo_dir=$1
   local vim_source_dir=$2
@@ -48,7 +50,7 @@ remove_vim_packages () {
     vim-tiny             \
     vim-common           \
     vim-gui-common       \
-    vim-gnome            \
+    vim-gnome
 }
 
 
