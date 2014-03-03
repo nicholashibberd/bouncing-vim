@@ -1,31 +1,27 @@
 #!/usr/bin/env bash
 
+currdir=$( dirname $0 )
 
+dependencies_csv_list='MOOOOOOOOOOOOOO'
+version=9999999
 
-# dependencies+=(
-#   "build-essential"
-#   "exuberant-ctags"
-#   "git"
-#   "libacl1"
-#   "libc6"
-#   "libgpm2"
-#   "liblua5.1-0"
-#   "liblua5.1-0-dev"
-#   "libncurses5-dev"
-#   "libperl-dev"
-#   "libperl5.14"
-#   "libpython2.7"
-#   "libselinux1"
-#   "libsm6"
-#   "libtinfo5"
-#   "libx11-6"
-#   "libx11-dev"
-#   "libxpm-dev"
-#   "libxt6"
-#   "libxt-dev"
-#   "libxtst-dev"
-#   "python-dev"
-# )
+awk \
+  -F: \
+  -v dependencies_csv_list="${dependencies_csv_list}" \
+  -v version="${version}" \
+'{
+  if ($1 ~ "Depends")
+    print $1 ": " dependencies_csv_list
+  else if ($1 ~ "Version")
+    print $1 ": " version
+  else
+    print $0
+}' "${currdir}/vim-deb-package-control-file" > "${currdir}/control"
+
+# # Get the latest patch number to be used to set the version of the package
+# grep 'static int included_patches\[\]' -A3 ~/Downloads/vim74/src/version.c | \
+#   tail -n 1 | \
+#   perl -pe 's|.+?([0-9]+).+|\1|'
 
 # "Depends" field for the DEBIAN/control file
 #
@@ -47,8 +43,3 @@
 #
 # libxpm4 (>= 3.5.9-4)
 # libruby1.9.1 (>= 1.9.3.0)
-
-# Get the latest patch number to be used to set the version of the package
-grep 'static int included_patches\[\]' -A3 ~/Downloads/vim74/src/version.c | \
-  tail -n 1 | \
-  perl -pe 's|.+?([0-9]+).+|\1|'
