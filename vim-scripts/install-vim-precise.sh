@@ -15,55 +15,48 @@ currdir=$( dirname $0 )
 
 source "${currdir}/vim-utils.sh"
 
-vim_source_dir="${HOME}/Downloads/vim74"
 vim_repo_dir="${HOME}/Downloads/vim-hg"
+vim_source_dir="${HOME}/Downloads/vim-src"
 
-echo "--------------------------------"
+echo
 echo "--- [step 1] Download source ---"
-echo "--------------------------------"
 echo
 
 pull_vim_repo "${vim_repo_dir}" "${vim_source_dir}"
 
-echo "------------------------------------"
+echo
 echo "--- [step 2] Remove Vim packages ---"
-echo "------------------------------------"
 echo
 
 remove_vim_packages
 
-echo "-------------------------------------"
+echo 
 echo "--- [step 3] Install dependencies ---"
-echo "-------------------------------------"
 echo
 
 install_dependencies "${currdir}/vim-dependencies-precise.txt"
 
-echo "----------------------------------------"
+echo 
 echo "--- [step 4] Compile and install vim ---"
-echo "----------------------------------------"
 echo
 
 vim_configure_and_make "${vim_source_dir}"
 vim_make_install_system_wide "${vim_source_dir}"
 
-echo "---------------------------------------------------"
+echo
 echo "--- [step 5] Backup compiled source and cleanup ---"
-echo "---------------------------------------------------"
 echo
 
 archive_vim_source "${vim_source_dir}"
 
-echo "---------------------------------------"
+echo
 echo "--- [step 6] Set default system vim ---"
-echo "---------------------------------------"
 echo
 
 set_default_vim
 
-echo "------------------------"
+echo
 echo "--- [step 7] Summary ---"
-echo "------------------------"
 echo
 
 echo "To uninstall, unpack the latest source archive, cd to it, and run:"

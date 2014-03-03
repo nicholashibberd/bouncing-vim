@@ -140,7 +140,7 @@ Tested on Ubuntu 12.04. Please report any problems on different versions.
 To download and compile, run:
 
 ```sh
-./vim-scripts/install-vim-from-source-ubuntu.sh
+./vim-scripts/install-vim-precise.sh
 ```
 
 It will offer the option to download a tarball from the Vim website or to
