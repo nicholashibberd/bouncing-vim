@@ -23,7 +23,7 @@ echo "--- [step 1] Download source ---"
 echo "--------------------------------"
 echo
 
-pull_vim_repo "${vim_repo_dir}" "${vim_repo_dir}"
+pull_vim_repo "${vim_repo_dir}" "${vim_source_dir}"
 
 echo "------------------------------------"
 echo "--- [step 2] Remove Vim packages ---"
