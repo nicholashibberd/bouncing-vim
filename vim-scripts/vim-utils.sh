@@ -8,7 +8,7 @@ pull_vim_repo () {
   echo "Remove old vim source"
   sudo rm -rf $vim_source_dir
 
-  sudo apt-get install mercurial
+  sudo apt-get install -y mercurial
 
   echo "Pull vim source from googlecode.com"
 
