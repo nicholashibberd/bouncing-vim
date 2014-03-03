@@ -32,7 +32,7 @@ Content
 * [Installing](#installing)
   - [Install Vim 7.4 from source (only Ubuntu)](#install-vim-source-ubuntu)
   - [Install the Vim plugins (with pathogen)](#install-vim-plugins)
-  - [Install tmux 1.8 from source (only Ubuntu)](#install-tmux-source-ubuntu)
+  - [Install tmux 1.9 from source (only Ubuntu)](#install-tmux-source-ubuntu)
   - [Tmux configuration notes](#tmux-conf-notes)
   - [Updating existing Vim plugins](#update-existing-plugins)
 * [Features](#features)
@@ -174,7 +174,7 @@ The list of essential and nice-to-have plugins is in `./vim-script/plugins.sh`.
 Also see [read and write options](#read-write-options) if you want to enable
 quick save with `CTRL-s`.
 
-### <a name="install-tmux-source-ubuntu"></a>Install tmux 1.8 from source (only Ubuntu)
+### <a name="install-tmux-source-ubuntu"></a>Install tmux 1.9 from source (only Ubuntu)
 
 Tested on Ubuntu 12.04. Please report any problems on different versions.
 
@@ -218,6 +218,11 @@ bind -n M-Left  run "(tmux display-message -p '#{pane_current_command}' | grep -
 bind -n M-Down  run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Down)  || tmux select-pane -D"
 bind -n M-Up    run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Up)    || tmux select-pane -U"
 bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Right) || tmux select-pane -R"
+
+bind -n M-h run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Left)  || tmux select-pane -L"
+bind -n M-j run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Down)  || tmux select-pane -D"
+bind -n M-k run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Up)    || tmux select-pane -U"
+bind -n M-l run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Right) || tmux select-pane -R"
 ```
 
 To support correct colors in tmux, put this in your `~/.bashrc`
@@ -532,6 +537,9 @@ A tmux.conf file is provided: `./rc-files/tmux.conf`.
 
 The tmux installation script will prompt to link to it.
 
+See [Tmux configuration notes](#tmux-conf-notes) for the required configuration
+in `.tmux.conf`.
+
 * Fix keycodes
   - tmux will send xterm-style keys when its xterm-keys option is on
   - this requires `set -g xterm-keys on` in the `~/.tmux.conf`
@@ -542,20 +550,6 @@ The tmux installation script will prompt to link to it.
 
 * Seamless navigation between tmux and Vim with `ALT-Up/Down/Left/Right`
 and `ALT-k/j/h/l`.<br>
-This requires adding the following to your `~/.tmux.conf`<br>
-
-```sh
-# M(eta) is the Alt key both in Vim and tmux.
-bind -n M-Left  run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Left)  || tmux select-pane -L"
-bind -n M-Down  run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Down)  || tmux select-pane -D"
-bind -n M-Up    run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Up)    || tmux select-pane -U"
-bind -n M-Right run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Right) || tmux select-pane -R"
-
-bind -n M-h run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Left)  || tmux select-pane -L"
-bind -n M-j run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Down)  || tmux select-pane -D"
-bind -n M-k run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Up)    || tmux select-pane -U"
-bind -n M-l run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Right) || tmux select-pane -R"
-```
 
 ### <a name="language-specific-settings"></a>View options
 
