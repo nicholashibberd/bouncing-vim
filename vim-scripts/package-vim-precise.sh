@@ -17,7 +17,7 @@ pull_vim_repo "${vim_repo_dir}" "${vim_source_dir}"
 version_full=$(get_vim_version_full "${vim_source_dir}")
 vim_package_dir="${HOME}/Downloads/vim-${version_full}-amd64-precise"
 
-install_dependencies "${currdir}/vim-dependencies-precise.txt"
+install_dependencies "${currdir}/vim-deps-build-precise.txt"
 
 vim_configure_and_make "${vim_source_dir}"
 
@@ -25,7 +25,7 @@ make_install_for_package "${vim_source_dir}" "${vim_package_dir}"
 
 create_control_file "${vim_source_dir}" \
                     "${vim_package_dir}" \
-                    "${currdir}/vim-dependencies-precise.txt" \
+                    "${currdir}/vim-deps-build-precise.txt" \
                     "${currdir}/vim-deb-package-control-file" \
                     "${version_full}" \
 

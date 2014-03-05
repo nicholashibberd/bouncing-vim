@@ -35,7 +35,7 @@ echo
 echo "--- [step 3] Install dependencies ---"
 echo
 
-install_dependencies "${currdir}/vim-dependencies-precise.txt"
+install_dependencies "${currdir}/vim-deps-build-precise.txt"
 
 echo
 echo "--- [step 4] Compile and install vim ---"
