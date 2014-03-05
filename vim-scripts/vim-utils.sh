@@ -153,36 +153,3 @@ get_vim_version_full () {
 
   echo "${version_short}.${patch_number}"
 }
-
-create_vim_control_file () {
-  local source_dir=$1
-  local package_dir=$2
-  local dependency_file=$3
-  local template=$4
-  local version=$5
-
-  SAVE_IFS=$IFS
-  IFS=$'\n'
-  local dependencies=($(cat $dependency_file))
-  IFS=$SAVE_IFS
-
-  local dependencies_csv_list=$(printf ", %s" "${dependencies[@]}")
-  dependencies_csv_list=${dependencies_csv_list:2}
-
-  mkdir -vp "${package_dir}/DEBIAN"
-
-  awk \
-    -F: \
-    -v dependencies_csv_list="${dependencies_csv_list}" \
-    -v version="${version}" \
-  '{
-    if ($1 ~ "Depends")
-      print $1 ": " dependencies_csv_list
-    else if ($1 ~ "Version")
-      print $1 ": " version
-    else
-      print $0
-    }' "${template}" > "${package_dir}/DEBIAN/control"
-
-  echo "Create control file for deb package in ${package_dir}/DEBIAN/control"
-}
