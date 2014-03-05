@@ -1,6 +1,7 @@
 To do
 -----
 
+* toggling lines C-n conflicts with multi-edit plugin
 * add syntastic
 * fix or remove leader not working in insert mode
 * copy current word or visually selected text in the command line; this is a start <http://stackoverflow.com/a/4879083>
