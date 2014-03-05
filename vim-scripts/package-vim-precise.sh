@@ -27,5 +27,6 @@ create_vim_control_file "${vim_source_dir}" \
                         "${vim_package_dir}" \
                         "${currdir}/vim-dependencies-precise.txt" \
                         "${currdir}/vim-deb-package-control-file" \
+                        "${version_full}" \
 
 dpkg-deb --build "${vim_package_dir}"

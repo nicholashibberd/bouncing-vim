@@ -155,10 +155,11 @@ get_vim_version_full () {
 }
 
 create_vim_control_file () {
-  local vim_source_dir=$1
-  local vim_package_dir=$2
+  local source_dir=$1
+  local package_dir=$2
   local dependency_file=$3
   local template=$4
+  local version=$5
 
   SAVE_IFS=$IFS
   IFS=$'\n'
@@ -168,9 +169,7 @@ create_vim_control_file () {
   local dependencies_csv_list=$(printf ", %s" "${dependencies[@]}")
   dependencies_csv_list=${dependencies_csv_list:2}
 
-  local version=$(get_vim_version_full "${vim_source_dir}")
-
-  mkdir -vp "${vim_package_dir}/DEBIAN"
+  mkdir -vp "${package_dir}/DEBIAN"
 
   awk \
     -F: \
@@ -183,7 +182,7 @@ create_vim_control_file () {
       print $1 ": " version
     else
       print $0
-    }' "${template}" > "${vim_package_dir}/DEBIAN/control"
+    }' "${template}" > "${package_dir}/DEBIAN/control"
 
-  echo "Create control file for deb package in ${vim_package_dir}/DEBIAN/control"
+  echo "Create control file for deb package in ${package_dir}/DEBIAN/control"
 }
