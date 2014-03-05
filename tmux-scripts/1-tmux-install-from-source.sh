@@ -2,11 +2,13 @@
 
 set -e
 
-TMUX_VERSION=1.9a
+TMUX_MINOR_VERSION=1.9
+TMUX_PATCHLEVEL=a
+TMUX_VERSION="${TMUX_MINOR_VERSION}${TMUX_PATCHLEVEL}"
 TMUX_SOURCE_TARBALL="${HOME}/Downloads/tmux-${TMUX_VERSION}.tar.gz"
 TMUX_SOURCE_DIR="tmux-${TMUX_VERSION}"
 TMUX_SOURCE_PATH="${HOME}/Downloads/tmux-${TMUX_VERSION}"
-TMUX_DOWNLOAD_URL="http://downloads.sourceforge.net/project/tmux/tmux/tmux-${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz"
+TMUX_DOWNLOAD_URL="http://downloads.sourceforge.net/project/tmux/tmux/tmux-${TMUX_MINOR_VERSION}/tmux-${TMUX_VERSION}.tar.gz"
 
 echo
 echo "--- Install tmux ${TMUX_VERSION} from source ---"
