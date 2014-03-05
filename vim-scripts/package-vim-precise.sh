@@ -4,6 +4,7 @@ set -e
 
 currdir=$( dirname $0 )
 
+source "${currdir}/../utils.sh"
 source "${currdir}/vim-utils.sh"
 
 vim_repo_dir="${HOME}/Downloads/vim-hg"

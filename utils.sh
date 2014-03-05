@@ -32,3 +32,18 @@ install_plugin_with_pathogen () {
 
   clone_to_bundle $GITHUB $BASENAME $DIR
 }
+
+# Read the dependencies from an external file, and save them in an array named dependencies
+install_dependencies () {
+  local dependency_file=$1
+
+  SAVE_IFS=$IFS
+  IFS=$'\n'
+  local dependencies=($(cat $dependency_file))
+  IFS=$SAVE_IFS
+
+  local dependency_list=${dependencies[*]}
+
+  sudo apt-get update
+  sudo apt-get install -y $dependency_list
+}

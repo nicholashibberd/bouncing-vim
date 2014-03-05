@@ -4,8 +4,6 @@ pull_vim_repo () {
   local vim_repo_dir=$1
   local vim_source_dir=$2
 
-  sudo apt-get update
-
   mkdir -vp ~/Downloads/
 
   echo "Remove old vim source"
@@ -27,20 +25,6 @@ pull_vim_repo () {
   rm -rf "${vim_source_dir}/.hg"
   rm -f "${vim_source_dir}/.hgignore"
   rm -f "${vim_source_dir}/.hgtags"
-}
-
-# Read the dependencies from an external file, and save them in an array named dependencies
-install_dependencies () {
-  local dependency_file=$1
-
-  SAVE_IFS=$IFS
-  IFS=$'\n'
-  local dependencies=($(cat $dependency_file))
-  IFS=$SAVE_IFS
-
-  local dependency_list=${dependencies[*]}
-
-  sudo apt-get install -y $dependency_list
 }
 
 remove_vim_packages () {

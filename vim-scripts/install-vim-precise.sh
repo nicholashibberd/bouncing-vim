@@ -13,6 +13,7 @@ set -e
 
 currdir=$( dirname $0 )
 
+source "${currdir}/../utils.sh"
 source "${currdir}/vim-utils.sh"
 
 vim_repo_dir="${HOME}/Downloads/vim-hg"
@@ -30,13 +31,13 @@ echo
 
 remove_vim_packages
 
-echo 
+echo
 echo "--- [step 3] Install dependencies ---"
 echo
 
 install_dependencies "${currdir}/vim-dependencies-precise.txt"
 
-echo 
+echo
 echo "--- [step 4] Compile and install vim ---"
 echo
 
