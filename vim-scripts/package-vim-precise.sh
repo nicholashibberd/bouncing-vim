@@ -25,7 +25,7 @@ make_install_for_package "${vim_source_dir}" "${vim_package_dir}"
 
 create_control_file "${vim_source_dir}" \
                     "${vim_package_dir}" \
-                    "${currdir}/vim-deps-build-precise.txt" \
+                    "${currdir}/vim-deps-runtime-precise.txt" \
                     "${currdir}/vim-deb-package-control-file" \
                     "${version_full}" \
 
