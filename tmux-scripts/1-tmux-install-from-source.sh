@@ -88,5 +88,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   ln -vsf "${HOME}/.vim/bundle/bouncing-vim/rc-files/tmux.conf" "${HOME}/.tmux.conf"
 else
-  echo "Inspect the provided tmux.conf for more info. ${HOME}/.vim/bundle/bouncing-vim/rc-files/tmux.conf"
+  echo "Inspect the provided tmux.conf for more info."
+  echo "-> ${HOME}/.vim/bundle/bouncing-vim/rc-files/tmux.conf"
 fi
