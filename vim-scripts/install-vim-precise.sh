@@ -42,7 +42,7 @@ echo "--- [step 4] Compile and install vim ---"
 echo
 
 vim_configure_and_make "${vim_source_dir}"
-vim_make_install_system_wide "${vim_source_dir}"
+make_install_default "${vim_source_dir}"
 
 echo
 echo "--- [step 5] Backup compiled source and cleanup ---"

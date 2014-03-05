@@ -21,7 +21,7 @@ install_dependencies "${currdir}/vim-dependencies-precise.txt"
 
 vim_configure_and_make "${vim_source_dir}"
 
-vim_make_install_for_package "${vim_source_dir}" "${vim_package_dir}"
+make_install_for_package "${vim_source_dir}" "${vim_package_dir}"
 
 create_control_file "${vim_source_dir}" \
                     "${vim_package_dir}" \

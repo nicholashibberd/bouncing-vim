@@ -69,7 +69,7 @@ vim_configure_and_make () {
   cd -
 }
 
-vim_make_install_system_wide () {
+make_install_default () {
   local vim_source_dir=$1
 
   cd "${vim_source_dir}"
@@ -80,16 +80,16 @@ vim_make_install_system_wide () {
   cd -
 }
 
-vim_make_install_for_package () {
-  local vim_source_dir=$1
-  local vim_package_dir=$2
+make_install_for_package () {
+  local source_dir=$1
+  local package_dir=$2
 
-  rm -rf "${vim_package_dir}"
-  mkdir -p "${vim_package_dir}"
+  rm -rf "${package_dir}"
+  mkdir -p "${package_dir}"
 
-  cd "${vim_source_dir}"
+  cd "${source_dir}"
 
-  make install DESTDIR="${vim_package_dir}"
+  make install DESTDIR="${package_dir}"
 
   cd -
 }
