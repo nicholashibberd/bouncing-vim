@@ -2,6 +2,10 @@
 
 set -e
 
+currdir=$( dirname $0 )
+
+source "${currdir}/../utils.sh"
+
 TMUX_MINOR_VERSION=1.9
 TMUX_PATCHLEVEL=a
 TMUX_VERSION="${TMUX_MINOR_VERSION}${TMUX_PATCHLEVEL}"
@@ -10,17 +14,11 @@ TMUX_SOURCE_DIR="tmux-${TMUX_VERSION}"
 TMUX_SOURCE_PATH="${HOME}/Downloads/tmux-${TMUX_VERSION}"
 TMUX_DOWNLOAD_URL="http://downloads.sourceforge.net/project/tmux/tmux/tmux-${TMUX_MINOR_VERSION}/tmux-${TMUX_VERSION}.tar.gz"
 
-echo
-echo "--- Install tmux ${TMUX_VERSION} from source ---"
-echo
-
 # ====================================
 # === Dependencies and environment ===
 # ====================================
 
-echo "Ensure dependencies for compiling tmux"
-sudo apt-get update
-sudo apt-get -y install curl build-essential libncurses-dev libevent-dev
+install_dependencies "${currdir}/tmux-compile-deps-precise.txt"
 
 mkdir -v -p "${HOME}/Downloads"
 
