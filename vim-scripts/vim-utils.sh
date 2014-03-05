@@ -69,20 +69,6 @@ vim_configure_and_make () {
   cd -
 }
 
-archive_vim_source () {
-  local vim_source_dir=$1
-  local vim_version_full=$(get_vim_version_full "${vim_source_dir}")
-  local archive_filename="vim-${vim_version_full}-compiled-$(date -u -d "today" +"%Y%m%dT%H%M%SZ").tar.gz"
-  local source_basepath=$(dirname "${vim_source_dir}")
-  local source_basename=$(basename "${vim_source_dir}")
-
-  echo "Archive source to ${archive_filename} for future uninstall."
-  tar czf "${source_basepath}/${archive_filename}" -C "${source_basepath}" "${source_basename}"
-
-  echo "Remove source dir"
-  rm -rf $vim_source_dir
-}
-
 set_default_vim () {
   echo "Add vim to the alternatives"
   #                                  <link>          <group>  <path>          <priority>

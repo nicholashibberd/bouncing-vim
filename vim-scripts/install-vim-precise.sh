@@ -48,7 +48,11 @@ echo
 echo "--- [step 5] Backup compiled source and cleanup ---"
 echo
 
-archive_vim_source "${vim_source_dir}"
+vim_version=$(get_vim_version_full "${vim_source_dir}")
+
+archive_source  "${vim_source_dir}" \
+                "vim" \
+                "${vim_version}" \
 
 echo
 echo "--- [step 6] Set default system vim ---"

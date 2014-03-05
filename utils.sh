@@ -105,3 +105,20 @@ make_install_for_package () {
 
   cd -
 }
+
+archive_source () {
+  local source_dir=$1
+  local appname=$2
+  local version=$3
+
+  local timestamp=$(date -u -d "today" +"%Y%m%dT%H%M%SZ")
+  local archive_filename="${appname}-${version}-compiled-${timestamp}.tar.gz"
+  local source_basepath=$(dirname "${source_dir}")
+  local source_basename=$(basename "${source_dir}")
+
+  echo "Archive source to ${archive_filename} for future uninstall."
+  tar czf "${source_basepath}/${archive_filename}" -C "${source_basepath}" "${source_basename}"
+
+  echo "Remove source dir"
+  rm -rf $source_dir
+}
