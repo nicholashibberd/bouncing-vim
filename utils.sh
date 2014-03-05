@@ -80,3 +80,28 @@ create_control_file () {
 
   echo "Create control file for deb package in ${package_dir}/DEBIAN/control"
 }
+
+make_install_default () {
+  local source_dir=$1
+
+  cd "${source_dir}"
+
+  echo "run make install"
+  sudo make install
+
+  cd -
+}
+
+make_install_for_package () {
+  local source_dir=$1
+  local package_dir=$2
+
+  rm -rf "${package_dir}"
+  mkdir -p "${package_dir}"
+
+  cd "${source_dir}"
+
+  make install DESTDIR="${package_dir}"
+
+  cd -
+}

@@ -69,31 +69,6 @@ vim_configure_and_make () {
   cd -
 }
 
-make_install_default () {
-  local vim_source_dir=$1
-
-  cd "${vim_source_dir}"
-
-  echo "run make install"
-  sudo make install
-
-  cd -
-}
-
-make_install_for_package () {
-  local source_dir=$1
-  local package_dir=$2
-
-  rm -rf "${package_dir}"
-  mkdir -p "${package_dir}"
-
-  cd "${source_dir}"
-
-  make install DESTDIR="${package_dir}"
-
-  cd -
-}
-
 archive_vim_source () {
   local vim_source_dir=$1
   local vim_version_full=$(get_vim_version_full "${vim_source_dir}")
