@@ -106,6 +106,31 @@ make_install_for_package () {
   cd -
 }
 
+get_source_from_tarball () {
+  local download_url=$1
+  local tarball_fullpath=$2
+  local source_dir=$3
+
+  local tarball_basepath=$(dirname "${tarball_fullpath}")
+  local tarball_basename=$(basename "${tarball_fullpath}")
+
+  echo "Ensure any old source dir is removed"
+  rm -rf "${source_dir}"
+
+  mkdir -v -p "${source_dir}"
+  mkdir -v -p "${tarball_basepath}"
+
+  if [[ -f "${tarball_fullpath}" ]]; then
+    echo "${tarball_basename} already downloaded"
+  else
+    echo "Download ${tarball_basename}"
+    curl -o "${tarball_fullpath}" -L "${download_url}"
+  fi
+
+  echo "Extract source archive"
+  tar xvf "${tarball_fullpath}" -C "${source_dir}" --strip-components=1
+}
+
 archive_source () {
   local source_dir=$1
   local appname=$2

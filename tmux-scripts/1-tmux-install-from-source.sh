@@ -5,6 +5,7 @@ set -e
 currdir=$( dirname $0 )
 
 source "${currdir}/../utils.sh"
+source "${currdir}/tmux-utils.sh"
 
 TMUX_MINOR_VERSION=1.9
 TMUX_PATCHLEVEL=a
@@ -18,26 +19,15 @@ TMUX_DOWNLOAD_URL="http://downloads.sourceforge.net/project/tmux/tmux/tmux-${TMU
 # === Dependencies and environment ===
 # ====================================
 
-install_dependencies "${currdir}/tmux-compile-deps-precise.txt"
-
-mkdir -v -p "${HOME}/Downloads"
-
-echo "Ensure to remove any old tmux source dir"
-rm -rf $TMUX_SOURCE_PATH
+install_dependencies "${currdir}/tmux-deps-build-precise.txt"
 
 # ================
 # === Download ===
 # ================
 
-if [[ -f "${HOME}/Downloads/tmux-${TMUX_VERSION}.tar.gz" ]]; then
-  echo "tmux-${TMUX_VERSION}.tar.gz already downloaded"
-else
-  echo "Download tmux ${TMUX_VERSION}"
-  curl -o $TMUX_SOURCE_TARBALL -L $TMUX_DOWNLOAD_URL
-fi
-
-echo "Extract tmux source archive"
-tar xfz $TMUX_SOURCE_TARBALL -C "${HOME}/Downloads/"
+get_source_from_tarball "${TMUX_DOWNLOAD_URL}" \
+                        "${TMUX_SOURCE_TARBALL}" \
+                        "${TMUX_SOURCE_PATH}" \
 
 # ===========================
 # === Compile and install ===
