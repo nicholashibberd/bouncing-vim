@@ -38,7 +38,6 @@ remove_vim_packages () {
     vim-gnome
 }
 
-
 vim_configure_and_make () {
   local vim_source_dir=$1
 

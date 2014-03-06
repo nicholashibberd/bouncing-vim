@@ -11,3 +11,7 @@ tmux_configure_and_make () {
   echo "run make"
   make -C "${source_dir}"
 }
+
+remove_tmux_packages () {
+  sudo apt-get remove -y tmux
+}

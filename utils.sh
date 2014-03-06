@@ -4,6 +4,7 @@ github_basename () {
   echo "$1" | sed -E 's|.+\/(.+)$|\1|g'
 }
 
+# TODO: Move to vim-utils.sh
 clone_to_bundle () {
   local GITHUB=$1
   local BASENAME=$2
@@ -17,6 +18,7 @@ clone_to_bundle () {
   fi
 }
 
+# TODO: Move to vim-utils.sh
 install_tmp_plugin_with_pathogen () {
   local GITHUB=$1
   local BASENAME=$(github_basename $GITHUB)
@@ -25,6 +27,7 @@ install_tmp_plugin_with_pathogen () {
   clone_to_bundle $GITHUB $BASENAME $DIR
 }
 
+# TODO: Move to vim-utils.sh
 install_plugin_with_pathogen () {
   local GITHUB=$1
   local BASENAME=$(github_basename $GITHUB)
