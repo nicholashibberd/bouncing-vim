@@ -1,0 +1,11 @@
+Source: tmux
+Section: Development
+Priority: extra
+Maintainer: Luca B <blmlcu@gmail.com>
+Homepage: http://tmux.sourceforge.net/
+Package: tmux
+Architecture: amd64
+Depends:
+Conflicts: tmux
+Description: tmux .deb to be installed with gdebi on Vagrant, Docker
+Version: 
