@@ -33,30 +33,19 @@ get_source_from_tarball "${TMUX_DOWNLOAD_URL}" \
 # === Compile and install ===
 # ===========================
 
-echo "run ./configure"
-cd $TMUX_SOURCE_PATH
-./configure
-cd -
+tmux_configure_and_make "${TMUX_SOURCE_PATH}"
 
-echo "run make"
-make -C $TMUX_SOURCE_PATH
+make_install_default "${TMUX_SOURCE_PATH}"
 
-sudo make install -C $TMUX_SOURCE_PATH
-echo
 echo "Installed tmux version $(tmux -V) at $(which tmux)"
-
-cd "$HOME/Downloads"
 
 # ============================
 # === Archive and clean up ===
 # ============================
 
-ARCHIVE_FILENAME="tmux-${TMUX_VERSION}-compiled-$(date -u -d "today" +"%Y%m%dT%H%M%SZ").tar.gz"
-echo "Archive source to ${ARCHIVE_FILENAME} for uninstall."
-tar cfz "${HOME}/Downloads/${ARCHIVE_FILENAME}" -C "${HOME}/Downloads" $TMUX_SOURCE_DIR
-
-echo "Remove source dir"
-rm -rf $TMUX_SOURCE_PATH
+archive_source  "${TMUX_SOURCE_PATH}" \
+                "tmux" \
+                "${TMUX_VERSION}"
 
 # ======================
 # === tmux.conf file ===
@@ -68,7 +57,7 @@ echo "Your tmux.conf will be backed up."
 read -p "Do you want to link to the tmux.conf provided? [y/N]: " -r
 echo
 
-if [[ $REPLY =~ ^[Yy]$ ]]; then
+if [[ $REPLY =~ ^[Yy] ]]; then
   if [[ -e ~/.tmux.conf && ! -L ~/.tmux.conf ]]; then
     echo "Backup original vimrc"
     mv -v ~/.tmux.conf ~/tmux.conf.original
