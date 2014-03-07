@@ -1,6 +1,7 @@
 To do
 -----
 
+* for plugins that end in ".vim" also check the presence of the folder without ".vim"
 * toggling lines C-n conflicts with multi-edit plugin
 * add syntastic
 * fix or remove leader not working in insert mode
