@@ -105,7 +105,8 @@ autocmd ColorScheme * highlight MBEVisibleActiveChanged ctermfg=199
 " ==============
 " === golang ===
 " ==============
-" From the readme at $GOROOT/misc/vim/readme.txt
+" From the readme at $GOROOT/misc/vim/readme.txt and https://github.com/jnwhiteh/vim-golang/blob/master/readme.txt
+" Some Linux distributions set filetype in /etc/vimrc.
 " Clear filetype flags before changing runtimepath to force Vim to reload them.
 filetype off
 filetype plugin indent off
@@ -115,6 +116,9 @@ syntax on
 
 if executable('go')
   autocmd FileType go autocmd BufWritePre <buffer> Fmt
+  " Activate the compiler plugin with ":compiler go". To always enable the
+  " compiler plugin in Go source files:
+  " autocmd FileType go compiler go
 endif
 
 " ===============================

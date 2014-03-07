@@ -28,6 +28,7 @@ declare -a NICE_TO_HAVES=(
          "SirVer/ultisnips"
          "kchmck/vim-coffee-script"
           "tpope/vim-fugitive"
+       "jnwhiteh/vim-golang"
            "gerw/vim-HiLinkTrace"
           "tpope/vim-markdown"
           "tpope/vim-rails"
