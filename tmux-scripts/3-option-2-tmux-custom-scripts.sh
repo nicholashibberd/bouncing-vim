@@ -2,7 +2,7 @@
 
 set -e
 
-currdir=$( dirname $0 )
+currdir=$(cd "$(dirname $0)" && pwd -P)
 
 PAIR_USER=pair
 

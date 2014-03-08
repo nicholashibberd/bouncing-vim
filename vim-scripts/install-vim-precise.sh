@@ -11,7 +11,7 @@
 
 set -e
 
-currdir=$( dirname $0 )
+currdir=$(cd "$(dirname $0)" && pwd -P)
 
 source "${currdir}/../utils.sh"
 source "${currdir}/vim-utils.sh"
