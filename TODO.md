@@ -1,6 +1,7 @@
 To do
 -----
 
+* create functions to link to the rc files
 * use `mv` instead of `rm` to in the install scripts
 * for plugins that end in ".vim" also check the presence of the folder without ".vim"
 * toggling lines C-n conflicts with multi-edit plugin
