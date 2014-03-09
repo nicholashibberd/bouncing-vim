@@ -33,6 +33,15 @@ install_plugin_with_pathogen () {
   clone_to_bundle $GITHUB $BASENAME $DIR
 }
 
+clone_to_bundle_with_home () {
+  local GITHUB=$1
+  local BASENAME=$(github_basename $GITHUB)
+  local DIR="$BASENAME"
+  local home_dir=$2
+
+  git clone "https://github.com/${GITHUB}.git" "${home_dir}/.vim/bundle/$DIR"
+}
+
 pull_vim_repo () {
   local vim_repo_dir=$1
   local vim_source_dir=$2
