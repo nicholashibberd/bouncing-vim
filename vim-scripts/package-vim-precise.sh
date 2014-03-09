@@ -15,7 +15,8 @@ pull_vim_repo "${vim_repo_dir}" "${vim_source_dir}"
 # These variables have to computed after pulling, otherwise the source dir would
 # not be available to get the necessary data.
 version_full=$(get_vim_version_full "${vim_source_dir}")
-vim_package_dir="${HOME}/Downloads/vim-${version_full}-amd64-precise"
+packaged_version="2:${version_full}"
+vim_package_dir="${HOME}/Downloads/vim_${version_full}_amd64-precise"
 
 install_dependencies "${currdir}/vim-deps-build-precise.txt"
 
@@ -27,6 +28,6 @@ create_control_file "${vim_source_dir}" \
                     "${vim_package_dir}" \
                     "${currdir}/vim-deps-runtime-precise.txt" \
                     "${currdir}/vim-deb-package-control-file" \
-                    "${version_full}" \
+                    "${packaged_version}" \
 
 dpkg-deb --build "${vim_package_dir}"

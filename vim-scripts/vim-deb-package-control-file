@@ -8,4 +8,4 @@ Architecture: amd64
 Depends:
 Conflicts: vim
 Description: Custom Vim .deb package to be used with Vagrant, Docker
-Version: 
+Version:
