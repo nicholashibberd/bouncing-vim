@@ -133,6 +133,23 @@ Installation of Vim and tmux supports Ubuntu (tested on 12.04).
 
 The plugins use pathogen.
 
+### <a name="install-deb-packages"></a>Install Vim and Tmux from .deb packages
+
+Packages for Ubuntu 12.04 are provided in `./packages/`.
+
+To install them, use "gdebi", because "dpkg -i" is not able to install the
+dependencie declared in the package.
+To install gdebi: `sudo apt-get install gdebi-core`.
+
+Tha packages might work on different Ubuntu versions if the name of the
+dependencies has not changed.
+
+To see the dependencies before installing, use `dpkg -I`, for example:
+
+```sh
+dpkg -I vim-7.4.193-amd64-precise.deb
+```
+
 ### <a name="install-vim-source-ubuntu"></a>Install Vim 7.4 from source (only Ubuntu)
 
 Tested on Ubuntu 12.04. Please report any problems on different versions.
