@@ -33,5 +33,6 @@ declare -a NICE_TO_HAVES=(
          "SirVer/ultisnips"
           "tpope/vim-fugitive"
            "gerw/vim-HiLinkTrace"
+         "rodjek/vim-puppet"
            "t9md/vim-ruby-xmpfilter"
 )

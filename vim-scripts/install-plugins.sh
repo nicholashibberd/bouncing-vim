@@ -5,6 +5,7 @@ set -e
 currdir=$(cd "$(dirname $0)" && pwd -P)
 
 source "${currdir}/../utils.sh"
+source "${currdir}/vim-utils.sh"
 source "${currdir}/plugins.sh"
 
 is_a_clean_install=false
@@ -56,12 +57,6 @@ mkdir -v -p ~/.vim/{bundle,autoload,colors,undo,swap,_disabled_plugins}
 # ================
 
 # It will use pathogen if present, offer to install, or abort.
-
-install_pathogen () {
-  echo "Install pathogen to handle your plugins"
-  curl -Sso ~/.vim/autoload/pathogen.vim \
-    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-}
 
 if $is_a_clean_install; then
   install_pathogen

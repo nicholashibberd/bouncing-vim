@@ -1,5 +1,38 @@
 #!/usr/bin/env bash
 
+currdir=$(cd "$(dirname $0)" && pwd -P)
+
+source "${currdir}/../utils.sh"
+
+clone_to_bundle () {
+  local GITHUB=$1
+  local BASENAME=$2
+  local DIR=$3
+
+  if [[ ! -d "$HOME/.vim/bundle/$BASENAME" && ! -d "$HOME/.vim/bundle/$DIR" ]]; then
+    echo "Install $GITHUB to $HOME/.vim/bundle/$DIR"
+    git clone -q "https://github.com/${GITHUB}.git" "$HOME/.vim/bundle/$DIR"
+  else
+    echo "$GITHUB already installed, skipping"
+  fi
+}
+
+install_tmp_plugin_with_pathogen () {
+  local GITHUB=$1
+  local BASENAME=$(github_basename $GITHUB)
+  local DIR="bouncing-vim-tmp-$BASENAME"
+
+  clone_to_bundle $GITHUB $BASENAME $DIR
+}
+
+install_plugin_with_pathogen () {
+  local GITHUB=$1
+  local BASENAME=$(github_basename $GITHUB)
+  local DIR="$BASENAME"
+
+  clone_to_bundle $GITHUB $BASENAME $DIR
+}
+
 pull_vim_repo () {
   local vim_repo_dir=$1
   local vim_source_dir=$2
@@ -36,6 +69,12 @@ remove_vim_packages () {
     vim-common           \
     vim-gui-common       \
     vim-gnome
+}
+
+install_pathogen () {
+  echo "Install pathogen to handle your plugins"
+  curl -Sso ~/.vim/autoload/pathogen.vim \
+    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 }
 
 vim_configure_and_make () {
