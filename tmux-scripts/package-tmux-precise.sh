@@ -15,7 +15,7 @@ TMUX_SOURCE_DIR="tmux-${TMUX_VERSION}"
 TMUX_SOURCE_PATH="${HOME}/Downloads/tmux-${TMUX_VERSION}"
 TMUX_DOWNLOAD_URL="http://downloads.sourceforge.net/project/tmux/tmux/tmux-${TMUX_MINOR_VERSION}/tmux-${TMUX_VERSION}.tar.gz"
 
-tmux_package_dir="${HOME}/Downloads/tmux-${TMUX_VERSION}-amd64-precise"
+tmux_package_dir="${HOME}/Downloads/tmux_${TMUX_VERSION}_amd64-precise"
 
 echo
 echo "--- [step 1] Download source ---"
