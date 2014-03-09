@@ -111,3 +111,25 @@ else
   echo "Inspect the provided vimrc for more info. ${HOME}/.vim/bundle/bouncing-vim/rc-files/vimrc"
   echo "Make sure your vimrc initializes pathogen"
 fi
+
+# =================
+# === tmux.conf ===
+# =================
+
+echo "Some of the features require specific configuration."
+echo "Your tmux.conf will be backed up."
+
+read -p "Do you want to link to the tmux.conf provided? [y/N]: " -r
+echo
+
+if [[ $REPLY =~ ^[Yy] ]]; then
+  if [[ -e ~/.tmux.conf && ! -L ~/.tmux.conf ]]; then
+    echo "Backup original vimrc"
+    mv -v ~/.tmux.conf ~/tmux.conf.original
+  fi
+
+  ln -vsf "${HOME}/.vim/bundle/bouncing-vim/rc-files/tmux.conf" "${HOME}/.tmux.conf"
+else
+  echo "Inspect the provided tmux.conf for more info."
+  echo "-> ${HOME}/.vim/bundle/bouncing-vim/rc-files/tmux.conf"
+fi

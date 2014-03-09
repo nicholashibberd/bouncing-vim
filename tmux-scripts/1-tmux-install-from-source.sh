@@ -65,7 +65,7 @@ echo
 
 if [[ $REPLY =~ ^[Yy] ]]; then
   if [[ -e ~/.tmux.conf && ! -L ~/.tmux.conf ]]; then
-    echo "Backup original vimrc"
+    echo "Backup original tmux.conf"
     mv -v ~/.tmux.conf ~/tmux.conf.original
   fi
 
