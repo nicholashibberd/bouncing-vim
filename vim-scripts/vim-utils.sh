@@ -35,11 +35,15 @@ install_plugin_with_pathogen () {
 
 clone_to_bundle_with_home () {
   local GITHUB=$1
-  local BASENAME=$(github_basename $GITHUB)
-  local DIR="$BASENAME"
+  local plugin_dir=$(github_basename $GITHUB)
   local home_dir=$2
 
-  git clone "https://github.com/${GITHUB}.git" "${home_dir}/.vim/bundle/$DIR"
+  if [[ ! -d "${home_dir}/.vim/bundle/$plugin_dir" && ! -d "$HOME/.vim/bundle/$plugin_dir" ]]; then
+    echo "Install $GITHUB to $HOME/.vim/bundle/$plugin_dir"
+    git clone -q "https://github.com/${GITHUB}.git" "$HOME/.vim/bundle/$plugin_dir"
+  else
+    echo "$GITHUB already installed, skipping"
+  fi
 }
 
 pull_vim_repo () {
