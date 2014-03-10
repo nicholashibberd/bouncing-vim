@@ -1,6 +1,7 @@
 To do
 -----
 
+* remove tmux-vim-select-pane
 * Add Q&A section to the readme:
   - how is bouncing-vim different from, say, janus?
   - why is it important to use pathogen instead of Vundle?
