@@ -1,6 +1,9 @@
 To do
 -----
 
+* Add Q&A section to the readme:
+  - how is bouncing-vim different from, say, janus?
+  - why is it important to use pathogen instead of Vundle?
 * create functions to link to the rc files
 * use `mv` instead of `rm` to in the install scripts
 * for plugins that end in ".vim" also check the presence of the folder without ".vim"
