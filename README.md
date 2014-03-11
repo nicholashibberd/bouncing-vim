@@ -64,28 +64,46 @@ To install only the essentials, and only temporarily:
 
 ### <a name="essential-plugins"></a>Essentials
 
+Functionality
+
 * [Ack-vim] (https://github.com/mileszs/ack.vim) - Run [ack] (http://beyondgrep.com/)
   from Vim, and shows the results in a split window.
+* [Buffergator] (https://github.com/jeetsukumaran/vim-buffergator) - Vim plugin
+  to list, select and switch between buffers.
+* [commentary.vim] (https://github.com/tpope/vim-commentary) - Comment stuff out.
 * [Ctrl-P] (https://github.com/kien/ctrlp.vim) - Full path fuzzy file, buffer,
   mru, tag, ... finder for Vim, written in pure Vimscript.
+* [fugitive.vim] (https://github.com/tpope/vim-fugitive) - A Git wrapper so
+  awesome, it should be illegal.
 * [MiniBufExplorer] (https://github.com/fholgado/minibufexpl.vim) -
   Elegant buffer explorer, takes very little screen space.
+* [Multiple cursors] (https://github.com/terryma/vim-multiple-cursors) -
+  Sublime Text style multiple selections for Vim.
 * [NERDTree] (https://github.com/scrooloose/nerdtree) - Explore the filesystem
   in a hierarchical tree structure and open files and directories.
+* [Sensible] (https://github.com/tpope/vim-sensible) - A universal set of
+  defaults that (hopefully) everyone can agree on.
 * [Supertab] (https://github.com/ervandew/supertab) - Perform all your Vim insert
   mode completions with Tab.
 * [Tabular] (https://github.com/godlygeek/tabular) - Vim script for text
   filtering and alignment.
-* [Buffergator] (https://github.com/jeetsukumaran/vim-buffergator) - Vim plugin
-  to list, select and switch between buffers.
-* [commentary.vim] (https://github.com/tpope/vim-commentary) - Comment stuff out.
-* [Multiple cursors] (https://github.com/terryma/vim-multiple-cursors) -
-  Sublime Text style multiple selections for Vim.
-* [Sensible] (https://github.com/tpope/vim-sensible) - A universal set of
-  defaults that (hopefully) everyone can agree on.
 * [Surround] (https://github.com/tpope/vim-surround) - Edit parentheses,
   brackets, quotes, XML tags, and more in pairs.
 * [Vimux] (https://github.com/benmills/vimux) - Easily interact with tmux from Vim.
+
+Language support
+
+* [Coffeescript] (https://github.com/kchmck/vim-coffee-script) - Adds
+  CoffeeScript support to Vim. It covers syntax, indenting, compiling, and more.
+* [Dockerfile] (https://github.com/ekalinin/Dockerfile.vim)
+* [Golang] (https://github.com/jnwhiteh/vim-golang)
+* [Markdown] (https://github.com/tpope/vim-markdown) - Vim Markdown runtime files.
+* [Mustache] (https://github.com/mustache/vim-mustache-handlebars) - A Vim plugin for
+  working with mustache and handlebars templates.
+* [Puppet] (https://github.com/rodjek/vim-puppet)
+* [rails.vim] (https://github.com/tpope/vim-rails) - Ruby on Rails power tools.
+* [Ruby] (https://github.com/vim-ruby/vim-ruby) - Vim configuration files
+  for editing and compiling Ruby within Vim.
 
 Colorschemes
 
@@ -100,23 +118,13 @@ Colorschemes
 
 These are only installed when running the full install: `./vim-scripts/install-plugins.sh`
 
-* [Mustache] (https://github.com/mustache/vim-mustache-handlebars) - A Vim plugin for
-  working with mustache and handlebars templates.
 * [Python Syntax] (https://github.com/hdima/python-syntax) - Python syntax
   highlighting script for Vim.
 * [Ultisnips] (https://github.com/SirVer/ultisnips) - An implementation
   of TextMates Snippets for the Vim Text Editor. Requires Vim compiled with
   Python support.
-* [Coffeescript] (https://github.com/kchmck/vim-coffee-script) - Adds
-  CoffeeScript support to Vim. It covers syntax, indenting, compiling, and more.
-* [fugitive.vim] (https://github.com/tpope/vim-fugitive) - A Git wrapper so
-  awesome, it should be illegal.
 * [HiLinkTrace] (https://github.com/gerw/vim-HiLinkTrace) - Get the color of the
   text object under the cursor.
-* [Markdown] (https://github.com/tpope/vim-markdown) - Vim Markdown runtime files.
-* [rails.vim] (https://github.com/tpope/vim-rails) - Ruby on Rails power tools.
-* [Vim Ruby] (https://github.com/vim-ruby/vim-ruby) - Vim configuration files
-  for editing and compiling Ruby within Vim.
 * [vim-ruby-xmpfilter] (https://github.com/t9md/vim-ruby-xmpfilter) - Helper
   for ruby's xmpfilter or seeing_is_believing. Evaluates Ruby code inline and
   print the result as a comment at the end of the line.
