@@ -1,7 +1,6 @@
 To do
 -----
 
-* remove tmux-vim-select-pane
 * Add Q&A section to the readme:
   - how is bouncing-vim different from, say, janus?
   - why is it important to use pathogen instead of Vundle?
@@ -13,7 +12,6 @@ To do
 * fix or remove leader not working in insert mode
 * copy current word or visually selected text in the command line; this is a start <http://stackoverflow.com/a/4879083>
 * fix tmux-scripts/3-option-2-tmux-custom-scripts.sh for when there is no "pair" user
-* use dates in ISO format
 * IN PROGRESS: fix ALT modifier not working at all on Mac terminals
 * investigate home key not working in some virtual machines
 * toggle between `{}` and `do`-`end`
