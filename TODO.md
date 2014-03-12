@@ -1,6 +1,7 @@
 To do
 -----
 
+* fix <F6> in insert mode
 * Add Q&A section to the readme:
   - how is bouncing-vim different from, say, janus?
   - why is it important to use pathogen instead of Vundle?
