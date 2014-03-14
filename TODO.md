@@ -1,6 +1,7 @@
 To do
 -----
 
+* improve the output when installing the third party plugins
 * add puppet filetype to auto trailing whitespace trimming
 * fix <F6> in insert mode
 * Add Q&A section to the readme:
