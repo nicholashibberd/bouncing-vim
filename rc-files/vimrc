@@ -13,7 +13,7 @@ execute pathogen#helptags()
 
 " Customise the Ack! command by always ignoring the log dir
 if executable('ag')
-  let g:ackprg = 'ag --nogroup --nocolor --column --ignore-dir=log'
+  let g:ackprg = 'ag --nogroup --nocolor --column --ignore={log,tags}'
 endif
 
 " ======================
