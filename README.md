@@ -173,11 +173,17 @@ export EDITOR='/usr/bin/vim'
 
 The list of essential and nice-to-have plugins is in `./vim-script/plugins.sh`.
 
-* If a full install is required: run `vim-scripts/install-plugins.sh`.
+*Full install*: run `./vim-scripts/install-plugins.sh`.
 
-* If a temporary install is preferred:
-  - run `vim-scripts/tmp-plugins-install.sh` at the beginning of the pairing session
-  - run `vim-scripts/tmp-plugins-remove.sh` when finished
+*Temporary install*:
+
+- run `./vim-scripts/tmp-plugins-install.sh` at the beginning of the pairing session
+- run `./vim-scripts/tmp-plugins-remove.sh` when finished
+
+In both cases:
+
+- the plugins will be cloned from github into `~/.vim/bundle/`
+- existing plugins will be skipped (based on the github name)
 
 Also see [read and write options](#read-write-options) if you want to enable
 quick save with `CTRL-s`.
