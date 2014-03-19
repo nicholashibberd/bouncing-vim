@@ -307,7 +307,8 @@ cd -; \
   - toggle the buffer list with `<leader>m`
 
 * **Buffergator**
-  - open on the right hand side
+  - open at the bottom to be consistent with default Ctrl-P behaviour
+  - set size to 10 rows
   - toggle with `<leader>+b`
 
 ### <a name="language-specific-settings"></a>Language specific settings
@@ -426,11 +427,12 @@ the `move` command.
 * MiniBufExplorer customisation
   - position at the top
   - do not open by default
-  - focus the buffer list with `<leader>t`
+  - focus the buffer list with `<leader>t` (open if necessary)
   - toggle the buffer list with `<leader>m`
 
 * Buffergator plugin customisation
-  - open on the right hand side
+  - open at the bottom to be consistent with default Ctrl-P behaviour
+  - set size to 10 rows
   - toggle with `<leader>+b`
 
 ### <a name="clipboard"></a>Clipboard
