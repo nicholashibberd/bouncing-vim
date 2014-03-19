@@ -2,7 +2,6 @@ To do
 -----
 
 * try to open buffergator below for consistency
-* fix key combinations like `bda` conflicting with normal Vim navigation
 * fix underlining in agnostic colorscheme
 * add support for a .vimrc.local
 * improve the output when installing the third party plugins
