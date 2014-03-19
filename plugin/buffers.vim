@@ -107,7 +107,7 @@ function! CloseHiddenBuffers()
   endfor
 endfun
 
-nnoremap <Leader>bdh :call CloseHiddenBuffers()<CR>
+nnoremap <Leader>ch :call CloseHiddenBuffers()<CR>
 
 function! CloseAllNormalBuffers()
   " close any buffer that's loaded and not special
@@ -119,7 +119,7 @@ function! CloseAllNormalBuffers()
   endfor
 endfun
 
-nnoremap <Leader>bda :call CloseAllNormalBuffers()<CR>
+nnoremap <Leader>ca :call CloseAllNormalBuffers()<CR>
 
 " ===================
 " === Buffergator ===

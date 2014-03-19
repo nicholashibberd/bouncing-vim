@@ -416,8 +416,8 @@ the `move` command.
   `ALT+q`, or `<leader>+q`.
 
 * Close all buffers
-  - all the non-special ones with `<Leader>bda` in normal mode
-  - only the hidden ones with `<Leader>bdh` in normal mode
+  - all the non-special ones with `<Leader>ca` in normal mode
+  - only the hidden ones with `<Leader>ch` in normal mode
 
 * Copy the path of the current buffer to the system clipboard
   - relative path with the sequence `cp` in normal mode
