@@ -2,7 +2,6 @@ To do
 -----
 
 * fix underlining in agnostic colorscheme
-* add support for a .vimrc.local
 * improve the output when installing the third party plugins
 * add puppet filetype to auto trailing whitespace trimming
 * fix <F6> in insert mode

@@ -135,3 +135,13 @@ au BufNewFile,BufRead *.erb set filetype=eruby.html
 autocmd BufRead,BufNewFile {Capfile,Gemfile,Rakefile,config.ru,.caprc,.irbrc,irb_tempfile*,.pryrc,Vagrantfile} set filetype=ruby
 " It shouldn't be needed with the mustache.vim plugin
 " au BufNewFile,BufRead *.mustache set filetype=html
+
+" ====================
+" === .vimrc.after ===
+" ====================
+"
+" Reference <http://blog.sanctum.geek.nz/local-vimrc-files/>
+
+if filereadable(glob("~/.vimrc.after"))
+  source ~/.vimrc.after
+endif
