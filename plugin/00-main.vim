@@ -87,6 +87,10 @@ if version >= 704
   set formatoptions+=j
 endif
 
+" Only one space after punctuation:
+" http://en.wikipedia.org/wiki/Sentence_spacing#Typography
+set nojoinspaces
+
 " =============
 " === CtrlP ===
 " =============

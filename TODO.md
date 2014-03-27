@@ -53,9 +53,10 @@ To do
 * trick to create the required directories if needed, directly from the vimrc
 * map `<End>` to toggle to the last non-blank char in the line
 
-Interesting vimrc files
------------------------
+Interesting plugins and vimrc files
+-----------------------------------
 
+* <https://github.com/tpope/vim-markdown>
 * <http://stevelosh.com/blog/2010/09/coming-home-to-vim/#important-vimrc-lines>
 * <https://github.com/prognostikos/dotfiles/blob/master/vim/vimrc.symlink> (from Ruby Rogues Parley)
 * <https://github.com/r00k/dotfiles/blob/master/vimrc> (Ben Orenstein)

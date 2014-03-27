@@ -97,7 +97,6 @@ Language support
   CoffeeScript support to Vim. It covers syntax, indenting, compiling, and more.
 * [Dockerfile] (https://github.com/ekalinin/Dockerfile.vim)
 * [Golang] (https://github.com/jnwhiteh/vim-golang)
-* [Markdown] (https://github.com/tpope/vim-markdown) - Vim Markdown runtime files.
 * [Mustache] (https://github.com/mustache/vim-mustache-handlebars) - A Vim plugin for
   working with mustache and handlebars templates.
 * [Puppet] (https://github.com/rodjek/vim-puppet)
@@ -339,7 +338,9 @@ cd -; \
 * Reduce the timeout required to recognize a command from 1000 ms (the default)
   to 350 ms.
 
-* Remove the comment symbols when joining lines with `J`.
+* Joining lines:
+  - remove the comment symbols when joining lines with `J`
+  - only use one space after punctation ([wiki] (http://en.wikipedia.org/wiki/Sentence_spacing#Typography))
 
 * Use 2-space soft tabs by defaults (it's overridden for some some languages
   with different conventions).
@@ -351,7 +352,7 @@ cd -; \
   - `ALT-I` or `<leader>i`: above
 
 Due to the difficulty to find sensible mappings, and to the impossibility to
-fix the keycode for ALT-I on Mac, these mappings may be removed or changed.
+fix the keycode for ALT-I on Mac: these mappings may be removed or changed.
 
 * Leader is mapped to the popular `,` but `\` is still supported.
 
