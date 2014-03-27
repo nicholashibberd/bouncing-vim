@@ -133,6 +133,7 @@ au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.erb set filetype=eruby.html
 " Set filetype for specific names: <http://dailyvim.tumblr.com/post/1262764095/additional-ruby-syntax-highlighting>
 autocmd BufRead,BufNewFile {Capfile,Gemfile,Rakefile,config.ru,.caprc,.irbrc,irb_tempfile*,.pryrc,Vagrantfile} set filetype=ruby
+autocmd BufRead,BufNewFile {*bash_aliases} set filetype=sh
 " It shouldn't be needed with the mustache.vim plugin
 " au BufNewFile,BufRead *.mustache set filetype=html
 
