@@ -55,3 +55,5 @@ autocmd FileType coffee       autocmd BufWritePre <buffer> :call <SID>StripTrail
 autocmd FileType vim          autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd FileType eruby        autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd FileType scss         autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType Dockerfile   autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType puppet       autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
