@@ -174,6 +174,12 @@ The list of essential and nice-to-have plugins is in `./vim-script/plugins.sh`.
 
 *Full install*: run `./vim-scripts/install-plugins.sh`.
 
+You will be prompted to use the provided `vimrc` and `tmux.conf`, your files
+will be backed up.
+
+If you chose to link to the `vimrc`, you can still add custom configuration
+in a `~/.vimrc.after` file that will be loaded automatically.
+
 *Temporary install*:
 
 - run `./vim-scripts/tmp-plugins-install.sh` at the beginning of the pairing session
@@ -182,9 +188,9 @@ The list of essential and nice-to-have plugins is in `./vim-script/plugins.sh`.
 In both cases:
 
 - the plugins will be cloned from github into `~/.vim/bundle/`
-- existing plugins will be skipped (based on the github name)
+- existing plugins will be skipped (based on the name of the github repo)
 
-Also see [read and write options](#read-write-options) if you want to enable
+Also see [read and write options] (#read-write-options) if you want to enable
 quick save with `CTRL-s`.
 
 ### <a name="install-tmux-source-ubuntu"></a>Install tmux 1.9 from source (only Ubuntu)
@@ -623,3 +629,6 @@ and `ALT-k/j/h/l`.<br>
 * Enable per-directory vimrc.
 
 * Disable unsafe commands in local vimrc files.
+
+* Additional configuration can be put in `~/.vimrc.after` that will be
+loaded automatically if present.
