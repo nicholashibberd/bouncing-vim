@@ -52,6 +52,11 @@ Content
   - [Read and write options](#read-write-options)
   - [Search features](#search-features)
   - [Run shell command without prompting](#shell-commands-without-prompt)
+  - [Tmux integration](#tmux-integration)
+  - [View options](#view-options)
+  - [Statusbar](#statusbar-options)
+  - [Whitespace](#whitespace-options)
+  - [`vimrc` options](#vimrc-options)
 
 ## <a name="plugins-list"></a>Third party plugins
 
@@ -554,7 +559,7 @@ enter the following in the Vim prompt:
 :Silent tmux send-keys -t 1.2 "bundle exec rspec spec/my_spec.rb" C-m
 ```
 
-### <a name="language-specific-settings"></a>Tmux integration
+### <a name="tmux-integration"></a>Tmux integration
 
 A tmux.conf file is provided: `./rc-files/tmux.conf`.
 
@@ -574,7 +579,7 @@ in `.tmux.conf`.
 * Seamless navigation between tmux and Vim with `ALT-Up/Down/Left/Right`
 and `ALT-k/j/h/l`.<br>
 
-### <a name="language-specific-settings"></a>View options
+### <a name="view-options"></a>View options
 
 * Disable all bells.
 
@@ -603,7 +608,7 @@ and `ALT-k/j/h/l`.<br>
 * Display vertical rulers at column 81 and 101 as a reference for keeping lines
   of code at an acceptable length.
 
-### <a name="language-specific-settings"></a>Statusbar
+### <a name="statusbar-options"></a>Statusbar
 
 * Show the commands that are being executed.
 
@@ -613,7 +618,7 @@ and `ALT-k/j/h/l`.<br>
 
 * Turn statusbar green when in insert mode.
 
-### <a name="language-specific-settings"></a>Whitespace
+### <a name="whitespace-options"></a>Whitespace
 
 * Toggle trailing whitespace highlighting with `<leader>w` (off by default).
 
@@ -622,7 +627,7 @@ and `ALT-k/j/h/l`.<br>
   - ensure no whitespace at the end of lines
   - ensure exactly one newline character at the end of file
 
-### <a name="language-specific-settings"></a>`vimrc` options
+### <a name="vimrc-options"></a>`vimrc` options
 
 * Source automatically on save.
 
