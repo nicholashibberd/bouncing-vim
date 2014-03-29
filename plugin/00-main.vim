@@ -201,6 +201,7 @@ imap <buffer> <F4> <Plug>(xmpfilter-mark)
 " ==========================
 "
 " Enable language-specific code
+" <https://coderwall.com/p/ftqcla>
 let g:markdown_fenced_languages = [
 \ 'coffee',
 \ 'css',
