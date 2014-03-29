@@ -102,6 +102,8 @@ Language support
   CoffeeScript support to Vim. It covers syntax, indenting, compiling, and more.
 * [Dockerfile] (https://github.com/ekalinin/Dockerfile.vim)
 * [Golang] (https://github.com/jnwhiteh/vim-golang)
+* [Tim Pope's Markdown] (https://github.com/tpope/vim-markdown), particularly
+  for its ability to highlight code blocks in the respective language.
 * [Mustache] (https://github.com/mustache/vim-mustache-handlebars) - A Vim plugin for
   working with mustache and handlebars templates.
 * [Puppet] (https://github.com/rodjek/vim-puppet)
@@ -339,6 +341,9 @@ cd -; \
 * **golang**
   - hard tabs with 4 spaces
   - see also `./rc-files/vimrc` for the standard golang setup
+
+* **markdown**
+  - highlight code blocks in the respective language
 
 * **Ruby**
   - see setup of the Vim Ruby plugin

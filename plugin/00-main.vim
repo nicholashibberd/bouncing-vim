@@ -195,3 +195,21 @@ imap <buffer> <F5> <Plug>(xmpfilter-run)
 nmap <buffer> <F4> <Plug>(xmpfilter-mark)
 xmap <buffer> <F4> <Plug>(xmpfilter-mark)
 imap <buffer> <F4> <Plug>(xmpfilter-mark)
+
+" ==========================
+" === tpope/vim-markdown ===
+" ==========================
+"
+" Enable language-specific code
+let g:markdown_fenced_languages = [
+\ 'coffee',
+\ 'css',
+\ 'erb=eruby',
+\ 'javascript',
+\ 'js=javascript',
+\ 'json=javascript',
+\ 'ruby',
+\ 'sass',
+\ 'xml',
+\ 'sh'
+\]
