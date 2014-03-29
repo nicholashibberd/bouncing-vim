@@ -1,0 +1,11 @@
+Credit has been provided wherever it was possible to find a source for
+a specific solution, be it an article, a comment on StackOverflow or
+third party vimrc files.
+
+All those parts are copyright of the respective owners.
+
+The rest is
+
+Copyright Luca Belmondo, blmlcu NOSPAM @ gmail . com, https://github.com/lucabelmondo/bouncing-vim
+
+Licence: MIT
