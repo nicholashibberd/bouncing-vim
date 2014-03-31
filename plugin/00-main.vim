@@ -215,9 +215,10 @@ let g:markdown_fenced_languages = [
 \ 'sh'
 \]
 
-" ==============
-" === golang ===
-" ==============
+" ====================
+" === fatih/vim-go ===
+" ====================
+"
 " Avoid blowing up for anyone who doesn't have a 'go' executable available
 if !executable('go')
   let g:go_disable_autoinstall = 1

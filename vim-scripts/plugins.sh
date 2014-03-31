@@ -16,7 +16,6 @@ declare -a ESSENTIALS=(
     "altercation/vim-colors-solarized"
           "tpope/vim-commentary"
           "tpope/vim-fugitive"
-          "fatih/vim-go"
           "tpope/vim-markdown"
         "terryma/vim-multiple-cursors"
        "mustache/vim-mustache-handlebars"
@@ -33,6 +32,7 @@ declare -a NICE_TO_HAVES=(
    "chriskempson/base16-vim"
           "hdima/python-syntax"
          "SirVer/ultisnips"
+          "fatih/vim-go"
            "gerw/vim-HiLinkTrace"
            "t9md/vim-ruby-xmpfilter"
 )
