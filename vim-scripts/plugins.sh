@@ -16,7 +16,6 @@ declare -a ESSENTIALS=(
     "altercation/vim-colors-solarized"
           "tpope/vim-commentary"
           "tpope/vim-fugitive"
-       "jnwhiteh/vim-golang"
           "tpope/vim-markdown"
         "terryma/vim-multiple-cursors"
        "mustache/vim-mustache-handlebars"
