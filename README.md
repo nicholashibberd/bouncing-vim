@@ -110,6 +110,10 @@ Language support
 * [rails.vim] (https://github.com/tpope/vim-rails) - Ruby on Rails power tools.
 * [Ruby] (https://github.com/vim-ruby/vim-ruby) - Vim configuration files
   for editing and compiling Ruby within Vim.
+* [vim-go](https://github.com/fatih/vim-go) - Full featured Go development
+  environment. This plugin will create the executable it needs, if the
+  golang runtime is available, the first time Vim is run. This might take a
+  couple of minutes.
 
 Colorschemes
 

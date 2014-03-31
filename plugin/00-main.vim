@@ -214,3 +214,26 @@ let g:markdown_fenced_languages = [
 \ 'xml',
 \ 'sh'
 \]
+
+" ==============
+" === golang ===
+" ==============
+" From the readme at $GOROOT/misc/vim/readme.txt and https://github.com/jnwhiteh/vim-golang/blob/master/readme.txt
+" Some Linux distributions set filetype in /etc/vimrc.
+" Clear filetype flags before changing runtimepath to force Vim to reload them.
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
+
+if executable('go')
+  autocmd FileType go autocmd BufWritePre <buffer> Fmt
+  " Activate the compiler plugin with ":compiler go". To always enable the
+  " compiler plugin in Go source files:
+  " autocmd FileType go compiler go
+endif
+
+if !executable('go')
+  let g:go_disable_autoinstall = 1
+endif
