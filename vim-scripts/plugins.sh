@@ -30,6 +30,7 @@ declare -a ESSENTIALS=(
 declare -a NICE_TO_HAVES=(
   "noahfrederick/vim-noctu"
    "chriskempson/base16-vim"
+     "chikamichi/mediawiki.vim"
           "hdima/python-syntax"
          "SirVer/ultisnips"
           "fatih/vim-go"

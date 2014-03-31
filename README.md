@@ -110,10 +110,6 @@ Language support
 * [rails.vim] (https://github.com/tpope/vim-rails) - Ruby on Rails power tools.
 * [Ruby] (https://github.com/vim-ruby/vim-ruby) - Vim configuration files
   for editing and compiling Ruby within Vim.
-* [vim-go](https://github.com/fatih/vim-go) - Full featured Go development
-  environment. This plugin will create the executable it needs, if the
-  golang runtime is available, the first time Vim is run. This might take a
-  couple of minutes.
 
 Colorschemes
 
@@ -138,6 +134,12 @@ These are only installed when running the full install: `./vim-scripts/install-p
 * [vim-ruby-xmpfilter] (https://github.com/t9md/vim-ruby-xmpfilter) - Helper
   for ruby's xmpfilter or seeing_is_believing. Evaluates Ruby code inline and
   print the result as a comment at the end of the line.
+* [vim-go](https://github.com/fatih/vim-go) - Full featured Go development
+  environment. This plugin will create the executable it needs, if the
+  golang runtime is available, the first time Vim is run. This might take a
+  couple of minutes.
+* [mediawiki syntax](https://github.com/chikamichi/mediawiki.vim) - Syntax
+highlighting for MediaWiki-based projects, such as Wikipedia.
 
 Colorschemes:
 
