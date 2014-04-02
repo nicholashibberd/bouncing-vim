@@ -232,3 +232,10 @@ let g:markdown_fenced_languages = [
 if !executable('go')
   let g:go_disable_autoinstall = 1
 endif
+
+" ========================
+" === SirVer/ultisnips ===
+" ========================
+"
+" Avoid ultisnips conflicting with supertab, (possibly temporary) workaround.
+let g:UltiSnipsExpandTrigger="<s-tab>"
