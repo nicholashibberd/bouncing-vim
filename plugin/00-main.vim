@@ -118,7 +118,7 @@ nnoremap <Leader>a :Ack!<space>
 " Always ignore log dir and tags file.
 "
 if executable('ack')
-  let g:ackprg = 'ack -s -H --nocolor --nogroup --column --ignore-dir=log --ignore-file=tags'
+  let g:ackprg = 'ack -s -H --nocolor --nogroup --column --ignore-dir=log --ignore-file=match:/.*\.?tags/'
 endif
 
 if executable('ag')
