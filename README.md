@@ -101,7 +101,6 @@ Language support
 * [Coffeescript] (https://github.com/kchmck/vim-coffee-script) - Adds
   CoffeeScript support to Vim. It covers syntax, indenting, compiling, and more.
 * [Dockerfile] (https://github.com/ekalinin/Dockerfile.vim)
-* [Golang] (https://github.com/jnwhiteh/vim-golang)
 * [Tim Pope's Markdown] (https://github.com/tpope/vim-markdown), particularly
   for its ability to highlight code blocks in the respective language.
 * [Mustache] (https://github.com/mustache/vim-mustache-handlebars) - A Vim plugin for
@@ -298,8 +297,10 @@ cd -; \
 
 * **Ack**
   - launch `:Ack!` with `<leader>a`
-  - use [Ag The Silver Searcher] (https://github.com/ggreer/the_silver_searcher)
+  - use [Ag The Silver Searcher](https://github.com/ggreer/the_silver_searcher)
     if available, to go even faster
+  - use a customised command to ignore some patterns to account for
+    missing `~/.ackrc` and `~/.agignore`
 
 * **NERDTree**
   - toggle with `<leader>n`
@@ -346,7 +347,9 @@ cd -; \
 
 * **golang**
   - hard tabs with 4 spaces
-  - see also `./rc-files/vimrc` for the standard golang setup
+  - uses the fatih/vim-go plugin
+  - prevents error for automatic compilation of the plugin's binaries
+    when golang is not installed
 
 * **markdown**
   - highlight code blocks in the respective language
