@@ -61,11 +61,11 @@ Content
 ## <a name="plugins-list"></a>Third party plugins
 
 Install all the plugins (including the nice-to-have's) with:
-`./vim-scripts/install-plugins.sh`
+`./vim-scripts/install-plugins`
 
 To install only the essentials, and only temporarily:
-* install with: `./vim-scripts/tmp-plugins-install.sh`.
-* remove with: `./vim-scripts/tmp-plugins-remove.sh`.
+* install with: `./vim-scripts/tmp-plugins-install`.
+* remove with: `./vim-scripts/tmp-plugins-remove`.
 
 ### <a name="essential-plugins"></a>Essentials
 
@@ -121,7 +121,7 @@ Colorschemes
 
 ### <a name="nice-to-have-plugins"></a>Nice-to-have's
 
-These are only installed when running the full install: `./vim-scripts/install-plugins.sh`
+These are only installed when running the full install: `./vim-scripts/install-plugins`
 
 * [Python Syntax] (https://github.com/hdima/python-syntax) - Python syntax
   highlighting script for Vim.
@@ -159,7 +159,7 @@ Tested on Ubuntu 12.04. Please report any problems on different versions.
 To download and compile, run:
 
 ```sh
-./vim-scripts/install-vim-precise.sh
+./vim-scripts/install-vim-precise
 ```
 
 It will offer the option to download a tarball from the Vim website or to
@@ -182,9 +182,9 @@ export EDITOR='/usr/bin/vim'
 
 ### <a name="install-vim-plugins"></a>Install the Vim plugins (with pathogen)
 
-The list of essential and nice-to-have plugins is in `./vim-script/plugins.sh`.
+The list of essential and nice-to-have plugins is in `./vim-script/plugins`.
 
-*Full install*: run `./vim-scripts/install-plugins.sh`.
+*Full install*: run `./vim-scripts/install-plugins`.
 
 You will be prompted to use the provided `vimrc` and `tmux.conf`, your files
 will be backed up.
@@ -194,8 +194,8 @@ in a `~/.vimrc.after` file that will be loaded automatically.
 
 *Temporary install*:
 
-- run `./vim-scripts/tmp-plugins-install.sh` at the beginning of the pairing session
-- run `./vim-scripts/tmp-plugins-remove.sh` when finished
+- run `./vim-scripts/tmp-plugins-install` at the beginning of the pairing session
+- run `./vim-scripts/tmp-plugins-remove` when finished
 
 In both cases:
 
@@ -212,7 +212,7 @@ Tested on Ubuntu 12.04. Please report any problems on different versions.
 To download and compile, run:
 
 ```sh
-./tmux-scripts/1-tmux-install-from-source.sh
+./tmux-scripts/1-tmux-install-from-source
 ```
 
 It will also offer to link to the provided tmux.conf file.

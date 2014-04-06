@@ -14,7 +14,7 @@ To do
 * add syntastic
 * fix or remove leader not working in insert mode
 * copy current word or visually selected text in the command line; this is a start <http://stackoverflow.com/a/4879083>
-* fix tmux-scripts/3-option-2-tmux-custom-scripts.sh for when there is no "pair" user
+* fix tmux-scripts/3-option-2-tmux-custom-scripts for when there is no "pair" user
 * IN PROGRESS: fix ALT modifier not working at all on Mac terminals
 * investigate home key not working in some virtual machines
 * toggle between `{}` and `do`-`end`
