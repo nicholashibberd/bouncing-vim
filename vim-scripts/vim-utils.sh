@@ -11,7 +11,7 @@ clone_to_bundle_with_home () {
   local github_basename=$(get_github_basename $github_project)
   local plugin_dir="${home_dir}/.vim/bundle/$github_basename"
 
-  if [[ ! -d "${plugin_dir}" && ! -d "${plugin_dir}" ]]; then
+  if [[ ! -d "${plugin_dir}" ]]; then
     echo "[install] $github_project -> ${plugin_dir}"
     git clone -q "https://github.com/${github_project}.git" "${plugin_dir}"
   else
@@ -19,42 +19,46 @@ clone_to_bundle_with_home () {
   fi
 }
 
-_clone_to_bundle () {
+_get_std_plugin_dir () {
   local github_project=$1
-  local github_basename=$2
-  local plugin_dirname=$3
+  local github_basename=$(get_github_basename $github_project)
+  echo "${HOME}/.vim/bundle/${github_basename}"
+}
 
-  local std_plugin_dir="${HOME}/.vim/bundle/${github_basename}"
-  local plugin_dir="${HOME}/.vim/bundle/${plugin_dirname}"
-
-  # TODO: mv the temp plugin to the standard name if the temporary exists.
-  # Install only if the plugin is not present yet (even as temporary).
-  if [[ ! -d "${plugin_dir}" && ! -d "${std_plugin_dir}" ]]; then
-    echo "[install] $github_project -> ${plugin_dir}"
-    git clone -q "https://github.com/${github_project}.git" "${plugin_dir}"
-  else
-    echo "[skip] $github_project -> (already installed)"
-  fi
+_get_tmp_plugin_dir () {
+  local github_project=$1
+  local github_basename=$(get_github_basename $github_project)
+  echo "${HOME}/.vim/bundle/bouncing-vim-tmp-${github_basename}"
 }
 
 install_plugin_with_pathogen () {
   local github_project=$1
-  local github_basename=$(get_github_basename $github_project)
-  local plugin_dirname="${github_basename}"
+  local std_plugin_dir=$(_get_std_plugin_dir "${github_project}")
+  local tmp_plugin_dir=$(_get_tmp_plugin_dir "${github_project}")
 
-  _clone_to_bundle  $github_project \
-                    $github_basename \
-                    $plugin_dirname
+  if [[ -d "${tmp_plugin_dir}" ]]; then
+    echo "[rename] tmp location: ${tmp_plugin_dir} -> "${std_plugin_dir}""
+    mv "${tmp_plugin_dir}" "${std_plugin_dir}"
+  elif [[ -d "${std_plugin_dir}" ]]; then
+    echo "[skip] $github_project: already installed"
+  else
+    echo "[install] $github_project -> ${std_plugin_dir}"
+    git clone -q "https://github.com/${github_project}.git" "${std_plugin_dir}"
+  fi
 }
 
 install_tmp_plugin_with_pathogen () {
   local github_project=$1
-  local github_basename=$(get_github_basename $github_project)
-  local plugin_dirname="bouncing-vim-tmp-${github_basename}"
 
-  _clone_to_bundle  $github_project \
-                    $github_basename \
-                    $plugin_dirname
+  local std_plugin_dir=$(_get_std_plugin_dir "${github_project}")
+  local tmp_plugin_dir=$(_get_tmp_plugin_dir "${github_project}")
+
+  if [[ -d "${std_plugin_dir}" || -d "${tmp_plugin_dir}" ]]; then
+    echo "[skip] $github_project: already installed"
+  else
+    echo "[install] $github_project -> ${tmp_plugin_dir}"
+    git clone -q "https://github.com/${github_project}.git" "${tmp_plugin_dir}"
+  fi
 }
 
 pull_vim_repo () {
