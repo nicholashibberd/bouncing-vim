@@ -40,7 +40,7 @@ else
       "Use existing" )
         break ;;
       "Backup and recreate" )
-        vim_bkp_dir="vim-$(date -d "today" +"%Y-%m-%d_%H-%M-%S").bkp"
+        vim_bkp_dir="vim-$(utc_timestamp).bkp"
         mv -v ~/.vim "${HOME}/${vim_bkp_dir}"
         break ;;
       "Abort" )

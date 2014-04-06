@@ -107,7 +107,7 @@ archive_source () {
   local appname=$2
   local version=$3
 
-  local timestamp=$(date -u -d "today" +"%Y%m%dT%H%M%SZ")
+  local timestamp=$(utc_timestamp)
   local archive_filename="${appname}-${version}-compiled-${timestamp}.tar.gz"
   local source_basepath=$(dirname "${source_dir}")
   local source_basename=$(basename "${source_dir}")
@@ -117,4 +117,8 @@ archive_source () {
 
   echo "Remove source dir"
   rm -rf $source_dir
+}
+
+utc_timestamp () {
+  date -u -d "today" +"%Y%m%dT%H%M%SZ"
 }
