@@ -2,10 +2,10 @@
 
 set -e
 
-currdir=$(cd "$(dirname $0)" && pwd -P)
+CURRDIR=$(cd "$(dirname $0)" && pwd -P)
 
-source "${currdir}/../utils.sh"
-source "${currdir}/tmux-utils.sh"
+source "${CURRDIR}/../utils.sh"
+source "${CURRDIR}/tmux-utils.sh"
 
 TMUX_MINOR_VERSION=1.9
 TMUX_PATCHLEVEL=a
@@ -25,7 +25,7 @@ get_source_from_tarball "${TMUX_DOWNLOAD_URL}" \
                         "${TMUX_SOURCE_TARBALL}" \
                         "${TMUX_SOURCE_PATH}" \
 
-install_dependencies "${currdir}/tmux-deps-build-precise.txt"
+install_dependencies "${CURRDIR}/tmux-deps-build-precise.txt"
 
 tmux_configure_and_make "${TMUX_SOURCE_PATH}"
 
@@ -33,8 +33,8 @@ make_install_for_package "${TMUX_SOURCE_PATH}" "${tmux_package_dir}"
 
 create_control_file "${TMUX_SOURCE_PATH}" \
                     "${tmux_package_dir}" \
-                    "${currdir}/tmux-deps-runtime-precise.txt" \
-                    "${currdir}/tmux-deb-package-control-file" \
+                    "${CURRDIR}/tmux-deps-runtime-precise.txt" \
+                    "${CURRDIR}/tmux-deb-package-control-file" \
                     "${TMUX_VERSION}" \
 
 dpkg-deb --build "${tmux_package_dir}"

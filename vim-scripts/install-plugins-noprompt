@@ -2,7 +2,7 @@
 
 set -e
 
-currdir=$(cd "$(dirname $0)" && pwd -P)
+CURRDIR=$(cd "$(dirname $0)" && pwd -P)
 
 home_dir=$1
 
@@ -11,9 +11,9 @@ if [[ -z "${home_dir}" ]]; then
   exit 1
 fi
 
-source "${currdir}/../utils.sh"
-source "${currdir}/vim-utils.sh"
-source "${currdir}/plugins.sh"
+source "${CURRDIR}/../utils.sh"
+source "${CURRDIR}/vim-utils.sh"
+source "${CURRDIR}/plugins.sh"
 
 echo "Ensure a complete ~/.vim dir structure"
 mkdir -v -p ~/.vim/{bundle,autoload,colors,undo,swap,_disabled_plugins}

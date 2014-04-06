@@ -2,10 +2,10 @@
 
 set -e
 
-currdir=$(cd "$(dirname $0)" && pwd -P)
+CURRDIR=$(cd "$(dirname $0)" && pwd -P)
 
-source "${currdir}/../utils.sh"
-source "${currdir}/tmux-utils.sh"
+source "${CURRDIR}/../utils.sh"
+source "${CURRDIR}/tmux-utils.sh"
 
 TMUX_MINOR_VERSION=1.9
 TMUX_PATCHLEVEL=a
@@ -33,7 +33,7 @@ echo
 echo "--- [step 3] Install dependencies ---"
 echo
 
-install_dependencies "${currdir}/tmux-deps-build-precise.txt"
+install_dependencies "${CURRDIR}/tmux-deps-build-precise.txt"
 
 echo
 echo "--- [step 4] Compile and install tmux ---"

@@ -2,7 +2,7 @@
 
 set -e
 
-currdir=$(cd "$(dirname $0)" && pwd -P)
+CURRDIR=$(cd "$(dirname $0)" && pwd -P)
 
 PAIR_USER=pair
 
@@ -30,7 +30,7 @@ echo
 echo "--- Copying scripts for tmux paired session ---"
 echo
 
-cp -Rv "${currdir}/scripts/." "${HOME}/bin/"
+cp -Rv "${CURRDIR}/scripts/." "${HOME}/bin/"
 
 chmod u+x ~/bin/attach-session ~/bin/share-session ~/bin/tmux-session
 

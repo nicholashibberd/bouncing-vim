@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-currdir=$(cd "$(dirname $0)" && pwd -P)
+CURRDIR=$(cd "$(dirname $0)" && pwd -P)
 
-source "${currdir}/../utils.sh"
+source "${CURRDIR}/../utils.sh"
 
 clone_to_bundle () {
   local GITHUB=$1

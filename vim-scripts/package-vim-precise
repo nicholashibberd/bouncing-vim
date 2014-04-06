@@ -2,10 +2,10 @@
 
 set -e
 
-currdir=$(cd "$(dirname $0)" && pwd -P)
+CURRDIR=$(cd "$(dirname $0)" && pwd -P)
 
-source "${currdir}/../utils.sh"
-source "${currdir}/vim-utils.sh"
+source "${CURRDIR}/../utils.sh"
+source "${CURRDIR}/vim-utils.sh"
 
 vim_repo_dir="${HOME}/Downloads/vim-hg"
 vim_source_dir="${HOME}/Downloads/vim-src"
@@ -18,7 +18,7 @@ version_full=$(get_vim_version_full "${vim_source_dir}")
 packaged_version="2:${version_full}"
 vim_package_dir="${HOME}/Downloads/vim_${version_full}_amd64-precise"
 
-install_dependencies "${currdir}/vim-deps-build-precise.txt"
+install_dependencies "${CURRDIR}/vim-deps-build-precise.txt"
 
 vim_configure_and_make "${vim_source_dir}"
 
@@ -26,8 +26,8 @@ make_install_for_package "${vim_source_dir}" "${vim_package_dir}"
 
 create_control_file "${vim_source_dir}" \
                     "${vim_package_dir}" \
-                    "${currdir}/vim-deps-runtime-precise.txt" \
-                    "${currdir}/vim-deb-package-control-file" \
+                    "${CURRDIR}/vim-deps-runtime-precise.txt" \
+                    "${CURRDIR}/vim-deb-package-control-file" \
                     "${packaged_version}" \
 
 dpkg-deb --build "${vim_package_dir}"
