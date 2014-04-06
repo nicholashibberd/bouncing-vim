@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-github_basename () {
+get_github_basename () {
   echo "$1" | sed -E 's|.+\/(.+)$|\1|g'
 }
 

@@ -4,31 +4,31 @@ set -e
 
 CURRDIR=$(cd "$(dirname $0)" && pwd -P)
 
-home_dir=$1
+HOME_DIR=$1
 
-if [[ -z "${home_dir}" ]]; then
+if [[ -z "${HOME_DIR}" ]]; then
   echo "The home dir must be passed, aborting."
   exit 1
 fi
 
 source "${CURRDIR}/../utils.sh"
 source "${CURRDIR}/vim-utils.sh"
-source "${CURRDIR}/plugins.sh"
+source "${CURRDIR}/vim-plugin-list.sh"
 
 echo "Ensure a complete ~/.vim dir structure"
 mkdir -v -p ~/.vim/{bundle,autoload,colors,undo,swap,_disabled_plugins}
 
-curl -Sso "${home_dir}/.vim/autoload/pathogen.vim" \
+curl -Sso "${HOME_DIR}/.vim/autoload/pathogen.vim" \
   "https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
 
-for plugin in ${ESSENTIALS[@]}; do
-  clone_to_bundle_with_home "${plugin}" "${home_dir}"
+for github_project in ${ESSENTIALS[@]}; do
+  clone_to_bundle_with_home "${github_project}" "${HOME_DIR}"
 done
 
-for plugin in ${NICE_TO_HAVES[@]}; do
-  clone_to_bundle_with_home "${plugin}" "${home_dir}"
+for github_project in ${NICE_TO_HAVES[@]}; do
+  clone_to_bundle_with_home "${github_project}" "${HOME_DIR}"
 done
 
-ln -sfv "${home_dir}/.vim/bundle/bouncing-vim/rc-files/vimrc" "${home_dir}/.vimrc"
+ln -sfv "${HOME_DIR}/.vim/bundle/bouncing-vim/rc-files/vimrc" "${HOME_DIR}/.vimrc"
 
-ln -sfv "${home_dir}/.vim/bundle/bouncing-vim/rc-files/tmux.conf" "${home_dir}/.tmux.conf"
+ln -sfv "${HOME_DIR}/.vim/bundle/bouncing-vim/rc-files/tmux.conf" "${HOME_DIR}/.tmux.conf"

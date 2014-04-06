@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-declare -a ESSENTIALS=(
+declare -a -r ESSENTIALS=(
    "lucabelmondo/bouncing-vim"
         "mileszs/ack.vim"
   "ygt-mikekchar/agnostic"
@@ -27,7 +27,7 @@ declare -a ESSENTIALS=(
        "benmills/vimux"
 )
 
-declare -a NICE_TO_HAVES=(
+declare -a -r NICE_TO_HAVES=(
   "noahfrederick/vim-noctu"
    "chriskempson/base16-vim"
      "chikamichi/mediawiki.vim"
