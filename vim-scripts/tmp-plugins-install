@@ -5,6 +5,7 @@ set -e
 CURRDIR=$(cd "$(dirname $0)" && pwd -P)
 
 source "${CURRDIR}/../utils.sh"
+source "${CURRDIR}/vim-utils.sh"
 source "${CURRDIR}/vim-plugin-list.sh"
 
 for plugin in ${ESSENTIALS[@]}; do
