@@ -1,6 +1,39 @@
 #!/usr/bin/env bash
 
+CURRDIR=$(cd "$(dirname $0)" && pwd -P)
+
+source "${CURRDIR}/../utils.sh"
+
 # always expand the glob pattern (in ls and cd commands for example)
 shopt -s globstar
 
-rm -rfv ~/.vim/bundle/bouncing-vim-tmp-*
+ls_tmp_plugins () {
+  ls -1Ad ~/.vim/bundle/bouncing-vim-tmp-*
+}
+
+archive_tmp_plugins () {
+  local tmp_plugin_name=
+
+  mkdir -p "${HOME}/.vim/_disabled_plugins"
+
+  ls_tmp_plugins | while read tmp_plugin; do
+    tmp_plugin_name=$(basename $tmp_plugin)
+    mv -v "${tmp_plugin}" "${HOME}/.vim/_disabled_plugins/${tmp_plugin_name}-$(utc_timestamp)"
+  done
+}
+
+echo
+echo "The following plugins will be moved to ~/.vim/_disabled_plugins/"
+echo "and timestamped, so that you can remove them safely if you want."
+echo
+ls_tmp_plugins
+echo
+echo "Do you want to procede?"
+read -r
+
+if [[ ! $REPLY =~ ^[Yy] ]]; then
+  echo "Abort."
+  exit 1
+fi
+
+archive_tmp_plugins
