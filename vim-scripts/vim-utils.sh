@@ -37,7 +37,7 @@ install_plugin_with_pathogen () {
   local tmp_plugin_dir=$(_get_tmp_plugin_dir "${github_project}")
 
   if [[ -d "${tmp_plugin_dir}" ]]; then
-    echo "[rename] tmp location: ${tmp_plugin_dir} -> "${std_plugin_dir}""
+    echo "[rename] tmp location: ${tmp_plugin_dir} -> ${std_plugin_dir}"
     mv "${tmp_plugin_dir}" "${std_plugin_dir}"
   elif [[ -d "${std_plugin_dir}" ]]; then
     echo "[skip] $github_project: already installed"
