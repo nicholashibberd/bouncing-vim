@@ -188,3 +188,18 @@ get_vim_version_full () {
 
   echo "${version_short}.${patch_number}"
 }
+
+ls_tmp_plugins () {
+  find "${HOME}/.vim/bundle/" -type d -iname 'bouncing-vim-tmp-*'
+}
+
+archive_tmp_plugins () {
+  local tmp_plugin_name=
+
+  mkdir -p "${HOME}/.vim/_disabled_plugins"
+
+  ls_tmp_plugins | while read tmp_plugin; do
+    tmp_plugin_name=$(basename $tmp_plugin)
+    mv -v "${tmp_plugin}" "${HOME}/.vim/_disabled_plugins/${tmp_plugin_name}-$(utc_timestamp)"
+  done
+}
