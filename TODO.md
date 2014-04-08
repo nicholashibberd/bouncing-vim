@@ -1,8 +1,7 @@
 To do
 -----
 
-* fix underlining in agnostic colorscheme
-* improve the output when installing the third party plugins
+* fix underlining style in agnostic colorscheme
 * fix <F6> in insert mode
 * Add Q&A section to the readme:
   - how is bouncing-vim different from, say, janus?
@@ -11,7 +10,7 @@ To do
 * use `mv` instead of `rm` to in the install scripts
 * for plugins that end in ".vim" also check the presence of the folder without ".vim"
 * toggling lines C-n conflicts with multi-edit plugin
-* add syntastic
+* add syntastic: doubtful, some people dislike it because intrusive
 * fix or remove leader not working in insert mode
 * copy current word or visually selected text in the command line; this is a start <http://stackoverflow.com/a/4879083>
 * fix tmux-scripts/3-option-2-tmux-custom-scripts for when there is no "pair" user

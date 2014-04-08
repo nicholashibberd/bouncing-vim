@@ -99,6 +99,14 @@ remove_vim_packages () {
     vim-gnome
 }
 
+has_pathogen () {
+  if [[ -n $(find ~/.vim -name pathogen.vim) ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
 install_pathogen () {
   echo "Install pathogen to handle your plugins"
   curl -Sso ~/.vim/autoload/pathogen.vim \

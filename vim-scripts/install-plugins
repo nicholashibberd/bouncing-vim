@@ -41,7 +41,7 @@ else
         break ;;
       "Backup and recreate" )
         vim_bkp_dir="vim-$(utc_timestamp).bkp"
-        mv -v ~/.vim "${HOME}/${vim_bkp_dir}"
+        mv -v "${HOME}/.vim" "${HOME}/${vim_bkp_dir}"
         break ;;
       "Abort" )
         exit 1;;
@@ -60,7 +60,7 @@ mkdir -v -p ~/.vim/{bundle,autoload,colors,undo,swap,_disabled_plugins}
 
 if $is_a_clean_install; then
   install_pathogen
-elif [[ $(find ~/.vim -name pathogen.vim) ]]; then
+elif has_pathogen; then
   echo "pathogen.vim is already installed"
 else
   echo "pathogen.vim is required to install the vim plugins, but it is not installed"
