@@ -40,7 +40,7 @@ install_plugin_with_pathogen () {
     echo "[rename] tmp location: ${tmp_plugin_dir} -> ${std_plugin_dir}"
     mv "${tmp_plugin_dir}" "${std_plugin_dir}"
   elif [[ -d "${std_plugin_dir}" ]]; then
-    echo "[skip] $github_project: already installed"
+    echo "[skip] $github_project -> already installed"
   else
     echo "[install] $github_project -> ${std_plugin_dir}"
     git clone -q "https://github.com/${github_project}.git" "${std_plugin_dir}"
@@ -54,7 +54,7 @@ install_tmp_plugin_with_pathogen () {
   local tmp_plugin_dir=$(_get_tmp_plugin_dir "${github_project}")
 
   if [[ -d "${std_plugin_dir}" || -d "${tmp_plugin_dir}" ]]; then
-    echo "[skip] $github_project: already installed"
+    echo "[skip] $github_project -> already installed"
   else
     echo "[install] $github_project -> ${tmp_plugin_dir}"
     git clone -q "https://github.com/${github_project}.git" "${tmp_plugin_dir}"
