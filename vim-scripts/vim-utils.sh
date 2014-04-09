@@ -203,3 +203,32 @@ archive_tmp_plugins () {
     mv -v "${tmp_plugin}" "${HOME}/.vim/_disabled_plugins/${tmp_plugin_name}-$(utc_timestamp)"
   done
 }
+
+link_rcfile () {
+  local rcfile=$1
+  local additional_message=$2
+
+  local rcfile_fullpath="${HOME}/.${rcfile}"
+  local rcfile_bkp_path="${HOME}/${rcfile}.$(utc_timestamp).bkp"
+  local source_rcfile="${HOME}/.vim/bundle/bouncing-vim/rc-files/${rcfile}"
+
+  echo "Some of the features require specific configuration, provided by"
+  echo "${source_rcfile}"
+  echo "You can now link to the ${rcfile} provided?"
+  echo "(your ${rcfile} will be backed up if present)."
+  echo "Do you want to create a symlink [y/N]: "
+  read -r
+  echo
+
+  if [[ $REPLY =~ ^[Yy] ]]; then
+    if [[ -e "${rcfile_fullpath}" && ! -L "${rcfile_fullpath}" ]]; then
+      mv -v "${rcfile_fullpath}" "${rcfile_bkp_path}"
+    fi
+
+    ln -sfv "${source_rcfile}" "${rcfile_fullpath}"
+  else
+    echo "Inspect the provided ${rcfile} for more info."
+    echo "${source_rcfile}"
+    echo "${additional_message}"
+  fi
+}

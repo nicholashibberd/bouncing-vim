@@ -14,15 +14,8 @@ is_a_clean_install=false
 # === Check dependencies ===
 # ==========================
 
-if [[ ! $(command -v curl) ]]; then
-  echo "curl is required"
-  exit 1
-fi
-
-if [[ ! $(command -v git) ]]; then
-  echo "git is required"
-  exit 1
-fi
+if [[ ! $(command -v curl) ]];  then echo "curl is required"; exit 1; fi
+if [[ ! $(command -v git) ]];   then echo "git is required";  exit 1; fi
 
 # ========================
 # ===~/.vim/ directory ===
@@ -40,8 +33,8 @@ else
       "Use existing" )
         break ;;
       "Backup and recreate" )
-        vim_bkp_dir="vim-$(utc_timestamp).bkp"
-        mv -v "${HOME}/.vim" "${HOME}/${vim_bkp_dir}"
+        vim_bkp_dir=
+        mv -v "${HOME}/.vim" "${HOME}/vim-$(utc_timestamp).bkp"
         break ;;
       "Abort" )
         exit 1;;
@@ -92,39 +85,14 @@ done
 # === vimrc ===
 # =============
 
-echo "Do you want to link to the vimrc provided?"
-read -p "(your vimrc will be backed up if present) [y/N]: " -r
-echo
-
-if [[ $REPLY =~ ^[Yy] ]]; then
-  if [[ -e ~/.vimrc && ! -L ~/.vimrc ]]; then
-    mv -v ~/.vimrc ~/vimrc.original
-  fi
-
-  ln -sfv "${HOME}/.vim/bundle/bouncing-vim/rc-files/vimrc" "${HOME}/.vimrc"
-else
-  echo "Inspect the provided vimrc for more info. ${HOME}/.vim/bundle/bouncing-vim/rc-files/vimrc"
-  echo "Make sure your vimrc initializes pathogen"
-fi
+link_rcfile \
+  "vimrc" \
+  "NOTE: Make sure your vimrc initializes pathogen"
 
 # =================
 # === tmux.conf ===
 # =================
 
-echo "Some of the features require specific configuration."
-echo "Your tmux.conf will be backed up."
-
-read -p "Do you want to link to the tmux.conf provided? [y/N]: " -r
-echo
-
-if [[ $REPLY =~ ^[Yy] ]]; then
-  if [[ -e ~/.tmux.conf && ! -L ~/.tmux.conf ]]; then
-    echo "Backup original vimrc"
-    mv -v ~/.tmux.conf ~/tmux.conf.original
-  fi
-
-  ln -vsf "${HOME}/.vim/bundle/bouncing-vim/rc-files/tmux.conf" "${HOME}/.tmux.conf"
-else
-  echo "Inspect the provided tmux.conf for more info."
-  echo "-> ${HOME}/.vim/bundle/bouncing-vim/rc-files/tmux.conf"
-fi
+link_rcfile \
+  "tmux.conf" \
+  "NOTE: Make sure you add the required configuration. See the README."
