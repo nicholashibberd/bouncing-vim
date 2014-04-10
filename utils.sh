@@ -141,12 +141,12 @@ link_rcfile () {
 
   if [[ $REPLY =~ ^[Yy] ]]; then
     if [[ -e "${rcfile_fullpath}" && ! -L "${rcfile_fullpath}" ]]; then
-      mv -v "${rcfile_fullpath}" "${rcfile_bkp_path}"
+      printf "[move] " && mv -v "${rcfile_fullpath}" "${rcfile_bkp_path}"
     else
       echo "No previous ${rcfile} to backup."
     fi
 
-    ln -sfv "${source_rcfile}" "${rcfile_fullpath}"
+    printf "[symlink] " && ln -sfv "${source_rcfile}" "${rcfile_fullpath}"
   else
     echo "Inspect the provided ${rcfile} for more info."
     echo "${source_rcfile}"
