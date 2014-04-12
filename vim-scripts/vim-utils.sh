@@ -200,6 +200,8 @@ archive_tmp_plugins () {
 
   ls_tmp_plugins | while read tmp_plugin; do
     tmp_plugin_name=$(basename $tmp_plugin)
-    mv -v "${tmp_plugin}" "${HOME}/.vim/_disabled_plugins/${tmp_plugin_name}-$(utc_timestamp)"
+    mv -v \
+      "${tmp_plugin}" \
+      "${HOME}/.vim/_disabled_plugins/${tmp_plugin_name}-$(utc_timestamp)"
   done
 }

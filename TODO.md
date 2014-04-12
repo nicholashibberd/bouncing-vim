@@ -54,6 +54,7 @@ To do
 Interesting plugins and vimrc files
 -----------------------------------
 
+* <https://github.com/nanotech/jellybeans.vim>
 * <https://github.com/suan/vim-instant-markdown>
 * <http://stevelosh.com/blog/2010/09/coming-home-to-vim/#important-vimrc-lines>
 * <https://github.com/prognostikos/dotfiles/blob/master/vim/vimrc.symlink> (from Ruby Rogues Parley)
