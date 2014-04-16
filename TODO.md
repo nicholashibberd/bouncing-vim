@@ -1,6 +1,7 @@
 To do
 -----
 
+* add info to the message for the vimrc: linking is recommended, because it's still possible to use the vimrc.after
 * fix underlining style in agnostic colorscheme
 * fix <F6> in insert mode
 * Add Q&A section to the readme:
