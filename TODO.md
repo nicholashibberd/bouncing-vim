@@ -1,6 +1,7 @@
 To do
 -----
 
+* consider vim-repeat plugin to support repeat of surround commands
 * try removing the "Conflicts" option in the build control files
 * add info to the message for the vimrc: linking is recommended, because it's still possible to use the vimrc.after
 * fix underlining style in agnostic colorscheme
