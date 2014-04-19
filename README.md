@@ -95,6 +95,7 @@ Functionality
 * [Surround] (https://github.com/tpope/vim-surround) - Edit parentheses,
   brackets, quotes, XML tags, and more in pairs.
 * [Vimux] (https://github.com/benmills/vimux) - Easily interact with tmux from Vim.
+* [repeat.vim] (https://github.com/tpope/vim-repeat) - enable repeating supported plugin maps with "."
 
 Language support
 

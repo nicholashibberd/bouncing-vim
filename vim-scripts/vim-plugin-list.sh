@@ -20,6 +20,7 @@ declare -a -r ESSENTIALS=(
         "terryma/vim-multiple-cursors"
        "mustache/vim-mustache-handlebars"
          "rodjek/vim-puppet"
+          "tpope/vim-repeat"
           "tpope/vim-rails"
        "vim-ruby/vim-ruby"
           "tpope/vim-sensible"
