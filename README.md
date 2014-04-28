@@ -186,18 +186,6 @@ In both cases:
 Also see [read and write options] (#read-write-options) if you want to enable
 quick save with `CTRL-s`.
 
-### <a name="install-tmux-source-ubuntu"></a>Install tmux 1.9 from source (only Ubuntu)
-
-Tested on Ubuntu 12.04. Please report any problems on different versions.
-
-To download and compile, run:
-
-```sh
-./tmux-scripts/1-tmux-install-from-source
-```
-
-It will also offer to link to the provided tmux.conf file.
-
 ### <a name="tmux-conf-notes"></a>Tmux configuration notes
 
 If you prefer to keep your own tmux.conf, it is recommended, to make the most

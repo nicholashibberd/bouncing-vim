@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-TERM='xterm-256color' tmux -2 -S /tmp/tmux-sessions attach -t tmux-session

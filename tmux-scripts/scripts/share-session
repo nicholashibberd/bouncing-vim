@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-sudo chgrp pair /tmp/tmux-sessions
-
-# Print the IP addresses with one line of context before (including the name
-# of the corresponding network interface).
-ifconfig | grep 'inet ' -B1

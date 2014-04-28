@@ -1,4 +1,0 @@
-curl
-build-essential
-libncurses5-dev
-libevent-dev
