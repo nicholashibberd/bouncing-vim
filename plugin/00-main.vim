@@ -115,7 +115,7 @@ endif
 
 command -nargs=+ -complete=file -bar G silent! grep! <args>|cwindow|redraw!
 
-nnoremap \ :G<SPACE>
+nnoremap \\ :G<SPACE>
 
 " Use 'git grep' as grepprg
 " -------------------------
@@ -138,7 +138,7 @@ endfun
 
 command -nargs=+ -complete=file -bar GG silent! call GitGrep(<f-args>)|copen|redraw!
 
-nnoremap \\ :GG<SPACE>
+nnoremap \\\ :GG<SPACE>
 
 " =============
 " === CtrlP ===

@@ -575,8 +575,8 @@ In these cases some minimal search helpers can be useful.
 
 * Provide commands which will execute the search and open the results in
   the quickfix list:
-  - `:G` command (shortcut `\`) will run `:grep`
-  - `:GG` command (shortcut `\\`) will run `:!git grep`
+  - `:G` command (shortcut `\\`) will run `:grep`
+  - `:GG` command (shortcut `\\\`) will run `:!git grep`
 
 ### <a name="shell-commands-without-prompt"></a>Run shell command without prompting
 
