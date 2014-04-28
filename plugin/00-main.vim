@@ -127,16 +127,29 @@ nnoremap \\ :G<SPACE>
 " With minor adaptations from:
 " - http://stackoverflow.com/questions/2415237/techniques-in-git-grep-and-vim/2415257#2415257
 " - http://vim.wikia.com/wiki/Git_grep
+" Adds support for current word
+
 func GitGrep(...)
   let original_grepprg = $grepprg
   set grepprg=git\ grep\ -n\ $*
+
   " grep bang will not jump to the first result
-  let cmd_string = join(['grep!'] + a:000)
+  if len(a:000) == 0
+    let currword = expand('<cword>')
+    if strlen(currword) == 0
+      return
+    else
+      let cmd_string = "grep! -w ".currword
+    endif
+  else
+    let cmd_string = join(['grep!'] + a:000)
+  endif
+
   execute cmd_string
   let &grepprg = original_grepprg
 endfun
 
-command -nargs=+ -complete=file -bar GG silent! call GitGrep(<f-args>)|copen|redraw!
+command -nargs=* -complete=file -bar GG silent! call GitGrep(<f-args>)|copen|redraw!
 
 nnoremap \\\ :GG<SPACE>
 
