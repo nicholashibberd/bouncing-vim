@@ -100,12 +100,10 @@ Language support
 
 * [Coffeescript] (https://github.com/kchmck/vim-coffee-script) - Adds
   CoffeeScript support to Vim. It covers syntax, indenting, compiling, and more.
-* [Dockerfile] (https://github.com/ekalinin/Dockerfile.vim)
 * [Tim Pope's Markdown] (https://github.com/tpope/vim-markdown), particularly
   for its ability to highlight code blocks in the respective language.
 * [Mustache] (https://github.com/mustache/vim-mustache-handlebars) - A Vim plugin for
   working with mustache and handlebars templates.
-* [Puppet] (https://github.com/rodjek/vim-puppet)
 * [rails.vim] (https://github.com/tpope/vim-rails) - Ruby on Rails power tools.
 * [Ruby] (https://github.com/vim-ruby/vim-ruby) - Vim configuration files
   for editing and compiling Ruby within Vim.
@@ -139,6 +137,8 @@ These are only installed when running the full install: `./vim-scripts/install-p
   couple of minutes.
 * [mediawiki syntax](https://github.com/chikamichi/mediawiki.vim) - Syntax
 highlighting for MediaWiki-based projects, such as Wikipedia.
+* [Puppet] (https://github.com/rodjek/vim-puppet)
+* [Dockerfile] (https://github.com/ekalinin/Dockerfile.vim)
 
 Colorschemes:
 
