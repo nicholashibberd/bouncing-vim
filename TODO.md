@@ -1,6 +1,7 @@
 To do
 -----
 
+* add current word search to the grep helpes
 * don't ask to symlink to the rcfiles if the symlinks already exist
 * try removing the "Conflicts" option in the build control files
 * add info to the message for the vimrc: linking is recommended, because it's still possible to use the vimrc.after

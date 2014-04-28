@@ -38,8 +38,8 @@ noremap <M-o> mao<Esc>`a
 map i <M-i>
 noremap <M-i> maO<Esc>`a
 
-" Disable F1 key
-" --------------
+" Remap F1 key
+" ------------
 " Map F1 key (main vim help) to ESC to avoid bringing it up by mistake.
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
@@ -90,6 +90,55 @@ endif
 " Only one space after punctuation:
 " http://en.wikipedia.org/wiki/Sentence_spacing#Typography
 set nojoinspaces
+
+" ===================================
+" === Grep with external programs ===
+" ===================================
+
+" Set a different grep program
+" ----------------------------
+"
+" This is taken from http://robots.thoughtbot.com/faster-grepping-in-vim.
+"
+" The motivation to add this was that, although 'ag' was installed on Ubuntu
+" from the official repositories, it wasn't detected by ack.vim, and the
+" plugin did't work.
+" It's been left as it provides useful functionality with very little
+" code, especially when no other plugins are available for this purpose.
+if executable('ack')
+  set grepprg=ack\ --nogroup\ --nocolor
+endif
+
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+
+command -nargs=+ -complete=file -bar G silent! grep! <args>|cwindow|redraw!
+
+nnoremap \ :G<SPACE>
+
+" Use 'git grep' as grepprg
+" -------------------------
+"
+" The 'fugitive' plugin already provides a much more evoluted and powerful
+" solution with the Ggrep command.
+" However, this is an interesting minimal solution for when even fugitive
+" is not available.
+" With minor adaptations from:
+" - http://stackoverflow.com/questions/2415237/techniques-in-git-grep-and-vim/2415257#2415257
+" - http://vim.wikia.com/wiki/Git_grep
+func GitGrep(...)
+  let original_grepprg = $grepprg
+  set grepprg=git\ grep\ -n\ $*
+  " grep bang will not jump to the first result
+  let cmd_string = join(['grep!'] + a:000)
+  execute cmd_string
+  let &grepprg = original_grepprg
+endfun
+
+command -nargs=+ -complete=file -bar GG silent! call GitGrep(<f-args>)|copen|redraw!
+
+nnoremap \\ :GG<SPACE>
 
 " =============
 " === CtrlP ===

@@ -562,6 +562,22 @@ stty start '' -ixon
 
 * Ignore some directories and extensions (tmp, pyc, ...).
 
+**External grep programs**
+
+Sometimes ack.vim or fugitive (which provides `:Ggrep`) are not available.
+It also happened that ack.vim does not detect "the silver searcher" installed
+via Ubuntu repositories
+
+In these cases some minimal search helpers can be useful.
+
+* Use `ag`, `ack` or `git grep` as external grep programs (for the native
+  `:grep` command).
+
+* Provide commands which will execute the search and open the results in
+  the quickfix list:
+  - `:G` command (shortcut `\`) will run `:grep`
+  - `:GG` command (shortcut `\\`) will run `:!git grep`
+
 ### <a name="shell-commands-without-prompt"></a>Run shell command without prompting
 
 This is especially useful when one wants to run a command in a diffent tmux
