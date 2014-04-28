@@ -1,8 +1,6 @@
 TODO
 ----
 
-* move the creation of symlinks into a function
-* add support and symlink for custom words for spell checking
 * put the prefix for the temporary install in a variable (vim-plugin-list.sh)
 
 Other interesting colorschemes

@@ -30,7 +30,6 @@ Content
   - [Essentials](#essential-plugins)
   - [Nice-to-have's](#nice-to-have-plugins)
 * [Installing](#installing)
-  - [Install Vim 7.4 from source (only Ubuntu)](#install-vim-source-ubuntu)
   - [Install the Vim plugins (with pathogen)](#install-vim-plugins)
   - [Install tmux 1.9 from source (only Ubuntu)](#install-tmux-source-ubuntu)
   - [Tmux configuration notes](#tmux-conf-notes)
@@ -149,28 +148,9 @@ Colorschemes:
 
 ## <a name="installing"></a>Installing
 
-Installation of Vim and tmux supports Ubuntu (tested on 12.04).
+Installation of tmux supports Ubuntu (tested on 12.04).
 
 The plugins use pathogen.
-
-### <a name="install-vim-source-ubuntu"></a>Install Vim 7.4 from source (only Ubuntu)
-
-Tested on Ubuntu 12.04. Please report any problems on different versions.
-
-To download and compile, run:
-
-```sh
-./vim-scripts/install-vim-precise
-```
-
-It will offer the option to download a tarball from the Vim website or to
-clone the mercurial repository hosted on googlecode.
-
-Vim will be compiled with "features=huge", Python and Perl support.
-
-If system Ruby is available it will also be compiled with Ruby support.
-Otherwise the script will give the option to install Ruby 1.9.3 from the
-Ubuntu repositories and compile with it, or to compile without Ruby support.
 
 It's useful to set Vim as default editor. If you wish to do so, put this
 in your `~/.bashrc` or `~/.bash_profile`:
