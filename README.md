@@ -538,8 +538,9 @@ via Ubuntu repositories
 
 In these cases some minimal search helpers can be useful.
 
-* Use `ag`, `ack` or `git grep` as external grep programs (for the native
-  `:grep` command).
+* Use external grep programs (for the native `:grep` command):
+  - if available use `ag` or `ack`
+  - otherwise use a more generally useful custom grep command
 
 * Provide commands which will execute the search and open the results in
   the quickfix list:

@@ -99,12 +99,24 @@ set nojoinspaces
 " ----------------------------
 "
 " This is taken from http://robots.thoughtbot.com/faster-grepping-in-vim.
+" See also: http://learnvimscriptthehardway.stevelosh.com/chapters/32.html
 "
 " The motivation to add this was that, although 'ag' was installed on Ubuntu
 " from the official repositories, it wasn't detected by ack.vim, and the
 " plugin did't work.
 " It's been left as it provides useful functionality with very little
 " code, especially when no other plugins are available for this purpose.
+"
+if executable('grep')
+  " http://vim.wikia.com/wiki/Find_in_files_within_Vim
+  " -s: don't print error messages about missing or non readable files
+  " -r: recursive
+  " -n: print line numbers
+  " -E: use extended regular expressions
+  " -I: ignore binary files
+  set grepprg=grep\ -srnEI\ --exclude-dir=.git\ .\ -e
+endif
+
 if executable('ack')
   set grepprg=ack\ --nogroup\ --nocolor
 endif
@@ -113,6 +125,7 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
+" grep 'bang' won't jump to the first result
 command -nargs=+ -complete=file -bar G silent! grep! <args>|cwindow|redraw!
 
 nnoremap \\ :G<SPACE>
@@ -127,6 +140,7 @@ nnoremap \\ :G<SPACE>
 " With minor adaptations from:
 " - http://stackoverflow.com/questions/2415237/techniques-in-git-grep-and-vim/2415257#2415257
 " - http://vim.wikia.com/wiki/Git_grep
+" - http://learnvimscriptthehardway.stevelosh.com/chapters/32.html
 " Adds support for current word
 
 func GitGrep(...)
@@ -146,7 +160,7 @@ func GitGrep(...)
   endif
 
   execute cmd_string
-  let &grepprg = original_grepprg
+  let &grepprg = l:original_grepprg
 endfun
 
 command -nargs=* -complete=file -bar GG silent! call GitGrep(<f-args>)|copen|redraw!
