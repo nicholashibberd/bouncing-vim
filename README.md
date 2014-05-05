@@ -530,17 +530,22 @@ stty start '' -ixon
 
 * Ignore some directories and extensions (tmp, pyc, ...).
 
-**External grep programs**
+**Search in files and external grep programs**
 
-Sometimes ack.vim or fugitive (which provides `:Ggrep`) are not available.
-It also happened that ack.vim does not detect "the silver searcher" installed
-via Ubuntu repositories
+People have different habits and opinions when it comes to search within
+multiple files.
+
+ack.vim is very popular but not with everyone due the need to install or
+compile additional packages.
+
+Sometimes the plugins ack.vim or fugitive (which provides `:Ggrep`) are not
+available.
 
 In these cases some minimal search helpers can be useful.
 
 * Use external grep programs (for the native `:grep` command):
   - if available use `ag` or `ack`
-  - otherwise use a more generally useful custom grep command
+  - otherwise use a more generally useful custom `grep` command
 
 * Provide commands which will execute the search and open the results in
   the quickfix list:
@@ -548,6 +553,16 @@ In these cases some minimal search helpers can be useful.
   - `:GG` command (shortcut `\\\`) will run `:!git grep`; if one or more
     arguments are provided it will use them, otherwise it will search for
     the current word;
+
+* Provide a precompiled `noautocmd vimgrep` (shortcur `<Leader>-s`) command
+  that searches for the current word in files with the same extension as
+  the current one.
+
+Plans for these features:
+
+- add the capability to search implicitly for the current word to `:G`
+- add the capability to seach for the visually selected text to both `:G` and `:GG`
+- make the `vimgrep` helper more fault-tolerant
 
 ### <a name="shell-commands-without-prompt"></a>Run shell command without prompting
 

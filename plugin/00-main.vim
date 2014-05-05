@@ -167,6 +167,15 @@ command -nargs=* -complete=file -bar GG silent! call GitGrep(<f-args>)|copen|red
 
 nnoremap \\\ :GG<SPACE>
 
+" Faster ':vimgrep' with noautocmd
+" --------------------------------
+
+" Search current word in files with current extension
+nnoremap <Leader>s :noautocmd vimgrep
+  \ /<C-r>=(expand("<cword>"))<CR>/gj
+  \ **/*.<C-r>=(expand("%:e"))<CR>
+  \<C-left><Left>
+
 " =============
 " === CtrlP ===
 " =============
