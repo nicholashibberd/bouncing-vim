@@ -1,6 +1,8 @@
 To do
 -----
 
+* write file as sudo
+* http://tonkersten.com/2011/07/104-switching-to-tmux/
 * add current word search to the grep helpes
 * don't ask to symlink to the rcfiles if the symlinks already exist
 * try removing the "Conflicts" option in the build control files
