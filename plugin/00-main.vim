@@ -143,28 +143,30 @@ nnoremap \\ :G<SPACE>
 " - http://learnvimscriptthehardway.stevelosh.com/chapters/32.html
 " Adds support for current word
 
-func GitGrep(...)
-  let original_grepprg = $grepprg
+func GitGrep(args)
+  let l:original_grepprg = $grepprg
   set grepprg=git\ grep\ -n\ $*
 
   " grep bang will not jump to the first result
-  if len(a:000) == 0
-    let currword = expand('<cword>')
-    if strlen(currword) == 0
+  if empty(a:args)
+    let l:currword = expand('<cword>')
+    if strlen(l:currword) == 0
       return
     else
-      let cmd_string = "grep! -w ".currword
+      let l:cmd_string = "grep! -w " . l:currword
     endif
   else
-    let cmd_string = join(['grep!'] + a:000)
+    " escape the same way as ack.vim
+    let l:cmd_string = 'grep! ' . escape(a:args, '|#%')
   endif
 
-  execute cmd_string
+  silent execute l:cmd_string
   let &grepprg = l:original_grepprg
+  copen
+  redraw!
 endfun
 
-command -nargs=* -complete=file -bar GG silent! call GitGrep(<f-args>)|copen|redraw!
-
+command -nargs=* -complete=file GG call GitGrep(<q-args>)
 nnoremap \\\ :GG<SPACE>
 
 " Faster ':vimgrep' with noautocmd
