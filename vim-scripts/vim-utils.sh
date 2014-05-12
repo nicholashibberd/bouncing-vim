@@ -71,7 +71,7 @@ has_pathogen () {
 
 install_pathogen () {
   echo "Install pathogen to handle your plugins"
-  curl -Sso ~/.vim/autoload/pathogen.vim \
+  curl -LSso ~/.vim/autoload/pathogen.vim \
     https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 }
 
