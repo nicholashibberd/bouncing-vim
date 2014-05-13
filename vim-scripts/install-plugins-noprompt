@@ -18,8 +18,7 @@ source "${CURRDIR}/vim-plugin-list.sh"
 echo "Ensure a complete ~/.vim dir structure"
 mkdir -v -p ~/.vim/{bundle,autoload,colors,undo,swap,_disabled_plugins}
 
-curl -Sso "${HOME_DIR}/.vim/autoload/pathogen.vim" \
-  "https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
+install_pathogen
 
 for github_project in ${ESSENTIALS[@]}; do
   clone_to_bundle_with_home "${github_project}" "${HOME_DIR}"
