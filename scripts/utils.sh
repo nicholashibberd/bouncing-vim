@@ -16,7 +16,12 @@ link_rcfile () {
   local rcfile_bkp_path="${HOME}/${rcfile}.$(utc_timestamp).bkp"
   local source_rcfile="${HOME}/.vim/bundle/bouncing-vim/rc-files/${rcfile}"
 
-echo "
+  if [[ $(readlink $rcfile_fullpath) == $source_rcfile ]]; then
+    echo "$rcfile is already linking to the provided rcfile"
+    return 0
+  fi
+
+  echo "
 Some of the features require specific configuration, provided by
 ${source_rcfile}
 You can now link to the ${rcfile} provided(your ${rcfile} will be backed up if present)
