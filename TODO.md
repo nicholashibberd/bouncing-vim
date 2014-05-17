@@ -5,7 +5,6 @@ To do
 * add 'open file in split' to git grep helper
 * add support for new file in new directory <http://stackoverflow.com/questions/10394707/create-file-inside-new-directory-in-vim-in-one-step>
 * add notes about setting the terminal app to solarized
-* write file as sudo
 * http://tonkersten.com/2011/07/104-switching-to-tmux/
 * add current word search to the grep helpers
 * fix underlining style in agnostic colorscheme

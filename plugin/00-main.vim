@@ -241,6 +241,7 @@ set buftype=
 " ==========================
 " === vimux - vim + tmux ===
 " ==========================
+
 " Requires vim compiled with ruby support.
 
 " Run the current file with rspec
@@ -282,6 +283,7 @@ autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
 " ======================
 " === ruby xmpfilter ===
 " ======================
+
 " Gvim
 nmap <buffer> <M-r> <Plug>(xmpfilter-run)
 xmap <buffer> <M-r> <Plug>(xmpfilter-run)

@@ -263,6 +263,8 @@ cd -; \
 * **CtrlP**
   - show hidden files
   - ignore some common dirs and file types
+  - use `ag` (the silver searcher) as search engine, to avoid caching on
+    first use
 
 * **Ack**
   - launch `:Ack!` with `<leader>a`
@@ -489,6 +491,8 @@ The `ALT+d` (or `<leader>d`) shortcut provided to do real deletion
   additional setup.
 
   Put this in your bash profile to bypass the key combination only from Vim:
+
+* Write with sudo with `:Sudow`.
 
 ```sh
 vim() {

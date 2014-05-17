@@ -14,7 +14,7 @@ set autoread
 " Save all buffers when switching between them, to avoid running tests
 " with unsaved changes.
 set autowrite
-autocmd BufLeave,FocusLost * wall
+autocmd BufLeave,FocusLost * wall!
 
 " ==========================
 " === Save with shortcut ===
@@ -41,3 +41,15 @@ nnoremap <C-s> :wall<cr>
 "   command vim "$@"
 "   stty "$STTYOPTS"
 " }
+
+" ======================
+" === Save with sudo ===
+" ======================
+
+" The solution at...
+" http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work/7078429#7078429
+" cnoremap w!! :w !sudo tee > /dev/null %
+" ...doesn't seem to work (vim 7.4).
+" Using instead
+" http://www.commandlinefu.com/commands/view/1204/save-a-file-you-edited-in-vim-without-the-needed-permissions
+command Sudow :execute ':silent w !sudo tee % > /dev/null' | :edit!
