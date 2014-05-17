@@ -182,6 +182,14 @@ nnoremap <Leader>s :noautocmd vimgrep
 " === CtrlP ===
 " =============
 
+" <http://robots.thoughtbot.com/faster-grepping-in-vim>
+" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+" ag is fast enough that CtrlP doesn't need to cache
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif
+
 " Taken from CtrlP documentation
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
