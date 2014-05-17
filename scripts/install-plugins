@@ -86,7 +86,9 @@ done
 
 link_rcfile \
   "vimrc" \
-  "NOTE: Make sure your vimrc initializes pathogen"
+  "
+NOTE: Make sure your vimrc initializes pathogen.
+You can also create a ~/.vimrc.after that will be loaded automatically."
 
 # =================
 # === tmux.conf ===

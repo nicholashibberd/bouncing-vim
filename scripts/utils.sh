@@ -24,7 +24,7 @@ link_rcfile () {
   echo "
 Some of the features require specific configuration, provided by
 ${source_rcfile}
-You can now link to the ${rcfile} provided(your ${rcfile} will be backed up if present)
+You can now link to the ${rcfile} provided (your ${rcfile} will be backed up if present).
 Do you want to create a symlink? [y/N]:"
 
   read -r

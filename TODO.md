@@ -9,16 +9,12 @@ To do
 * write file as sudo
 * http://tonkersten.com/2011/07/104-switching-to-tmux/
 * add current word search to the grep helpes
-* don't ask to symlink to the rcfiles if the symlinks already exist
-* try removing the "Conflicts" option in the build control files
-* add info to the message for the vimrc: linking is recommended, because it's still possible to use the vimrc.after
 * fix underlining style in agnostic colorscheme
 * fix <F6> in insert mode
 * Add Q&A section to the readme:
   - how is bouncing-vim different from, say, janus?
   - why is it important to use pathogen instead of Vundle?
 * create functions to link to the rc files
-* use `mv` instead of `rm` to in the install scripts
 * for plugins that end in ".vim" also check the presence of the folder without ".vim"
 * toggling lines C-n conflicts with multi-edit plugin
 * add syntastic: doubtful, some people dislike it because intrusive
@@ -48,7 +44,7 @@ To do
 * re-hardwrap paragraphs of text: nnoremap `<leader>q gqip`
 * ensure that indentation is absolute, not relative to initial position (???)
 * check if minibufexplorer is available before using it for mappings
-* reenable vim directives in the files
+* re-enable vim directives in the files
 * select inside and around pipe chars; see also
   - <http://vim.wikia.com/wiki/Creating_new_text_objects>
   - <http://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/>
@@ -56,7 +52,7 @@ To do
 * keybindings to toggle the following options, when performance is an issue
   * :set nocursorline/:NoMatchParen <=> :set cursorline/:DoMatchParen
   * let loaded_matchparen = 1, to avoid loading the parantheses matching built-in plugin
-* keybindings for split panes resising
+* keybindings for split panes resizing
 * keybindings for activating/deactivating the automatic line wrapping (reflow)
 * join lines in insert mode (not sure it's a good idea)
 * trick to create the required directories if needed, directly from the vimrc
@@ -73,7 +69,7 @@ Other interesting colorschemes
 * <https://github.com/nanotech/jellybeans.vim>
 * <https://github.com/h3rald/stash/blob/master/.vim/colors/herald.vim>
 
-Other intesting plugins
+Other interesting plugins
 -----------------------
 
 * <http://items.sjbach.com/319>
