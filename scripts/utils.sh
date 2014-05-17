@@ -16,12 +16,12 @@ link_rcfile () {
   local rcfile_bkp_path="${HOME}/${rcfile}.$(utc_timestamp).bkp"
   local source_rcfile="${HOME}/.vim/bundle/bouncing-vim/rc-files/${rcfile}"
 
-  echo
-  echo "Some of the features require specific configuration, provided by"
-  echo "${source_rcfile}"
-  echo "You can now link to the ${rcfile} provided."
-  echo "(your ${rcfile} will be backed up if present)"
-  echo "Do you want to create a symlink? [y/N]: "
+echo "
+Some of the features require specific configuration, provided by
+${source_rcfile}
+You can now link to the ${rcfile} provided(your ${rcfile} will be backed up if present)
+Do you want to create a symlink? [y/N]:"
+
   read -r
 
   if [[ $REPLY =~ ^[Yy] ]]; then

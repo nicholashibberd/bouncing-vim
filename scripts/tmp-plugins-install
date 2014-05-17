@@ -7,17 +7,18 @@ CURRDIR=$(cd "$(dirname $0)" && pwd -P)
 source "${CURRDIR}/utils.sh"
 source "${CURRDIR}/vim-plugin-list.sh"
 
+echo "
+This script allows you to install some plugins temporarily, for
+example during a pairing session.
 echo
-echo "This script allows you to install some plugins temporarily, for"
-echo "example during a pairing session."
-echo
-echo "It will:"
-echo "- check if pathogen is installed"
-echo "- clone the plugins from github..."
-echo "- ...under ~/.vim/bundle with a name 'bouncing-vim-tmp-<plugin>'"
-echo "- skip the plugins the are already installed"
-echo
-echo "This is the list of plugins:"
+It will:
+- check if pathogen is installed
+- clone the plugins from github...
+- ...under ~/.vim/bundle with a name 'bouncing-vim-tmp-<plugin>'
+- skip the plugins the are already installed
+
+This is the list of plugins:
+"
 
 for plugin in ${ESSENTIALS[@]}; do
   echo "  - ${plugin}"
@@ -32,10 +33,9 @@ if [[ ! $REPLY =~ ^[Yy] ]]; then
 fi
 
 if ! has_pathogen; then
-  echo
-  echo "pathogen.vim is required to use new temporary plugins"
-  echo "but it is not installed. Exiting now."
-  echo
+  echo "
+pathogen.vim is required to use new temporary plugins
+but it is not installed. Exiting now."
   exit 1
 fi
 
