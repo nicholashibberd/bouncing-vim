@@ -11,8 +11,7 @@ if [[ -z "${HOME_DIR}" ]]; then
   exit 1
 fi
 
-source "${CURRDIR}/../utils.sh"
-source "${CURRDIR}/vim-utils.sh"
+source "${CURRDIR}/utils.sh"
 source "${CURRDIR}/vim-plugin-list.sh"
 
 echo "Ensure a complete ~/.vim dir structure"
