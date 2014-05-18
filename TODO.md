@@ -2,7 +2,7 @@ To do
 -----
 
 * put the prefix for the temporary install in a variable (vim-plugin-list.sh)
-* add 'open file in split' to git grep helper
+* add 'open file in split' to quickfix list <http://stackoverflow.com/questions/16743112/open-item-from-quickfix-window-in-vertical-split>
 * add support for new file in new directory <http://stackoverflow.com/questions/10394707/create-file-inside-new-directory-in-vim-in-one-step>
 * add notes about setting the terminal app to solarized
 * http://tonkersten.com/2011/07/104-switching-to-tmux/
