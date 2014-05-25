@@ -1,7 +1,6 @@
 To do
 -----
 
-* add support for new file in new directory <http://stackoverflow.com/questions/10394707/create-file-inside-new-directory-in-vim-in-one-step>
 * put the prefix for the temporary install in a variable (vim-plugin-list.sh)
 * add notes about setting the terminal app to solarized
 * http://tonkersten.com/2011/07/104-switching-to-tmux/

@@ -100,6 +100,23 @@ set nojoinspaces
 autocmd! FileType qf nnoremap <buffer> <C-v> <C-w>k \| :vs<CR> \| <C-w>j \| <CR>
 autocmd! FileType qf nnoremap <buffer> <C-s> <C-w>k \| :sp<CR> \| <C-w>j \| <C-w>j \| <CR>
 
+" ================================
+" === Create path for new file ===
+" ================================
+
+" http://stackoverflow.com/questions/10394707/create-file-inside-new-directory-in-vim-in-one-step/10397159#10397159
+
+function s:MKDir(...)
+    if         !a:0
+           \|| isdirectory(a:1)
+           \|| filereadable(a:1)
+           \|| isdirectory(fnamemodify(a:1, ':p:h'))
+        return
+    endif
+    return mkdir(fnamemodify(a:1, ':p:h'), 'p')
+endfunction
+command -bang -bar -nargs=? -complete=file EP :call s:MKDir(<f-args>) | e<bang> <args>
+
 " =============
 " === CtrlP ===
 " =============
