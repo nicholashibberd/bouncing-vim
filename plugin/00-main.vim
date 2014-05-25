@@ -105,6 +105,7 @@ autocmd! FileType qf nnoremap <buffer> <C-s> <C-w>k \| :sp<CR> \| <C-w>j \| <C-w
 " ================================
 
 " http://stackoverflow.com/questions/10394707/create-file-inside-new-directory-in-vim-in-one-step/10397159#10397159
+" You can also use `<C-y>` once you are in CtrlP.
 
 function s:MKDir(...)
     if         !a:0

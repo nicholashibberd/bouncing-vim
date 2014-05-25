@@ -367,7 +367,8 @@ fix the keycode for ALT-I on Mac: these mappings may be removed or changed.
 * Quickfix list
   - open in vertical and horizontal splits with `<C-v>` and `<C-s>`
 
-* Edit new file in new path with `:EP` ("edit with path").
+* Edit new file in new path with `:EP` ("edit with path"). You can also use
+  `<C-y>` once you are in CtrlP.
 
 ### <a name="navigation"></a>Navigation
 
