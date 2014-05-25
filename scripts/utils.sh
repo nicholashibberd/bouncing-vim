@@ -110,6 +110,8 @@ has_pathogen () {
 }
 
 install_pathogen () {
+  ensure_curl
+
   echo "Install pathogen to handle your plugins"
   curl -L -o ~/.vim/autoload/pathogen.vim \
     https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
@@ -130,4 +132,11 @@ archive_tmp_plugins () {
       "${tmp_plugin}" \
       "${HOME}/.vim/_disabled_plugins/${tmp_plugin_name}-$(utc_timestamp)"
   done
+}
+
+ensure_curl () {
+  if [[ ! $(command -v curl) ]]; then
+    sudo apt-get update
+    sudo apt-get install -y curl
+  fi
 }
