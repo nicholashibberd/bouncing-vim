@@ -364,6 +364,9 @@ fix the keycode for ALT-I on Mac: these mappings may be removed or changed.
 
 * Toggle spell checking with `<F6>` as in Sublime Text.
 
+* Quickfix list
+  - open in vertical and horizontal splits with `<C-v>` and `<C-s>`
+
 ### <a name="navigation"></a>Navigation
 
 * Arrows are enabled to accommodate users that have different styles of
