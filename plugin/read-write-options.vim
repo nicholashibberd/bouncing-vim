@@ -14,7 +14,7 @@ set autoread
 " Save all buffers when switching between them, to avoid running tests
 " with unsaved changes.
 set autowrite
-autocmd BufLeave,FocusLost * wall!
+autocmd BufLeave,FocusLost * silent! update
 
 " ==========================
 " === Save with shortcut ===
