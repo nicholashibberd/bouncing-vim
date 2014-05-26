@@ -97,8 +97,12 @@ set nojoinspaces
 
 " Initial idea from http://stackoverflow.com/questions/16743112/open-item-from-quickfix-window-in-vertical-split/16743676#16743676
 
-autocmd! FileType qf nnoremap <buffer> <C-v> <C-w>k \| :vs<CR> \| <C-w>j \| <CR>
-autocmd! FileType qf nnoremap <buffer> <C-s> <C-w>k \| :sp<CR> \| <C-w>j \| <C-w>j \| <CR>
+function SetOpenQuickfixItemsInSplits()
+  nnoremap <buffer> <C-v> <C-w>k \| :vs<CR> \| <C-w>j \| <CR>
+  nnoremap <buffer> <C-s> <C-w>k \| :sp<CR> \| <C-w>j \| <C-w>j \| <CR>
+endfunction
+
+autocmd! FileType qf call SetOpenQuickfixItemsInSplits()
 
 " ================================
 " === Create path for new file ===
@@ -108,13 +112,13 @@ autocmd! FileType qf nnoremap <buffer> <C-s> <C-w>k \| :sp<CR> \| <C-w>j \| <C-w
 " You can also use `<C-y>` once you are in CtrlP.
 
 function s:MKDir(...)
-    if         !a:0
-           \|| isdirectory(a:1)
-           \|| filereadable(a:1)
-           \|| isdirectory(fnamemodify(a:1, ':p:h'))
-        return
-    endif
-    return mkdir(fnamemodify(a:1, ':p:h'), 'p')
+  if !a:0
+        \|| isdirectory(a:1)
+        \|| filereadable(a:1)
+        \|| isdirectory(fnamemodify(a:1, ':p:h'))
+    return
+  endif
+  return mkdir(fnamemodify(a:1, ':p:h'), 'p')
 endfunction
 command -bang -bar -nargs=? -complete=file EP :call s:MKDir(<f-args>) | e<bang> <args>
 
