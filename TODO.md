@@ -1,6 +1,7 @@
 To do
 -----
 
+* Add multiple args support to grep helper when there's only grep, not ack or ag
 * put the prefix for the temporary install in a variable (vim-plugin-list.sh)
 * add notes about setting the terminal app to solarized
 * http://tonkersten.com/2011/07/104-switching-to-tmux/
