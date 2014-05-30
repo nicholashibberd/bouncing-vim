@@ -56,6 +56,7 @@ Other interesting colorschemes
 Other interesting plugins
 -----------------------
 
+* <https://github.com/rhysd/vim-operator-surround>
 * <http://bling.github.io/blog/2013/06/02/unite-dot-vim-the-plugin-you-didnt-know-you-need/>
 * <http://items.sjbach.com/319>
 * <http://net.tutsplus.com/articles/general/top-10-pitfalls-when-switching-to-vim/>
