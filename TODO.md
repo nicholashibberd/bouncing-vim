@@ -1,12 +1,10 @@
 To do
------
 
 * more statusline options: <http://got-ravings.blogspot.co.uk/2008/08/vim-pr0n-making-statuslines-that-own.html>
 * put the prefix for the temporary install in a variable (vim-plugin-list.sh)
 * add notes about setting the terminal app to solarized
 * http://tonkersten.com/2011/07/104-switching-to-tmux/
 * add current word search to the grep helpers
-* fix underlining style in agnostic colorscheme
 * fix <F6> in insert mode
 * Add Q&A section to the readme:
   - how is bouncing-vim different from, say, janus?

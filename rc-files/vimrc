@@ -43,13 +43,13 @@ set nomodeline " Ignore vim directives in magic comments
 " let g:molokai_original = 1
 " colorscheme molokai
 
-" colorscheme agnostic
-
 " colorscheme noctu
 
 " colorscheme base16-default
 
 " colorscheme default
+
+colorscheme agnostic
 
 " =============================
 " === Solarized colorscheme ===
@@ -64,17 +64,17 @@ set nomodeline " Ignore vim directives in magic comments
 " let g:solarized_termcolors=16
 " set term=screen-256color " try this as a last resort
 
-" " Actual solarized theme options
+""" -> Uncomment the following two lines for 16-color terminal solarized
+" set background=dark " or light
+" colorscheme solarized
+""" -> Additional solarized options for 256-colors
 " let g:solarized_underline=0
 " let g:solarized_italic=0
 " let g:solarized_bold=0
 " let g:solarized_contrast="high"
 " let g:solarized_visibility="high"
 " let g:solarized_termtrans=1 " transparent terminal support
-" set background=light
-set background=dark
-colorscheme solarized
-
+"
 " ==================================
 " === Colors for MiniBufExplorer ===
 " ==================================
