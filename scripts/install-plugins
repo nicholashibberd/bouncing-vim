@@ -68,18 +68,6 @@ else
   done
 fi
 
-# =======================
-# === Install plugins ===
-# =======================
-
-for plugin in ${ESSENTIALS[@]}; do
-  install_plugin_with_pathogen "${plugin}"
-done
-
-for plugin in ${NICE_TO_HAVES[@]}; do
-  install_plugin_with_pathogen "$plugin"
-done
-
 # =============
 # === vimrc ===
 # =============
@@ -97,3 +85,11 @@ You can also create a ~/.vimrc.after that will be loaded automatically."
 link_rcfile \
   "tmux.conf" \
   "NOTE: Make sure you add the required configuration. See the README."
+
+# =======================
+# === Install plugins ===
+# =======================
+
+for plugin in ${ESSENTIALS[@]}; do
+  install_plugin_with_pathogen "${plugin}"
+done

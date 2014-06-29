@@ -59,8 +59,16 @@ Content
 
 ## <a name="plugins-list"></a>Third party plugins
 
-Install all the plugins (including the nice-to-have's) with:
+Install all the essential plugins with:
 `./vim-scripts/install-plugins`
+
+Install all the plugins (including the nice-to-have's) with:
+`./vim-scripts/install-plugins-with-nice-to-haves`
+
+To install without prompts, use `./vim-scripts/install-plugins-noprompt` or
+`./vim-scripts/install-plugins-noprompt-with-nice-to-haves`.
+This can be useful when installing from scripts. You will need to pass the
+path to the home directory in this case.
 
 To install only the essentials, and only temporarily:
 * install with: `./vim-scripts/tmp-plugins-install`.

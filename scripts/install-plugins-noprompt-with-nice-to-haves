@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+CURRDIR=$(cd "$(dirname $0)" && pwd -P)
+
+HOME_DIR=$1
+
+source "${CURRDIR}/utils.sh"
+source "${CURRDIR}/vim-plugin-list.sh"
+
+"${CURRDIR}/install-plugins-noprompt" "${HOME_DIR}"
+
+for github_project in ${NICE_TO_HAVES[@]}; do
+  clone_to_bundle_with_home "${github_project}" "${HOME_DIR}"
+done
