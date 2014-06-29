@@ -101,7 +101,6 @@ Functionality
   filtering and alignment.
 * [Surround] (https://github.com/tpope/vim-surround) - Edit parentheses,
   brackets, quotes, XML tags, and more in pairs.
-* [Vimux] (https://github.com/benmills/vimux) - Easily interact with tmux from Vim.
 * [repeat.vim] (https://github.com/tpope/vim-repeat) - enable repeating supported plugin maps with "."
 
 Language support
@@ -110,8 +109,6 @@ Language support
   CoffeeScript support to Vim. It covers syntax, indenting, compiling, and more.
 * [Tim Pope's Markdown] (https://github.com/tpope/vim-markdown), particularly
   for its ability to highlight code blocks in the respective language.
-* [Mustache] (https://github.com/mustache/vim-mustache-handlebars) - A Vim plugin for
-  working with mustache and handlebars templates.
 * [rails.vim] (https://github.com/tpope/vim-rails) - Ruby on Rails power tools.
 * [Ruby] (https://github.com/vim-ruby/vim-ruby) - Vim configuration files
   for editing and compiling Ruby within Vim.
@@ -120,8 +117,6 @@ Colorschemes
 
 * [Agnostic] (https://github.com/ygt-mikekchar/agnostic) - A Vim colour scheme
   that allows to choose your own colours.
-* [Molokai] (https://github.com/tomasr/molokai) - A Vim port of the monokai
-  theme for TextMate.
 * [Solarized] (https://github.com/altercation/vim-colors-solarized) - Precision
   colors for machines and people.
 
@@ -147,12 +142,17 @@ These are only installed when running the full install: `./vim-scripts/install-p
 highlighting for MediaWiki-based projects, such as Wikipedia.
 * [Puppet] (https://github.com/rodjek/vim-puppet)
 * [Dockerfile] (https://github.com/ekalinin/Dockerfile.vim)
+* [Vimux] (https://github.com/benmills/vimux) - Easily interact with tmux from Vim.
+* [Mustache] (https://github.com/mustache/vim-mustache-handlebars) - A Vim plugin for
+  working with mustache and handlebars templates.
 
 Colorschemes:
 
 * [Noctu] (https://github.com/noahfrederick/vim-noctu) - A Vim color scheme for
   16-color terminals.
 * [Base16] (https://github.com/chriskempson/base16-vim) - Color schemes for hackers.
+* [Molokai] (https://github.com/tomasr/molokai) - A Vim port of the monokai
+  theme for TextMate.
 
 ## <a name="installing"></a>Installing
 

@@ -6,7 +6,6 @@ declare -a -r ESSENTIALS=(
   "ygt-mikekchar/agnostic"
            "kien/ctrlp.vim"
        "fholgado/minibufexpl.vim"
-         "tomasr/molokai"
      "scrooloose/nerdtree"
        "ervandew/supertab"
       "godlygeek/tabular"
@@ -17,13 +16,11 @@ declare -a -r ESSENTIALS=(
           "tpope/vim-fugitive"
           "tpope/vim-markdown"
         "terryma/vim-multiple-cursors"
-       "mustache/vim-mustache-handlebars"
           "tpope/vim-repeat"
           "tpope/vim-rails"
        "vim-ruby/vim-ruby"
           "tpope/vim-sensible"
           "tpope/vim-surround"
-       "benmills/vimux"
 )
 
 declare -a -r NICE_TO_HAVES=(
@@ -31,10 +28,13 @@ declare -a -r NICE_TO_HAVES=(
    "chriskempson/base16-vim"
        "ekalinin/Dockerfile.vim"
      "chikamichi/mediawiki.vim"
+         "tomasr/molokai"
+       "mustache/vim-mustache-handlebars"
           "hdima/python-syntax"
          "SirVer/ultisnips"
           "fatih/vim-go"
            "gerw/vim-HiLinkTrace"
          "rodjek/vim-puppet"
            "t9md/vim-ruby-xmpfilter"
+       "benmills/vimux"
 )
