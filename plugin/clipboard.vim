@@ -52,6 +52,12 @@ vnoremap <C-c> "+y
 
 " In visual mode, replace currently selected text with default register
 " without yanking it.
-" <http://stackoverflow.com/a/920139>
+" Modified from <http://stackoverflow.com/a/920139> to account for end of line
+" original version: vnoremap <Leader>p "_dP
+" See also <http://stackoverflow.com/questions/11176159/vim-go-to-start-end-of-visual-selection/11176286#11176286>.
 " Requires that the leader is mapped non-ambiguously, `map , = \` does not work.
-vnoremap <Leader>p "_dP
+vnoremap <Leader>p pgvy`>
+" p   -> paste normally
+" gv  -> reselect the pasted text
+" y   -> copy it again
+" `>  -> jump to the last character of the visual selection (built-in mark)
