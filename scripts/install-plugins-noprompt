@@ -14,8 +14,9 @@ fi
 source "${CURRDIR}/utils.sh"
 source "${CURRDIR}/vim-plugin-list.sh"
 
-ln -sfv "${HOME_DIR}/.vim/bundle/bouncing-vim/rc-files/vimrc" "${HOME_DIR}/.vimrc"
+install_pathogen
 
+ln -sfv "${HOME_DIR}/.vim/bundle/bouncing-vim/rc-files/vimrc" "${HOME_DIR}/.vimrc"
 ln -sfv "${HOME_DIR}/.vim/bundle/bouncing-vim/rc-files/tmux.conf" "${HOME_DIR}/.tmux.conf"
 
 for github_project in ${ESSENTIALS[@]}; do
