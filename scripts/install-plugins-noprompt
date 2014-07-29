@@ -14,6 +14,8 @@ fi
 source "${CURRDIR}/utils.sh"
 source "${CURRDIR}/vim-plugin-list.sh"
 
+ensure_vim_dir_structure
+
 install_pathogen
 
 ln -sfv "${HOME_DIR}/.vim/bundle/bouncing-vim/rc-files/vimrc" "${HOME_DIR}/.vimrc"

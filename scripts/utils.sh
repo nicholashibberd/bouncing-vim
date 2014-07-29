@@ -140,3 +140,9 @@ ensure_curl () {
     sudo apt-get install -y curl
   fi
 }
+
+ensure_vim_dir_structure () {
+  echo "Ensure a complete ~/.vim dir structure"
+  mkdir -v -p ~/.vim/{bundle,autoload,colors,undo,swap,_disabled_plugins}
+}
+

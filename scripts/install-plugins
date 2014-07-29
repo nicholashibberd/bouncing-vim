@@ -41,8 +41,7 @@ else
   done
 fi
 
-echo "Ensure a complete ~/.vim dir structure"
-mkdir -v -p ~/.vim/{bundle,autoload,colors,undo,swap,_disabled_plugins}
+ensure_vim_dir_structure
 
 # ================
 # === pathogen ===
