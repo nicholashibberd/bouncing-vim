@@ -3,7 +3,6 @@ To do
 * merge `clone_to_bundle_with_home` into install_plugin_with_pathogen
 * add scripts for gnome-terminal profiles
 * reorganize plugins basic + by subject + get-all option
-* check why ack.vim is not loaded unless it was loaded at least once before install bouncing-vim
 * more statusline options: <http://got-ravings.blogspot.co.uk/2008/08/vim-pr0n-making-statuslines-that-own.html>
 * put the prefix for the temporary install in a variable (vim-plugin-list.sh)
 * add notes about setting the terminal app to solarized
