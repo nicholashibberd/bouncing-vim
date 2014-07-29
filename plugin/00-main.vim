@@ -59,7 +59,7 @@ inoremap kj <ESC>
 " ---------------------
 " toggle spell checking with <F6>
 nnoremap <F6> :setlocal spell!<CR>
-inoremap <F6> :setlocal spell!<CR>
+inoremap <F6> <Esc>:setlocal spell!<CR>
 vnoremap <F6> :setlocal spell!<CR>
 
 " ====================
