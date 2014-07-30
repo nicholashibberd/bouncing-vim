@@ -378,6 +378,9 @@ fix the keycode for ALT-I on Mac: these mappings may be removed or changed.
 * Edit new file in new path with `:EP` ("edit with path"). You can also use
   `<C-y>` once you are in CtrlP.
 
+* Disable activating ex-mode when typing `Q` in normal mode. This is almost
+  always a typo, and it's been set to no-op, reserving it for future use.
+
 ### <a name="navigation"></a>Navigation
 
 * Arrows are enabled to accommodate users that have different styles of
