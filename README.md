@@ -349,6 +349,8 @@ cd -; \
 * Use 2-space soft tabs by defaults (it's overridden for some some languages
   with different conventions).
 
+* Omni-completion is enabled (use the native `<C-x><C-o>` to invoke it).
+
 ### <a name="miscellaneous-mappings"></a>Miscellaneous mappings
 
 * Add a new line without going to insert mode (experimental):

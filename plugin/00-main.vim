@@ -72,15 +72,24 @@ nnoremap Q <Nop>
 " === Misc options ===
 " ====================
 
-" reduce the command timeout (default 1000)
+" reduce the command timeout
+" --------------------------
+" (default 1000)
 set timeoutlen=350
 
-" Use 2-space soft tabs by defaults (it's overriden for some some languages
-" with different conventions).
+" Use 2-space soft tabs by defaults
+" ---------------------------------
+" (it's overriden for some some languages with different conventions).
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+
+" Enable omni-completion
+" ----------------------
+" <http://vim.wikia.com/wiki/Omni_completion>
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
 " ======================
 " === Format options ===
