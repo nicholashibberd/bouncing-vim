@@ -106,19 +106,6 @@ endif
 " http://en.wikipedia.org/wiki/Sentence_spacing#Typography
 set nojoinspaces
 
-" ==============================
-" === Quickfix list mappings ===
-" ==============================
-
-" Initial idea from http://stackoverflow.com/questions/16743112/open-item-from-quickfix-window-in-vertical-split/16743676#16743676
-
-function SetOpenQuickfixItemsInSplits()
-  nnoremap <buffer> <C-v> <C-w>k \| :vs<CR> \| <C-w>j \| <CR>
-  nnoremap <buffer> <C-s> <C-w>k \| :sp<CR> \| <C-w>j \| <C-w>j \| <CR>
-endfunction
-
-autocmd! FileType qf call SetOpenQuickfixItemsInSplits()
-
 " ================================
 " === Create path for new file ===
 " ================================
