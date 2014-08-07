@@ -1,5 +1,6 @@
 To do
 
+* consider auto-correction
 * add open in split to git grep
 * merge `clone_to_bundle_with_home` into install_plugin_with_pathogen
 * add scripts for gnome-terminal profiles
