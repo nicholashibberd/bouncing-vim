@@ -1,5 +1,6 @@
 To do
 
+* fix minibufexplorer colors for solarized light
 * escape from buffergator
 * consider auto-correction
 * add open in split to git grep
