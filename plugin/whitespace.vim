@@ -57,3 +57,4 @@ autocmd FileType eruby        autocmd BufWritePre <buffer> :call <SID>StripTrail
 autocmd FileType scss         autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd FileType Dockerfile   autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd FileType puppet       autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType yaml         autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
