@@ -112,6 +112,8 @@ Language support
 * [rails.vim] (https://github.com/tpope/vim-rails) - Ruby on Rails power tools.
 * [Ruby] (https://github.com/vim-ruby/vim-ruby) - Vim configuration files
   for editing and compiling Ruby within Vim.
+* [RSpec.vim](https://github.com/mikbe/rspec.vim) - RSpec syntax highlighting
+  for non-Rails projects.
 
 Colorschemes
 

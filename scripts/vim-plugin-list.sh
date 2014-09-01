@@ -7,6 +7,7 @@ declare -a -r ESSENTIALS=(
            "kien/ctrlp.vim"
        "fholgado/minibufexpl.vim"
      "scrooloose/nerdtree"
+          "mikbe/rspec.vim"
        "ervandew/supertab"
       "godlygeek/tabular"
   "jeetsukumaran/vim-buffergator"
