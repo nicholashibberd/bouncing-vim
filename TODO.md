@@ -1,5 +1,6 @@
 To do
 
+* convert string to symbol and viceversa
 * fix minibufexplorer colors for solarized light
 * escape from buffergator
 * consider auto-correction
