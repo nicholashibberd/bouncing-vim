@@ -1,5 +1,6 @@
 To do
 
+* add command for rotating vertical <-> horizontal splits
 * convert string to symbol and viceversa
 * fix minibufexplorer colors for solarized light
 * escape from buffergator
