@@ -83,15 +83,15 @@ colorscheme agnostic
 " ...NOT CHANGED and NOT VISIBLE
 autocmd ColorScheme * highlight MBENormal ctermfg=14
 " ...CHANGED and NOT VISIBLE
-autocmd ColorScheme * highlight MBEChanged ctermfg=199
+autocmd ColorScheme * highlight MBEChanged ctermfg=14
 " ...NOT CHANGED and VISIBLE
-autocmd ColorScheme * highlight MBEVisibleNormal ctermfg=15
+autocmd ColorScheme * highlight MBEVisibleNormal ctermfg=14
 " ...CHANGED and VISIBLE
-autocmd ColorScheme * highlight MBEVisibleChanged ctermfg=178
+autocmd ColorScheme * highlight MBEVisibleChanged ctermfg=14
 " ...NOT CHANGED, VISIBLE and ACTIVE
-autocmd ColorScheme * highlight MBEVisibleActiveNormal ctermfg=40
+autocmd ColorScheme * highlight MBEVisibleActiveNormal ctermfg=0
 " ...CHANGED, VISIBLE and ACTIVE
-autocmd ColorScheme * highlight MBEVisibleActiveChanged ctermfg=199
+autocmd ColorScheme * highlight MBEVisibleActiveChanged ctermfg=0
 
 " ===============================
 " === Filetype customizations ===

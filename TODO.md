@@ -2,11 +2,10 @@ To do
 
 * add command for rotating vertical <-> horizontal splits
 * convert string to symbol and viceversa
-* fix minibufexplorer colors for solarized light
 * escape from buffergator
 * consider auto-correction
 * add open in split to git grep
-* merge `clone_to_bundle_with_home` into install_plugin_with_pathogen
+* merge `clone_to_bundle_with_home` into `install_plugin_with_pathogen`
 * add scripts for gnome-terminal profiles
 * reorganize plugins basic + by subject + get-all option
 * more statusline options: <http://got-ravings.blogspot.co.uk/2008/08/vim-pr0n-making-statuslines-that-own.html>
