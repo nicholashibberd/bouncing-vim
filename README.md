@@ -202,13 +202,35 @@ If you prefer to keep your own tmux.conf, it is recommended, to make the most
 out of the Vim+tmux combinations, to copy at least the following sections to
 the local tmux.conf (also available in the file `./rc-files/tmux.conf`):
 
+A combination of settings is required in bashrc and tmux.conf. Try different
+ones to find out which is more suitable to your workflow.
+
+To support correct solarized colors in tmux, put this in your `~/.bashrc`
+or `~/.bash_profile`:
+
+```sh
+# ~/.bashrc or ~/.bash_profile
+
+if [[ -n "$TMUX" ]]; then
+  export TERM=screen-256color
+else
+  export TERM=xterm-256color
+fi
+```
+
+However this breaks 16-color colorschemes, so you will probably want to enable
+or disable this as needed.
+
+Ideally if you use vim inside tmux you won't need this, and you should also
+remove the tmux option `default-terminal "screen-256color"`.
+
 ```sh
 # ~/.tmux.conf
 
 # === Terminal compatibility ===
 
 # Use 256 term for pretty colors
-set -g default-terminal "screen-256color"
+set -g default-terminal "screen-256color" # breaks solarized, not 16-color colorschemes
 set -g terminal-overrides 'xterm:colors=256'
 
 # Pass the keys through, especially necessary to make full use of native vim
@@ -233,19 +255,6 @@ bind -n M-h run "(tmux display-message -p '#{pane_current_command}' | grep -iq v
 bind -n M-j run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Down)  || tmux select-pane -D"
 bind -n M-k run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Up)    || tmux select-pane -U"
 bind -n M-l run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys M-Right) || tmux select-pane -R"
-```
-
-To support correct colors in tmux, put this in your `~/.bashrc`
-or `~/.bash_profile`:
-
-```sh
-# ~/.bashrc or ~/.bash_profile
-
-if [[ -n "$TMUX" ]]; then
-  export TERM=screen-256color
-else
-  export TERM=xterm-256color
-fi
 ```
 
 ### <a name="update-existing-plugins"></a>Updating existing Vim plugins
