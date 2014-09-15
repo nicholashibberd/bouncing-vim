@@ -127,7 +127,8 @@ nnoremap <Leader>ca :call CloseAllNormalBuffers()<CR>
 let g:buffergator_viewport_split_policy='B'
 let g:buffergator_split_size=10
 let g:buffergator_suppress_keymaps=1
-noremap <Leader>b :BuffergatorToggle<CR>
+" noremap <Leader>b :BuffergatorToggle<CR>
+noremap <Leader>b :CtrlPBuffer<CR>
 
 " =======================
 " === MiniBufExplorer ===

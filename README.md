@@ -450,11 +450,16 @@ the `move` command.
   - do not open by default
   - focus the buffer list with `<leader>t` (open if necessary)
   - toggle the buffer list with `<leader>m`
+  - if using the vimrc: simplified colours (only active and non-active are
+    differentiated)
 
 * Buffergator plugin customisation
   - open at the bottom to be consistent with default Ctrl-P behaviour
   - set size to 10 rows
-  - toggle with `<leader>+b`
+  - (experimental: replaced with CtrlPBuffer) toggle with `<leader>+b`
+
+* CtrlP buffer list: open with `<leader>b`. It might replace buffergator
+  in the future.
 
 ### <a name="clipboard"></a>Clipboard
 
