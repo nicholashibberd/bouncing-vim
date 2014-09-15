@@ -25,6 +25,8 @@ set nomodeline " Ignore vim directives in magic comments
 " ===================
 
 " set the TERM to 'screen-256color' in the .bashrc:
+" This will break 16-color colorschemes, but will make solarized work
+" correctly, including the statusbar.
 "
 "   if [[ -n "$TMUX" ]]; then
 "     export TERM=screen-256color

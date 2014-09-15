@@ -65,7 +65,7 @@ inoremap <F6> <Esc>:setlocal spell!<CR>
 " Disable ex-mode keybinding
 " --------------------------
 "
-" Remap Q in normal mode to no-op.
+" Remap Q in normal mode to no-op to avoid bringing up ex-mode accidentally.
 nnoremap Q <Nop>
 
 " ====================

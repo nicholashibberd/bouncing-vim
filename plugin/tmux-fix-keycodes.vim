@@ -4,13 +4,19 @@
 
 " This requires (besides some faith and luck)...
 "
-" 1 - ...to set the TERM correctly in bashrc
+" 1 - ...to set the TERM "correctly" in bashrc, which breaks 16-colors
+" colorschemes, but will allow solarized to work correctly inside tmux.
 "
 " if [[ -n "$TMUX" ]]; then
 "   export TERM=screen-256color
 " else
 "   export TERM=xterm-256color
 " fi
+"
+" ...or set the terminal only inside tmux (~/.tmux.conf); this won't be
+" enough to have solarized work fully.
+"
+" set -g default-terminal "screen-256color"
 "
 " 2 - ...to set xterm key forwarding in tmux.conf
 " set -g xterm-keys on
