@@ -26,15 +26,28 @@ if exists('+colorcolumn')
   set colorcolumn=81,101              " display vertical rulers for line length
 endif
 
-" ===============================================
-" === Change status line color in insert mode ===
-" ===============================================
+" =========================================================================
+" === Change status line color in insert mode for specific colorschemes ===
+" =========================================================================
 
 " <http://fahdshariff.blogspot.co.uk/2012/06/vim-change-statusline-colour-based-on.html>
 
-set laststatus=2
-" change highlighting based on mode
-" autocmd InsertLeave * highlight StatusLine cterm=bold ctermfg=white ctermbg=brown
-autocmd InsertLeave * highlight StatusLine cterm=bold ctermfg=white ctermbg=240
-" autocmd InsertEnter * highlight StatusLine cterm=bold ctermfg=white ctermbg=darkblue
-autocmd InsertEnter * highlight StatusLine cterm=bold ctermfg=235 ctermbg=2
+function SolarizedStatusline()
+  redir => colorscheme_name
+    silent! exe "colorscheme"
+  redir END
+
+  if l:colorscheme_name =~ 'solarized'
+    set laststatus=2 " always enable statusbar
+    " To avoid bold text, cterm=bold is removed, therefore the fg and bg need to
+    " be swapped.
+    if &background == 'dark'
+      autocmd InsertLeave * highlight cterm=bold StatusLine ctermfg=12 ctermbg=15
+    else
+      autocmd InsertLeave * highlight StatusLine ctermfg=10 ctermbg=15
+    endif
+    autocmd InsertEnter * highlight StatusLine ctermfg=4 ctermbg=15
+  endif
+endfunction
+
+call SolarizedStatusline()

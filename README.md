@@ -669,7 +669,8 @@ and `ALT-k/j/h/l`.<br>
 
 * Show cursor position in lower right.
 
-* Turn statusbar green when in insert mode.
+* For specific colorschemes: Highlight the statuslines when in insert mode.
+  (currently solarized only).
 
 ### <a name="whitespace-options"></a>Whitespace
 
