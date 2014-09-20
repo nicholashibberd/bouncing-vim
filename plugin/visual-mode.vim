@@ -14,7 +14,11 @@ vnoremap < <gv
 " <http://vim.wikia.com/wiki/Selecting_your_pasted_text>
 " (it uses `gp` in the wiki, but conflicts with standard gp, which is paste
 " going to the end of the pasted text)
-nnoremap <expr> <Leader>v '`[' . strpart(getregtype(), 0, 1) . '`]'
+" The old version is broken at least in vim 7.4.443
+" nnoremap <expr> <Leader>v '`[' . strpart(getregtype(), 0, 1) . '`]'
+" `< and `> mean: jump to the first/last line or character of the last selected
+" visual area in the current buffer.
+nnoremap <expr> <Leader>v '`<' . strpart(getregtype(), 0, 1) . '`>'
 
 " ================================
 " === Search visually selected ===
