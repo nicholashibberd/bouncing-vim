@@ -33,6 +33,7 @@ declare -a -r NICE_TO_HAVES=(
        "mustache/vim-mustache-handlebars"
           "hdima/python-syntax"
          "SirVer/ultisnips"
+          "honza/vim-snippets"
           "fatih/vim-go"
            "gerw/vim-HiLinkTrace"
          "rodjek/vim-puppet"
