@@ -1,5 +1,6 @@
 To do
 
+* update config for vim-go
 * consider add moving text inside the line
 * add command for rotating vertical <-> horizontal splits
 * convert string to symbol and viceversa
