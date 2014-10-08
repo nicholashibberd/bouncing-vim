@@ -266,8 +266,6 @@ let g:markdown_fenced_languages = [
 " === fatih/vim-go ===
 " ====================
 "
-" This plugin would normally compile binaries when Vim starts up.
-" Avoid errors for anyone who doesn't have the 'go' runtime.
-if !executable('go')
-  let g:go_disable_autoinstall = 1
-endif
+" Vim plugin for golang.
+let g:go_fmt_command = "goimports"
+let g:go_snippet_engine = "neosnippet"

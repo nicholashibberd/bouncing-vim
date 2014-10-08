@@ -1,6 +1,7 @@
 To do
 
-* update config for vim-go
+* remove as much as possible from the vimrc
+* change the installation so that it moves existing vimrc to vimrc.after
 * consider add moving text inside the line
 * add command for rotating vertical <-> horizontal splits
 * convert string to symbol and viceversa
