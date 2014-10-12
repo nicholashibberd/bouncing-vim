@@ -275,7 +275,7 @@ let g:markdown_fenced_languages = [
 "
 " Vim plugin for golang.
 let g:go_fmt_command = "goimports"
-let g:go_snippet_engine = "neosnippet"
+let g:go_snippet_engine = "ultisnips"
 
 " ===============================
 " === Filetype customizations ===

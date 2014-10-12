@@ -329,8 +329,7 @@ cd -; \
 * **golang**
   - hard tabs with 4 spaces
   - uses the fatih/vim-go plugin
-  - prevents error for automatic compilation of the plugin's binaries
-    when golang is not installed
+  - uses Ultisnips as snippet engine
 
 * **markdown**
   - highlight code blocks in the respective language
