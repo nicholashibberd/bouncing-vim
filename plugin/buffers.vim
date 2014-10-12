@@ -121,13 +121,10 @@ endfun
 
 nnoremap <Leader>ca :call CloseAllNormalBuffers()<CR>
 
-" ===================
-" === Buffergator ===
-" ===================
-let g:buffergator_viewport_split_policy='B'
-let g:buffergator_split_size=10
-let g:buffergator_suppress_keymaps=1
-" noremap <Leader>b :BuffergatorToggle<CR>
+" ================================
+" === Use CtrlP as buffer list ===
+" ================================
+
 noremap <Leader>b :CtrlPBuffer<CR>
 
 " =======================

@@ -610,6 +610,14 @@ autocmd! FileType qf call SetOpenQuickfixItemsInSplits()
 " Map :Q to 'no op', effectively disabling it
 " noremap Q <Nop>
 
+" ===================
+" === Buffergator ===
+" ===================
+let g:buffergator_viewport_split_policy='B'
+let g:buffergator_split_size=10
+let g:buffergator_suppress_keymaps=1
+noremap <Leader>b :BuffergatorToggle<CR>
+
 " =============
 " === CtrlP ===
 " =============

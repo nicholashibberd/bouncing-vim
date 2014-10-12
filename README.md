@@ -80,8 +80,6 @@ Functionality
 
 * [Ack-vim] (https://github.com/mileszs/ack.vim) - Run [ack] (http://beyondgrep.com/)
   from Vim, and shows the results in a split window.
-* [Buffergator] (https://github.com/jeetsukumaran/vim-buffergator) - Vim plugin
-  to list, select and switch between buffers.
 * [commentary.vim] (https://github.com/tpope/vim-commentary) - Comment stuff out.
 * [Ctrl-P] (https://github.com/kien/ctrlp.vim) - Full path fuzzy file, buffer,
   mru, tag, ... finder for Vim, written in pure Vimscript.
@@ -102,18 +100,15 @@ Functionality
 * [Surround] (https://github.com/tpope/vim-surround) - Edit parentheses,
   brackets, quotes, XML tags, and more in pairs.
 * [repeat.vim] (https://github.com/tpope/vim-repeat) - enable repeating supported plugin maps with "."
+* [Ultisnips] (https://github.com/SirVer/ultisnips) - An implementation
+  of TextMates Snippets for the Vim Text Editor. Requires Vim compiled with
+  Python support.
+* [vim-snippets](https://github.com/honza/vim-snippets) - vim-snipmate default snippets
 
 Language support
 
-* [Coffeescript] (https://github.com/kchmck/vim-coffee-script) - Adds
-  CoffeeScript support to Vim. It covers syntax, indenting, compiling, and more.
 * [Tim Pope's Markdown] (https://github.com/tpope/vim-markdown), particularly
   for its ability to highlight code blocks in the respective language.
-* [rails.vim] (https://github.com/tpope/vim-rails) - Ruby on Rails power tools.
-* [Ruby] (https://github.com/vim-ruby/vim-ruby) - Vim configuration files
-  for editing and compiling Ruby within Vim.
-* [RSpec.vim](https://github.com/mikbe/rspec.vim) - RSpec syntax highlighting
-  for non-Rails projects.
 
 Colorschemes
 
@@ -126,13 +121,15 @@ Colorschemes
 
 These are only installed when running the full install: `./vim-scripts/install-plugins`
 
+* [Coffeescript] (https://github.com/kchmck/vim-coffee-script) - Adds
+  CoffeeScript support to Vim. It covers syntax, indenting, compiling, and more.
+* [rails.vim] (https://github.com/tpope/vim-rails) - Ruby on Rails power tools.
+* [Ruby] (https://github.com/vim-ruby/vim-ruby) - Vim configuration files
+  for editing and compiling Ruby within Vim.
+* [RSpec.vim](https://github.com/mikbe/rspec.vim) - RSpec syntax highlighting
+  for non-Rails projects.
 * [Python Syntax] (https://github.com/hdima/python-syntax) - Python syntax
   highlighting script for Vim.
-* [Ultisnips] (https://github.com/SirVer/ultisnips) - An implementation
-  of TextMates Snippets for the Vim Text Editor. Requires Vim compiled with
-  Python support.
-* [HiLinkTrace] (https://github.com/gerw/vim-HiLinkTrace) - Get the color of the
-  text object under the cursor.
 * [vim-ruby-xmpfilter] (https://github.com/t9md/vim-ruby-xmpfilter) - Helper
   for ruby's xmpfilter or seeing_is_believing. Evaluates Ruby code inline and
   print the result as a comment at the end of the line.
@@ -282,8 +279,7 @@ cd -; \
 * **CtrlP**
   - show hidden files
   - ignore some common dirs and file types
-  - use `ag` (the silver searcher) as search engine, to avoid caching on
-    first use
+  - open the buffer list with `<leader>+b`, use the normal `<Esc>` to close
 
 * **Ack**
   - launch `:Ack!` with `<leader>a`
@@ -320,11 +316,6 @@ cd -; \
   - do not open by default
   - focus the buffer list with `<leader>t`
   - toggle the buffer list with `<leader>m`
-
-* **Buffergator**
-  - open at the bottom to be consistent with default Ctrl-P behaviour
-  - set size to 10 rows
-  - toggle with `<leader>+b`
 
 ### <a name="language-specific-settings"></a>Language specific settings
 
