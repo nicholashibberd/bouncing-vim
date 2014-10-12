@@ -1,5 +1,12 @@
 " Credits: originally based on https://github.com/DawidJanczak/.vim/blob/master/.vimrc
 
+" ==============
+" === Basics ===
+" ==============
+
+set nocompatible " with VI
+set nomodeline " Ignore vim directives in magic comments
+
 " ==================
 " === Leader key ===
 " ==================
@@ -269,3 +276,37 @@ let g:markdown_fenced_languages = [
 " Vim plugin for golang.
 let g:go_fmt_command = "goimports"
 let g:go_snippet_engine = "neosnippet"
+
+" ===============================
+" === Filetype customizations ===
+" ===============================
+
+" http://beerpla.net/2008/04/02/how-to-add-a-vim-file-extension-to-syntax-highlighting/
+syntax enable
+filetype on
+au BufNewFile,BufRead *.txt set filetype=markdown
+au BufNewFile,BufRead *.md set filetype=markdown
+au BufNewFile,BufRead *.erb set filetype=eruby.html
+" Set filetype for specific names: <http://dailyvim.tumblr.com/post/1262764095/additional-ruby-syntax-highlighting>
+autocmd BufRead,BufNewFile {Capfile,Gemfile,Rakefile,config.ru,.caprc,.irbrc,irb_tempfile*,.pryrc,Vagrantfile} set filetype=ruby
+autocmd BufRead,BufNewFile {*bash_aliases} set filetype=sh
+" It shouldn't be needed with the mustache.vim plugin
+" au BufNewFile,BufRead *.mustache set filetype=html
+
+" ==================================
+" === Colors for MiniBufExplorer ===
+" ==================================
+
+" Custom colors for buffers...
+" ...NOT CHANGED and NOT VISIBLE
+autocmd ColorScheme * highlight MBENormal ctermfg=14
+" ...CHANGED and NOT VISIBLE
+autocmd ColorScheme * highlight MBEChanged ctermfg=14
+" ...NOT CHANGED and VISIBLE
+autocmd ColorScheme * highlight MBEVisibleNormal ctermfg=14
+" ...CHANGED and VISIBLE
+autocmd ColorScheme * highlight MBEVisibleChanged ctermfg=14
+" ...NOT CHANGED, VISIBLE and ACTIVE
+autocmd ColorScheme * highlight MBEVisibleActiveNormal ctermfg=0
+" ...CHANGED, VISIBLE and ACTIVE
+autocmd ColorScheme * highlight MBEVisibleActiveChanged ctermfg=0
