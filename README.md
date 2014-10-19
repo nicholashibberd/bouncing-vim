@@ -673,7 +673,7 @@ and `ALT-k/j/h/l`.<br>
 
 ### <a name="vimrc-options"></a>`vimrc` options
 
-* Source automatically on save.
+* Source automatically `.vimrc` and `.vimrc.after` on save.
 
 * Enable per-directory vimrc.
 

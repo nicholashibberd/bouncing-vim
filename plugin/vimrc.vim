@@ -3,6 +3,7 @@
 "
 " <https://github.com/bryankennedy/vimrc/blob/master/vimrc>
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
+autocmd! bufwritepost $HOME/.vimrc.after source $HOME/.vimrc.after
 
 " Per project vimrc
 " -----------------
