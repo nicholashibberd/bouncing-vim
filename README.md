@@ -465,10 +465,13 @@ the `move` command.
 * Yank to the end of the line with `Y`, to make it consistent with `C` and `D`.
   This was removed from sensible.vim.
 
+* Reselect the last pasted text with `<leader>v`. Remember that reselecting
+  the last visual selection can be done with the native `gv` instead.
+
 * Copy the visual selection to the system clipboard with `CTRL+c`.<br>
   For Mac users requires additional configuration:
   <https://coderwall.com/p/j9wnfw><br>
-  Note: this of course works only when working locally.
+  Note: this works locally, or it requires forwarding X11 in ssh connections.
 
 * Configuration is provided to support system clipboard in Tmux as well,
   see `./plugin/clipboard.vim`
