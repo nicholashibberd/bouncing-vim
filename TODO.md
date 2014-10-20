@@ -1,5 +1,7 @@
 To do
 
+* IN PROGRESS: fix ALT modifier not working at all on Mac terminals
+* fix the `date` command not working on Mac
 * investigate fuzzy in-buffer search
 * remove as much as possible from the vimrc
 * change the installation so that it moves existing vimrc to vimrc.after
@@ -23,7 +25,6 @@ To do
 * for plugins that end in ".vim" also check the presence of the folder without ".vim"
 * toggling lines C-n conflicts with multi-edit plugin
 * fix or remove leader not working in insert mode
-* IN PROGRESS: fix ALT modifier not working at all on Mac terminals
 * toggle between `{}` and `do`-`end`
 * source bashrc after updating it <http://stackoverflow.com/questions/16011245/source-files-in-a-bash-script/16011496#16011496>
 * add shortcut to remove extra blank lines in the middle of the buffer
