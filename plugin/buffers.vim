@@ -126,6 +126,8 @@ nnoremap <Leader>ca :call CloseAllNormalBuffers()<CR>
 " ================================
 
 noremap <Leader>b :CtrlPBuffer<CR>
+" prevent from being overridden by buffergator
+let g:buffergator_suppress_keymaps = 1
 
 " =======================
 " === MiniBufExplorer ===
