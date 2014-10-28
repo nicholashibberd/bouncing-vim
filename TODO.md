@@ -1,5 +1,6 @@
 To do
 
+* add message to the install script about the vimrc.after
 * IN PROGRESS: fix ALT modifier not working at all on Mac terminals
 * fix the `date` command not working on Mac
 * investigate fuzzy in-buffer search
