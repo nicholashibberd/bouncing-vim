@@ -42,7 +42,7 @@ function SolarizedStatusline()
     " To avoid bold text, cterm=bold is removed, therefore the fg and bg need to
     " be swapped.
     if &background == 'dark'
-      autocmd InsertLeave * highlight cterm=bold StatusLine ctermfg=12 ctermbg=15
+      autocmd InsertLeave * highlight StatusLine cterm=bold ctermfg=12 ctermbg=15
     else
       autocmd InsertLeave * highlight StatusLine ctermfg=10 ctermbg=15
     endif
