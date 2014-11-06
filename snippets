@@ -746,10 +746,13 @@ endfunction
 " Clear filetype flags before changing runtimepath to force Vim to reload them.
 filetype off
 filetype plugin indent off
-set runtimepath+=$GOROOT/misc/vim
+if empty($GOROOT)
+  set runtimepath+=/usr/local/go/misc/vim
+else
+  set runtimepath+=$GOROOT/misc/vim
+endif
 filetype plugin indent on
 syntax on
-
 if executable('go')
   autocmd FileType go autocmd BufWritePre <buffer> Fmt
   " Activate the compiler plugin with ":compiler go". To always enable the
